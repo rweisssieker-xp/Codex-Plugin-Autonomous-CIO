@@ -17,7 +17,7 @@ The plugin is designed for decision support. It separates facts, assumptions, hy
 Validated with:
 
 ```text
-python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py C:\tmp\Codex Plugin Autonomous CIO\the-autonomous-cio
+python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py C:\tmp\Codex Plugin Autonomous CIO
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py C:\Users\weiss\plugins\the-autonomous-cio
 ```
 
