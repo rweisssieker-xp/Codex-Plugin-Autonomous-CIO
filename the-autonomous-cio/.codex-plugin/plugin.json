@@ -1,0 +1,48 @@
+{
+  "name": "the-autonomous-cio",
+  "version": "0.1.0+codex.20260604164042",
+  "description": "AI-native executive command intelligence for CIO, CISO, COO, CFO, risk, compliance and enterprise architecture work.",
+  "author": {
+    "name": "The Autonomous CIO"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cio",
+    "ciso",
+    "enterprise-intelligence",
+    "risk",
+    "enterprise-architecture",
+    "ai-governance",
+    "strategy",
+    "crisis-management",
+    "decision-intelligence",
+    "truth-layer",
+    "attention-management",
+    "governance",
+    "transformation",
+    "orchestration",
+    "board-prep"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "The Autonomous CIO",
+    "shortDescription": "Executive command intelligence for enterprise leaders.",
+    "longDescription": "The Autonomous CIO turns fragmented enterprise context into board-ready briefings, cross-domain risk signals, decision memos, pre-mortems, truth-layer analysis, attention triage, risk-chain reasoning, AI governance reviews, crisis command views, transformation playbooks and action plans. It is a connector-neutral skill-first plugin for CIO, CISO, COO, CFO, risk, compliance and enterprise architecture work.",
+    "developerName": "The Autonomous CIO",
+    "category": "Productivity",
+    "capabilities": [
+      "Analysis",
+      "Planning",
+      "Reporting",
+      "Decision Support",
+      "Governance",
+      "Risk Management"
+    ],
+    "defaultPrompt": [
+      "Create a board-ready CIO briefing from this context.",
+      "Triage risks, decisions and executive actions.",
+      "Build a command-center situation report."
+    ],
+    "brandColor": "#0F766E"
+  }
+}
