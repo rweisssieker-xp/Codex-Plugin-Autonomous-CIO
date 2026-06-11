@@ -1,0 +1,64 @@
+{
+  "title": "ERP Board Go-Live Decision With Codex LLM Extraction",
+  "audience": "Board and executive committee",
+  "decision_request": "Decide whether to approve ERP go-live, defer go-live, or approve only with conditions.",
+  "context": [
+    "ERP steering committee says go-live is still targeted for 30 September.",
+    "Testing has not started because the test environment is late.",
+    "Vendor missed two integration milestones.",
+    "The same two architects support ERP, IAM remediation and CRM rollout.",
+    "Sponsor wants to avoid another board escalation.",
+    "R-17: ERP test readiness, Red, owner PMO, mitigation not approved.",
+    "R-22: Privileged access remediation dependency, Amber, owner CISO office.",
+    "R-31: Change-control audit evidence incomplete, Amber, owner IT controls.",
+    "ERP contingency reserve is 82% consumed.",
+    "Cloud migration spend is 18% above forecast.",
+    "No additional architecture capacity is funded."
+  ],
+  "llm_extraction": {
+    "facts": [
+      "Testing has not started because the test environment is late.",
+      "Vendor missed two integration milestones.",
+      "ERP contingency reserve is 82% consumed.",
+      "Cloud migration spend is 18% above forecast."
+    ],
+    "inferences": [
+      "Testing compression increases go-live and audit risk.",
+      "Shared architecture capacity can create cross-program delivery contention."
+    ],
+    "assumptions": [
+      "The 30 September go-live target remains management's preferred date.",
+      "Sponsor reluctance may reduce willingness to escalate risk."
+    ],
+    "hypotheses": [
+      "Optimistic date language may conflict with operational readiness evidence."
+    ],
+    "narratives": [
+      "Go-live remains targeted despite readiness gaps."
+    ],
+    "contradictions": [
+      "Target date confidence conflicts with late testing and incomplete audit evidence."
+    ],
+    "entities": [
+      "ERP Modernization",
+      "IAM Remediation",
+      "CRM Rollout",
+      "PMO",
+      "CISO Office",
+      "IT Controls"
+    ],
+    "dependencies": [
+      "Test environment readiness",
+      "Vendor recovery",
+      "Architecture capacity",
+      "Privileged access remediation",
+      "Change-control evidence"
+    ],
+    "missing_evidence": [
+      "Approved test plan and defect thresholds.",
+      "Vendor recovery plan.",
+      "CISO and Audit sign-off.",
+      "Architecture capacity plan."
+    ]
+  }
+}

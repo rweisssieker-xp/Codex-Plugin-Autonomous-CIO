@@ -1,0 +1,3 @@
+finding_id,severity,asset,owner,summary
+SEC-17,Critical,Identity Platform,CISO Office,"Privileged access review evidence is incomplete for ERP go-live."
+SEC-31,High,Billing API,Operations,"Customer-impacting integration has unresolved security triage."

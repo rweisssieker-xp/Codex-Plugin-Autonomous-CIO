@@ -1,0 +1,14 @@
+{
+  "title": "Transformation Value Leakage Review",
+  "audience": "Monthly CIO operating review",
+  "domains": ["transformation", "finance", "operations", "vendor", "portfolio"],
+  "decision_request": "Decide whether to continue current transformation spend, pause workstreams or impose benefit gates.",
+  "context": [
+    "Cloud migration is 18% above forecast.",
+    "ERP reserve is nearly consumed.",
+    "Three automation workstreams report activity but no adoption metrics.",
+    "Vendor workshops increased, but cycle time and incident volume have not improved.",
+    "No owner is accountable for benefit realization."
+  ]
+}
+

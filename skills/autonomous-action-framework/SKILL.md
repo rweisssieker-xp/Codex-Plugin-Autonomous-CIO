@@ -19,7 +19,23 @@ Accept findings, executive briefings, risk analyses, project assessments, proces
 2. Classify actions as immediate, short-term, medium-term or governance follow-up.
 3. Prepare drafts for tasks, escalation notes, approval requests, stakeholder updates and decision logs.
 4. Identify required evidence, prerequisites, risks and follow-up checks.
-5. Produce an audit-friendly action register.
+5. Assign autonomy level: advise, draft, governed execution-ready or human-only.
+6. Add approval gates and audit trail notes for security, privacy, finance, audit, legal, HR, customer impact or external communication.
+7. Produce an audit-friendly action register.
+
+## Action Contract
+
+Each action should include:
+
+- action
+- owner or suggested owner
+- due date or cadence
+- evidence required
+- autonomy level
+- approval gate
+- reversibility
+- audit trail note
+- cannot-automate reasons when relevant
 
 ## Output Format
 
@@ -30,6 +46,9 @@ Accept findings, executive briefings, risk analyses, project assessments, proces
 - Stakeholder Notification Drafts
 - Decision Log
 - Follow-up Checks
+- Autonomy Level
+- Approval Gate
+- Audit Trail Note
 - Owners / Suggested Accountability
 - Evidence & Assumptions
 - Missing Data

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence Expiry Monitor",
+  "type": "object",
+  "required": ["expiry_monitor_required", "watched_items", "refresh_cadence", "staleness_rule"],
+  "properties": {
+    "expiry_monitor_required": {"type": "boolean"},
+    "watched_items": {"type": "array", "items": {"type": "object"}},
+    "refresh_cadence": {"type": "string"},
+    "staleness_rule": {"type": "string"}
+  }
+}

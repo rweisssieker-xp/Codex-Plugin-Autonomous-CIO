@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Autonomous CIO - Visual Command Center</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --ink: #172026;
+      --muted: #5b6570;
+      --line: #d8dee4;
+      --teal: #0f766e;
+      --amber: #b7791f;
+      --red: #b91c1c;
+      --green: #15803d;
+      --blue: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      padding: 18px 24px 12px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      align-items: center;
+    }
+    button, .file-label {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 6px;
+      min-height: 34px;
+      padding: 0 10px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    button:hover, .file-label:hover { border-color: var(--teal); }
+    input[type="file"] { display: none; }
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    main {
+      padding: 18px 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      min-width: 0;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .span-8 { grid-column: span 8; }
+    .span-6 { grid-column: span 6; }
+    .span-4 { grid-column: span 4; }
+    .span-12 { grid-column: span 12; }
+    .scores {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 10px;
+    }
+    .score {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      min-height: 86px;
+    }
+    .score strong {
+      display: block;
+      font-size: 26px;
+      margin-top: 8px;
+    }
+    .score span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .bar {
+      height: 9px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .bar > i {
+      display: block;
+      height: 100%;
+      background: var(--teal);
+    }
+    .risk-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      align-items: stretch;
+    }
+    .risk-node {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--red);
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 13px;
+      min-height: 72px;
+      background: #fffafa;
+    }
+    .heatmap {
+      display: grid;
+      gap: 8px;
+    }
+    .heat-row {
+      display: grid;
+      grid-template-columns: 1.2fr 2fr 58px;
+      gap: 8px;
+      align-items: center;
+      font-size: 13px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 24px;
+      border-radius: 999px;
+      padding: 0 8px;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    li + li { margin-top: 6px; }
+    .recommendation {
+      font-size: 18px;
+      line-height: 1.35;
+      color: var(--teal);
+      font-weight: 700;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      min-height: 70px;
+      font-size: 13px;
+    }
+    .metric b {
+      display: block;
+      margin-top: 6px;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-weight: 700;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; padding: 12px; }
+      .span-8, .span-6, .span-4, .span-12 { grid-column: span 1; }
+      .scores, .risk-flow { grid-template-columns: 1fr; }
+      .heat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">The Autonomous CIO</h1>
+    <div class="subtitle" id="subtitle">Visual Command Center</div>
+    <div class="toolbar">
+      <label class="file-label" for="fileInput">Load Engine JSON</label>
+      <input id="fileInput" type="file" accept="application/json,.json">
+      <button id="exportButton" type="button">Export Current JSON</button>
+      <button id="resetButton" type="button">Reset Demo</button>
+      <span class="subtitle" id="loadStatus"></span>
+    </div>
+  </header>
+  <main>
+    <section class="span-12">
+      <h2>Decision Intelligence Scores</h2>
+      <div class="scores" id="scores"></div>
+    </section>
+    <section class="span-8">
+      <h2>Risk Chain Map</h2>
+      <div class="risk-flow" id="riskChain"></div>
+    </section>
+    <section class="span-4">
+      <h2>Recommended Action</h2>
+      <div class="recommendation" id="recommendation"></div>
+    </section>
+    <section class="span-6">
+      <h2>Evidence Confidence Heatmap</h2>
+      <div class="heatmap" id="heatmap"></div>
+    </section>
+    <section class="span-6">
+      <h2>Decision Debt Radar</h2>
+      <ul id="decisionDebt"></ul>
+    </section>
+    <section class="span-12">
+      <h2>Board Pressure Simulation</h2>
+      <ul id="boardQuestions"></ul>
+    </section>
+    <section class="span-4">
+      <h2>Graph Metrics</h2>
+      <div class="metric-grid" id="graphMetrics"></div>
+    </section>
+    <section class="span-8">
+      <h2>Scenario Simulation</h2>
+      <table>
+        <thead><tr><th>Scenario</th><th>Risk</th><th>Value</th><th>Readiness</th></tr></thead>
+        <tbody id="scenarioSimulation"></tbody>
+      </table>
+    </section>
+    <section class="span-12">
+      <h2>Audit Trail</h2>
+      <ul id="auditTrail"></ul>
+    </section>
+    <section class="span-6">
+      <h2>Operating Rhythm</h2>
+      <ul id="operatingRhythm"></ul>
+    </section>
+    <section class="span-6">
+      <h2>Decision Quality Benchmark</h2>
+      <div class="metric-grid" id="benchmark"></div>
+    </section>
+    <section class="span-12">
+      <h2>Trend Delta</h2>
+      <div class="metric-grid" id="trendDelta"></div>
+    </section>
+    <section class="span-4">
+      <h2>Quality Grade</h2>
+      <div class="metric-grid" id="qualityGrade"></div>
+    </section>
+    <section class="span-4">
+      <h2>Value at Risk</h2>
+      <div class="metric-grid" id="valueAtRisk"></div>
+    </section>
+    <section class="span-4">
+      <h2>Board Coverage</h2>
+      <div class="metric-grid" id="boardCoverage"></div>
+    </section>
+    <section class="span-6">
+      <h2>Decision Anti-Patterns</h2>
+      <ul id="antiPatterns"></ul>
+    </section>
+    <section class="span-6">
+      <h2>Executive Attention Budget</h2>
+      <ul id="attentionBudget"></ul>
+    </section>
+    <section class="span-6">
+      <h2>Decision Packet Preview</h2>
+      <ul id="decisionPacketPreview"></ul>
+    </section>
+    <section class="span-6">
+      <h2>Memory Update Proposal</h2>
+      <ul id="memoryProposal"></ul>
+    </section>
+    <section class="span-6">
+      <h2>Connector Profile View</h2>
+      <ul id="connectorProfiles"></ul>
+    </section>
+    <section class="span-6">
+      <h2>Export Readiness</h2>
+      <ul id="exportReadiness"></ul>
+    </section>
+  </main>
+  <script>
+    let currentData = null;
+    async function loadData() {
+      try {
+        const response = await fetch('demo-data.json');
+        if (!response.ok) throw new Error('fetch failed');
+        return await response.json();
+      } catch (error) {
+        return {
+          title: 'ERP Board Go-Live Decision',
+          request_type: 'Board Prep',
+          scores: {
+            decision_readiness: 43,
+            board_risk: 78,
+            evidence_confidence: 55,
+            value_leakage: 51,
+            autonomy_readiness: 39
+          },
+          heatmap: [
+            { label: 'Testing Evidence', confidence: 'Low', value: 32 },
+            { label: 'Audit Evidence', confidence: 'Low', value: 38 },
+            { label: 'Budget Evidence', confidence: 'Medium', value: 57 }
+          ],
+          risk_chain: ['Late test environment', 'Compressed testing', 'Incomplete audit evidence', 'Board pressure'],
+          decision_debt: ['ERP mitigation not approved', 'Privileged access dependency unresolved'],
+          board_questions: ['CEO: What evidence says the date is credible?', 'CFO: What is the cost of delay?'],
+          recommended_action: 'Approve only with explicit evidence gates within seven days.',
+          graph_metrics: { node_count: 13, edge_count: 2, critical_dependency: 'delivery readiness and vendor recovery', systemic_risk_level: 'High' },
+          scenario_simulation: [
+            { scenario: 'Approve now', risk_delta: '+High', value_delta: '+Short-term momentum', decision_readiness_after: 45 },
+            { scenario: 'Defer', risk_delta: '-Medium', value_delta: '+control confidence', decision_readiness_after: 67 }
+          ],
+          audit_trail: { source_scope: 'provided JSON context only', recommendation_drivers: ['decision readiness score', 'board risk score'] },
+          operating_rhythm: { cadence: 'board-prep countdown', daily_signal_scan: 'evidence closure', weekly_decision_debt_review: 'owner accountability' },
+          decision_quality_benchmark: { raw_input_quality: 70, missing_evidence_rate: 0.18, assumption_rate: 0.18, board_question_coverage: 5 },
+          trend_delta: { available: true, score_delta: { decision_readiness: -15, board_risk: 19 }, new_risks: ['Late testing'], resolved_risks: ['Old vendor concern'] }
+        };
+      }
+    }
+    function color(value, inverse) {
+      if (inverse) {
+        if (value >= 70) return 'var(--red)';
+        if (value >= 45) return 'var(--amber)';
+        return 'var(--green)';
+      }
+      if (value >= 70) return 'var(--green)';
+      if (value >= 45) return 'var(--amber)';
+      return 'var(--red)';
+    }
+    function labelize(key) {
+      return key.replaceAll('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+    function render(data) {
+      currentData = data;
+      document.getElementById('title').textContent = data.title;
+      document.getElementById('subtitle').textContent = data.request_type + ' · Static local demo';
+      ['scores','riskChain','heatmap','decisionDebt','boardQuestions','graphMetrics','scenarioSimulation','auditTrail','operatingRhythm','benchmark','trendDelta','qualityGrade','valueAtRisk','boardCoverage','antiPatterns','attentionBudget','decisionPacketPreview','memoryProposal','connectorProfiles','exportReadiness'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = '';
+      });
+      const scoreHost = document.getElementById('scores');
+      Object.entries(data.scores).forEach(([key, value]) => {
+        const inverse = key === 'board_risk' || key === 'value_leakage';
+        const card = document.createElement('div');
+        card.className = 'score';
+        card.innerHTML = '<span>' + labelize(key) + '</span><strong style="color:' + color(value, inverse) + '">' + value + '</strong><div class="bar"><i style="width:' + value + '%;background:' + color(value, inverse) + '"></i></div>';
+        scoreHost.appendChild(card);
+      });
+      const riskHost = document.getElementById('riskChain');
+      data.risk_chain.forEach(item => {
+        const node = document.createElement('div');
+        node.className = 'risk-node';
+        node.textContent = item;
+        riskHost.appendChild(node);
+      });
+      document.getElementById('recommendation').textContent = data.recommended_action;
+      const heatHost = document.getElementById('heatmap');
+      data.heatmap.forEach(row => {
+        const item = document.createElement('div');
+        item.className = 'heat-row';
+        item.innerHTML = '<span>' + row.label + '</span><div class="bar"><i style="width:' + row.value + '%;background:' + color(row.value, false) + '"></i></div><span class="pill">' + row.confidence + '</span>';
+        heatHost.appendChild(item);
+      });
+      const debtHost = document.getElementById('decisionDebt');
+      data.decision_debt.forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        debtHost.appendChild(li);
+      });
+      const qHost = document.getElementById('boardQuestions');
+      data.board_questions.forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        qHost.appendChild(li);
+      });
+      const metricsHost = document.getElementById('graphMetrics');
+      Object.entries(data.graph_metrics || {}).forEach(([key, value]) => {
+        const div = document.createElement('div');
+        div.className = 'metric';
+        div.innerHTML = '<span>' + labelize(key) + '</span><b>' + (Array.isArray(value) ? value.join(', ') : value) + '</b>';
+        metricsHost.appendChild(div);
+      });
+      const scenarioHost = document.getElementById('scenarioSimulation');
+      (data.scenario_simulation || []).forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = '<td>' + row.scenario + '</td><td>' + row.risk_delta + '</td><td>' + row.value_delta + '</td><td>' + row.decision_readiness_after + '</td>';
+        scenarioHost.appendChild(tr);
+      });
+      const auditHost = document.getElementById('auditTrail');
+      const drivers = (data.audit_trail && data.audit_trail.recommendation_drivers) || [];
+      ['Source scope: ' + ((data.audit_trail && data.audit_trail.source_scope) || 'provided context'), ...drivers].forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        auditHost.appendChild(li);
+      });
+      const rhythmHost = document.getElementById('operatingRhythm');
+      Object.entries(data.operating_rhythm || {}).forEach(([key, value]) => {
+        const li = document.createElement('li');
+        li.textContent = labelize(key) + ': ' + (Array.isArray(value) ? value.join(' | ') : value);
+        rhythmHost.appendChild(li);
+      });
+      const benchmarkHost = document.getElementById('benchmark');
+      Object.entries(data.decision_quality_benchmark || {}).forEach(([key, value]) => {
+        if (typeof value === 'object') return;
+        const div = document.createElement('div');
+        div.className = 'metric';
+        div.innerHTML = '<span>' + labelize(key) + '</span><b>' + value + '</b>';
+        benchmarkHost.appendChild(div);
+      });
+      const trendHost = document.getElementById('trendDelta');
+      Object.entries((data.trend_delta && data.trend_delta.score_delta) || {}).forEach(([key, value]) => {
+        const div = document.createElement('div');
+        div.className = 'metric';
+        div.innerHTML = '<span>' + labelize(key) + '</span><b>' + (value > 0 ? '+' : '') + value + '</b>';
+        trendHost.appendChild(div);
+      });
+      const qualityHost = document.getElementById('qualityGrade');
+      Object.entries(data.decision_packet_quality_grade || {}).forEach(([key, value]) => {
+        if (typeof value === 'object') return;
+        const div = document.createElement('div');
+        div.className = 'metric';
+        div.innerHTML = '<span>' + labelize(key) + '</span><b>' + value + '</b>';
+        qualityHost.appendChild(div);
+      });
+      const valueHost = document.getElementById('valueAtRisk');
+      Object.entries(data.value_at_risk_estimate || {}).forEach(([key, value]) => {
+        const div = document.createElement('div');
+        div.className = 'metric';
+        div.innerHTML = '<span>' + labelize(key) + '</span><b>' + (Array.isArray(value) ? value.join(', ') : value) + '</b>';
+        valueHost.appendChild(div);
+      });
+      const coverageHost = document.getElementById('boardCoverage');
+      Object.entries(data.board_question_coverage || {}).forEach(([key, value]) => {
+        if (typeof value === 'object') return;
+        const div = document.createElement('div');
+        div.className = 'metric';
+        div.innerHTML = '<span>' + labelize(key) + '</span><b>' + value + '</b>';
+        coverageHost.appendChild(div);
+      });
+      const antiHost = document.getElementById('antiPatterns');
+      (data.decision_anti_patterns || []).forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.pattern + ': ' + item.risk;
+        antiHost.appendChild(li);
+      });
+      const attentionHost = document.getElementById('attentionBudget');
+      ((data.executive_attention_budget && data.executive_attention_budget.top_5) || []).forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        attentionHost.appendChild(li);
+      });
+      const packetHost = document.getElementById('decisionPacketPreview');
+      [
+        'Decision: ' + (data.decision_needed || data.title || 'not provided'),
+        'Facts: ' + ((data.facts && data.facts.length) || 0),
+        'Assumptions: ' + ((data.assumptions && data.assumptions.length) || 0),
+        'Missing evidence: ' + ((data.missing_evidence && data.missing_evidence.length) || 0),
+        'Skill chain: ' + (((data.orchestration && data.orchestration.selected_skill_chain) || data.selected_skill_chain || []).join(' -> ') || 'not provided')
+      ].forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        packetHost.appendChild(li);
+      });
+      const memoryHost = document.getElementById('memoryProposal');
+      const memory = data.memory_update_proposal || {};
+      [
+        'Decision records proposed: ' + ((memory.decision_memory && memory.decision_memory.length) || 0),
+        'Assumptions proposed: ' + ((memory.assumption_register && memory.assumption_register.length) || 0),
+        'Risk-chain entries proposed: ' + ((memory.risk_chain_map && memory.risk_chain_map.length) || 0),
+        'Action entries proposed: ' + ((memory.action_ledger && memory.action_ledger.length) || 0)
+      ].forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        memoryHost.appendChild(li);
+      });
+      const connectorHost = document.getElementById('connectorProfiles');
+      const profiles = data.profiles || data.connector_profiles || [];
+      if (profiles.length) {
+        profiles.slice(0, 8).forEach(profile => {
+          const li = document.createElement('li');
+          li.textContent = profile.profile + ': ' + profile.decision_use;
+          connectorHost.appendChild(li);
+        });
+      } else {
+        ['Upload connector-profiles JSON to review signal contracts.', 'Current view uses local provided context only.'].forEach(text => {
+          const li = document.createElement('li');
+          li.textContent = text;
+          connectorHost.appendChild(li);
+        });
+      }
+      const exportHost = document.getElementById('exportReadiness');
+      const files = data.files || [];
+      const exportItems = files.length ? files : [
+        'executive_decision_packet.json',
+        'board_pack.md',
+        'audit_evidence_pack.md',
+        'steering_committee_deck_outline.md',
+        'action_ledger.csv',
+        'decision_log.json'
+      ];
+      exportItems.forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = String(text).split(/[\\/]/).pop();
+        exportHost.appendChild(li);
+      });
+    }
+    function normalizeUploaded(data) {
+      if (data.artifact === 'Visual Command Center Data') return data;
+      if (data.artifact === 'Connector Profile Catalog') {
+        return {
+          title: 'Connector Profile Catalog',
+          request_type: 'Signal Contract Review',
+          scores: { decision_readiness: 70, board_risk: 25, evidence_confidence: 80, value_leakage: 20, autonomy_readiness: 65 },
+          heatmap: data.profiles.map(profile => ({ label: profile.profile, confidence: 'Contract', value: 75 })),
+          risk_chain: data.profiles.map(profile => profile.profile + ' -> ' + profile.decision_use),
+          decision_debt: data.missing_evidence || [],
+          board_questions: ['Which profiles have approved data access?', 'Which exported fields are evidence-grade?'],
+          recommended_action: data.recommended_action && data.recommended_action.recommendation || '',
+          graph_metrics: { profiles: data.profiles.length, mode: 'connector-neutral', live_access: 'none' },
+          scenario_simulation: [],
+          audit_trail: { source_scope: 'profile catalog only', recommendation_drivers: ['signal contracts', 'safe mode'] },
+          operating_rhythm: {},
+          decision_quality_benchmark: {},
+          trend_delta: {},
+          profiles: data.profiles,
+          facts: data.facts || [],
+          assumptions: data.assumptions || [],
+          missing_evidence: data.missing_evidence || []
+        };
+      }
+      if (data.scorecard) {
+        return {
+          title: data.decision_needed || data.title || 'Uploaded Decision Packet',
+          request_type: data.request_type || data.artifact || 'Uploaded JSON',
+          scores: Object.fromEntries(Object.entries(data.scorecard).map(([key, value]) => [key, value.value || value])),
+          heatmap: ((data.evidence_graph && data.evidence_graph.nodes) || []).slice(0, 8).map(node => ({ label: node.label, confidence: node.confidence || 'Medium', value: node.confidence === 'High' ? 82 : node.confidence === 'Low' ? 30 : 55 })),
+          risk_chain: (data.risk_chain || []).map(item => item.signal || String(item)),
+          decision_debt: data.decision_debt || [],
+          board_questions: data.board_challenge_questions || [],
+          recommended_action: (data.recommended_action && data.recommended_action.recommendation) || '',
+          graph_metrics: data.graph_metrics || {},
+          scenario_simulation: data.scenario_simulation || [],
+          audit_trail: data.audit_trail || {},
+          operating_rhythm: data.operating_rhythm || {},
+          decision_quality_benchmark: data.decision_quality_benchmark || {},
+          trend_delta: data.trend_delta || {},
+          decision_packet_quality_grade: data.decision_packet_quality_grade || {},
+          executive_attention_budget: data.executive_attention_budget || {},
+          value_at_risk_estimate: data.value_at_risk_estimate || {},
+          decision_anti_patterns: data.decision_anti_patterns || [],
+          board_question_coverage: data.board_question_coverage || {}
+        };
+      }
+      if (data.artifact === 'Autonomous CIO Skill Orchestration') {
+        const packet = data.decision_packet || {};
+        const normalized = normalizeUploaded(packet);
+        normalized.orchestration = data.orchestration;
+        normalized.memory_update_proposal = data.memory_update_proposal;
+        normalized.llm_extraction_contract = data.llm_extraction_contract;
+        normalized.title = packet.decision_needed || 'Autonomous CIO Skill Orchestration';
+        normalized.request_type = data.orchestration && data.orchestration.detected_request_type || packet.request_type || 'Orchestration';
+        normalized.facts = data.facts || packet.facts || [];
+        normalized.assumptions = data.assumptions || packet.assumptions || [];
+        normalized.missing_evidence = data.missing_evidence || packet.missing_evidence || [];
+        return normalized;
+      }
+      return data;
+    }
+    document.getElementById('fileInput').addEventListener('change', async event => {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      try {
+        const data = JSON.parse(await file.text());
+        render(normalizeUploaded(data));
+        document.getElementById('loadStatus').textContent = 'Loaded ' + file.name;
+      } catch (error) {
+        document.getElementById('loadStatus').textContent = 'Invalid JSON';
+      }
+    });
+    document.getElementById('exportButton').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(currentData || {}, null, 2)], { type: 'application/json' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'visual-command-center-data.json';
+      link.click();
+      URL.revokeObjectURL(link.href);
+    });
+    document.getElementById('resetButton').addEventListener('click', () => {
+      loadData().then(render);
+      document.getElementById('loadStatus').textContent = 'Demo reset';
+    });
+    loadData().then(render);
+  </script>
+</body>
+</html>

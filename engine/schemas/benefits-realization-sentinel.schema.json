@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Benefits Realization Sentinel",
+  "type": "object",
+  "required": ["benefits_risk", "value_signals", "watch_items", "next_value_gate"],
+  "properties": {
+    "benefits_risk": {"type": "string"},
+    "value_signals": {"type": "array", "items": {"type": "string"}},
+    "watch_items": {"type": "array", "items": {"type": "string"}},
+    "next_value_gate": {"type": "string"}
+  }
+}

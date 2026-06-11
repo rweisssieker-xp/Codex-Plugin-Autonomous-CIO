@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human Control Contract",
+  "type": "object",
+  "required": ["execution_policy", "approval_required_for", "action_controls", "human_control_statement"],
+  "properties": {
+    "execution_policy": {"type": "string"},
+    "approval_required_for": {"type": "array", "items": {"type": "string"}},
+    "action_controls": {"type": "array", "items": {"type": "object"}},
+    "human_control_statement": {"type": "string"}
+  }
+}

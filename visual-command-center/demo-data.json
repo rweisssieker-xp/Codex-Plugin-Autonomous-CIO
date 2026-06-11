@@ -1,0 +1,594 @@
+{
+  "artifact": "Visual Command Center Data",
+  "title": "Decide whether to approve ERP go-live, defer go-live, or approve only with conditions.",
+  "request_type": "Board Prep",
+  "scores": {
+    "decision_readiness": 55,
+    "board_risk": 69,
+    "evidence_confidence": 79,
+    "value_leakage": 51,
+    "autonomy_readiness": 46
+  },
+  "heatmap": [
+    {
+      "label": "Testing has not started because the test environment is late.",
+      "confidence": "High",
+      "value": 82
+    },
+    {
+      "label": "Vendor missed two integration milestones.",
+      "confidence": "High",
+      "value": 82
+    },
+    {
+      "label": "The same two architects support ERP, IAM remediation and CRM rol",
+      "confidence": "High",
+      "value": 82
+    },
+    {
+      "label": "R-17: ERP test readiness, Red, owner PMO, mitigation not approve",
+      "confidence": "High",
+      "value": 82
+    },
+    {
+      "label": "R-22: Privileged access remediation dependency, Amber, owner CIS",
+      "confidence": "High",
+      "value": 82
+    },
+    {
+      "label": "R-31: Change-control audit evidence incomplete, Amber, owner IT ",
+      "confidence": "High",
+      "value": 82
+    },
+    {
+      "label": "ERP contingency reserve is 82% consumed.",
+      "confidence": "High",
+      "value": 82
+    },
+    {
+      "label": "Cloud migration spend is 18% above forecast.",
+      "confidence": "High",
+      "value": 82
+    }
+  ],
+  "risk_chain": [
+    "Testing has not started because the test environment is late.",
+    "Vendor missed two integration milestones.",
+    "The same two architects support ERP, IAM remediation and CRM rollout.",
+    "R-17: ERP test readiness, Red, owner PMO, mitigation not approved.",
+    "R-22: Privileged access remediation dependency, Amber, owner CISO office."
+  ],
+  "decision_debt": [
+    "R-17: ERP test readiness, Red, owner PMO, mitigation not approved.",
+    "Open decision: Decide whether to approve ERP go-live, defer go-live, or approve only with conditions."
+  ],
+  "board_questions": [
+    "CEO: What decision is needed now, and what happens if we wait?",
+    "CFO: What are the cost, forecast and value implications?",
+    "CISO: What security or control risk is being accepted?",
+    "Audit / Risk: Which evidence is missing, and who owns it?",
+    "Customer / Regulator: What external impact or obligation could be triggered?"
+  ],
+  "recommended_action": "Approve with explicit evidence gates, owners and review date.",
+  "graph_metrics": {
+    "node_count": 30,
+    "edge_count": 14,
+    "critical_dependency": "delivery readiness and vendor recovery",
+    "blast_radius_domains": [
+      "executive decision"
+    ],
+    "systemic_risk_level": "High",
+    "centrality_top": [
+      {
+        "node_id": "D1",
+        "label": "delivery readiness and vendor recovery",
+        "type": "dependency",
+        "score": 9
+      },
+      {
+        "node_id": "D2",
+        "label": "delivery readiness and vendor recovery",
+        "type": "dependency",
+        "score": 5
+      },
+      {
+        "node_id": "D3",
+        "label": "owner decision and evidence validation",
+        "type": "dependency",
+        "score": 5
+      }
+    ]
+  },
+  "scenario_simulation": [
+    {
+      "scenario": "Approve now",
+      "risk_delta": "+High",
+      "value_delta": "+Short-term momentum",
+      "cost_of_waiting": "Low",
+      "reversibility": "Low",
+      "confidence_sensitivity": "Very sensitive to missing evidence",
+      "decision_readiness_after": 45
+    },
+    {
+      "scenario": "Defer",
+      "risk_delta": "-Medium",
+      "value_delta": "-Timeline momentum, +control confidence",
+      "cost_of_waiting": "Medium to High",
+      "reversibility": "Medium",
+      "confidence_sensitivity": "Improves if evidence gaps close",
+      "decision_readiness_after": 67
+    },
+    {
+      "scenario": "Approve with conditions",
+      "risk_delta": "-Medium if gates are enforced",
+      "value_delta": "+Momentum with control gates",
+      "cost_of_waiting": "Medium",
+      "reversibility": "Medium",
+      "confidence_sensitivity": "Depends on named owners and gate date",
+      "decision_readiness_after": 63
+    }
+  ],
+  "audit_trail": {
+    "source_scope": "provided JSON context only",
+    "score_drivers": {
+      "facts_count": 9,
+      "assumptions_count": 2,
+      "missing_evidence_count": 2,
+      "risk_chain_paths": 5,
+      "domains": [
+        "portfolio",
+        "audit",
+        "security",
+        "finance",
+        "architecture"
+      ]
+    },
+    "score_explanations": {
+      "decision_readiness": [
+        "Decision Readiness is partial and needs targeted evidence before approval."
+      ],
+      "board_risk": [
+        "Higher when high-impact, audit, security, customer or financial signals combine with missing evidence."
+      ],
+      "evidence_confidence": [
+        "Evidence Confidence is relatively strong based on provided context."
+      ],
+      "value_leakage": [
+        "Higher when spend, budget, adoption or outcome gaps appear in the provided context."
+      ],
+      "autonomy_readiness": [
+        "Lower when human approval, high-risk domains or low reversibility are present."
+      ]
+    },
+    "recommendation_drivers": [
+      "decision readiness score",
+      "board risk score",
+      "missing evidence",
+      "risk chain path count"
+    ],
+    "changed_since_last_packet": "Not evaluated unless prior packet or memory context is provided.",
+    "export_note": "This audit trail is safe to copy into review materials; it contains no secrets or live connector claims."
+  },
+  "operating_rhythm": {
+    "cadence": "board-prep countdown",
+    "daily_signal_scan": "evidence closure and executive signal scan",
+    "weekly_decision_debt_review": "decision debt review and owner accountability",
+    "monthly_operating_review": "trend score changes, value leakage, overdue actions and stale assumptions",
+    "board_prep_countdown": [
+      "T-14 evidence map",
+      "T-7 decision gates",
+      "T-2 board pressure simulation",
+      "T+1 decision memory update"
+    ],
+    "crisis_war_room": [
+      "1h facts and unknowns",
+      "4h containment options",
+      "24h stakeholder update",
+      "7d lessons and controls"
+    ],
+    "ai_approval_gate": [
+      "value hypothesis",
+      "data owner",
+      "control evidence",
+      "evaluation baseline",
+      "human review"
+    ]
+  },
+  "decision_quality_benchmark": {
+    "raw_input_quality": 70,
+    "missing_evidence_rate": 0.18,
+    "assumption_rate": 0.18,
+    "board_question_coverage": 4,
+    "decision_readiness": 55,
+    "before_after": {
+      "before": "raw fragmented context with implicit claims and unclear decision gates",
+      "after": "structured decision packet with evidence classes, risk chain, scenarios, personas and action drafts"
+    },
+    "benchmark_note": "Directional local benchmark; compare across repeated packets for trend, not final performance measurement."
+  },
+  "trend_delta": {
+    "available": false,
+    "summary": "No prior packet provided.",
+    "score_delta": {},
+    "new_risks": [],
+    "resolved_risks": []
+  },
+  "risk_graph": {
+    "nodes": [
+      {
+        "id": "S1",
+        "type": "signal",
+        "label": "Testing has not started because the test environment is late.",
+        "weight": 2
+      },
+      {
+        "id": "D1",
+        "type": "dependency",
+        "label": "delivery readiness and vendor recovery",
+        "weight": 3
+      },
+      {
+        "id": "I1",
+        "type": "business_impact",
+        "label": "go-live, quality and board confidence risk",
+        "weight": 3
+      },
+      {
+        "id": "S2",
+        "type": "signal",
+        "label": "Vendor missed two integration milestones.",
+        "weight": 2
+      },
+      {
+        "id": "D2",
+        "type": "dependency",
+        "label": "delivery readiness and vendor recovery",
+        "weight": 3
+      },
+      {
+        "id": "I2",
+        "type": "business_impact",
+        "label": "go-live, quality and board confidence risk",
+        "weight": 3
+      },
+      {
+        "id": "S3",
+        "type": "signal",
+        "label": "The same two architects support ERP, IAM remediation and CRM rollout.",
+        "weight": 2
+      },
+      {
+        "id": "D3",
+        "type": "dependency",
+        "label": "owner decision and evidence validation",
+        "weight": 3
+      },
+      {
+        "id": "I3",
+        "type": "business_impact",
+        "label": "executive decision risk",
+        "weight": 3
+      },
+      {
+        "id": "S4",
+        "type": "signal",
+        "label": "R-17: ERP test readiness, Red, owner PMO, mitigation not approved.",
+        "weight": 2
+      },
+      {
+        "id": "D4",
+        "type": "dependency",
+        "label": "delivery readiness and vendor recovery",
+        "weight": 3
+      },
+      {
+        "id": "I4",
+        "type": "business_impact",
+        "label": "go-live, quality and board confidence risk",
+        "weight": 3
+      },
+      {
+        "id": "S5",
+        "type": "signal",
+        "label": "R-22: Privileged access remediation dependency, Amber, owner CISO office.",
+        "weight": 2
+      },
+      {
+        "id": "D5",
+        "type": "dependency",
+        "label": "security control owner sign-off",
+        "weight": 3
+      },
+      {
+        "id": "I5",
+        "type": "business_impact",
+        "label": "control, audit and risk acceptance exposure",
+        "weight": 3
+      },
+      {
+        "id": "M1",
+        "type": "missing_evidence",
+        "label": "Validation evidence for: R-31: Change-control audit evidence incomplete, Amber, owner IT controls.",
+        "weight": 2
+      },
+      {
+        "id": "M2",
+        "type": "missing_evidence",
+        "label": "Validation evidence for: No additional architecture capacity is funded.",
+        "weight": 2
+      }
+    ],
+    "edges": [
+      {
+        "from": "S1",
+        "to": "D1",
+        "type": "depends_on",
+        "weight": 2
+      },
+      {
+        "from": "D1",
+        "to": "I1",
+        "type": "creates_risk_for",
+        "weight": 3
+      },
+      {
+        "from": "S2",
+        "to": "D2",
+        "type": "depends_on",
+        "weight": 2
+      },
+      {
+        "from": "D2",
+        "to": "I2",
+        "type": "creates_risk_for",
+        "weight": 3
+      },
+      {
+        "from": "S3",
+        "to": "D3",
+        "type": "depends_on",
+        "weight": 2
+      },
+      {
+        "from": "D3",
+        "to": "I3",
+        "type": "creates_risk_for",
+        "weight": 3
+      },
+      {
+        "from": "S4",
+        "to": "D4",
+        "type": "depends_on",
+        "weight": 2
+      },
+      {
+        "from": "D4",
+        "to": "I4",
+        "type": "creates_risk_for",
+        "weight": 3
+      },
+      {
+        "from": "S5",
+        "to": "D5",
+        "type": "depends_on",
+        "weight": 2
+      },
+      {
+        "from": "D5",
+        "to": "I5",
+        "type": "creates_risk_for",
+        "weight": 3
+      },
+      {
+        "from": "M1",
+        "to": "D1",
+        "type": "weakens_confidence",
+        "weight": 2
+      },
+      {
+        "from": "M2",
+        "to": "D1",
+        "type": "weakens_confidence",
+        "weight": 2
+      }
+    ],
+    "centrality": [
+      {
+        "node_id": "D1",
+        "label": "delivery readiness and vendor recovery",
+        "type": "dependency",
+        "score": 9
+      },
+      {
+        "node_id": "D2",
+        "label": "delivery readiness and vendor recovery",
+        "type": "dependency",
+        "score": 5
+      },
+      {
+        "node_id": "D3",
+        "label": "owner decision and evidence validation",
+        "type": "dependency",
+        "score": 5
+      },
+      {
+        "node_id": "D4",
+        "label": "delivery readiness and vendor recovery",
+        "type": "dependency",
+        "score": 5
+      },
+      {
+        "node_id": "D5",
+        "label": "security control owner sign-off",
+        "type": "dependency",
+        "score": 5
+      },
+      {
+        "node_id": "I1",
+        "label": "go-live, quality and board confidence risk",
+        "type": "business_impact",
+        "score": 3
+      },
+      {
+        "node_id": "I2",
+        "label": "go-live, quality and board confidence risk",
+        "type": "business_impact",
+        "score": 3
+      },
+      {
+        "node_id": "I3",
+        "label": "executive decision risk",
+        "type": "business_impact",
+        "score": 3
+      }
+    ],
+    "propagation_paths": [
+      [
+        "Testing has not started because the test environment is late.",
+        "delivery readiness and vendor recovery",
+        "go-live, quality and board confidence risk"
+      ],
+      [
+        "Vendor missed two integration milestones.",
+        "delivery readiness and vendor recovery",
+        "go-live, quality and board confidence risk"
+      ],
+      [
+        "The same two architects support ERP, IAM remediation and CRM rollout.",
+        "owner decision and evidence validation",
+        "executive decision risk"
+      ],
+      [
+        "R-17: ERP test readiness, Red, owner PMO, mitigation not approved.",
+        "delivery readiness and vendor recovery",
+        "go-live, quality and board confidence risk"
+      ],
+      [
+        "R-22: Privileged access remediation dependency, Amber, owner CISO office.",
+        "security control owner sign-off",
+        "control, audit and risk acceptance exposure"
+      ],
+      [
+        "Validation evidence for: R-31: Change-control audit evidence incomplete, Amber, owner IT controls.",
+        "delivery readiness and vendor recovery",
+        "go-live, quality and board confidence risk"
+      ],
+      [
+        "Validation evidence for: No additional architecture capacity is funded.",
+        "delivery readiness and vendor recovery",
+        "go-live, quality and board confidence risk"
+      ]
+    ]
+  },
+  "decision_packet_quality_grade": {
+    "grade": "F",
+    "score": 24,
+    "board_ready": false,
+    "audit_ready": false,
+    "action_ready": false,
+    "improvement_actions": [
+      "Validation evidence for: R-31: Change-control audit evidence incomplete, Amber, owner IT controls.",
+      "Validation evidence for: No additional architecture capacity is funded."
+    ]
+  },
+  "executive_attention_budget": {
+    "top_5": [
+      "Testing has not started because the test environment is late.",
+      "R-17: ERP test readiness, Red, owner PMO, mitigation not approved.",
+      "R-31: Change-control audit evidence incomplete, Amber, owner IT controls.",
+      "Open decision: Decide whether to approve ERP go-live, defer go-live, or approve only with conditions.",
+      "Validation evidence for: R-31: Change-control audit evidence incomplete, Amber, owner IT controls."
+    ],
+    "delegate": [
+      "Validation evidence for: No additional architecture capacity is funded."
+    ],
+    "monitor": [
+      "ERP steering committee says go-live is still targeted for 30 September.",
+      "Vendor missed two integration milestones.",
+      "The same two architects support ERP, IAM remediation and CRM rollout.",
+      "Sponsor wants to avoid another board escalation.",
+      "R-22: Privileged access remediation dependency, Amber, owner CISO office.",
+      "ERP contingency reserve is 82% consumed.",
+      "Cloud migration spend is 18% above forecast.",
+      "No additional architecture capacity is funded."
+    ],
+    "attention_note": "Top items are selected by risk keywords, decision debt and missing evidence."
+  },
+  "value_at_risk_estimate": {
+    "value_at_risk_band": "Medium",
+    "exposures": [
+      "financial exposure",
+      "audit/control exposure",
+      "security residual risk"
+    ],
+    "semiquantitative_note": "Directional estimate only; attach finance, customer or audit data for numeric exposure."
+  },
+  "decision_anti_patterns": [
+    {
+      "pattern": "approval without evidence",
+      "risk": "Decision may be approved before required facts are available."
+    },
+    {
+      "pattern": "date-driven delivery",
+      "risk": "Timeline may dominate quality, control or value evidence."
+    },
+    {
+      "pattern": "unfunded dependency",
+      "risk": "Dependency is required but not resourced."
+    },
+    {
+      "pattern": "ownerless risk",
+      "risk": "Accountability is unclear or missing."
+    },
+    {
+      "pattern": "control gap normalization",
+      "risk": "Known control issues may become accepted background risk."
+    }
+  ],
+  "board_question_coverage": {
+    "score": 67,
+    "covered_personas": [
+      "Audit",
+      "CEO",
+      "CFO",
+      "CISO"
+    ],
+    "missing_personas": [
+      "Regulator",
+      "Customer"
+    ],
+    "weak_answer_risk": "High"
+  },
+  "facts": [
+    "Testing has not started because the test environment is late.",
+    "Vendor missed two integration milestones.",
+    "The same two architects support ERP, IAM remediation and CRM rollout.",
+    "R-17: ERP test readiness, Red, owner PMO, mitigation not approved.",
+    "R-22: Privileged access remediation dependency, Amber, owner CISO office.",
+    "R-31: Change-control audit evidence incomplete, Amber, owner IT controls.",
+    "ERP contingency reserve is 82% consumed.",
+    "Cloud migration spend is 18% above forecast.",
+    "No additional architecture capacity is funded."
+  ],
+  "assumptions": [
+    "ERP steering committee says go-live is still targeted for 30 September.",
+    "Sponsor wants to avoid another board escalation."
+  ],
+  "hypotheses": [
+    "Decision request may require trade-off: Decide whether to approve ERP go-live, defer go-live, or approve only with conditions."
+  ],
+  "missing_evidence": [
+    "Validation evidence for: R-31: Change-control audit evidence incomplete, Amber, owner IT controls.",
+    "Validation evidence for: No additional architecture capacity is funded."
+  ],
+  "confidence": "High",
+  "guardrails": [
+    "Uses only user-provided or demo JSON context.",
+    "Does not claim live system access.",
+    "Does not persist memory automatically.",
+    "Does not execute external actions.",
+    "High-risk domain outputs are decision support, not final specialist determinations."
+  ],
+  "source_file": "engine\\examples\\board_prep.json",
+  "import_artifact": "Imported Context"
+}

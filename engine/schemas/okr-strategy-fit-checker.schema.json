@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OKR Strategy Fit Checker",
+  "type": "object",
+  "required": ["fit", "strategy_signals", "fit_questions", "recommended_gate"],
+  "properties": {
+    "fit": {"type": "string"},
+    "strategy_signals": {"type": "array", "items": {"type": "string"}},
+    "fit_questions": {"type": "array", "items": {"type": "string"}},
+    "recommended_gate": {"type": "string"},
+    "drift_reference": {"type": "object"}
+  }
+}

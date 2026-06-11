@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Risk Graph Analysis",
+  "type": "object",
+  "required": ["risk_graph", "graph_metrics", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "risk_graph": {
+      "type": "object",
+      "required": ["nodes", "edges", "centrality", "propagation_paths"]
+    },
+    "graph_metrics": { "type": "object" }
+  },
+  "additionalProperties": true
+}
+

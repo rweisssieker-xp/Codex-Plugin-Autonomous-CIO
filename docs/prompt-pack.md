@@ -10,6 +10,23 @@ Use autonomous-cio-orchestrator. I do not know which skill to use. Build the rig
 Return selected skill chain, executive summary, decisions, risks, actions and missing data.
 ```
 
+## Autonomous CIO Operating Review
+
+```text
+Use autonomous-cio-operating-review. Run a governed CIO autopilot review for this context:
+[paste mixed project, risk, finance, audit, architecture, security, meeting and operations context]
+Return decision readiness, enterprise status, evidence graph, risk chain, attention budget, board questions, action ledger, memory update and autonomy gate.
+```
+
+## Executive Decision Packet
+
+```text
+Use executive-decision-packet. Build an Executive Decision Packet from this context:
+[paste meeting notes, risk register, budget update, project status, board question or decision request]
+Use the Decision Intelligence Loop: Signals -> Truth -> Risk Chain -> Options -> Actions -> Memory.
+Return request type, selected skill chain, why this chain, decision needed, facts vs assumptions, risk chain, options, board challenge questions, recommended action, missing evidence and draft next steps.
+```
+
 ## Executive Briefing
 
 ```text

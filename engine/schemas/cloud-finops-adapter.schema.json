@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cloud FinOps Adapter",
+  "type": "object",
+  "required": ["cloud_cost_signals", "budget_variance", "value_leakage_risk", "optimization_candidates"],
+  "properties": {
+    "cloud_cost_signals": {"type": "array", "items": {"type": "object"}},
+    "budget_variance": {"type": "array", "items": {"type": "string"}},
+    "value_leakage_risk": {"type": "array", "items": {"type": "string"}},
+    "optimization_candidates": {"type": "array", "items": {"type": "string"}}
+  }
+}

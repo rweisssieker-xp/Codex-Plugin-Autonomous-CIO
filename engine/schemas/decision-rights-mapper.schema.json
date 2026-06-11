@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Rights Mapper",
+  "type": "object",
+  "required": ["request_type", "rights_clarity", "decision_rights", "missing_rights", "next_action"],
+  "properties": {
+    "request_type": {"type": "string"},
+    "rights_clarity": {"type": "string"},
+    "decision_rights": {"type": "array", "items": {"type": "object"}},
+    "missing_rights": {"type": "array", "items": {"type": "string"}},
+    "next_action": {"type": "string"}
+  }
+}

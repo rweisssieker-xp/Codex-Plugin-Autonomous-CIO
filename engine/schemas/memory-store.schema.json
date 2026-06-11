@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local Executive Memory Store",
+  "type": "object",
+  "required": ["version", "decision_packets", "decision_memory", "assumption_register", "evidence_graph", "risk_chain_map", "action_ledger", "audit_events"],
+  "properties": {
+    "version": { "type": "string" },
+    "decision_packets": { "type": "array" },
+    "decision_memory": { "type": "array" },
+    "assumption_register": { "type": "array" },
+    "evidence_graph": { "type": "array" },
+    "risk_chain_map": { "type": "array" },
+    "action_ledger": { "type": "array" },
+    "audit_events": { "type": "array" }
+  },
+  "additionalProperties": true
+}
+

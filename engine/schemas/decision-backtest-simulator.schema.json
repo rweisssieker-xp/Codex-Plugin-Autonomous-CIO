@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Backtest Simulator",
+  "type": "object",
+  "required": ["backtest_available", "matches", "synthetic_backtest", "backtest_rule"],
+  "properties": {
+    "backtest_available": {"type": "boolean"},
+    "matches": {"type": "array", "items": {"type": "object"}},
+    "synthetic_backtest": {"type": "array", "items": {"type": "string"}},
+    "backtest_rule": {"type": "string"}
+  }
+}

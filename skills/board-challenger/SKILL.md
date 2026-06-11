@@ -18,17 +18,22 @@ Accept proposals, investment cases, transformation plans, architecture decisions
 1. Identify the proposal, desired decision, promised value and assumptions.
 2. Challenge the strongest assumptions, missing evidence, incentives, dependencies and downside risks.
 3. Generate alternative options and compare trade-offs.
-4. Identify questions the board or executive committee should ask.
-5. Recommend safeguards, decision gates and evidence required before approval.
+4. Identify questions the Board or executive committee should ask.
+5. Run a Board Narrative Stress Test: test proposed wording against known facts, missing evidence and likely CEO/CFO/CISO/Audit objections.
+6. Produce a Decision Liability Shield: what would be indefensible later if approved without evidence, owner, control or escalation.
+7. Identify executive blind spots hidden by positive status language.
+8. Recommend safeguards, decision gates and evidence required before approval.
 
 ## Output Format
 
 - Executive Summary
 - Proposal Under Review
 - Strongest Counterarguments
-- Blind Spots
+- Executive Blind Spots
 - Alternatives
 - Board Questions
+- Board Narrative Stress Test
+- Decision Liability Shield
 - Approval Safeguards
 - Recommendation
 - Evidence & Assumptions

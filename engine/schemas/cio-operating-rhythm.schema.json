@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIO Operating Rhythm",
+  "type": "object",
+  "required": ["operating_rhythm"],
+  "properties": {
+    "operating_rhythm": { "type": "object" }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Billing Integration Outage",
+  "audience": "CIO crisis command",
+  "domains": ["operations", "customer", "security", "communications"],
+  "decision_request": "Approve immediate customer communication and crisis command posture.",
+  "context": [
+    "Billing integration outage affects key customers.",
+    "Root cause unknown.",
+    "Security impact unclear.",
+    "Operations has no ETA.",
+    "Sales is escalating and asks for customer messaging within two hours."
+  ]
+}
+

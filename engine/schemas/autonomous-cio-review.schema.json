@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomous CIO Autopilot Review",
+  "type": "object",
+  "required": [
+    "artifact",
+    "decision_packet",
+    "decision_readiness",
+    "enterprise_status",
+    "evidence_graph",
+    "risk_chain",
+    "attention_budget",
+    "action_ledger",
+    "autonomy_gate",
+    "memory_update",
+    "facts",
+    "assumptions",
+    "hypotheses",
+    "missing_evidence",
+    "confidence",
+    "recommended_action",
+    "guardrails"
+  ],
+  "properties": {
+    "artifact": { "const": "Autonomous CIO Autopilot Review" },
+    "decision_packet": { "type": "object" },
+    "attention_budget": { "type": "object" },
+    "action_ledger": { "type": "array" },
+    "autonomy_gate": { "type": "object" },
+    "cio_replacement_surface": { "type": "object" }
+  },
+  "additionalProperties": true
+}

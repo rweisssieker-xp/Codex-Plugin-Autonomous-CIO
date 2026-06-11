@@ -1,0 +1,3 @@
+channel,user,ts,text,thread_ts
+exec-it,cio,2026-06-10T09:05:00Z,"ERP testing is blocked because the vendor recovery plan is still not approved.",1718000000.0001
+exec-it,ciso,2026-06-10T09:12:00Z,"Privileged access evidence is incomplete and should be a go-live decision gate.",1718000000.0001

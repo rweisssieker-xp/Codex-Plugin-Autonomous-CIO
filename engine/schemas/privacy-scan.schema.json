@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Privacy and Secret Scan",
+  "type": "object",
+  "required": ["findings", "redacted_context", "data_classification", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "findings": { "type": "array" },
+    "redacted_context": { "type": "array", "items": { "type": "string" } },
+    "data_classification": { "type": "string" }
+  },
+  "additionalProperties": true
+}
+

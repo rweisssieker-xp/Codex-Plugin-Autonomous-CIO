@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Governed Autonomy Policy",
+  "type": "object",
+  "required": ["autonomy_level", "required_approval", "reversibility", "risk_level", "cannot_automate_reasons"],
+  "properties": {
+    "autonomy_level": {
+      "enum": ["L0 Observe", "L1 Advise", "L2 Draft", "L3 Ready for Governed Execution", "L4 Human-Only"]
+    },
+    "required_approval": { "type": "string" },
+    "reversibility": { "enum": ["High", "Medium", "Low"] },
+    "risk_level": { "enum": ["Low", "Medium", "High"] },
+    "cannot_automate_reasons": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

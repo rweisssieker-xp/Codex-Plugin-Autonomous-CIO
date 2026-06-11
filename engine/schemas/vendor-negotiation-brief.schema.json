@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vendor Negotiation Brief",
+  "type": "object",
+  "required": ["negotiation_pressure", "vendor_signals", "asks", "fallback_position", "human_review"],
+  "properties": {
+    "negotiation_pressure": {"type": "string"},
+    "vendor_signals": {"type": "array", "items": {"type": "string"}},
+    "asks": {"type": "array", "items": {"type": "string"}},
+    "fallback_position": {"type": "string"},
+    "human_review": {"type": "string"}
+  }
+}

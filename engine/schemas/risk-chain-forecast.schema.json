@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Risk Chain Forecast",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["forecast_id", "current_signal", "likely_next_escalation", "trigger", "preventive_action"],
+    "properties": {
+      "forecast_id": {"type": "string"},
+      "current_signal": {"type": "string"},
+      "likely_next_escalation": {"type": "string"},
+      "trigger": {"type": "string"},
+      "preventive_action": {"type": "string"}
+    }
+  }
+}

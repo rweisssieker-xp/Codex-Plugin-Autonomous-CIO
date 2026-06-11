@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Debt Ledger",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["debt_id", "decision_debt", "owner", "risk_if_unresolved", "next_clearance_action"],
+    "properties": {
+      "debt_id": {"type": "string"},
+      "decision_debt": {"type": "string"},
+      "age": {"type": "string"},
+      "owner": {"type": "string"},
+      "risk_if_unresolved": {"type": "string"},
+      "next_clearance_action": {"type": "string"}
+    }
+  }
+}

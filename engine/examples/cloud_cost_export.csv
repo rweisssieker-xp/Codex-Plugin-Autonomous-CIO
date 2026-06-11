@@ -1,0 +1,3 @@
+provider,service,cost,forecast,owner,budget,tag
+Azure,Compute,118000,100000,Cloud Platform,105000,ERP
+AWS,Data Transfer,42000,30000,Integration Team,35000,Billing

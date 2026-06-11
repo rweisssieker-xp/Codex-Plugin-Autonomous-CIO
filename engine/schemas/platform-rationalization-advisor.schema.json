@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Platform Rationalization Advisor",
+  "type": "object",
+  "required": ["rationalization_pressure", "platform_signals", "candidate_actions", "decision_gate"],
+  "properties": {
+    "rationalization_pressure": {"type": "string"},
+    "platform_signals": {"type": "array", "items": {"type": "string"}},
+    "candidate_actions": {"type": "array", "items": {"type": "string"}},
+    "decision_gate": {"type": "string"}
+  }
+}

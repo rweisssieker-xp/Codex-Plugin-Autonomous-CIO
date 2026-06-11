@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Board Decision Simulator",
+  "type": "object",
+  "required": ["simulation", "recommended_board_motion", "weakest_point"],
+  "properties": {
+    "simulation": {"type": "array", "items": {"type": "object"}},
+    "recommended_board_motion": {"type": "string"},
+    "weakest_point": {"type": "string"}
+  }
+}

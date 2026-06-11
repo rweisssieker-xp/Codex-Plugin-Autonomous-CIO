@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Risk Acceptance Docket",
+  "type": "object",
+  "required": ["docket_required", "items", "acceptance_rule"],
+  "properties": {
+    "docket_required": {"type": "boolean"},
+    "items": {"type": "array", "items": {"type": "object"}},
+    "acceptance_rule": {"type": "string"}
+  }
+}

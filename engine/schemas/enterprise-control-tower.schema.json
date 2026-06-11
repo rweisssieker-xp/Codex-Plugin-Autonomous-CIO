@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enterprise Control Tower",
+  "type": "object",
+  "required": ["overall_status", "control_panels", "operator_instruction"],
+  "properties": {
+    "overall_status": {"type": "string"},
+    "control_panels": {"type": "array", "items": {"type": "object"}},
+    "operator_instruction": {"type": "string"}
+  }
+}

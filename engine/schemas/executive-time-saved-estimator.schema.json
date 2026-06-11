@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Time Saved Estimator",
+  "type": "object",
+  "required": ["estimated_hours_prepared", "prepared_work", "not_included"],
+  "properties": {
+    "estimated_hours_prepared": {"type": "integer", "minimum": 0},
+    "prepared_work": {"type": "array", "items": {"type": "string"}},
+    "not_included": {"type": "string"}
+  }
+}

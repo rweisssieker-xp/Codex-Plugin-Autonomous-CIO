@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Memory Comparison",
+  "type": "object",
+  "required": ["stale_assumptions", "repeated_decision_debt", "conflicting_claims", "overdue_actions", "suggested_memory_updates", "guardrails"],
+  "properties": {
+    "stale_assumptions": { "type": "array" },
+    "repeated_decision_debt": { "type": "array" },
+    "conflicting_claims": { "type": "array" },
+    "overdue_actions": { "type": "array" },
+    "suggested_memory_updates": { "type": "object" }
+  },
+  "additionalProperties": true
+}
+

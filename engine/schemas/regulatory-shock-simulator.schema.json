@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Regulatory Shock Simulator",
+  "type": "object",
+  "required": ["shock_level", "trigger_scenarios", "exposed_signals", "minimum_response_pack"],
+  "properties": {
+    "shock_level": {"type": "string"},
+    "trigger_scenarios": {"type": "array", "items": {"type": "string"}},
+    "exposed_signals": {"type": "array", "items": {"type": "string"}},
+    "minimum_response_pack": {"type": "array", "items": {"type": "string"}}
+  }
+}

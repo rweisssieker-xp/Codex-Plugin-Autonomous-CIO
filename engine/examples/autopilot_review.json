@@ -1,0 +1,28 @@
+{
+  "title": "Autonomous CIO Operating Review",
+  "audience": "CIO, CISO, CFO and Board technology committee",
+  "domains": ["portfolio", "audit", "security", "finance", "architecture", "operations"],
+  "decision_request": "Decide whether leadership can approve the ERP go-live path, what must be escalated, and which actions can be drafted under governed autonomy.",
+  "meeting_notes": [
+    "ERP remains targeted for 30 September, but testing has not started because the test environment is late.",
+    "Vendor missed two integration milestones and recovery plan is not approved.",
+    "Sponsor wants to avoid another board escalation despite unresolved audit evidence.",
+    "Two architects support ERP, IAM remediation and CRM rollout."
+  ],
+  "risk_register": [
+    "R-17: ERP test readiness, Red, owner PMO, mitigation not approved.",
+    "R-22: Privileged access remediation dependency, Amber, owner CISO office.",
+    "R-31: Change-control audit evidence incomplete, Amber, owner IT controls.",
+    "R-44: Customer billing integration outage risk, Amber, owner Operations."
+  ],
+  "budget_update": [
+    "ERP contingency reserve is 82% consumed.",
+    "Cloud migration spend is 18% above forecast.",
+    "No additional architecture capacity is funded."
+  ],
+  "context": [
+    "Board update is due in 48 hours.",
+    "Leadership needs a clear action ledger and autonomy gate.",
+    "No external actions should be executed without approval."
+  ]
+}

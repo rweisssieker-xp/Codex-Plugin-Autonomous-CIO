@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIO OS Maturity Index",
+  "type": "object",
+  "required": ["score", "maturity_level", "drivers", "next_maturity_moves"],
+  "properties": {
+    "score": {"type": "integer", "minimum": 0, "maximum": 100},
+    "maturity_level": {"type": "string"},
+    "drivers": {"type": "array", "items": {"type": "string"}},
+    "next_maturity_moves": {"type": "array", "items": {"type": "string"}}
+  }
+}

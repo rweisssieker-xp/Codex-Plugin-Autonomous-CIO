@@ -1,45 +1,136 @@
 # Package Index
 
-## Plugin
+## Plugin Metadata
 
-- Name: `the-autonomous-cio`
-- Display name: `The Autonomous CIO`
-- Version: `0.1.0`
-- Category: `Productivity`
-- Architecture: skill-first, connector-neutral
+| Field | Value |
+|---|---|
+| Name | `the-autonomous-cio` |
+| Display name | `The Autonomous CIO` |
+| Version | `0.1.0` |
+| Category | `Productivity` |
+| Architecture | Skill-first, connector-neutral |
 
-## Capabilities
+## Primary Entry Points
 
-- Executive command intelligence
-- Board-ready briefings
-- Enterprise command center reports
-- Risk-chain reasoning
-- Crisis command support
-- AI governance review
-- Strategy drift and decision debt analysis
-- Transformation readiness and value tracking
+| Entry point | Use for |
+|---|---|
+| `autonomous-cio-orchestrator` | Broad executive requests and automatic skill-chain selection |
+| `autonomous-cio-operating-review` | Full governed CIO Autopilot Review |
+| `executive-decision-packet` | Board, crisis, AI approval, transformation and portfolio decisions |
+| `engine/cli.py autopilot-review` | Reproducible local CIO Autopilot Review outputs |
+| `visual-command-center/index.html` | Static local dashboard demo |
+
+## Package Contents
+
+| Area | Count / Contents |
+|---|---|
+| Skills | 133 skills in `skills/` |
+| Docs | 31 docs in `docs/` |
+| Templates | 101 templates in `templates/` |
+| Schemas | 112 JSON schemas in `engine/schemas/` |
+| Engine | Local Python Decision Intelligence Engine |
+| Dashboard | Static Visual Command Center |
+| Examples | Board prep, crisis, AI governance, transformation, industrial and connector-export examples |
+| Runtime dependencies | Stdlib-only `requirements.txt` |
+
+## Capability Groups
+
+### Executive Decision Readiness
+
+- CIO Autopilot Review
+- Executive Decision Packet
+- Decision Readiness Score
+- Decision Debt Radar
+- Decision Consequence Ledger
+- Decision Backtest Simulator
+- Decision SLA Monitor
+- Executive Narrative Diff
+
+### Evidence, Risk and Governance
+
+- Evidence Graph
+- Risk Chain Map
+- Evidence Chain of Custody
+- Evidence Expiry Monitor
+- Risk Acceptance Docket
+- Residual Risk Contract
+- Control Debt Burndown
+- Audit Finding Predictor
+- Governance Drift Detector
+
+### Board and Leadership Pressure Testing
+
+- Board Pressure Simulation
+- Boardroom Challenger AI
+- Executive Decision Assurance
+- Executive Decision Defense
+- Executive Dissent Synthesizer
+- Board Narrative Stress Test
+- Executive Blind Spot Radar
+- Commitment Integrity Score
+
+### Governed Autonomy
+
+- Governed Autonomy Layer
+- Autonomy Readiness Score
+- Autonomy Gate
+- Autonomy Risk Budget
+- Autonomy Stress Test
+- Approval Boundary Mapper
+- Human Control Contract
+- CIO Replacement Surface
+- CIO Work Autonomy Map
+
+### Portfolio, Value and Operations
+
+- Value Leakage Detector
+- Budget Shock Absorber
+- Vendor Leverage Index
+- Vendor Exit Simulator
+- Strategic Optionality Engine
+- Enterprise Friction Map
+- Operating Risk Heatmap
+- Autonomous Roadmap Reprioritizer
+- Benefits Realization Sentinel
+
+### Architecture, Security, Data and AI
+
+- Architecture Runway Guardian
+- Cyber Business Impact Translator
+- Data Trust Radar
+- Data Sovereignty Radar
+- Platform Rationalization Advisor
+- AI Portfolio Governance
+- AI governance approval readiness
 - Security-to-business translation
-- Meeting-to-action conversion
 
-## Contents
+### Local Runtime and Export Layer
 
-- 44 skills in `skills/`
-- 13 docs in `docs/`
-- 6 templates in `templates/`
-- Marketplace listing copy
-- Quality checklist
-- Submission notes
-- Smoke-test prompts
+- Skill Orchestration Runtime
+- Connector Profile Catalog
+- Connector Export Adapter
+- Connector Profile Detection
+- LLM Extraction Contract
+- Explicit Memory Store Inspection
+- Decision Export Package
+- Office Export Package
+- Local file and directory ingestion
+- Optional Teams, Slack, Outlook Email, Gmail/Google Workspace and Calendar adapter profiles
+- Optional Jira, Azure DevOps, ServiceNow, CMDB, cloud cost, security, observability, ERP/SAP, Confluence and Google Drive adapter profiles
+
+## Autopilot Review Views
+
+| View | Command | Best for |
+|---|---|---|
+| `compact` | `python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json --format markdown --view compact` | Daily CIO triage |
+| `board` | `python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json --format markdown --view board` | Leadership and board packs |
+| `full` | `python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json --format markdown --view full` | Audit-friendly detail |
 
 ## Review Notes
 
-- No MCP server in version 0.1.
-- No app UI in version 0.1.
-- No referenced screenshots, icons or logos.
+- No authenticated live connector access in version 0.1.
+- No production MCP server in version 0.1; an optional MCP-compatible adapter is included for local development.
+- No hosted app UI in version 0.1; the Visual Command Center is a static local dashboard.
 - No external-service action execution.
-- No automatic persistent memory.
-- Works only on user-provided context.
-
-## Primary Entry Point
-
-Use `autonomous-cio-orchestrator` for broad requests. It routes to the right skill chain and produces one integrated executive artifact.
+- No automatic persistent memory; memory writes require explicit local paths.
+- Works only on user-provided context and local files.

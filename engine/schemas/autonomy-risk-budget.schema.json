@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomy Risk Budget",
+  "type": "object",
+  "required": ["budget_used_percent", "remaining_percent", "risk_drivers", "autonomy_posture", "budget_rule"],
+  "properties": {
+    "budget_used_percent": {"type": "integer", "minimum": 0, "maximum": 100},
+    "remaining_percent": {"type": "integer", "minimum": 0, "maximum": 100},
+    "risk_drivers": {"type": "array", "items": {"type": "string"}},
+    "autonomy_posture": {"type": "string"},
+    "budget_rule": {"type": "string"}
+  }
+}

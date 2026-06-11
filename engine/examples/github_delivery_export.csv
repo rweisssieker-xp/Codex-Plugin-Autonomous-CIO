@@ -1,0 +1,3 @@
+repository,issue,status,summary,owner
+enterprise/erp-modernization,PR-842,blocked,MES interface test automation blocked by missing environment capacity,Manufacturing IT
+enterprise/erp-modernization,ISSUE-1191,open,Release readiness dashboard shows unresolved cutover defects,PMO

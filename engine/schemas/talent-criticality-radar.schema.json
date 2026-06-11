@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Talent Criticality Radar",
+  "type": "object",
+  "required": ["criticality", "talent_signals", "key_person_risks", "mitigations"],
+  "properties": {
+    "criticality": {"type": "string"},
+    "talent_signals": {"type": "array", "items": {"type": "string"}},
+    "key_person_risks": {"type": "array", "items": {"type": "string"}},
+    "mitigations": {"type": "array", "items": {"type": "string"}}
+  }
+}

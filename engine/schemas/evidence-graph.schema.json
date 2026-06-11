@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence Graph",
+  "type": "object",
+  "required": ["evidence_graph", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "evidence_graph": {
+      "type": "object",
+      "required": ["nodes", "edges"]
+    }
+  },
+  "additionalProperties": true
+}
+

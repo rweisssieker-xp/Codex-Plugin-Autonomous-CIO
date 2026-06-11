@@ -28,11 +28,17 @@
 ## User Experience
 
 - Orchestrator skill routes broad requests.
+- Flagship `autonomous-cio-operating-review` skill routes broad CIO autopilot work.
 - Skill catalog explains when to use each skill.
 - Playbooks provide end-to-end executive workflows.
 - Prompt pack provides copy-ready examples.
 - Templates make outputs repeatable.
 - Smoke tests cover the main workflows.
+- Local engine examples produce reproducible Executive Decision Packets.
+- Static visual command center demonstrates scores, evidence heatmap, risk chain, decision debt, decision packet preview, memory proposal, connector profile view and export readiness.
+- Local connector profiles are documented as signal contracts, not live integrations.
+- Local export package generation writes only to user-specified paths.
+- Skill orchestration output explains why a chain was selected.
 
 ## Safety
 

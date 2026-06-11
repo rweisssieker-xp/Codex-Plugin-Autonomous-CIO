@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Semantic Decision Model",
+  "type": "object",
+  "required": ["semantic_model", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "semantic_model": {
+      "type": "object",
+      "required": ["entities", "claims", "dependencies", "decisions"]
+    }
+  },
+  "additionalProperties": true
+}
+

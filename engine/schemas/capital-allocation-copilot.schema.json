@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Capital Allocation Copilot",
+  "type": "object",
+  "required": ["capital_pressure", "financial_signals", "allocation_options", "cfo_question"],
+  "properties": {
+    "capital_pressure": {"type": "string"},
+    "financial_signals": {"type": "array", "items": {"type": "string"}},
+    "allocation_options": {"type": "array", "items": {"type": "object"}},
+    "cfo_question": {"type": "string"}
+  }
+}

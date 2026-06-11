@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Email Executive Signal Adapter",
+  "type": "object",
+  "required": ["normalized_signals", "approval_requests", "commitments", "missing_evidence"],
+  "properties": {
+    "normalized_signals": {"type": "array", "items": {"type": "object"}},
+    "approval_requests": {"type": "array", "items": {"type": "string"}},
+    "commitments": {"type": "array", "items": {"type": "string"}},
+    "missing_evidence": {"type": "array", "items": {"type": "string"}}
+  }
+}

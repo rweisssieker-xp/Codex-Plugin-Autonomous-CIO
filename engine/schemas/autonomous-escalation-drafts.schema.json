@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomous Escalation Drafts",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["draft_id", "subject", "audience", "message", "approval_required", "status"],
+    "properties": {
+      "draft_id": {"type": "string"},
+      "subject": {"type": "string"},
+      "audience": {"type": "string"},
+      "message": {"type": "string"},
+      "approval_required": {"type": "string"},
+      "status": {"type": "string"}
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stakeholder Alignment Matrix",
+  "type": "object",
+  "required": ["alignment_status", "matrix", "first_alignment_action"],
+  "properties": {
+    "alignment_status": {"type": "string"},
+    "matrix": {"type": "array", "items": {"type": "object"}},
+    "first_alignment_action": {"type": "string"}
+  }
+}

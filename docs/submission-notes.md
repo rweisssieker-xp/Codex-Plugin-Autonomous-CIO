@@ -2,28 +2,119 @@
 
 ## Review Summary
 
-The Autonomous CIO is a skill-first Codex plugin for enterprise executive intelligence. It helps users transform user-provided enterprise context into leadership artifacts such as executive briefings, command-center reports, decision memos, risk-chain analyses, AI governance reviews, crisis command views and action plans.
+The Autonomous CIO is a skill-first Codex plugin for AI-native executive decision intelligence. It transforms user-provided enterprise context into governed decision support for CIO, CISO, COO, CFO, risk, compliance and enterprise architecture work.
+
+The core mechanism is the Decision Intelligence Loop:
+
+```text
+Signals -> Truth -> Risk Chain -> Options -> Actions -> Memory
+```
+
+This positions the plugin as a governed CIO operating layer rather than a BI dashboard, meeting summarizer or generic chatbot.
+
+## Flagship Artifacts
+
+- `autonomous-cio-operating-review`: governed CIO Autopilot Review.
+- `executive-decision-packet`: board-ready decision artifact.
+- `docs/proof-pack.md`: demo inputs and example outputs for board prep, crisis command, AI governance approval and transformation value leakage.
+- `visual-command-center/index.html`: static local command-center demo.
+
+## Local Runtime
+
+The package includes a local Python Decision Intelligence Engine under `engine/` for reproducible demo and smoke-test outputs. In normal Codex plugin usage, Codex is the LLM semantic extraction layer. The engine consumes provided context or structured `llm_extraction` and produces deterministic decision-support artifacts.
+
+The engine provides:
+
+- CLI commands
+- optional MCP-compatible wrapper functions
+- JSON schemas
+- example data
+- unit tests
+- local file and directory ingestion
+- local connector export adapters
+- optional Teams, Slack, Outlook Email, Gmail/Google Workspace and Calendar adapter profiles
+- optional CIO system adapter profiles for Jira, Azure DevOps, ServiceNow, CMDB, cloud cost, security, observability, ERP/SAP, Confluence and Google Drive exports
+- export package generation
+- Office-compatible `.docx` / `.pptx` generation
+
+## Signature USP Groups
+
+### Decision Readiness
+
+- CIO Autopilot Review
+- Executive Decision Packet
+- Decision Readiness Score
+- Decision Debt Radar
+- Decision Consequence Ledger
+- Decision Backtest Simulator
+- Decision SLA Monitor
+
+### Evidence, Risk and Governance
+
+- Evidence Graph
+- Risk Chain Map
+- Evidence Chain of Custody
+- Evidence Expiry Monitor
+- Residual Risk Contract
+- Control Debt Burndown
+- Governance Drift Detector
+- Audit Finding Predictor
+
+### Governed Autonomy
+
+- Governed Autonomy Layer
+- Autonomy Readiness Score
+- Autonomy Risk Budget
+- Autonomy Stress Test
+- Approval Boundary Mapper
+- Human Control Contract
+- CIO Replacement Surface
+
+### Board and Executive Challenge
+
+- Board Pressure Simulation
+- Executive Decision Assurance
+- Executive Decision Defense
+- Executive Dissent Synthesizer
+- Board Narrative Stress Test
+- Executive Blind Spot Radar
+- Executive Narrative Diff
+
+### Portfolio and Operating Intelligence
+
+- Value Leakage Detector
+- Budget Shock Absorber
+- Vendor Leverage Index
+- Vendor Exit Simulator
+- Strategic Optionality Engine
+- Enterprise Friction Map
+- Operating Risk Heatmap
+- Autonomous Roadmap Reprioritizer
 
 ## Data Handling
 
-Version 0.1 does not connect to external enterprise systems. It works only with context explicitly provided by the user inside Codex. It does not persist memory automatically and does not execute external workflows.
+Version 0.1 does not connect to external enterprise systems. It works only with context explicitly provided by the user in Codex or with local files selected by the user. It does not persist memory automatically and does not execute external workflows.
 
 ## Safety Position
 
 The plugin is designed for decision support. It separates facts, assumptions, hypotheses, inferences and missing data. For regulated or high-risk decisions, it recommends specialist review and does not present legal, regulatory, HR, security or financial determinations as final authority.
 
-## Installation Validation
-
-Validated with:
+## Validation Commands
 
 ```text
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py C:\tmp\Codex Plugin Autonomous CIO
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py C:\Users\weiss\plugins\the-autonomous-cio
+python -m unittest engine.tests.test_engine
 ```
 
 ## Current Package Contents
 
-- 44 skills
-- 13 docs
-- 6 templates
-- marketplace-backed local installation
+| Area | Count / Contents |
+|---|---|
+| Skills | 133 |
+| Docs | 31 |
+| Templates | 101 |
+| Engine schemas | 112 |
+| Runtime | Local Python engine |
+| Dashboard | Static Visual Command Center |
+| Marketplace | Local marketplace-backed installation |

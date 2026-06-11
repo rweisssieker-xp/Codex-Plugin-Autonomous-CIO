@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "M&A Carve-out Readiness",
+  "type": "object",
+  "required": ["readiness", "relevant_signals", "readiness_domains", "first_due_diligence_questions"],
+  "properties": {
+    "readiness": {"type": "string"},
+    "relevant_signals": {"type": "array", "items": {"type": "string"}},
+    "readiness_domains": {"type": "array", "items": {"type": "string"}},
+    "first_due_diligence_questions": {"type": "array", "items": {"type": "string"}}
+  }
+}

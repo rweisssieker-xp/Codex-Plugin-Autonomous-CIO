@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Connector Signal Ingestion",
+  "type": "object",
+  "required": ["normalized_signals", "source_summary", "decision_packet", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "normalized_signals": { "type": "array" },
+    "source_summary": { "type": "object" },
+    "decision_packet": { "type": "object" }
+  },
+  "additionalProperties": true
+}
+

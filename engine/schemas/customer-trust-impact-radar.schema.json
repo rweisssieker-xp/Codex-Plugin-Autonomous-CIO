@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Customer Trust Impact Radar",
+  "type": "object",
+  "required": ["trust_risk", "customer_signals", "trust_dimensions", "recommended_position"],
+  "properties": {
+    "trust_risk": {"type": "string"},
+    "customer_signals": {"type": "array", "items": {"type": "string"}},
+    "trust_dimensions": {"type": "array", "items": {"type": "string"}},
+    "recommended_position": {"type": "string"}
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Post Decision Learning Loop",
+  "type": "object",
+  "required": ["learning_items", "memory_comparison_available", "suggested_review_cadence", "update_targets"],
+  "properties": {
+    "learning_items": {"type": "array", "items": {"type": "string"}},
+    "memory_comparison_available": {"type": "boolean"},
+    "suggested_review_cadence": {"type": "string"},
+    "update_targets": {"type": "array", "items": {"type": "string"}},
+    "success_metric": {"type": "string"}
+  }
+}

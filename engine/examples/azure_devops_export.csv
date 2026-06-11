@@ -1,0 +1,3 @@
+work_item_id,work_item_type,state,assigned_to,title,area_path,iteration_path,ado_project
+8821,Feature,Active,Platform Team,"Billing integration recovery requires release decision before board update.",Core Platform,Sprint 18,Azure DevOps ERP
+8822,Bug,New,Identity Team,"Privileged access test failure blocks production readiness evidence.",Security,Sprint 18,Azure DevOps ERP

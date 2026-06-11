@@ -18,8 +18,22 @@ Accept meeting notes, executive updates, decision logs, project reports, risk re
 1. Extract decisions, assumptions, commitments, risks, actions, owners, deadlines and unresolved questions.
 2. Classify items as active, resolved, superseded, blocked or stale.
 3. Identify contradictions, repeated topics, overdue commitments and decisions without evidence.
-4. Produce a compact memory update that can be pasted into future sessions.
-5. Recommend follow-up checks and review cadence.
+4. Produce an Autonomous Decision Memory Diff: stale assumptions, repeated decision debt, conflicting claims, overdue actions and changed evidence.
+5. Produce a compact memory update that can be pasted into future sessions.
+6. Recommend follow-up checks, decision SLA and review cadence.
+7. Mark every update as proposed until the user confirms it should be saved or reused.
+
+## Memory Contract
+
+Use these memory objects:
+
+- decision memory
+- assumption register
+- evidence graph
+- risk chain map
+- commitment/action ledger
+- decision SLA monitor
+- post-decision learning loop
 
 ## Output Format
 
@@ -28,6 +42,8 @@ Accept meeting notes, executive updates, decision logs, project reports, risk re
 - Assumption Register
 - Risk Memory
 - Commitment / Action Register
+- Autonomous Decision Memory Diff
+- Decision SLA / Review Date
 - Open Questions
 - Stale or Contradictory Items
 - Suggested Memory Update

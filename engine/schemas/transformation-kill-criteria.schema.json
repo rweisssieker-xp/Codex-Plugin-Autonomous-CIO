@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Transformation Kill Criteria",
+  "type": "object",
+  "required": ["kill_pressure", "criteria", "stop_change_continue_gate", "recommended_review"],
+  "properties": {
+    "kill_pressure": {"type": "string"},
+    "criteria": {"type": "array", "items": {"type": "string"}},
+    "stop_change_continue_gate": {"type": "string"},
+    "recommended_review": {"type": "string"}
+  }
+}

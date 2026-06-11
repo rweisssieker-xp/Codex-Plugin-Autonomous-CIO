@@ -1,0 +1,14 @@
+{
+  "title": "Monthly CIO Operating Review",
+  "audience": "Executive leadership",
+  "domains": ["portfolio", "operations", "finance", "security", "compliance", "data"],
+  "decision_request": "Decide which CIO operating issues need executive attention this month.",
+  "context": [
+    "Portfolio has three amber projects and one red ERP workstream.",
+    "Operations reports recurring billing incidents and MTTR rising from 9h to 16h.",
+    "Cloud spend is 18% above forecast with no clear owner for optimization.",
+    "Security privileged access review remains incomplete.",
+    "Customer master data duplication affects reporting trust.",
+    "No formal decision was made on architecture capacity funding."
+  ]
+}

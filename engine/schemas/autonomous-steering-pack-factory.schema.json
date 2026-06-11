@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomous Steering Pack Factory",
+  "type": "object",
+  "required": ["pack_sections", "decision_requests", "slides_ready_outline", "factory_status"],
+  "properties": {
+    "pack_sections": {"type": "array", "items": {"type": "string"}},
+    "decision_requests": {"type": "array", "items": {"type": "string"}},
+    "slides_ready_outline": {"type": "array", "items": {"type": "string"}},
+    "factory_status": {"type": "string"}
+  }
+}

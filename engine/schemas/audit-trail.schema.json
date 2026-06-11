@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Audit Trail",
+  "type": "object",
+  "required": ["audit_trail", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "audit_trail": {
+      "type": "object",
+      "required": ["source_scope", "score_drivers", "score_explanations", "recommendation_drivers"]
+    }
+  },
+  "additionalProperties": true
+}
+

@@ -1,0 +1,4 @@
+system,risk_status,summary,evidence_ref,owner
+MES Interface,Red,MES integration test exit criteria not approved,TEST-IOT-12,Manufacturing IT
+QMS Reporting,Amber,Validated report change-control evidence incomplete,QMS-07,Quality Systems
+Shopfloor Workstation,Amber,Shared privileged account still used for support access,SEC-18,CISO Office

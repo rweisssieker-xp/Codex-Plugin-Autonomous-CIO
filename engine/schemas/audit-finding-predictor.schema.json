@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Audit Finding Predictor",
+  "type": "object",
+  "required": ["finding_risk", "signals", "predicted_findings", "prevention_window"],
+  "properties": {
+    "finding_risk": {"type": "string"},
+    "signals": {"type": "array", "items": {"type": "string"}},
+    "predicted_findings": {"type": "array", "items": {"type": "object"}},
+    "prevention_window": {"type": "string"}
+  }
+}

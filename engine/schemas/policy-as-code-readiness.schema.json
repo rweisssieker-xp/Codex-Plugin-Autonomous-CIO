@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Policy as Code Readiness",
+  "type": "object",
+  "required": ["readiness", "codifiable_controls", "source_signals", "missing_for_policy_as_code"],
+  "properties": {
+    "readiness": {"type": "string"},
+    "codifiable_controls": {"type": "array", "items": {"type": "string"}},
+    "source_signals": {"type": "array", "items": {"type": "string"}},
+    "missing_for_policy_as_code": {"type": "array", "items": {"type": "string"}}
+  }
+}

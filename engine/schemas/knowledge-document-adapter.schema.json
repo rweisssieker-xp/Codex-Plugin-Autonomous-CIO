@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Knowledge Document Adapter",
+  "type": "object",
+  "required": ["document_signals", "evidence_and_assumptions", "decision_memory_candidates", "knowledge_continuity_risks"],
+  "properties": {
+    "document_signals": {"type": "array", "items": {"type": "object"}},
+    "evidence_and_assumptions": {"type": "array", "items": {"type": "string"}},
+    "decision_memory_candidates": {"type": "array", "items": {"type": "string"}},
+    "knowledge_continuity_risks": {"type": "array", "items": {"type": "string"}}
+  }
+}

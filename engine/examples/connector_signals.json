@@ -1,0 +1,41 @@
+{
+  "signals": [
+    {
+      "signal_id": "SIG-TEAMS-001",
+      "source_type": "teams",
+      "observed_at": "2026-06-05",
+      "summary": "Steering meeting notes say ERP testing has not started because the environment is late.",
+      "domain": "portfolio",
+      "entity_refs": ["ERP Modernization", "Test Environment"],
+      "owner_ref": "PMO",
+      "evidence_ref": "teams:steering-notes:2026-06-05",
+      "confidence": "High",
+      "actionability": "decide"
+    },
+    {
+      "signal_id": "SIG-AZDO-001",
+      "source_type": "azure-devops",
+      "observed_at": "2026-06-05",
+      "summary": "Two vendor integration milestones slipped.",
+      "domain": "delivery",
+      "entity_refs": ["ERP Modernization", "Vendor Integration"],
+      "owner_ref": "Vendor Lead",
+      "evidence_ref": "azdo:milestones:erp",
+      "confidence": "Medium",
+      "actionability": "escalate"
+    },
+    {
+      "signal_id": "SIG-FIN-001",
+      "source_type": "finance-csv",
+      "observed_at": "2026-06-05",
+      "summary": "ERP contingency reserve is 82% consumed.",
+      "domain": "finance",
+      "entity_refs": ["ERP Modernization", "Contingency Reserve"],
+      "owner_ref": "CFO Office",
+      "evidence_ref": "finance:budget-export:2026-06",
+      "confidence": "High",
+      "actionability": "decide"
+    }
+  ]
+}
+

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Golden Evaluation Report",
+  "type": "object",
+  "required": ["passed", "results", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "passed": { "type": "boolean" },
+    "results": { "type": "array" }
+  },
+  "additionalProperties": true
+}
+

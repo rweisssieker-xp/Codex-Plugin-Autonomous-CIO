@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Optional Connector Router",
+  "type": "object",
+  "required": ["detected_profile", "confidence", "selected_adapter_skill", "required_fields", "missing_evidence"],
+  "properties": {
+    "detected_profile": {"type": "string"},
+    "confidence": {"type": "string"},
+    "selected_adapter_skill": {"type": "string"},
+    "required_fields": {"type": "array", "items": {"type": "string"}},
+    "missing_evidence": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Exception Waiver Factory",
+  "type": "object",
+  "required": ["waiver_needed", "candidate_exceptions", "waiver_template", "approval_note"],
+  "properties": {
+    "waiver_needed": {"type": "boolean"},
+    "candidate_exceptions": {"type": "array", "items": {"type": "string"}},
+    "waiver_template": {"type": "object"},
+    "approval_note": {"type": "string"}
+  }
+}

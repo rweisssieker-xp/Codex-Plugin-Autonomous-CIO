@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dependency Breakpoint Analyzer",
+  "type": "object",
+  "required": ["breakpoint_count", "breakpoints", "analysis_note"],
+  "properties": {
+    "breakpoint_count": {"type": "integer", "minimum": 0},
+    "breakpoints": {"type": "array", "items": {"type": "object"}},
+    "analysis_note": {"type": "string"}
+  }
+}

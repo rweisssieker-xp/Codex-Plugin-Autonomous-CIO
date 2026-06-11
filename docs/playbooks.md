@@ -2,6 +2,63 @@
 
 These playbooks combine skills into repeatable executive workflows. Version 0.1 executes them as reasoning workflows over user-provided context.
 
+## Governed CIO Autopilot Playbook
+
+Use for broad CIO operating reviews, Board in 48h requests, monthly operating reviews and mixed enterprise context.
+
+Skill chain:
+
+1. `autonomous-cio-operating-review`
+2. `executive-decision-packet`
+3. `risk-chain-intelligence`
+4. `autonomous-action-framework`
+5. `autonomous-executive-memory`
+
+Engine command:
+
+```text
+python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json
+```
+
+Output:
+
+- decision readiness
+- enterprise status
+- evidence graph
+- risk chain
+- attention budget
+- action ledger
+- autonomy gate
+- memory update
+- CIO replacement surface
+
+## Decision Intelligence Loop Playbook
+
+Use when mixed context needs to become one decision-ready executive artifact, especially for board decisions, go-live approvals, crisis trade-offs, AI approvals and transformation funding gates.
+
+Skill chain:
+
+1. `enterprise-signal-ranking`
+2. `executive-truth-layer`
+3. `risk-chain-intelligence`
+4. `decision-scenario-intelligence`
+5. `executive-decision-packet`
+6. `autonomous-action-framework`
+7. `autonomous-executive-memory`
+
+Output:
+
+- Executive Decision Packet
+- request type and selected skill chain
+- decision needed
+- facts vs assumptions
+- risk chain
+- options
+- board challenge questions
+- recommended action
+- missing evidence
+- draft next steps
+
 ## Board Prep Playbook
 
 Use for board meetings, supervisory reviews, investment approvals and major risk acceptances.

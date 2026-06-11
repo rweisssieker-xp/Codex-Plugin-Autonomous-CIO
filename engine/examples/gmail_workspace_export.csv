@@ -1,0 +1,3 @@
+subject,sender,recipients,date,snippet,label
+"Vendor recovery plan","vendor@example.com","cio@example.com","2026-06-10","Recovery plan approval is pending and milestone evidence will be sent after steering.","Important"
+"AI support pilot","support@example.com","cio@example.com","2026-06-10","Support wants approval for an AI ticket summarization pilot but data owner sign-off is missing.","AI"

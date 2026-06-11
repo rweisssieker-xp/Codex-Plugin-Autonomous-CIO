@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Compliance Evidence Pack",
+  "type": "object",
+  "required": ["pack_required", "evidence_signals", "pack_sections", "missing_evidence", "readiness_note"],
+  "properties": {
+    "pack_required": {"type": "boolean"},
+    "evidence_signals": {"type": "array", "items": {"type": "string"}},
+    "pack_sections": {"type": "array", "items": {"type": "string"}},
+    "missing_evidence": {"type": "array", "items": {"type": "string"}},
+    "readiness_note": {"type": "string"}
+  }
+}

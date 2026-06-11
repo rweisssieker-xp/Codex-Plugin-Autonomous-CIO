@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Narrative Generator",
+  "type": "object",
+  "required": ["board_narrative", "ceo_line", "cfo_line", "ciso_audit_line", "customer_line"],
+  "properties": {
+    "board_narrative": {"type": "string"},
+    "ceo_line": {"type": "string"},
+    "cfo_line": {"type": "string"},
+    "ciso_audit_line": {"type": "string"},
+    "customer_line": {"type": "string"}
+  }
+}

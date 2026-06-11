@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enterprise Friction Map",
+  "type": "object",
+  "required": ["friction_hotspots", "friction_map", "friction_rule"],
+  "properties": {
+    "friction_hotspots": {"type": "array", "items": {"type": "object"}},
+    "friction_map": {"type": "array", "items": {"type": "object"}},
+    "friction_rule": {"type": "string"}
+  }
+}

@@ -1,0 +1,3 @@
+asset_id,asset_name,owner,criticality,lifecycle_status,business_service
+APP-ERP,ERP Core,CIO Office,Critical,Active,Order to Cash
+APP-IAM,Identity Platform,CISO Office,Critical,Modernization Required,Enterprise Access

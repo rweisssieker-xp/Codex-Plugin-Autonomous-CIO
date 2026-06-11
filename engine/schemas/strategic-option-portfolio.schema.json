@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Strategic Option Portfolio",
+  "type": "object",
+  "required": ["portfolio", "recommended_option_pattern", "decision_note"],
+  "properties": {
+    "portfolio": {"type": "array", "items": {"type": "object"}},
+    "recommended_option_pattern": {"type": "string"},
+    "decision_note": {"type": "string"}
+  }
+}

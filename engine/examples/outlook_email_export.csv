@@ -1,0 +1,3 @@
+subject,from,to,date,body_excerpt,importance
+"ERP go-live decision","cio@example.com","cfo@example.com;ciso@example.com","2026-06-10","We need a decision on conditional approval, audit evidence, vendor recovery and budget reserve before the board update.","High"
+"Cloud spend forecast","finance@example.com","cio@example.com","2026-06-10","Cloud migration spend is 18 percent above forecast and reserve trade-offs are needed.","Normal"

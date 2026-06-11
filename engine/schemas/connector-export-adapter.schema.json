@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Connector Export Adapter",
+  "type": "object",
+  "required": ["artifact", "source_file", "profile", "records_read", "signals_created", "normalized_signals", "decision_packet", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": { "const": "Connector Export Adapter" },
+    "source_file": { "type": "string" },
+    "profile": { "type": "string" },
+    "records_read": { "type": "integer", "minimum": 0 },
+    "signals_created": { "type": "integer", "minimum": 0 },
+    "normalized_signals": { "type": "array", "items": { "type": "object" } },
+    "decision_packet": { "type": "object" },
+    "facts": { "type": "array", "items": { "type": "string" } },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
+    "hypotheses": { "type": "array", "items": { "type": "string" } },
+    "missing_evidence": { "type": "array", "items": { "type": "string" } },
+    "confidence": { "type": "string" },
+    "recommended_action": { "type": "object" },
+    "guardrails": { "type": "array", "items": { "type": "string" } }
+  }
+}

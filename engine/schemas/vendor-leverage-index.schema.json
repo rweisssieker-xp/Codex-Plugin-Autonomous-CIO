@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vendor Leverage Index",
+  "type": "object",
+  "required": ["leverage_score", "leverage_posture", "vendor_signals", "leverage_moves", "leverage_rule"],
+  "properties": {
+    "leverage_score": {"type": "integer", "minimum": 0, "maximum": 100},
+    "leverage_posture": {"type": "string"},
+    "vendor_signals": {"type": "array", "items": {"type": "string"}},
+    "leverage_moves": {"type": "array", "items": {"type": "string"}},
+    "leverage_rule": {"type": "string"}
+  }
+}

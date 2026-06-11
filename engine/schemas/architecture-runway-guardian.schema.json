@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Architecture Runway Guardian",
+  "type": "object",
+  "required": ["runway_risk", "architecture_signals", "guardrails", "next_architecture_gate"],
+  "properties": {
+    "runway_risk": {"type": "string"},
+    "architecture_signals": {"type": "array", "items": {"type": "string"}},
+    "guardrails": {"type": "array", "items": {"type": "string"}},
+    "next_architecture_gate": {"type": "string"}
+  }
+}

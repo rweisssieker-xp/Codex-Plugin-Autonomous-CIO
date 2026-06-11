@@ -1,0 +1,29 @@
+{
+  "title": "Industrial CIO Operating Review",
+  "audience": "CIO, COO, CISO, Quality, Finance and executive committee",
+  "domains": ["production", "quality", "security", "finance", "architecture", "operations"],
+  "decision_request": "Decide whether the current production-system modernization path can continue, what must be escalated, and which actions can be drafted under governed autonomy.",
+  "meeting_notes": [
+    "ERP cutover remains targeted for quarter end, but MES interface testing is incomplete.",
+    "Quality team says change-control evidence for the validated reporting process is not complete.",
+    "Production leadership reports two lines depend on a legacy shopfloor integration with limited support.",
+    "Digital order channel availability is business-critical during the seasonal demand peak.",
+    "Sponsor wants to avoid an executive escalation before the next operating review."
+  ],
+  "risk_register": [
+    "IOT-12: MES interface readiness, Red, owner Manufacturing IT, mitigation not approved.",
+    "QMS-07: Validated report change evidence incomplete, Amber, owner Quality Systems.",
+    "SEC-18: Shared privileged account found on shopfloor support workstation, Amber, owner CISO office.",
+    "VEN-04: Integration vendor support contract expires in 60 days, Amber, owner Procurement."
+  ],
+  "budget_update": [
+    "Modernization contingency reserve is 76% consumed.",
+    "Additional test environment capacity is not funded.",
+    "Vendor day-rate increase is pending procurement approval."
+  ],
+  "context": [
+    "Executive committee update is due in 10 days.",
+    "No production, network, security or validated-system change should be executed without explicit approval.",
+    "Leadership needs a production-continuity view, audit evidence pack and action ledger."
+  ]
+}

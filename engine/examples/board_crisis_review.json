@@ -1,0 +1,13 @@
+{
+  "title": "Board Crisis Review",
+  "audience": "Board technology and risk committee",
+  "domains": ["crisis", "security", "operations", "customer", "audit"],
+  "decision_request": "Approve the crisis posture, communications approach and next executive decisions.",
+  "context": [
+    "Billing integration outage affects key customers.",
+    "Root cause is unknown and operations has no ETA.",
+    "Security impact is unclear because privileged access evidence is incomplete.",
+    "Sales is escalating customer impact to the executive team.",
+    "Audit asks for change-control evidence for the last emergency fix."
+  ]
+}

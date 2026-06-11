@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Truth Gap Detector",
+  "type": "object",
+  "required": ["truth_gap_count", "status", "gaps", "narrative_warning"],
+  "properties": {
+    "truth_gap_count": {"type": "integer", "minimum": 0},
+    "status": {"type": "string", "enum": ["Green", "Amber", "Red"]},
+    "gaps": {"type": "array", "items": {"type": "object"}},
+    "narrative_warning": {"type": "string"}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cost of Delay Calculator",
+  "type": "object",
+  "required": ["qualitative_cost_of_delay", "drivers", "delay_impacts", "next_decision_gate"],
+  "properties": {
+    "qualitative_cost_of_delay": {"type": "string"},
+    "drivers": {"type": "array", "items": {"type": "string"}},
+    "delay_impacts": {"type": "array", "items": {"type": "string"}},
+    "next_decision_gate": {"type": "string"}
+  }
+}

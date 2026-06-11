@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Connector Export Profile Detection",
+  "type": "object",
+  "required": ["artifact", "source_file", "detected_profile", "confidence", "profile_scores", "record_count", "facts", "assumptions", "hypotheses", "missing_evidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": { "const": "Connector Export Profile Detection" },
+    "source_file": { "type": "string" },
+    "detected_profile": { "type": "string" },
+    "confidence": { "type": "string" },
+    "profile_scores": { "type": "object" },
+    "record_count": { "type": "integer", "minimum": 0 },
+    "facts": { "type": "array", "items": { "type": "string" } },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
+    "hypotheses": { "type": "array", "items": { "type": "string" } },
+    "missing_evidence": { "type": "array", "items": { "type": "string" } },
+    "recommended_action": { "type": "object" },
+    "guardrails": { "type": "array", "items": { "type": "string" } }
+  }
+}

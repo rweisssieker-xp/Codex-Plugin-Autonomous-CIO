@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enterprise Systems Adapter",
+  "type": "object",
+  "required": ["system_signals", "critical_assets", "dependency_risk", "owner_gaps"],
+  "properties": {
+    "system_signals": {"type": "array", "items": {"type": "object"}},
+    "critical_assets": {"type": "array", "items": {"type": "string"}},
+    "dependency_risk": {"type": "array", "items": {"type": "string"}},
+    "owner_gaps": {"type": "array", "items": {"type": "string"}}
+  }
+}

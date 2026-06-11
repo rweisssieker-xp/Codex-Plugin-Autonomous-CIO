@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Risk Chain Map",
+  "type": "object",
+  "required": ["risk_chain", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "risk_chain": { "type": "array" }
+  },
+  "additionalProperties": true
+}
+

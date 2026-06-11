@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Attention Budget",
+  "type": "object",
+  "required": ["act_now", "escalate", "decide", "delegate", "monitor", "ignore"],
+  "properties": {
+    "act_now": { "type": "array", "items": { "type": "string" } },
+    "escalate": { "type": "array", "items": { "type": "string" } },
+    "decide": { "type": "array", "items": { "type": "string" } },
+    "delegate": { "type": "array", "items": { "type": "string" } },
+    "monitor": { "type": "array", "items": { "type": "string" } },
+    "ignore": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

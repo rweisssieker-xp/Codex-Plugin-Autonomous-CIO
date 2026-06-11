@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Action Governance Review",
+  "type": "object",
+  "required": ["action_governance", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "action_governance": { "type": "array" }
+  },
+  "additionalProperties": true
+}
+

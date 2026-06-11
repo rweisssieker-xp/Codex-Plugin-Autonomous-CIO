@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ITSM Service Management Adapter",
+  "type": "object",
+  "required": ["service_signals", "incident_risk", "change_risk", "missing_evidence"],
+  "properties": {
+    "service_signals": {"type": "array", "items": {"type": "object"}},
+    "incident_risk": {"type": "array", "items": {"type": "string"}},
+    "change_risk": {"type": "array", "items": {"type": "string"}},
+    "missing_evidence": {"type": "array", "items": {"type": "string"}}
+  }
+}

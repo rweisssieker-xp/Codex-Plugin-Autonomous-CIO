@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Decision Backlog",
+  "type": "object",
+  "required": ["backlog_count", "items", "clearance_rule"],
+  "properties": {
+    "backlog_count": {"type": "integer", "minimum": 0},
+    "items": {"type": "array", "items": {"type": "object"}},
+    "clearance_rule": {"type": "string"},
+    "source_decision_debt_count": {"type": "integer", "minimum": 0}
+  }
+}

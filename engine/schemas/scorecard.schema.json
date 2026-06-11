@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Intelligence Scorecard",
+  "type": "object",
+  "required": ["scorecard", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "scorecard": {
+      "type": "object",
+      "required": ["decision_readiness", "board_risk", "evidence_confidence", "value_leakage", "autonomy_readiness"]
+    }
+  },
+  "additionalProperties": true
+}
+

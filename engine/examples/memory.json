@@ -1,0 +1,46 @@
+{
+  "decision_memory": [
+    {
+      "decision_id": "DEC-DEMO-ERP-001",
+      "decision": "Conditional ERP go-live approval only if evidence gates are met",
+      "owner": "CIO",
+      "status": "Proposed",
+      "review_date": "2026-06-12",
+      "confidence": "Medium"
+    }
+  ],
+  "assumption_register": [
+    {
+      "assumption_id": "ASM-DEMO-ERP-001",
+      "assumption": "The 30 September ERP date can still be met if evidence gates are completed within seven days",
+      "status": "Open",
+      "confidence": "Low"
+    }
+  ],
+  "evidence_graph": [
+    {
+      "claim_id": "CLM-DEMO-ERP-002",
+      "claim": "The go-live date is still credible",
+      "type": "Hypothesis",
+      "confidence": "Low"
+    }
+  ],
+  "risk_chain_map": [
+    {
+      "chain_id": "RCH-DEMO-ERP-001",
+      "starting_signal": "Test environment late",
+      "business_impact": "Go-live, audit and funding exposure",
+      "confidence": "Medium"
+    }
+  ],
+  "action_ledger": [
+    {
+      "action_id": "ACT-DEMO-ERP-001",
+      "action": "Request ERP test plan, vendor recovery plan, audit evidence checklist and architecture capacity plan",
+      "owner": "PMO",
+      "due_date": "2026-01-15",
+      "status": "Draft"
+    }
+  ]
+}
+

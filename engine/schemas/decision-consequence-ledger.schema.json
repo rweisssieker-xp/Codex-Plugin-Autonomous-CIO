@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Consequence Ledger",
+  "type": "object",
+  "required": ["consequence_count", "consequences", "ledger_rule"],
+  "properties": {
+    "consequence_count": {"type": "integer", "minimum": 0},
+    "consequences": {"type": "array", "items": {"type": "object"}},
+    "ledger_rule": {"type": "string"}
+  }
+}

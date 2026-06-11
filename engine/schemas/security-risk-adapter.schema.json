@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Security Risk Adapter",
+  "type": "object",
+  "required": ["security_findings", "business_impact", "control_debt", "missing_evidence"],
+  "properties": {
+    "security_findings": {"type": "array", "items": {"type": "object"}},
+    "business_impact": {"type": "array", "items": {"type": "string"}},
+    "control_debt": {"type": "array", "items": {"type": "string"}},
+    "missing_evidence": {"type": "array", "items": {"type": "string"}}
+  }
+}

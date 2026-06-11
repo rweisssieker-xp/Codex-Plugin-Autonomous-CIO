@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Budget Shock Absorber",
+  "type": "object",
+  "required": ["shock_level", "finance_signals", "absorption_moves", "tradeoff_questions", "shock_rule"],
+  "properties": {
+    "shock_level": {"type": "string"},
+    "finance_signals": {"type": "array", "items": {"type": "string"}},
+    "absorption_moves": {"type": "array", "items": {"type": "string"}},
+    "tradeoff_questions": {"type": "array", "items": {"type": "string"}},
+    "shock_rule": {"type": "string"}
+  }
+}

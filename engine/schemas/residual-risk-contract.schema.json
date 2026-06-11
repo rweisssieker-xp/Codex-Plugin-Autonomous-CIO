@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Residual Risk Contract",
+  "type": "object",
+  "required": ["contract_required", "residual_risks", "minimum_contract_terms", "contract_note"],
+  "properties": {
+    "contract_required": {"type": "boolean"},
+    "residual_risks": {"type": "array", "items": {"type": "object"}},
+    "minimum_contract_terms": {"type": "array", "items": {"type": "string"}},
+    "contract_note": {"type": "string"}
+  }
+}

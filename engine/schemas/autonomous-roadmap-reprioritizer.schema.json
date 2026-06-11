@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomous Roadmap Reprioritizer",
+  "type": "object",
+  "required": ["reprioritization_required", "promote", "pause_or_defer", "protect", "roadmap_rule"],
+  "properties": {
+    "reprioritization_required": {"type": "boolean"},
+    "promote": {"type": "array", "items": {"type": "string"}},
+    "pause_or_defer": {"type": "array", "items": {"type": "string"}},
+    "protect": {"type": "array", "items": {"type": "string"}},
+    "roadmap_rule": {"type": "string"}
+  }
+}

@@ -1,44 +1,264 @@
 # The Autonomous CIO
 
-The Autonomous CIO is a local Codex plugin for AI-native enterprise command intelligence. It is designed as a skill-first MVP that works with user-provided context, files, exports, notes and tables rather than live enterprise connectors.
+The Autonomous CIO is a local Codex plugin for AI-native executive decision intelligence. It turns user-provided enterprise context into governed CIO decision support: board-ready decision packets, CIO Autopilot Reviews, challenge questions, risk chains, action drafts, evidence gaps, ownership boundaries and reusable executive memory.
 
-## Marketplace positioning
+It is a skill-first MVP that works with provided context, local files and local exports. Version 0.1 does not claim authenticated live connector access, automatic persistence or external action execution.
 
-The Autonomous CIO is built for executives and senior operating teams who need decision-ready synthesis from fragmented enterprise context. It does not replace enterprise systems; it turns user-provided updates, documents, notes and exports into structured leadership artifacts.
+## Positioning
 
-Best-fit users:
+**The Autonomous CIO makes enterprise decisions board-ready before leadership enters the room.**
 
-- CIOs, CISOs, COOs and CFO-facing IT leaders
-- enterprise architects and transformation leads
+It is designed for:
+
+- CIOs, CISOs, COOs and CFO-facing technology leaders
+- Enterprise architects and transformation leads
 - PMO, risk, compliance and audit teams
-- executive operations and board-prep teams
+- Executive operations and board-prep teams
+- Technology leaders preparing steering, crisis, investment, vendor or AI governance decisions
 
-## Core promise
+## What It Produces
 
-The Autonomous CIO converts fragmented enterprise information into decision-ready executive outputs:
+- CIO Autopilot Reviews
+- Executive Decision Packets
+- Board and steering briefings
+- Risk-chain maps and early-warning views
+- Evidence graphs and missing-evidence registers
+- Action ledgers and escalation drafts
+- Approval boundaries and human-control contracts
+- Decision memory proposals
+- Local dashboard and export packages
 
-- enterprise briefings
-- risk and early-warning views
-- project and portfolio assessments
-- process and operations diagnostics
-- architecture, data and security analyses
-- decision scenarios
-- action plans and executive reports
-- strategy drift detection
-- decision debt analysis
-- pre-mortems and crisis command views
-- AI governance and vendor ecosystem reviews
-- value leakage, friction and operating-model simulations
-- executive truth-layer and narrative consistency scanning
-- management attention optimization and enterprise triage
-- risk-chain propagation, assumption mining and governance-gap prediction
-- synthetic Board Q&A and security-to-business translation
+## Why It Is Different
+
+The Autonomous CIO is not a dashboard, meeting summarizer or generic CIO chatbot.
+
+| Traditional tool | What it usually does | What The Autonomous CIO does |
+|---|---|---|
+| Dashboard | Shows status | Turns status into decisions, escalations, safeguards and next actions |
+| Meeting summarizer | Preserves discussion | Extracts decisions, debt, assumptions, risks, owners and follow-ups |
+| Generic chatbot | Answers questions | Applies a CIO operating model across truth, risk, options, actions and memory |
+| Risk register | Lists risks | Maps cascading risk chains across domains |
+| Board prep document | Describes the situation | Pressure-tests the decision before leadership commits |
+
+## Quick Start
+
+Run a full local engine example:
+
+```text
+python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json
+```
+
+Generate a compact daily CIO triage view:
+
+```text
+python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json --format markdown --view compact
+```
+
+Generate a board-pack view:
+
+```text
+python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json --format markdown --view board
+```
+
+Build an Executive Decision Packet:
+
+```text
+python engine/cli.py build-decision-packet --input engine/examples/board_prep.json
+```
+
+Run the test suite:
+
+```text
+python -m unittest engine.tests.test_engine
+```
+
+Open the static local dashboard:
+
+```text
+visual-command-center/index.html
+```
+
+## Repository Contents
+
+| Path | Purpose |
+|---|---|
+| `.codex-plugin/plugin.json` | Codex plugin manifest |
+| `skills/` | 133 connector-neutral Codex skills |
+| `docs/` | Marketplace, architecture, proof, smoke-test and operating-model documentation |
+| `templates/` | 101 reusable executive and governance templates |
+| `engine/` | Local Python Decision Intelligence Engine |
+| `engine/schemas/` | 112 JSON schemas for engine artifacts |
+| `engine/examples/` | Demo inputs for board prep, crisis, AI governance and transformation scenarios |
+| `visual-command-center/` | Static local dashboard demo |
+| `scripts/` | Smoke-test helpers |
+
+## Flagship Workflow
+
+The CIO Autopilot Review follows this operating loop:
+
+```text
+Signals -> Truth -> Decision -> Action Draft -> Memory -> Operating Rhythm
+```
+
+Markdown output views:
+
+- `compact`: daily CIO triage with status, readiness, top attention, guarded autonomy and next actions.
+- `board`: leadership pack with narrative, decision request, challenge questions, consequences, dissent, evidence gaps and human-control boundary.
+- `full`: audit-friendly detail view with the complete disruptive USP layer.
+
+## Core USPs
+
+1. Decision Readiness Score: shows whether an executive decision is ready for Board or steering approval, or whether it is being pushed without enough evidence.
+2. Evidence Graph: makes visible which claims are supported by facts and which are assumptions, hypotheses, narratives or missing evidence.
+3. Risk Chain Map: shows how risks cascade across architecture, security, finance, vendors, operations and governance.
+4. Decision Debt Radar: finds deferred, ownerless or implicit decisions before they block delivery.
+5. Board Pressure Simulation: generates CFO, CISO, Audit, CEO, regulator and customer challenge questions before the meeting.
+6. Value Leakage Detector: identifies transformation, vendor, cloud and project activity that consumes resources without enough measurable value.
+7. Executive Memory Comparison: compares new updates against prior decisions, assumptions and open actions.
+8. Autonomy Readiness Score: assesses whether an action can be automated or must stay under human approval because of risk, reversibility or control needs.
+9. Governed Autonomy Layer: prepares actions, escalations and decision logs while keeping human approval, auditability and no uncontrolled execution.
+10. CIO Autopilot Review: creates a complete operating review with decision packet, risk chain, evidence graph, attention budget, action ledger, memory update and autonomy gate.
+11. Visual Command Center: turns decision readiness, evidence gaps, risk chains, decision debt and board pressure into a scannable local cockpit.
+12. CIO Work Autonomy Map: shows which CIO tasks are automated, drafted, decision-supported or human-only.
+13. Board Objection Simulator: pressure-tests decisions against CEO, CFO, CISO, Audit, regulator, customer and Board objections.
+14. Decision Debt Ledger: converts delayed, implicit and ownerless decisions into clearance actions.
+15. Truth Gap Detector: detects gaps between status narratives, facts, assumptions, contradictions and missing evidence.
+16. Executive Time Saved Estimator: estimates which CIO, PMO, risk and board-prep work has already been prepared.
+17. CIO Shadow Agenda: creates the real leadership agenda from weak signals, value risk, decision debt and truth gaps.
+18. Autonomous Steering Pack Factory: turns mixed context into a decision-ready steering or board pack outline.
+19. Risk Chain Forecast: forecasts likely next escalation if owners, evidence or decisions remain unresolved.
+20. Strategic Drift Detector: finds initiatives drifting from strategy, value, architecture, security or adoption.
+21. Human Control Contract: makes governed autonomy explicit and keeps high-risk execution under human approval.
+22. Decision SLA Enforcer: assigns decision deadlines and escalation thresholds before decision debt becomes operating risk.
+23. Vendor Exit Simulator: frames renegotiation, scope reduction, fallback and exit options for vendor dependency.
+24. Regulatory Shock Simulator: builds a minimum response pack for sudden audit, regulator, customer or compliance scrutiny.
+25. Cyber Business Impact Translator: turns cyber and control signals into business impact and executive choices.
+26. Talent Criticality Radar: detects key-person, scarce-skill and owner-capacity risks.
+27. Capital Allocation Copilot: converts budget, spend, forecast and value signals into funding trade-offs.
+28. Post Decision Learning Loop: captures assumptions, outcomes, lessons and memory updates after decisions.
+29. CIO OS Maturity Index: scores whether CIO work is ad hoc, a decision toolkit, governed copilot or operating system.
+30. Stakeholder Alignment Matrix: prepares persona-specific alignment risks, messages and evidence needs.
+31. Exception Waiver Factory: drafts governed waivers with scope, expiry, owner and compensating controls.
+32. Policy as Code Readiness: identifies governance rules that could become codified controls later.
+33. Benefits Realization Sentinel: detects value promises without owner, baseline, target or measurement date.
+34. Operating Rhythm Autopilot: recommends cadence, rituals and prepared inputs from decision pressure.
+35. Autonomous Escalation Drafts: prepares escalation messages and owner requests without sending them.
+36. Executive Decision Backlog: turns scattered decision debt into prioritized backlog items with routing.
+37. Enterprise Control Tower: shows decision readiness, board risk, evidence, truth gaps and decision debt as operating panels.
+38. M&A Carve-out Readiness: prepares integration, separation and carve-out readiness questions.
+39. Data Trust Radar: checks owner, metric definition, lineage, freshness and privacy controls for decision data.
+40. Architecture Runway Guardian: protects architecture capacity, integration readiness and technical-debt guardrails.
+41. Executive Narrative Generator: creates stakeholder-specific executive narratives without hiding uncertainty.
+42. Autonomous Due Diligence Questions: generates targeted diligence questions with evidence needs.
+43. Resilience Continuity Planner: drafts minimum continuity plans and first 24h actions.
+44. Customer Trust Impact Radar: translates service, billing, outage and recovery signals into trust exposure.
+45. AI Portfolio Governance: turns AI experiments into governed portfolio decisions.
+46. Cost of Delay Calculator: estimates qualitative cost of not deciding.
+47. Executive Commitment Tracker: tracks draft and prior commitments, owners, status and next checks.
+48. Decision Rights Mapper: clarifies approver, accountable owner, contributors and approval mode.
+49. OKR Strategy Fit Checker: checks whether work advances objectives, key results and value.
+50. Risk Acceptance Docket: drafts owned, time-boxed risk acceptance items with evidence needs.
+51. Service Health Sentinel: translates incidents, SLAs, outage and recovery signals into health posture.
+52. Knowledge Continuity Planner: reduces key-person and critical-knowledge concentration risk.
+53. Dependency Breakpoint Analyzer: identifies where enterprise dependencies can break execution.
+54. Transformation Kill Criteria: defines stop, change and continue triggers for weak-value initiatives.
+55. Vendor Negotiation Brief: prepares negotiation asks and fallback positions from vendor risk.
+56. Compliance Evidence Pack: drafts audit/control evidence-package structure.
+57. Board Decision Simulator: simulates board reactions to approval options.
+58. Operating Risk Heatmap: turns delivery, finance, security, customer and capacity signals into a heatmap.
+59. Autonomous Roadmap Reprioritizer: recommends what to promote, protect, pause or defer.
+60. Audit Finding Predictor: predicts likely audit findings before evidence gaps become findings.
+61. Platform Rationalization Advisor: recommends consolidation, retirement, renegotiation or stabilization.
+62. Data Sovereignty Radar: detects privacy, residency, retention and cross-border transfer readiness gaps.
+63. Operating Model Debt Ledger: captures unclear ownership, overloaded governance and decision bottlenecks.
+64. Strategic Option Portfolio: compares options by value posture, risk posture and next evidence.
+65. Executive Decision War Room: prepares roles, first 60 minutes and exit criteria for high-pressure decisions.
+66. Decision Liability Shield: shows which approvals would be indefensible without evidence, owner, controls or escalation.
+67. Executive Blind Spot Radar: detects hidden contradictions between positive narratives and risk, budget, control or dependency signals.
+68. Commitment Integrity Score: checks whether dates, scope, budget, capacity, controls, owner, recovery and reversibility support the commitment.
+69. Board Narrative Stress Test: tests planned Board wording against facts, missing evidence and CFO/CISO/Audit objections.
+70. Autonomous Decision Memory Diff: compares current context with prior assumptions, debt, claims and overdue actions.
+71. Value Realization Firewall: blocks expansion of weak-value initiatives until baseline, owner, adoption metric and value gate exist.
+72. Risk-to-Cash Translator: turns technical, security, audit and delivery risks into directional business exposure.
+73. Decision SLA Monitor: assigns decision deadlines before slow decisions become hidden operating risk.
+74. Control Evidence Readiness: checks whether audit, security, finance, architecture or AI controls are evidence-ready.
+75. Executive Attention Allocator: routes signals into act now, escalate, decide, delegate, monitor or ignore.
+76. Scenario Kill-Switch: defines stop, pause, defer or re-scope criteria before commitments are made.
+77. CIO Operating System Loop: closes the loop from signals to truth, risk chain, decision, action draft, memory and operating rhythm.
+78. Industrial CIO Operating System: turns ERP, MES, QMS, PLM, OT, production, audit, vendor and customer-channel signals into one CIO operating view.
+79. IT/OT Production Risk Command: maps shopfloor, integration, security, service and supplier risks into production-continuity decision gates.
+80. QMS Audit Evidence Readiness: checks whether IT-enabled changes, validation, access, incidents and controls are evidence-ready for audit or customer scrutiny.
+81. Connector Profile Catalog: defines safe signal contracts for Outlook, Teams, Slack, Gmail/Google Workspace, SharePoint, GitHub, TOPdesk and industrial file drops without live access.
+82. Skill Orchestration Runtime: detects request type and domains, selects the skill chain and returns one integrated decision-support bundle.
+83. LLM Extraction Contract: standardizes how Codex-host reasoning should classify facts, assumptions, weak signals, contradictions and evidence gaps.
+84. Explicit Memory Store Inspection: reviews saved local memory for stale assumptions, open decisions and draft actions without automatic persistence.
+85. Decision Export Package: writes local board, audit, steering, action-ledger and decision-log artifacts from one input.
+86. Connector Export Adapter: converts real local CSV/JSON/TXT/Markdown exports from service, delivery, document, meeting and industrial systems into normalized decision signals.
+87. Connector Profile Detection: detects likely connector profile from local export field names and content before adaptation.
+88. Office Export Package: generates local `.docx` and `.pptx` board/steering artifacts without external libraries or cloud services.
+89. Evidence Chain of Custody: makes executive evidence traceable by claim, source owner, verification status and missing chain links.
+90. Decision Rollback Planner: defines rollback triggers and actions for approvals made under uncertainty.
+91. Autonomy Risk Budget: keeps autonomous preparation bounded by risk, missing evidence and human-only controls.
+92. Approval Boundary Mapper: makes action, approval and human-only boundaries explicit before governed execution is considered.
+93. Evidence Expiry Monitor: flags stale-risk evidence and required refresh triggers before board, audit or approval use.
+94. Residual Risk Contract: turns residual-risk acceptance into explicit owner, conditions, expiry and rollback terms.
+95. Autonomy Stress Test: pressure-tests governed autonomy against stale evidence, missing approvals and human-control bypass risk.
+96. Decision Consequence Ledger: maps first- and second-order consequences, watch metrics and reversal signals for each option.
+97. Enterprise Friction Map: exposes decision, evidence, capacity, vendor and value friction slowing the enterprise operating system.
+98. Strategic Optionality Engine: identifies options that preserve future choices under uncertainty instead of forcing premature commitment.
+99. Control Debt Burndown: converts audit, access, privacy and control gaps into a prioritized evidence burndown plan.
+100. Executive Dissent Synthesizer: turns CFO, CISO, COO, Audit, architecture and customer objections into stronger decision conditions.
+101. Decision Backtest Simulator: compares current decisions against prior memory patterns and synthetic lessons before approval.
+102. Governance Drift Detector: detects recurring exceptions, bypass pressure and unclear accountability before controls erode.
+103. Budget Shock Absorber: prepares protect, freeze, renegotiate and stage-gate moves when budget pressure hits.
+104. Vendor Leverage Index: scores vendor leverage from dependency, milestone, evidence and fallback signals.
+105. Executive Narrative Diff: reconciles changed executive narratives before board, audit or customer communication.
+106. Optional Connector Router: routes Teams, Slack, email, calendar and document exports to the right adapter profile.
+107. Teams Decision Signal Adapter: converts Teams messages or exports into CIO decision, risk, owner and evidence signals.
+108. Slack Decision Signal Adapter: converts Slack exports into blockers, incidents, owner language and decision fragments.
+109. Email Executive Signal Adapter: converts Outlook or Gmail threads into approvals, commitments, evidence and escalation signals.
+110. Calendar Operating Rhythm Adapter: converts calendar exports into decision pressure, governance cadence and prep gaps.
+111. Delivery Work Management Adapter: converts Jira, Azure DevOps and GitHub exports into portfolio and roadmap signals.
+112. ITSM Service Management Adapter: converts ServiceNow, TOPdesk and ITSM exports into service health and change-risk signals.
+113. Cloud FinOps Adapter: converts Azure, AWS, GCP and cloud cost exports into budget and value-leakage signals.
+114. Security Risk Adapter: converts Defender, Sentinel, Splunk, Qualys or security exports into business risk and control debt.
+115. Enterprise Systems Adapter: converts ERP, SAP, CMDB and asset exports into process, dependency and modernization signals.
+116. Knowledge Document Adapter: converts Confluence, Google Drive, SharePoint and document exports into evidence and memory signals.
+
+## AI/KI signature mechanism
+
+The signature mechanism is the Decision Intelligence Loop:
+
+```text
+Signals -> Truth -> Risk Chain -> Options -> Actions -> Memory
+```
+
+1. Signals: extract weak and strong signals from provided updates, notes, exports and reports.
+2. Truth: classify facts, inferences, assumptions, hypotheses, political framing and missing evidence.
+3. Risk Chain: connect cascading dependencies across enterprise domains.
+4. Options: compare choices by impact, urgency, confidence, reversibility, value and readiness.
+5. Actions: prepare draft tasks, escalations, approvals, decision logs and communication language.
+6. Memory: structure decisions, assumptions, risks and commitments that should carry forward.
+
+The signature output is the Executive Decision Packet, supported by the dedicated `executive-decision-packet` skill. The flagship operating workflow is the Autonomous CIO Operating Review, supported by `autonomous-cio-operating-review`, which adds enterprise status, attention budget, action ledger, autonomy gate, memory update, CIO replacement surface, CIO work autonomy map, board objections, decision debt ledger, truth gaps, shadow agenda, risk forecast, decision SLA, vendor exit simulation, regulatory shock readiness, cyber business impact, talent criticality, capital allocation, post-decision learning, CIO OS maturity, stakeholder alignment, exception waiver drafting, policy-as-code readiness, benefits realization, operating rhythm autopilot, escalation drafts, executive decision backlog, enterprise control tower, carve-out readiness, data trust, architecture runway, executive narrative, due-diligence questions, resilience continuity, customer trust, AI portfolio governance, cost of delay, executive commitments, decision rights, OKR strategy fit, risk acceptance docket, service health, knowledge continuity, dependency breakpoints, transformation kill criteria, vendor negotiation brief, compliance evidence pack, board decision simulation, operating risk heatmap, roadmap reprioritization, audit finding prediction, platform rationalization, data sovereignty, operating-model debt, strategic option portfolio, decision war room, evidence chain of custody, decision rollback planner, autonomy risk budget, approval boundary mapping, evidence expiry monitoring, residual risk contracting, autonomy stress testing, decision consequence ledger, enterprise friction mapping, strategic optionality, control debt burndown, executive dissent synthesis, decision backtesting, governance drift detection, budget shock absorption, vendor leverage indexing, executive narrative diffing and human-control contract.
+
+Visible AI/KI mechanisms include evidence classification, weak signal ranking, contradiction detection, risk propagation, decision debt mining, board pressure simulation, value leakage detection, memory comparison, autonomy readiness scoring and visual decision intelligence.
+
+## Disruptive use cases
+
+- Find decision debt before it becomes delivery failure.
+- Expose value leakage hidden across projects, vendors, architecture and operations.
+- Convert fragmented updates into board-ready decision packets.
+- Detect strategy drift between stated priorities, budgets, projects and governance behavior.
+- Challenge investment, AI, vendor and transformation proposals before steering approval.
+- Build crisis command views that distinguish known facts, unknowns, decisions and communication needs.
+- Run industrial CIO operating reviews across IT/OT, ERP/MES/QMS, production continuity, audit evidence and vendor exposure without naming or depending on a specific company.
 
 ## MVP boundaries
 
-- No live data connectors in version 0.1.
-- No MCP server in version 0.1.
-- No dashboard UI in version 0.1.
+- No authenticated live data connectors in version 0.1; connector profiles and local file/directory ingestion are included.
+- No production MCP server in version 0.1; only an optional local MCP-compatible adapter for the Decision Intelligence Engine.
+- No hosted web app in version 0.1; the Visual Command Center is a static local dashboard.
 - Skills must clearly separate evidence, assumptions, hypotheses and missing data.
 - External actions are prepared as drafts only and are not executed automatically.
 
@@ -72,19 +292,91 @@ Most skills produce:
 ## Operating system files
 
 - `docs/skill-catalog.md`: maps leadership jobs to the right skill.
+- `docs/skill-suites.md`: groups the specialist skills into eight user-facing suites.
+- `docs/skill-operating-contract.md`: shared handoff contract so skills behave as one operating system.
+- `skills/index`: Sales-style router/frontdoor for broad Autonomous CIO requests.
+- `skills/user-context`: Sales-style preflight and plugin-scoped context layer.
+- `docs/autonomous-cio-operating-model.md`: governed CIO operating-system model.
+- `docs/autonomy-policy.md`: L0-L4 autonomy levels and human-only boundaries.
+- `docs/cio-autopilot-playbook.md`: flagship Autopilot Review workflow.
+- `docs/cio-replacement-surface.md`: what can be automated, drafted, decision-supported and human-only.
 - `docs/scoring-model.md`: common scoring language for urgency, impact, risk and confidence.
+- `docs/decision-intelligence-engine.md`: local Python runtime, CLI, optional MCP adapter, scores and visual command center.
 - `docs/prompt-pack.md`: ready-to-use prompts for executive, crisis, risk, AI governance and transformation work.
 - `docs/playbooks.md`: chained workflows for Board prep, crisis, AI approval, transformation and monthly CIO reviews.
+- `docs/proof-pack.md`: demo inputs and expected output shapes that prove the Decision Intelligence Loop.
+- `docs/optional-connectors.md`: optional Teams, Slack, email, calendar and document connector profiles.
 - `templates/executive-briefing.md`: reusable briefing format.
+- `templates/executive-decision-packet.md`: signature decision artifact format.
 - `templates/command-center-report.md`: reusable enterprise situation report format.
 - `templates/decision-memo.md`: reusable decision memo format.
 - `templates/risk-action-register.md`: reusable risk-to-action register.
 - `templates/board-pack-outline.md`: reusable board-pack structure.
 - `templates/executive-operating-review.md`: reusable monthly operating review.
+- `templates/decision-memory.md`: phase-2 starter template for reusable executive decisions.
+- `templates/assumption-register.md`: phase-2 starter template for assumptions that need validation.
+- `templates/evidence-graph.md`: phase-2 starter template for claims, evidence and confidence.
+- `templates/risk-chain-map.md`: phase-2 starter template for cascading risk paths.
+- `templates/action-ledger.md`: phase-2 starter template for draft actions and approvals.
+
+## Local Decision Intelligence Engine
+
+The package includes a local Python runtime in `engine/` for reproducible demo and smoke-test outputs. In Codex plugin usage, the Codex host LLM performs semantic extraction and executive reasoning; the local engine turns that structured context into deterministic scores, graphs, packets, memory updates, dashboard data and export packages. It can build Executive Decision Packets, score decision readiness, map risk chains, extract evidence graphs, compare provided context with local memory examples, inspect local memory stores, orchestrate skill chains, define connector profiles, ingest local files/directories and regenerate Visual Command Center data.
+
+```text
+python engine/cli.py build-decision-packet --input engine/examples/board_prep.json
+python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json
+python engine/cli.py autopilot-review --input engine/examples/industrial_operating_review.json
+python engine/cli.py autopilot-review --input engine/examples --memory engine/examples/memory.json
+python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json --format markdown
+python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json --format markdown --view compact
+python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json --format markdown --view board
+python engine/cli.py score --input engine/examples/board_prep.json
+python engine/cli.py map-risk-chain --input engine/examples/crisis.json
+python engine/cli.py extract-evidence-graph --input engine/examples/ai_governance.json
+python engine/cli.py compare-memory --input engine/examples/transformation_value.json --memory engine/examples/memory.json
+python engine/cli.py semantic-model --input engine/examples/board_prep.json
+python engine/cli.py simulate-scenarios --input engine/examples/board_prep.json
+python engine/cli.py audit-trail --input engine/examples/board_prep.json
+python engine/cli.py dashboard-data --input engine/examples/board_prep.json
+python engine/cli.py operating-rhythm --input engine/examples/board_prep.json
+python engine/cli.py benchmark --input engine/examples/board_prep.json
+python engine/cli.py ingest-signals --input engine/examples/connector_signals.json
+python engine/cli.py risk-graph --input engine/examples/board_prep.json
+python engine/cli.py trend-delta --input engine/examples/board_prep_with_prior.json
+python engine/cli.py export-review --input engine/examples/board_prep.json --format markdown
+python engine/cli.py privacy-scan --input engine/examples/ai_governance.json
+python engine/cli.py action-governance --input engine/examples/board_prep.json
+python engine/cli.py assurance --input engine/examples/board_prep.json
+python engine/cli.py assurance --input engine/examples/board_prep_llm_extracted.json
+python engine/cli.py decision-defense --input engine/examples/board_prep.json
+python engine/cli.py connector-profiles
+python engine/cli.py detect-connector-profile --input engine/examples/industrial_file_drop.csv
+python engine/cli.py adapt-connector-export --input engine/examples/topdesk_export.csv
+python engine/cli.py llm-extraction-contract --input engine/examples/industrial_operating_review.json
+python engine/cli.py orchestrate --input engine/examples/industrial_operating_review.json
+python engine/cli.py propose-memory-updates --input engine/examples/industrial_operating_review.json
+python engine/cli.py inspect-memory --memory engine/examples/memory.json
+python engine/cli.py export-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/industrial-review
+python engine/cli.py export-office-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/office-review
+python engine/cli.py import-context --input engine/examples/sample_import.csv
+python engine/cli.py build-from-file --input engine/examples/sample_import.csv
+python engine/cli.py dashboard-from-file --input engine/examples/sample_import.csv
+python engine/cli.py ingest-directory --input engine/examples
+python engine/cli.py refresh-dashboard --input engine/examples/board_prep.json --output visual-command-center/demo-data.json
+python engine/cli.py save-memory --input engine/examples/board_prep.json --memory .local-memory/demo-memory.json
+python engine/cli.py evaluate
+```
+
+Open `visual-command-center/index.html` for a local dashboard with JSON upload, JSON export, decision scores, evidence heatmap, risk chain, decision debt, board pressure, operating rhythm, benchmark, trend delta, quality grade, value-at-risk, board coverage, anti-patterns, attention budget, decision packet preview, memory update proposal, connector profile view and export readiness.
+
+The engine also includes connector-ready signal contracts for Teams, Slack, Outlook Email, Gmail/Google Workspace, Outlook Calendar, SharePoint, Google Drive, Confluence, Jira, Azure DevOps, GitHub, ServiceNow, TOPdesk, CMDB/assets, cloud cost, security findings, observability, ERP/SAP and finance CSV sources. Version 0.1 has real local file and directory ingestion plus profile-specific export adapters for local CSV/JSON/TXT/Markdown files, but no authenticated live SaaS connectors.
+
+`requirements.txt` is intentionally stdlib-only. `scripts/run-engine-smoke-tests.ps1` runs the local engine smoke suite and plugin validator.
 
 ## Disruptive intelligence layer
 
-The expanded skill set adds an enterprise nervous system around the core CIO workflows:
+The expanded skill set adds an enterprise nervous system around the Decision Intelligence Loop:
 
 - strategy drift detection across portfolio, budget, architecture and execution
 - decision debt discovery for unresolved choices and blocked accountability
@@ -101,6 +393,8 @@ The expanded skill set adds an enterprise nervous system around the core CIO wor
 - boardroom Q&A simulation for Audit, CEO, CFO, CISO and regulator perspectives
 - transformation value tracking that detects activity without value realization
 - orchestration logic that selects the right skill chain for ambiguous executive requests
+- governed CIO autopilot review from mixed context
+- CIO replacement surface that separates automated preparation, drafted work, decision support and human-only accountability
 
 ## Roadmap
 

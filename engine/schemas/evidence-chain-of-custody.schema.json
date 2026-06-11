@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence Chain of Custody",
+  "type": "object",
+  "required": ["custody_required", "custody_items", "missing_chain_links", "control_note"],
+  "properties": {
+    "custody_required": {"type": "boolean"},
+    "custody_items": {"type": "array", "items": {"type": "object"}},
+    "missing_chain_links": {"type": "array", "items": {"type": "string"}},
+    "control_note": {"type": "string"}
+  }
+}

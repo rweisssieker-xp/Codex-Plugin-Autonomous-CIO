@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIO Work Autonomy Map",
+  "type": "object",
+  "required": ["estimated_cio_work_prepared_percent", "task_decomposition", "human_accountability_boundary"],
+  "properties": {
+    "estimated_cio_work_prepared_percent": {"type": "integer", "minimum": 0, "maximum": 100},
+    "task_decomposition": {"type": "array", "items": {"type": "object"}},
+    "human_accountability_boundary": {"type": "string"}
+  }
+}

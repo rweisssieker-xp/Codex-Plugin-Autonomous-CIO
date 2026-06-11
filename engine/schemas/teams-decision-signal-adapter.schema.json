@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Teams Decision Signal Adapter",
+  "type": "object",
+  "required": ["normalized_signals", "risks_and_blockers", "evidence_gaps"],
+  "properties": {
+    "normalized_signals": {"type": "array", "items": {"type": "object"}},
+    "risks_and_blockers": {"type": "array", "items": {"type": "string"}},
+    "evidence_gaps": {"type": "array", "items": {"type": "string"}}
+  }
+}

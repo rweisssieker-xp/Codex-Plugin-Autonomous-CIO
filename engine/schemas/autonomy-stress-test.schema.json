@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomy Stress Test",
+  "type": "object",
+  "required": ["stress_score", "stress_posture", "stressors", "failure_modes", "required_safeguards"],
+  "properties": {
+    "stress_score": {"type": "integer", "minimum": 0, "maximum": 100},
+    "stress_posture": {"type": "string"},
+    "stressors": {"type": "array", "items": {"type": "string"}},
+    "failure_modes": {"type": "array", "items": {"type": "string"}},
+    "required_safeguards": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Operating Rhythm Autopilot",
+  "type": "object",
+  "required": ["recommended_cadence", "next_rituals", "auto_prepared_inputs", "rhythm_triggers"],
+  "properties": {
+    "recommended_cadence": {"type": "string"},
+    "next_rituals": {"type": "array", "items": {"type": "string"}},
+    "auto_prepared_inputs": {"type": "array", "items": {"type": "string"}},
+    "rhythm_triggers": {"type": "object"}
+  }
+}

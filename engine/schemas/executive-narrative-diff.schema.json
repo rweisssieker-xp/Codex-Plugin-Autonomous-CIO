@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Narrative Diff",
+  "type": "object",
+  "required": ["diff_detected", "current_narrative", "prior_narrative", "diffs", "reconciliation_questions", "diff_rule"],
+  "properties": {
+    "diff_detected": {"type": "boolean"},
+    "current_narrative": {"type": "string"},
+    "prior_narrative": {"type": "string"},
+    "diffs": {"type": "array", "items": {"type": "string"}},
+    "reconciliation_questions": {"type": "array", "items": {"type": "string"}},
+    "diff_rule": {"type": "string"}
+  }
+}

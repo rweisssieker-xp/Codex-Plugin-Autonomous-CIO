@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Review Artifact Export",
+  "type": "object",
+  "required": ["format", "content", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "format": { "type": "string", "enum": ["markdown", "json"] },
+    "content": {}
+  },
+  "additionalProperties": true
+}
+

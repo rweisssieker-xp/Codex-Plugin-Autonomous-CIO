@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Dissent Synthesizer",
+  "type": "object",
+  "required": ["dissent_count", "dissent_items", "synthesis_rule"],
+  "properties": {
+    "dissent_count": {"type": "integer", "minimum": 0},
+    "dissent_items": {"type": "array", "items": {"type": "object"}},
+    "synthesis_rule": {"type": "string"}
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cyber Business Impact Translator",
+  "type": "object",
+  "required": ["cyber_signal_count", "business_impacts", "executive_translation", "required_business_decision"],
+  "properties": {
+    "cyber_signal_count": {"type": "integer", "minimum": 0},
+    "business_impacts": {"type": "array", "items": {"type": "string"}},
+    "executive_translation": {"type": "string"},
+    "required_business_decision": {"type": "string"},
+    "source_signals": {"type": "array", "items": {"type": "string"}}
+  }
+}

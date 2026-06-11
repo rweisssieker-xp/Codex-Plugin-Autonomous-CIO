@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomous Due Diligence Questions",
+  "type": "object",
+  "required": ["question_count", "questions", "usage"],
+  "properties": {
+    "question_count": {"type": "integer", "minimum": 0},
+    "questions": {"type": "array", "items": {"type": "object"}},
+    "usage": {"type": "string"}
+  }
+}

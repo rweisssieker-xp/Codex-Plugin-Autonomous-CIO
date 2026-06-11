@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Decision War Room",
+  "type": "object",
+  "required": ["war_room_required", "roles", "first_60_minutes", "exit_criteria"],
+  "properties": {
+    "war_room_required": {"type": "boolean"},
+    "roles": {"type": "array", "items": {"type": "string"}},
+    "first_60_minutes": {"type": "array", "items": {"type": "string"}},
+    "exit_criteria": {"type": "string"}
+  }
+}

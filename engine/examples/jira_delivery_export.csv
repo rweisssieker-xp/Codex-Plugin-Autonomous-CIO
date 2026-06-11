@@ -1,0 +1,3 @@
+issue_key,issue_type,status,assignee,summary
+ERP-421,Epic,Blocked,PMO Lead,"ERP test environment is blocked by vendor recovery plan and unresolved integration dependency."
+IAM-119,Story,In Progress,Security Lead,"Privileged access remediation depends on the same architecture team as ERP."

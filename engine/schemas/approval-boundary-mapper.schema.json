@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Approval Boundary Mapper",
+  "type": "object",
+  "required": ["boundary_count", "approval_boundaries", "human_only_domains", "boundary_rule"],
+  "properties": {
+    "boundary_count": {"type": "integer", "minimum": 0},
+    "approval_boundaries": {"type": "array", "items": {"type": "object"}},
+    "human_only_domains": {"type": "array", "items": {"type": "string"}},
+    "boundary_rule": {"type": "string"}
+  }
+}

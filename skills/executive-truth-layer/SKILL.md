@@ -7,7 +7,7 @@ description: Separate facts, assumptions, hypotheses, political framing, narrati
 
 ## Mission
 
-Create an enterprise truth layer that helps leaders distinguish evidence from optimism, narrative, inference and missing data.
+Create the enterprise truth layer. Help leaders distinguish direct evidence from inference, optimism, narrative, political framing and missing proof.
 
 ## Inputs
 
@@ -16,10 +16,23 @@ Accept board packs, status reports, steering notes, risk updates, transformation
 ## Workflow
 
 1. Extract claims, facts, metrics, decisions, risks, assumptions and implied conclusions.
-2. Classify each claim as fact, inference, hypothesis, assumption, narrative framing or missing evidence.
-3. Detect contradictions, unsupported confidence, vague ownership and optimism bias.
+2. Classify each claim as fact, inference, hypothesis, assumption, narrative framing, contradiction or missing evidence.
+3. Detect unsupported confidence, vague ownership, optimism bias, political framing and decision liability risk.
 4. Rate evidence strength and executive decision risk.
-5. Recommend validation steps and language corrections.
+5. Rewrite risky language into defensible board wording.
+6. Produce a handoff block with exact facts, assumptions, hypotheses, narratives, contradictions and missing evidence.
+7. Flag any claim that could become indefensible if repeated in a board pack without proof.
+
+## Chain Alignment
+
+Do not solve the full decision unless asked. Your primary job is truth classification. Downstream skills depend on your labels:
+
+- Facts must be directly supported by provided context.
+- Inferences must be marked as inference.
+- Assumptions must be testable.
+- Hypotheses must be framed as possible explanations.
+- Narratives must be treated as stakeholder framing, not proof.
+- Missing evidence must be written as concrete evidence requests.
 
 ## Output Format
 
@@ -27,10 +40,11 @@ Accept board packs, status reports, steering notes, risk updates, transformation
 - Truth Layer Table
 - Unsupported Claims
 - Contradictions
+- Narrative / Political Framing
 - Evidence Gaps
-- Executive Risk
+- Decision Liability Risks
 - Recommended Corrections
-- Evidence & Assumptions
+- Handoff to Risk Chain / Decision Packet
 
 ## Guardrails
 

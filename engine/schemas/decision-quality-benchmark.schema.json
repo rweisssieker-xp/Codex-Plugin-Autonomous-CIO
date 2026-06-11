@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Quality Benchmark",
+  "type": "object",
+  "required": ["decision_quality_benchmark", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "decision_quality_benchmark": {
+      "type": "object",
+      "required": ["raw_input_quality", "missing_evidence_rate", "assumption_rate", "board_question_coverage", "before_after"]
+    }
+  },
+  "additionalProperties": true
+}
+

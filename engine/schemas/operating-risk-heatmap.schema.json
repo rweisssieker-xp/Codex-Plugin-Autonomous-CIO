@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Operating Risk Heatmap",
+  "type": "object",
+  "required": ["heatmap", "red_domains", "operator_note"],
+  "properties": {
+    "heatmap": {"type": "array", "items": {"type": "object"}},
+    "red_domains": {"type": "array", "items": {"type": "string"}},
+    "operator_note": {"type": "string"}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Packet Trend Delta",
+  "type": "object",
+  "required": ["trend_delta", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "trend_delta": {
+      "type": "object",
+      "required": ["available", "summary", "score_delta", "new_risks", "resolved_risks"]
+    }
+  },
+  "additionalProperties": true
+}
+

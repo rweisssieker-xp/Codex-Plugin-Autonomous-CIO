@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Scenario Simulation",
+  "type": "object",
+  "required": ["scenario_simulation", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "scenario_simulation": { "type": "array" }
+  },
+  "additionalProperties": true
+}
+

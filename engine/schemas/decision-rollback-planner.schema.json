@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Rollback Planner",
+  "type": "object",
+  "required": ["rollback_needed", "decision_options", "rollback_triggers", "rollback_actions", "reversibility_note"],
+  "properties": {
+    "rollback_needed": {"type": "boolean"},
+    "decision_options": {"type": "array", "items": {"type": "string"}},
+    "rollback_triggers": {"type": "array", "items": {"type": "string"}},
+    "rollback_actions": {"type": "array", "items": {"type": "string"}},
+    "reversibility_note": {"type": "string"}
+  }
+}

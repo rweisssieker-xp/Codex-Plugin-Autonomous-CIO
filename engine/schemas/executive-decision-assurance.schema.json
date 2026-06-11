@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Decision Assurance",
+  "type": "object",
+  "required": [
+    "llm_extraction_layer",
+    "entity_resolution",
+    "causal_decision_graph",
+    "counterfactual_simulation",
+    "decision_twin",
+    "board_question_coverage",
+    "narrative_risk_detector",
+    "decision_anti_patterns",
+    "red_team_blue_team",
+    "executive_attention_budget",
+    "decision_latency_tracker",
+    "value_at_risk_estimate",
+    "governance_control_map",
+    "meeting_to_decision_diff",
+    "decision_packet_quality_grade",
+    "executive_decision_assurance",
+    "facts",
+    "assumptions",
+    "hypotheses",
+    "missing_evidence",
+    "confidence",
+    "recommended_action",
+    "guardrails"
+  ],
+  "additionalProperties": true
+}
+

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIO Replacement Surface",
+  "type": "object",
+  "required": ["automated_or_deterministic", "drafted_by_plugin", "decision_supported", "human_only", "replacement_note"],
+  "properties": {
+    "automated_or_deterministic": { "type": "array", "items": { "type": "string" } },
+    "drafted_by_plugin": { "type": "array", "items": { "type": "string" } },
+    "decision_supported": { "type": "array", "items": { "type": "string" } },
+    "human_only": { "type": "array", "items": { "type": "string" } },
+    "replacement_note": { "type": "string" }
+  },
+  "additionalProperties": true
+}

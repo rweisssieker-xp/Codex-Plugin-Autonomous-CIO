@@ -1,0 +1,3 @@
+number,sys_id,category,priority,state,short_description,cmdb_ci,assignment_group,platform
+INC0012345,SNOW001,Incident,1,Open,"Billing integration outage affects key customers",Billing API,Operations,ServiceNow
+CHG0012346,SNOW002,Change,2,Assess,"ERP cutover change lacks approved evidence package",ERP Core,Change Management,ServiceNow

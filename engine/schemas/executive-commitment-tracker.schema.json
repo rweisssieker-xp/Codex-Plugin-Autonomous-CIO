@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Commitment Tracker",
+  "type": "object",
+  "required": ["commitment_count", "commitments", "tracker_note"],
+  "properties": {
+    "commitment_count": {"type": "integer", "minimum": 0},
+    "commitments": {"type": "array", "items": {"type": "object"}},
+    "tracker_note": {"type": "string"}
+  }
+}

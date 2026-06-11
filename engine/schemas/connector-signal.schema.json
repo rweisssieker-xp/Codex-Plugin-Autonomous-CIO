@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Connector-Ready Enterprise Signal",
+  "type": "object",
+  "required": ["signal_id", "source_type", "observed_at", "summary", "domain", "evidence_ref", "confidence"],
+  "properties": {
+    "signal_id": { "type": "string" },
+    "source_type": {
+      "type": "string",
+      "enum": ["teams", "outlook", "sharepoint", "azure-devops", "github", "topdesk", "finance-csv", "manual"]
+    },
+    "observed_at": { "type": "string" },
+    "summary": { "type": "string" },
+    "domain": { "type": "string" },
+    "entity_refs": { "type": "array", "items": { "type": "string" } },
+    "owner_ref": { "type": "string" },
+    "evidence_ref": { "type": "string" },
+    "confidence": { "type": "string", "enum": ["High", "Medium", "Low"] },
+    "actionability": { "type": "string", "enum": ["ignore", "monitor", "delegate", "decide", "escalate", "act-now"] }
+  },
+  "additionalProperties": true
+}
+

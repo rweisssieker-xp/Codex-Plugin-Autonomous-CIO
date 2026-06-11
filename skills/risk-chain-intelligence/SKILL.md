@@ -7,7 +7,7 @@ description: Map cascading risk paths across projects, systems, data, security, 
 
 ## Mission
 
-Expose how one risk can propagate across enterprise dependencies and become a larger business event.
+Expose how one signal can propagate through enterprise dependencies and become a business, board, customer, audit or security event.
 
 ## Inputs
 
@@ -15,11 +15,19 @@ Accept risk registers, project dependencies, architecture context, security find
 
 ## Workflow
 
-1. Extract risk nodes, affected assets, triggers, dependencies and controls.
-2. Map propagation paths across domains.
-3. Identify amplifiers such as weak ownership, missing controls, shared resources, vendor lock-in and technical debt.
-4. Rank chains by likelihood, impact, velocity, detectability and containment readiness.
-5. Recommend containment, monitoring, decision gates and escalation triggers.
+1. Start from the truth-layer handoff. Keep facts, assumptions and hypotheses separate.
+2. Extract risk nodes, affected assets, triggers, dependencies and controls.
+3. Map propagation paths across project, architecture, security, compliance, finance, vendor, operations and organization domains.
+4. Identify amplifiers such as weak ownership, missing controls, shared resources, vendor lock-in, scarce skills and technical debt.
+5. Rank chains by likelihood, impact, velocity, detectability and containment readiness.
+6. Translate each chain into business exposure: cost, customer trust, audit/control, security, resilience, delivery or reputation.
+7. Define scenario kill-switches where the chain should trigger pause, escalation, deferral or risk acceptance.
+
+## Chain Shape
+
+Use this structure:
+
+`Signal -> Dependency -> Amplifier -> Business Impact -> Decision Pressure -> Control / Evidence Gate`
 
 ## Output Format
 
@@ -28,8 +36,10 @@ Accept risk registers, project dependencies, architecture context, security find
 - Critical Propagation Paths
 - Amplifiers
 - Trigger Points
+- Risk-to-Cash Translation
 - Containment Actions
 - Escalation Rules
+- Scenario Kill-Switch
 - Evidence & Assumptions
 - Missing Data
 

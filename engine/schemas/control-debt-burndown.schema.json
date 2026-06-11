@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Control Debt Burndown",
+  "type": "object",
+  "required": ["control_debt_count", "burndown_items", "burndown_rule"],
+  "properties": {
+    "control_debt_count": {"type": "integer", "minimum": 0},
+    "burndown_items": {"type": "array", "items": {"type": "object"}},
+    "burndown_rule": {"type": "string"}
+  }
+}

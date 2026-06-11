@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Board Objection Simulator",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["persona", "likely_objection", "weak_answer_risk", "evidence_needed"],
+    "properties": {
+      "persona": {"type": "string"},
+      "likely_objection": {"type": "string"},
+      "weak_answer_risk": {"type": "string"},
+      "evidence_needed": {"type": "string"}
+    }
+  }
+}

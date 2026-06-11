@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Slack Decision Signal Adapter",
+  "type": "object",
+  "required": ["normalized_signals", "blockers", "escalation_candidates"],
+  "properties": {
+    "normalized_signals": {"type": "array", "items": {"type": "object"}},
+    "blockers": {"type": "array", "items": {"type": "string"}},
+    "escalation_candidates": {"type": "array", "items": {"type": "string"}}
+  }
+}

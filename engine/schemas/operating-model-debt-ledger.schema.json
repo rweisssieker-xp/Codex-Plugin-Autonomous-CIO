@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Operating Model Debt Ledger",
+  "type": "object",
+  "required": ["debt_count", "items", "ledger_note"],
+  "properties": {
+    "debt_count": {"type": "integer", "minimum": 0},
+    "items": {"type": "array", "items": {"type": "object"}},
+    "ledger_note": {"type": "string"}
+  }
+}

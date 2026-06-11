@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vendor Exit Simulator",
+  "type": "object",
+  "required": ["exit_pressure", "vendor_signals", "exit_options", "exit_readiness_gaps"],
+  "properties": {
+    "exit_pressure": {"type": "string"},
+    "vendor_signals": {"type": "array", "items": {"type": "string"}},
+    "exit_options": {"type": "array", "items": {"type": "string"}},
+    "exit_readiness_gaps": {"type": "array", "items": {"type": "string"}},
+    "decision_note": {"type": "string"}
+  }
+}

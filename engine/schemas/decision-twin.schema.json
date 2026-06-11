@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Twin",
+  "type": "object",
+  "required": ["decision", "assumptions", "options", "consequences"],
+  "properties": {
+    "decision": { "type": "string" },
+    "assumptions": { "type": "array" },
+    "options": { "type": "array" },
+    "consequences": { "type": "array" }
+  },
+  "additionalProperties": true
+}

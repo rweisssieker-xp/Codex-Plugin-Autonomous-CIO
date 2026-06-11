@@ -1,0 +1,3 @@
+ticket_id,service,priority,status,summary,owner
+T-1001,ERP Cutover,High,Open,Change window risk because rollback owner and validation evidence are incomplete,Service Owner
+T-1002,Shopfloor Support,Medium,Open,Privileged shared account remains active on production support workstation,CISO Office

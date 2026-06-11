@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Strategic Drift Detector",
+  "type": "object",
+  "required": ["drift_status", "drift_signals", "kill_switch_question", "recommended_gate"],
+  "properties": {
+    "drift_status": {"type": "string", "enum": ["Green", "Amber", "Red"]},
+    "drift_signals": {"type": "array", "items": {"type": "string"}},
+    "kill_switch_question": {"type": "string"},
+    "recommended_gate": {"type": "string"}
+  }
+}

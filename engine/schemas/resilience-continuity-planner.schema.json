@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resilience Continuity Planner",
+  "type": "object",
+  "required": ["resilience_pressure", "continuity_signals", "minimum_plan", "first_24h_actions"],
+  "properties": {
+    "resilience_pressure": {"type": "string"},
+    "continuity_signals": {"type": "array", "items": {"type": "string"}},
+    "minimum_plan": {"type": "array", "items": {"type": "string"}},
+    "first_24h_actions": {"type": "array", "items": {"type": "string"}}
+  }
+}

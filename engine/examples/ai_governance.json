@@ -1,0 +1,14 @@
+{
+  "title": "Support Ticket LLM Summarization Approval",
+  "audience": "AI governance board",
+  "domains": ["ai", "privacy", "security", "operations", "customer"],
+  "decision_request": "Approve, defer or conditionally approve the support ticket LLM use case.",
+  "context": [
+    "Support wants to summarize customer tickets with an LLM using historical incident text, customer names and resolution notes.",
+    "No data owner has approved it yet.",
+    "The business case claims 20% productivity improvement, but no baseline exists.",
+    "Retention policy for model inputs is not documented.",
+    "Human review is expected but not yet designed."
+  ]
+}
+

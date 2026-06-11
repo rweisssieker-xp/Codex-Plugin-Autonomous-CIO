@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Calendar Operating Rhythm Adapter",
+  "type": "object",
+  "required": ["decision_pressure_signals", "governance_events", "operating_rhythm_recommendations"],
+  "properties": {
+    "decision_pressure_signals": {"type": "array", "items": {"type": "object"}},
+    "governance_events": {"type": "array", "items": {"type": "object"}},
+    "operating_rhythm_recommendations": {"type": "array", "items": {"type": "string"}}
+  }
+}

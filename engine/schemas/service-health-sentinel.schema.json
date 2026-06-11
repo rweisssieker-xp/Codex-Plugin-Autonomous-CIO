@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Service Health Sentinel",
+  "type": "object",
+  "required": ["service_health", "service_signals", "health_dimensions", "next_health_check"],
+  "properties": {
+    "service_health": {"type": "string"},
+    "service_signals": {"type": "array", "items": {"type": "string"}},
+    "health_dimensions": {"type": "array", "items": {"type": "string"}},
+    "next_health_check": {"type": "string"}
+  }
+}

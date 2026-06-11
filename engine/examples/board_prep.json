@@ -1,0 +1,24 @@
+{
+  "title": "ERP Board Go-Live Decision",
+  "audience": "Board technology committee",
+  "domains": ["portfolio", "audit", "security", "finance", "architecture"],
+  "decision_request": "Decide whether to approve ERP go-live, defer go-live, or approve only with conditions.",
+  "meeting_notes": [
+    "ERP steering committee says go-live is still targeted for 30 September.",
+    "Testing has not started because the test environment is late.",
+    "Vendor missed two integration milestones.",
+    "The same two architects support ERP, IAM remediation and CRM rollout.",
+    "Sponsor wants to avoid another board escalation."
+  ],
+  "risk_register": [
+    "R-17: ERP test readiness, Red, owner PMO, mitigation not approved.",
+    "R-22: Privileged access remediation dependency, Amber, owner CISO office.",
+    "R-31: Change-control audit evidence incomplete, Amber, owner IT controls."
+  ],
+  "budget_update": [
+    "ERP contingency reserve is 82% consumed.",
+    "Cloud migration spend is 18% above forecast.",
+    "No additional architecture capacity is funded."
+  ]
+}
+

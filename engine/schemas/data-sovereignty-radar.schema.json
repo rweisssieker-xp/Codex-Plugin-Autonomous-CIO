@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Sovereignty Radar",
+  "type": "object",
+  "required": ["sovereignty_risk", "sovereignty_signals", "required_checks", "approval_gate"],
+  "properties": {
+    "sovereignty_risk": {"type": "string"},
+    "sovereignty_signals": {"type": "array", "items": {"type": "string"}},
+    "required_checks": {"type": "array", "items": {"type": "string"}},
+    "approval_gate": {"type": "string"}
+  }
+}

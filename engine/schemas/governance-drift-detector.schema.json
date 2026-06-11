@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Governance Drift Detector",
+  "type": "object",
+  "required": ["drift_detected", "drift_items", "open_action_pressure", "drift_rule"],
+  "properties": {
+    "drift_detected": {"type": "boolean"},
+    "drift_items": {"type": "array", "items": {"type": "object"}},
+    "open_action_pressure": {"type": "integer", "minimum": 0},
+    "drift_rule": {"type": "string"}
+  }
+}

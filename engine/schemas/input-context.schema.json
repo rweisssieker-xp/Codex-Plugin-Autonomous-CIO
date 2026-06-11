@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Intelligence Input Context",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "audience": { "type": "string" },
+    "domains": { "type": "array", "items": { "type": "string" } },
+    "decision_request": { "type": "string" },
+    "meeting_notes": { "type": "array", "items": { "type": "string" } },
+    "risk_register": { "type": "array", "items": { "type": "string" } },
+    "budget_update": { "type": "array", "items": { "type": "string" } },
+    "context": { "type": "array", "items": { "type": "string" } },
+    "signals": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}
+

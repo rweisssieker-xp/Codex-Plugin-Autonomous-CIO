@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Strategic Optionality Engine",
+  "type": "object",
+  "required": ["optionality_preserved", "options", "recommended_pattern"],
+  "properties": {
+    "optionality_preserved": {"type": "boolean"},
+    "options": {"type": "array", "items": {"type": "object"}},
+    "recommended_pattern": {"type": "string"}
+  }
+}

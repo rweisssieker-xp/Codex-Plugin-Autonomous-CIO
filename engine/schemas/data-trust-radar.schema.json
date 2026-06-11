@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Trust Radar",
+  "type": "object",
+  "required": ["trust_level", "trust_signals", "missing_trust_evidence", "required_controls"],
+  "properties": {
+    "trust_level": {"type": "string"},
+    "trust_signals": {"type": "array", "items": {"type": "string"}},
+    "missing_trust_evidence": {"type": "array", "items": {"type": "string"}},
+    "required_controls": {"type": "array", "items": {"type": "string"}}
+  }
+}

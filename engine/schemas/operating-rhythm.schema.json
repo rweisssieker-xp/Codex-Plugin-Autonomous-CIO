@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomous CIO Operating Rhythm",
+  "type": "object",
+  "required": ["operating_rhythm", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "operating_rhythm": {
+      "type": "object",
+      "required": ["cadence", "daily_signal_scan", "weekly_decision_debt_review", "monthly_operating_review"]
+    }
+  },
+  "additionalProperties": true
+}
+
