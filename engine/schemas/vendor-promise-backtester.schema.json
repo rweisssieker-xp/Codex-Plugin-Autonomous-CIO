@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vendor Promise Backtester",
+  "type": "object",
+  "required": ["artifact", "vendor_promise_backtester", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Vendor Promise Backtester"},
+    "vendor_promise_backtester": {
+      "type": "object",
+      "required": ["vendor_promises", "contrary_signals", "promise_reliability_score", "negotiation_posture"],
+      "properties": {
+        "vendor_promises": {"type": "array"},
+        "contrary_signals": {"type": "array"},
+        "promise_reliability_score": {"type": "integer", "minimum": 0, "maximum": 100},
+        "negotiation_posture": {"type": "string"},
+        "memory_outcome_count": {"type": "integer"}
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence Decay Forecast",
+  "type": "object",
+  "required": ["artifact", "evidence_decay_forecast", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Evidence Decay Forecast"},
+    "evidence_decay_forecast": {
+      "type": "object",
+      "required": ["evidence_items", "high_decay_count", "next_refresh_due"],
+      "properties": {
+        "evidence_items": {"type": "array"},
+        "high_decay_count": {"type": "integer"},
+        "next_refresh_due": {"type": "string"}
+      }
+    }
+  }
+}

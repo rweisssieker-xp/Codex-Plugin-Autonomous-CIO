@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomy Contract Engine",
+  "type": "object",
+  "required": ["artifact", "autonomy_contract_engine", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Autonomy Contract Engine"},
+    "autonomy_contract_engine": {
+      "type": "object",
+      "required": ["contract_status", "clauses", "detected_high_risk_terms"],
+      "properties": {
+        "contract_status": {"type": "string"},
+        "clauses": {"type": "array"},
+        "autonomy_gate": {"type": "object"},
+        "risk_budget": {"type": "object"},
+        "detected_high_risk_terms": {"type": "array"},
+        "context_signal_count": {"type": "integer"}
+      }
+    }
+  }
+}

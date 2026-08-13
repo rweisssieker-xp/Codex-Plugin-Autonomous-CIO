@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kill-Criteria Sentinel",
+  "type": "object",
+  "required": ["artifact", "kill_criteria_sentinel", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Kill-Criteria Sentinel"},
+    "kill_criteria_sentinel": {
+      "type": "object",
+      "required": ["criteria", "active_kill_criteria", "kill_pressure"],
+      "properties": {
+        "criteria": {"type": "array"},
+        "active_kill_criteria": {"type": "array"},
+        "kill_pressure": {"type": "string"},
+        "transformation_kill_criteria": {"type": "object"}
+      }
+    }
+  }
+}

@@ -22,6 +22,7 @@ from office_export import build_board_pack  # noqa: E402
 from eval_runner import run_evals  # noqa: E402
 from decision_behavior import build_decision_dna  # noqa: E402
 from enterprise_operating_intelligence import build_executive_weekly_brief, build_weekly_operating_autopilot  # noqa: E402
+from executive_autonomy_innovation import allocate_executive_attention, backtest_vendor_promises, build_autonomy_contract_engine, build_benefit_realization_memory, build_control_debt_ledger, build_decision_chain_of_custody, build_enterprise_contradiction_memory, build_enterprise_operating_twin, build_kill_criteria_sentinel, build_operating_rhythm_autopilot_v2, detect_strategic_drift_early_warning, forecast_evidence_decay, map_cio_replacement_surface, measure_decision_latency_cost, simulate_synthetic_executive_committee  # noqa: E402
 from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena  # noqa: E402
 from learning_loop import learning_digest, record_feedback, record_outcome  # noqa: E402
 from learning_loop import board_question_memory, record_skill_chain_feedback  # noqa: E402
@@ -67,6 +68,16 @@ class Handler(SimpleHTTPRequestHandler):
             qs = parse_qs(parsed.query)
             db = qs.get("db", [str(ROOT / ".local-memory" / "autonomous_cio.db")])[0]
             self._json(build_enterprise_decision_ledger(db))
+            return
+        if parsed.path == "/api/benefit-realization-memory":
+            qs = parse_qs(parsed.query)
+            db = qs.get("db", [str(ROOT / ".local-memory" / "autonomous_cio.db")])[0]
+            self._json(build_benefit_realization_memory(db))
+            return
+        if parsed.path == "/api/operating-rhythm-autopilot-v2":
+            qs = parse_qs(parsed.query)
+            db = qs.get("db", [str(ROOT / ".local-memory" / "autonomous_cio.db")])[0]
+            self._json(build_operating_rhythm_autopilot_v2(db))
             return
         return super().do_GET()
 
@@ -115,6 +126,32 @@ class Handler(SimpleHTTPRequestHandler):
                 self._json(build_delegation_planner(payload.get("context", payload)))
             elif self.path == "/api/narrative-integrity":
                 self._json(detect_narrative_integrity(payload.get("context", payload)))
+            elif self.path == "/api/enterprise-operating-twin":
+                self._json(build_enterprise_operating_twin(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/autonomy-contract":
+                self._json(build_autonomy_contract_engine(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/decision-chain-custody":
+                self._json(build_decision_chain_of_custody(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/executive-attention":
+                self._json(allocate_executive_attention(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/kill-criteria-sentinel":
+                self._json(build_kill_criteria_sentinel(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/strategic-drift-warning":
+                self._json(detect_strategic_drift_early_warning(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/vendor-promise-backtest":
+                self._json(backtest_vendor_promises(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/decision-latency-cost":
+                self._json(measure_decision_latency_cost(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/evidence-decay-forecast":
+                self._json(forecast_evidence_decay(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/synthetic-executive-committee":
+                self._json(simulate_synthetic_executive_committee(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/control-debt-ledger":
+                self._json(build_control_debt_ledger(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/enterprise-contradiction-memory":
+                self._json(build_enterprise_contradiction_memory(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/cio-replacement-surface-map":
+                self._json(map_cio_replacement_surface(payload.get("context", payload), payload.get("db")))
             elif self.path == "/api/export-weekly-brief":
                 db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio.db"))
                 output_dir = payload.get("output_dir", str(ROOT / ".local-export" / "weekly-brief"))

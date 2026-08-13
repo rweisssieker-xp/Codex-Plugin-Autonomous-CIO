@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Operating Rhythm Autopilot",
+  "type": "object",
+  "required": ["artifact", "operating_rhythm_autopilot", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Operating Rhythm Autopilot"},
+    "operating_rhythm_autopilot": {
+      "type": "object",
+      "required": ["db_path", "cadences", "decision_count", "review_count", "outcome_count", "next_operating_actions"],
+      "properties": {
+        "db_path": {"type": "string"},
+        "cadences": {"type": "array"},
+        "decision_count": {"type": "integer"},
+        "review_count": {"type": "integer"},
+        "outcome_count": {"type": "integer"},
+        "aging": {"type": "object"},
+        "next_operating_actions": {"type": "array"}
+      }
+    }
+  }
+}

@@ -15,6 +15,7 @@ try:
     from enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
     from eval_runner import eval_report, run_evals
     from evidence_quality import score_evidence_quality
+    from executive_autonomy_innovation import allocate_executive_attention, backtest_vendor_promises, build_autonomy_contract_engine, build_benefit_realization_memory, build_control_debt_ledger, build_decision_chain_of_custody, build_enterprise_contradiction_memory, build_enterprise_operating_twin, build_kill_criteria_sentinel, build_operating_rhythm_autopilot_v2, detect_strategic_drift_early_warning, forecast_evidence_decay, map_cio_replacement_surface, measure_decision_latency_cost, simulate_synthetic_executive_committee
     from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
     from learning_loop import board_question_memory, calibrate_scores, learn_patterns, learning_digest, recommendation_backtest, record_feedback, record_outcome, record_skill_chain_feedback, source_reputation
     from memory_store import init_memory_db, memory_aging, migrate_memory_json, query_memory_db, save_review_to_db, sla_digest, sla_monitor
@@ -29,6 +30,7 @@ except ImportError:  # pragma: no cover - package execution path
     from .enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
     from .eval_runner import eval_report, run_evals
     from .evidence_quality import score_evidence_quality
+    from .executive_autonomy_innovation import allocate_executive_attention, backtest_vendor_promises, build_autonomy_contract_engine, build_benefit_realization_memory, build_control_debt_ledger, build_decision_chain_of_custody, build_enterprise_contradiction_memory, build_enterprise_operating_twin, build_kill_criteria_sentinel, build_operating_rhythm_autopilot_v2, detect_strategic_drift_early_warning, forecast_evidence_decay, map_cio_replacement_surface, measure_decision_latency_cost, simulate_synthetic_executive_committee
     from .governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
     from .learning_loop import board_question_memory, calibrate_scores, learn_patterns, learning_digest, recommendation_backtest, record_feedback, record_outcome, record_skill_chain_feedback, source_reputation
     from .memory_store import init_memory_db, memory_aging, migrate_memory_json, query_memory_db, save_review_to_db, sla_digest, sla_monitor
@@ -309,6 +311,29 @@ def main(argv: list[str] | None = None) -> int:
         cmd = sub.add_parser(name)
         cmd.add_argument("--input", required=True, help="Path to input JSON context")
 
+    for name in (
+        "enterprise-operating-twin",
+        "autonomy-contract",
+        "decision-chain-custody",
+        "executive-attention",
+        "kill-criteria-sentinel",
+        "strategic-drift-warning",
+        "vendor-promise-backtest",
+        "decision-latency-cost",
+        "evidence-decay-forecast",
+        "synthetic-executive-committee",
+        "control-debt-ledger",
+        "enterprise-contradiction-memory",
+        "cio-replacement-surface-map",
+    ):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--input", required=True, help="Path to input JSON context")
+        cmd.add_argument("--db", default=None, help="Optional local SQLite memory DB")
+
+    for name in ("benefit-realization-memory", "operating-rhythm-autopilot-v2"):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+
     args = parser.parse_args(argv)
 
     try:
@@ -350,6 +375,8 @@ def main(argv: list[str] | None = None) -> int:
             "enterprise-decision-ledger",
             "weekly-operating-autopilot",
             "executive-weekly-brief",
+            "benefit-realization-memory",
+            "operating-rhythm-autopilot-v2",
         }
         input_context = None if args.command in no_input_commands else _read_json(args.input) if args.command not in file_commands else None
         if args.command == "build-decision-packet":
@@ -540,6 +567,36 @@ def main(argv: list[str] | None = None) -> int:
             result = build_executive_weekly_brief(args.db, args.output_dir, args.format)
         elif args.command == "delegation-planner":
             result = build_delegation_planner(input_context)
+        elif args.command == "enterprise-operating-twin":
+            result = build_enterprise_operating_twin(input_context, args.db)
+        elif args.command == "autonomy-contract":
+            result = build_autonomy_contract_engine(input_context, args.db)
+        elif args.command == "decision-chain-custody":
+            result = build_decision_chain_of_custody(input_context, args.db)
+        elif args.command == "executive-attention":
+            result = allocate_executive_attention(input_context, args.db)
+        elif args.command == "kill-criteria-sentinel":
+            result = build_kill_criteria_sentinel(input_context, args.db)
+        elif args.command == "benefit-realization-memory":
+            result = build_benefit_realization_memory(args.db)
+        elif args.command == "strategic-drift-warning":
+            result = detect_strategic_drift_early_warning(input_context, args.db)
+        elif args.command == "vendor-promise-backtest":
+            result = backtest_vendor_promises(input_context, args.db)
+        elif args.command == "decision-latency-cost":
+            result = measure_decision_latency_cost(input_context, args.db)
+        elif args.command == "evidence-decay-forecast":
+            result = forecast_evidence_decay(input_context, args.db)
+        elif args.command == "synthetic-executive-committee":
+            result = simulate_synthetic_executive_committee(input_context, args.db)
+        elif args.command == "control-debt-ledger":
+            result = build_control_debt_ledger(input_context, args.db)
+        elif args.command == "operating-rhythm-autopilot-v2":
+            result = build_operating_rhythm_autopilot_v2(args.db)
+        elif args.command == "enterprise-contradiction-memory":
+            result = build_enterprise_contradiction_memory(input_context, args.db)
+        elif args.command == "cio-replacement-surface-map":
+            result = map_cio_replacement_surface(input_context, args.db)
         else:
             parser.error(f"unknown command: {args.command}")
             return 2

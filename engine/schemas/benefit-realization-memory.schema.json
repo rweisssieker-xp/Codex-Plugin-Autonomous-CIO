@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Benefit Realization Memory",
+  "type": "object",
+  "required": ["artifact", "benefit_realization_memory", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Benefit Realization Memory"},
+    "benefit_realization_memory": {
+      "type": "object",
+      "required": ["db_path", "benefits", "decision_count", "outcome_count", "unproven_benefit_count"],
+      "properties": {
+        "db_path": {"type": "string"},
+        "benefits": {"type": "array"},
+        "decision_count": {"type": "integer"},
+        "outcome_count": {"type": "integer"},
+        "review_count": {"type": "integer"},
+        "unproven_benefit_count": {"type": "integer"}
+      }
+    }
+  }
+}

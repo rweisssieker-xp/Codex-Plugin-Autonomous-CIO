@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enterprise Operating Twin",
+  "type": "object",
+  "required": ["artifact", "enterprise_operating_twin", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Enterprise Operating Twin"},
+    "enterprise_operating_twin": {
+      "type": "object",
+      "required": ["systems", "owners", "vendors", "controls", "risk_chains", "memory_counts", "operating_model_completeness"],
+      "properties": {
+        "systems": {"type": "array"},
+        "owners": {"type": "array"},
+        "vendors": {"type": "array"},
+        "controls": {"type": "array"},
+        "risk_chains": {"type": "array"},
+        "decision_backlog": {"type": "object"},
+        "memory_counts": {"type": "object"},
+        "operating_model_completeness": {"type": "integer", "minimum": 0, "maximum": 100}
+      }
+    }
+  }
+}

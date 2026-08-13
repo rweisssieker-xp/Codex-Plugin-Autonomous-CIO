@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Synthetic Executive Committee",
+  "type": "object",
+  "required": ["artifact", "synthetic_executive_committee", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Synthetic Executive Committee"},
+    "synthetic_executive_committee": {
+      "type": "object",
+      "required": ["committee", "committee_size", "lowest_answer_readiness"],
+      "properties": {
+        "committee": {"type": "array"},
+        "committee_size": {"type": "integer"},
+        "lowest_answer_readiness": {"type": "integer", "minimum": 0, "maximum": 100},
+        "memory_board_question_count": {"type": "integer"}
+      }
+    }
+  }
+}

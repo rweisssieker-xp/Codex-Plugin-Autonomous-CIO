@@ -74,6 +74,21 @@
       <button onclick="postContext('/api/simulation-arena')">Simulation Arena</button>
       <button onclick="postContext('/api/delegation-planner')">Delegation Planner</button>
       <button onclick="postContext('/api/narrative-integrity')">Narrative Integrity</button>
+      <button onclick="postContext('/api/enterprise-operating-twin', {db: dbPath.value})">Operating Twin</button>
+      <button onclick="postContext('/api/autonomy-contract', {db: dbPath.value})">Autonomy Contract</button>
+      <button onclick="postContext('/api/decision-chain-custody', {db: dbPath.value})">Chain of Custody</button>
+      <button onclick="postContext('/api/executive-attention', {db: dbPath.value})">Attention Allocator</button>
+      <button onclick="postContext('/api/kill-criteria-sentinel', {db: dbPath.value})">Kill Criteria</button>
+      <button onclick="get('/api/benefit-realization-memory?db=' + encodeURIComponent(dbPath.value))">Benefit Memory</button>
+      <button onclick="postContext('/api/strategic-drift-warning', {db: dbPath.value})">Strategic Drift</button>
+      <button onclick="postContext('/api/vendor-promise-backtest', {db: dbPath.value})">Vendor Backtest</button>
+      <button onclick="postContext('/api/decision-latency-cost', {db: dbPath.value})">Latency Cost</button>
+      <button onclick="postContext('/api/evidence-decay-forecast', {db: dbPath.value})">Evidence Decay</button>
+      <button onclick="postContext('/api/synthetic-executive-committee', {db: dbPath.value})">Exec Committee</button>
+      <button onclick="postContext('/api/control-debt-ledger', {db: dbPath.value})">Control Debt</button>
+      <button onclick="get('/api/operating-rhythm-autopilot-v2?db=' + encodeURIComponent(dbPath.value))">Rhythm Autopilot</button>
+      <button onclick="postContext('/api/enterprise-contradiction-memory', {db: dbPath.value})">Contradiction Memory</button>
+      <button onclick="postContext('/api/cio-replacement-surface-map', {db: dbPath.value})">Replacement Surface</button>
       <button class="secondary" onclick="get('/api/evals')">Run Evals</button>
     </section>
     <section>

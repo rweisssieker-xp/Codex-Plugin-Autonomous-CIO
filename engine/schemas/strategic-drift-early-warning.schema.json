@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Strategic Drift Early Warning",
+  "type": "object",
+  "required": ["artifact", "strategic_drift_early_warning", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Strategic Drift Early Warning"},
+    "strategic_drift_early_warning": {
+      "type": "object",
+      "required": ["drift_items", "drift_count", "warning_level"],
+      "properties": {
+        "drift_items": {"type": "array"},
+        "drift_count": {"type": "integer"},
+        "memory_aging_pressure": {"type": "integer", "minimum": 0, "maximum": 100},
+        "warning_level": {"type": "string"}
+      }
+    }
+  }
+}

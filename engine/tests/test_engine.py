@@ -55,6 +55,7 @@ from decision_twin import run_decision_twin  # noqa: E402
 from enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction  # noqa: E402
 from eval_runner import run_evals  # noqa: E402
 from evidence_quality import score_evidence_quality  # noqa: E402
+from executive_autonomy_innovation import allocate_executive_attention, backtest_vendor_promises, build_autonomy_contract_engine, build_benefit_realization_memory, build_control_debt_ledger, build_decision_chain_of_custody, build_enterprise_contradiction_memory, build_enterprise_operating_twin, build_kill_criteria_sentinel, build_operating_rhythm_autopilot_v2, detect_strategic_drift_early_warning, forecast_evidence_decay, map_cio_replacement_surface, measure_decision_latency_cost, simulate_synthetic_executive_committee  # noqa: E402
 from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision  # noqa: E402
 from learning_loop import board_question_memory, calibrate_scores, learn_patterns, learning_digest, recommendation_backtest, record_feedback, record_outcome, record_skill_chain_feedback, source_reputation  # noqa: E402
 from memory_store import init_memory_db, memory_aging, query_memory_db, save_review_to_db, sla_monitor  # noqa: E402
@@ -793,6 +794,79 @@ class DecisionIntelligenceEngineTests(unittest.TestCase):
         shadow = shadow_cost_of_inaction(board)
         self.assertGreaterEqual(shadow["shadow_cost_of_inaction"]["cost_count"], 1)
         self.assert_invariants(shadow)
+
+    def test_executive_autonomy_innovation_modules(self):
+        context = self.load_example("industrial_operating_review.json")
+        board = self.load_example("board_prep.json")
+        with tempfile.TemporaryDirectory() as tmp:
+            db = Path(tmp) / "memory.db"
+            init_memory_db(str(db))
+            save_review_to_db(context, str(db))
+            record_outcome(self.load_example("learning_outcome.json"), str(db))
+            board_question_memory(self.load_example("board_questions.json"), str(db))
+
+            operating_twin = build_enterprise_operating_twin(context, str(db))
+            self.assertIn("operating_model_completeness", operating_twin["enterprise_operating_twin"])
+            self.assert_invariants(operating_twin)
+
+            autonomy_contract = build_autonomy_contract_engine(context, str(db))
+            self.assertTrue(autonomy_contract["autonomy_contract_engine"]["clauses"])
+            self.assertFalse(autonomy_contract["autonomy_contract_engine"]["clauses"][0]["external_execution_allowed"])
+            self.assert_invariants(autonomy_contract)
+
+            custody = build_decision_chain_of_custody(context, str(db))
+            self.assertTrue(custody["decision_chain_of_custody"]["packet_fingerprint"].startswith("local-"))
+            self.assert_invariants(custody)
+
+            attention = allocate_executive_attention(context, str(db))
+            self.assertTrue(attention["executive_attention_allocator"]["allocation"])
+            self.assert_invariants(attention)
+
+            kill = build_kill_criteria_sentinel(board, str(db))
+            self.assertIn(kill["kill_criteria_sentinel"]["kill_pressure"], {"Low", "Medium", "High"})
+            self.assert_invariants(kill)
+
+            benefits = build_benefit_realization_memory(str(db))
+            self.assertGreaterEqual(benefits["benefit_realization_memory"]["decision_count"], 1)
+            self.assert_invariants(benefits)
+
+            drift = detect_strategic_drift_early_warning(context, str(db))
+            self.assertIn("warning_level", drift["strategic_drift_early_warning"])
+            self.assert_invariants(drift)
+
+            vendor = backtest_vendor_promises(context, str(db))
+            self.assertGreaterEqual(vendor["vendor_promise_backtester"]["promise_reliability_score"], 0)
+            self.assertLessEqual(vendor["vendor_promise_backtester"]["promise_reliability_score"], 100)
+            self.assert_invariants(vendor)
+
+            latency = measure_decision_latency_cost(context, str(db))
+            self.assertIn(latency["decision_latency_cost_meter"]["recommended_decision_sla"], {"24h", "7d", "30d"})
+            self.assert_invariants(latency)
+
+            decay = forecast_evidence_decay(context, str(db))
+            self.assertTrue(decay["evidence_decay_forecast"]["evidence_items"])
+            self.assert_invariants(decay)
+
+            committee = simulate_synthetic_executive_committee(context, str(db))
+            self.assertEqual(committee["synthetic_executive_committee"]["committee_size"], 6)
+            self.assert_invariants(committee)
+
+            control_debt = build_control_debt_ledger(context, str(db))
+            self.assertIn("control_debt_count", control_debt["control_debt_ledger"])
+            self.assert_invariants(control_debt)
+
+            rhythm = build_operating_rhythm_autopilot_v2(str(db))
+            self.assertEqual(len(rhythm["operating_rhythm_autopilot"]["cadences"]), 4)
+            self.assert_invariants(rhythm)
+
+            contradiction = build_enterprise_contradiction_memory(board, str(db))
+            self.assertIn("recurrence_risk", contradiction["enterprise_contradiction_memory"])
+            self.assert_invariants(contradiction)
+
+            replacement = map_cio_replacement_surface(context, str(db))
+            self.assertGreaterEqual(replacement["cio_replacement_surface_map"]["estimated_cio_work_prepared_percent"], 0)
+            self.assertFalse(any(item.get("automation_level") == "external_execution_allowed" for item in replacement["cio_replacement_surface_map"]["surfaces"]))
+            self.assert_invariants(replacement)
 
     def test_cli_autopilot_review_outputs_json_and_markdown(self):
         json_command = [

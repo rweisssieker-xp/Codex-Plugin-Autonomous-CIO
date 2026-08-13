@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Latency Cost Meter",
+  "type": "object",
+  "required": ["artifact", "decision_latency_cost_meter", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Decision Latency Cost Meter"},
+    "decision_latency_cost_meter": {
+      "type": "object",
+      "required": ["delay_signal_count", "daily_pressure_score", "seven_day_compounded_pressure", "thirty_day_compounded_pressure", "recommended_decision_sla"],
+      "properties": {
+        "delay_signal_count": {"type": "integer"},
+        "daily_pressure_score": {"type": "integer", "minimum": 0, "maximum": 100},
+        "seven_day_compounded_pressure": {"type": "integer", "minimum": 0, "maximum": 100},
+        "thirty_day_compounded_pressure": {"type": "integer", "minimum": 0, "maximum": 100},
+        "cost_domains": {"type": "array"},
+        "recommended_decision_sla": {"type": "string"}
+      }
+    }
+  }
+}

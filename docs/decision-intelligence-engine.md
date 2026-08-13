@@ -168,6 +168,7 @@ The productized local runtime adds 15 concrete operating-system features around 
 - Adaptive CIO OS USP modules for Decision DNA, Accountability Graph, Friction Score, Collision Detection, Risk Appetite Twin, Board Memory, Shadow Cost of Inaction, Decision Ledger, Control Traceability, Vendor Truth, Narrative Integrity, Simulation Arena, Weekly Autopilot, Strategic Contradictions and Delegation Planning.
 - Executive Weekly Brief export that turns the weekly autopilot into local Markdown and HTML files.
 - Guided local demo flow that seeds realistic demo memory and renders the weekly brief in the local web app.
+- Executive autonomy innovation modules for Enterprise Operating Twin, Autonomy Contract, Decision Chain of Custody, Executive Attention Allocation, Kill-Criteria Sentinel, Benefit Realization Memory, Strategic Drift Warning, Vendor Promise Backtest, Decision Latency Cost, Evidence Decay Forecast, Synthetic Executive Committee, Control Debt Ledger, Operating Rhythm Autopilot, Enterprise Contradiction Memory and CIO Replacement Surface Map.
 
 ## Adaptive CIO Learning Loop
 

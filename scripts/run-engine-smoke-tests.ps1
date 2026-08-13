@@ -76,6 +76,21 @@ $weeklyBriefDir = Join-Path $env:TEMP "acio-weekly-brief-smoke"
 if (Test-Path $weeklyBriefDir) { Remove-Item -LiteralPath $weeklyBriefDir -Recurse -Force }
 python engine\cli.py executive-weekly-brief --db $dbPath --output-dir $weeklyBriefDir --format both | Out-Null
 python engine\cli.py delegation-planner --input engine\examples\board_prep.json | Out-Null
+python engine\cli.py enterprise-operating-twin --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py autonomy-contract --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py decision-chain-custody --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py executive-attention --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py kill-criteria-sentinel --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py benefit-realization-memory --db $dbPath | Out-Null
+python engine\cli.py strategic-drift-warning --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py vendor-promise-backtest --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py decision-latency-cost --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py evidence-decay-forecast --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py synthetic-executive-committee --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py control-debt-ledger --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py operating-rhythm-autopilot-v2 --db $dbPath | Out-Null
+python engine\cli.py enterprise-contradiction-memory --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py cio-replacement-surface-map --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
 python engine\cli.py discover-sources --path engine\examples | Out-Null
 python engine\cli.py pull-signals --input engine\examples\topdesk_export.csv | Out-Null
 python engine\cli.py ingest-bundle --input engine\examples --db $dbPath | Out-Null
@@ -109,6 +124,22 @@ try {
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/simulation-arena" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/delegation-planner" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/narrative-integrity" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
+  $webPayloadWithDb = '{"db":"' + ($dbPath -replace '\\','\\') + '","context":{"decision_request":"Prepare a board decision on ERP go-live","context":["Testing has not started because the environment is late.","Audit evidence for change control is incomplete.","Budget reserve is nearly consumed.","Vendor milestone slipped and recovery evidence is missing."]}}'
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/enterprise-operating-twin" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/autonomy-contract" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/decision-chain-custody" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/executive-attention" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/kill-criteria-sentinel" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/benefit-realization-memory?db=$dbPath" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/strategic-drift-warning" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/vendor-promise-backtest" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/decision-latency-cost" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/evidence-decay-forecast" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/synthetic-executive-committee" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/control-debt-ledger" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/operating-rhythm-autopilot-v2?db=$dbPath" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/enterprise-contradiction-memory" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/cio-replacement-surface-map" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   $weeklyExportPayload = @{ db = $dbPath; output_dir = "$weeklyBriefDir-web"; format = "both" } | ConvertTo-Json -Compress
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/export-weekly-brief" -Method Post -Body $weeklyExportPayload -ContentType "application/json" -UseBasicParsing | Out-Null
 } finally {

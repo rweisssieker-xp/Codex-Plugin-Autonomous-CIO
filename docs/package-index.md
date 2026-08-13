@@ -28,7 +28,7 @@
 | Skills | 133 skills in `skills/` |
 | Docs | 31 docs in `docs/` |
 | Templates | 102 templates in `templates/` |
-| Schemas | 140 JSON schemas in `engine/schemas/` |
+| Schemas | 155 JSON schemas in `engine/schemas/` |
 | Engine | Local Python Decision Intelligence Engine |
 | Web app | Local stdlib CIO OS app |
 | Dashboard | Static Visual Command Center |
@@ -144,6 +144,21 @@
 - CIO Weekly Operating Autopilot
 - Executive Weekly Brief
 - Guided Demo Flow
+- Enterprise Operating Twin
+- Autonomy Contract Engine
+- Decision Chain of Custody
+- Executive Attention Allocator
+- Kill-Criteria Sentinel
+- Benefit Realization Memory
+- Strategic Drift Early Warning
+- Vendor Promise Backtester
+- Decision Latency Cost Meter
+- Evidence Decay Forecast
+- Synthetic Executive Committee
+- Control Debt Ledger
+- Operating Rhythm Autopilot
+- Enterprise Contradiction Memory
+- CIO Replacement Surface Map
 - Strategic Contradiction Radar
 - Autonomous Delegation Planner
 - Local file and directory ingestion

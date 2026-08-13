@@ -46,6 +46,7 @@ The engine provides:
 - explicit adaptive learning loop for feedback, outcomes, score calibration, source reputation, board-question memory and recommendation backtests
 - 15 Adaptive CIO OS USP modules plus Executive Weekly Brief export for decision behavior, operating intelligence and governed execution intelligence
 - guided US-English local demo flow with seeded memory and readable weekly brief rendering
+- 15 Executive Autonomy Innovation modules for operating-twin modeling, autonomy contracts, custody, attention allocation, kill criteria, benefit memory, strategic drift, vendor backtesting, latency cost, evidence decay, synthetic executive challenge, control debt, operating rhythm, contradiction memory and CIO replacement-surface mapping
 
 ## Signature USP Groups
 
@@ -124,7 +125,7 @@ python -m unittest engine.tests.test_engine
 | Skills | 133 |
 | Docs | 31 |
 | Templates | 102 |
-| Engine schemas | 140 |
+| Engine schemas | 155 |
 | Runtime | Local Python engine |
 | Local app | Stdlib web app under `app/` |
 | Dashboard | Static Visual Command Center |

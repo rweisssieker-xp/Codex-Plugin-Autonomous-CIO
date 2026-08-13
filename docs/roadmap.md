@@ -29,6 +29,7 @@ This roadmap evolves The Autonomous CIO from a connector-neutral skill-first MVP
 - Add adaptive learning commands for feedback capture, outcome review, learned pattern extraction and recommendation backtesting.
 - Add operating intelligence commands for accountability graphs, friction scoring, decision collisions, strategic contradictions and weekly CIO autopilot.
 - Add governed execution intelligence commands for decision ledgers, control traceability, vendor truth, narrative integrity, simulation arena and delegation planning.
+- Add executive autonomy innovation commands for operating-twin modeling, autonomy contracts, decision custody, attention allocation, kill criteria, benefit realization memory, strategic drift, vendor promise backtesting, latency cost, evidence decay, synthetic executive challenge, control debt, operating rhythm, contradiction memory and CIO replacement-surface mapping.
 - Support reproducible analysis over provided JSON context and demo examples.
 - Keep external actions draft-only; action commands produce JSON/Markdown-style payloads and never execute external work.
 - Customer value: fragmented inputs become traceable decision packets with visible evidence, dependencies and score explanations.

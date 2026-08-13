@@ -143,6 +143,21 @@ The output can be generated in three practical views:
 - CIO Weekly Operating Autopilot
 - Executive Weekly Brief
 - Guided Demo Flow
+- Enterprise Operating Twin
+- Autonomy Contract Engine
+- Decision Chain of Custody
+- Executive Attention Allocator
+- Kill-Criteria Sentinel
+- Benefit Realization Memory
+- Strategic Drift Early Warning
+- Vendor Promise Backtester
+- Decision Latency Cost Meter
+- Evidence Decay Forecast
+- Synthetic Executive Committee
+- Control Debt Ledger
+- Operating Rhythm Autopilot
+- Enterprise Contradiction Memory
+- CIO Replacement Surface Map
 - Strategic Contradiction Radar
 - Autonomous Delegation Planner
 - Connector Profile Catalog
@@ -161,7 +176,7 @@ The output can be generated in three practical views:
 - 133 connector-neutral Codex skills
 - 31 documentation files
 - 102 reusable templates
-- 140 JSON schemas
+- 155 JSON schemas
 - Local Python engine with CLI smoke tests
 - Local stdlib web app for ingestion, packet building, memory browsing, policy checks, exports and eval reports
 - Seeded demo memory and guided weekly-brief flow for proof-first review

@@ -100,7 +100,7 @@ python engine/cli.py executive-weekly-brief --db .local-memory/autonomous_cio_de
 | `docs/` | Marketplace, architecture, proof, smoke-test and operating-model documentation |
 | `templates/` | 102 reusable executive and governance templates |
 | `engine/` | Local Python Decision Intelligence Engine |
-| `engine/schemas/` | 140 JSON schemas for engine artifacts |
+| `engine/schemas/` | 155 JSON schemas for engine artifacts |
 | `engine/examples/` | Demo inputs for board prep, crisis, AI governance and transformation scenarios |
 | `app/` | Stdlib local CIO OS web app |
 | `visual-command-center/` | Static local dashboard demo |
@@ -274,6 +274,21 @@ Markdown output views:
 150. Autonomous Delegation Planner: drafts owner-specific delegation requests with evidence needs, due dates and escalation paths.
 151. Executive Weekly Brief: exports the Monday CIO operating brief as Markdown and HTML from local decision memory.
 152. Guided Demo Flow: seeds demo memory, builds packets, saves memory, records outcomes, generates the weekly brief and exports proof artifacts from one local UI.
+153. Enterprise Operating Twin: builds a local CIO operating model across systems, owners, vendors, controls, risks and memory counts.
+154. Autonomy Contract Engine: turns decision context into explicit suggest-only, draft-allowed, approval-required and human-only clauses.
+155. Decision Chain of Custody: fingerprints the packet and traces facts, assumptions and missing evidence for audit-grade review.
+156. Executive Attention Allocator: converts board risk, value leakage, decision debt, vendor pressure and control debt into a CIO attention budget.
+157. Kill-Criteria Sentinel: makes stop, pause and re-scope triggers visible before transformation work drifts into default continuation.
+158. Benefit Realization Memory: compares local decisions with recorded outcomes to expose unproven benefits.
+159. Strategic Drift Early Warning: detects divergence between strategy, budget, security, architecture, vendors and operating execution.
+160. Vendor Promise Backtester: challenges vendor commitments against weak signals, missing evidence and local outcome memory.
+161. Decision Latency Cost Meter: scores the cost of delayed decisions and proposes a decision SLA.
+162. Evidence Decay Forecast: predicts which evidence will become stale before board, audit or approval review.
+163. Synthetic Executive Committee: simulates CEO, CFO, CISO, Audit Chair, COO and Board Director challenge pressure.
+164. Control Debt Ledger: inventories security, audit, privacy, change and vendor control debt tied to the current decision.
+165. Operating Rhythm Autopilot: turns local memory into weekly, monthly, quarterly and annual CIO operating cadences.
+166. Enterprise Contradiction Memory: exposes recurring contradictions such as on-track narratives against testing, budget or control gaps.
+167. CIO Replacement Surface Map: separates CIO work the plugin can prepare from approval-gated and human-only accountability.
 
 ## AI Signature Mechanism
 

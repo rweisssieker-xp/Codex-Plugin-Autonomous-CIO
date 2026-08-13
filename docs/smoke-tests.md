@@ -168,6 +168,7 @@ Expected:
 - local web app responds at `http://127.0.0.1:8765` when started
 - adaptive learning commands record explicit local feedback and outcomes, produce calibration and backtest hints, and state that no external model is trained
 - all 15 adaptive CIO OS USP modules return valid JSON, preserve guardrails and stay decision-support only
+- all 15 executive autonomy innovation modules return valid JSON, preserve guardrails and stay decision-support only
 - executive-weekly-brief writes non-empty Markdown and HTML files when an output directory is provided
 - seed-demo-memory creates a populated local demo DB for the guided web flow
 - import context converts CSV, JSON, TXT or Markdown into input context

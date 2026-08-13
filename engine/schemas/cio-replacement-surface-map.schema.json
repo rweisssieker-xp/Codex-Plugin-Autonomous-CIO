@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIO Replacement Surface Map",
+  "type": "object",
+  "required": ["artifact", "cio_replacement_surface_map", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "CIO Replacement Surface Map"},
+    "cio_replacement_surface_map": {
+      "type": "object",
+      "required": ["surfaces", "estimated_cio_work_prepared_percent", "human_only_count", "blocked_execution_count", "replacement_boundary"],
+      "properties": {
+        "surfaces": {"type": "array"},
+        "estimated_cio_work_prepared_percent": {"type": "integer", "minimum": 0, "maximum": 100},
+        "human_only_count": {"type": "integer"},
+        "blocked_execution_count": {"type": "integer"},
+        "existing_cio_work_autonomy_map": {"type": "object"},
+        "replacement_boundary": {"type": "string"}
+      }
+    }
+  }
+}

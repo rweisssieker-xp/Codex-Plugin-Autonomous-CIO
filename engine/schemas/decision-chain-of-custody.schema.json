@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Chain of Custody",
+  "type": "object",
+  "required": ["artifact", "decision_chain_of_custody", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Decision Chain of Custody"},
+    "decision_chain_of_custody": {
+      "type": "object",
+      "required": ["chain", "chain_count", "packet_fingerprint", "audit_posture"],
+      "properties": {
+        "chain": {"type": "array"},
+        "chain_count": {"type": "integer"},
+        "packet_fingerprint": {"type": "string"},
+        "review_required": {"type": "boolean"},
+        "audit_posture": {"type": "string"}
+      }
+    }
+  }
+}

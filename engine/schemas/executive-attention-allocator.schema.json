@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executive Attention Allocator",
+  "type": "object",
+  "required": ["artifact", "executive_attention_allocator", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Executive Attention Allocator"},
+    "executive_attention_allocator": {
+      "type": "object",
+      "required": ["allocation", "top_focus", "total_recommended_minutes"],
+      "properties": {
+        "allocation": {"type": "array"},
+        "top_focus": {"type": "string"},
+        "total_recommended_minutes": {"type": "integer"}
+      }
+    }
+  }
+}

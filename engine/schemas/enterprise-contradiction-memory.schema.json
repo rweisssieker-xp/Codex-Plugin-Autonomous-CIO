@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enterprise Contradiction Memory",
+  "type": "object",
+  "required": ["artifact", "enterprise_contradiction_memory", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Enterprise Contradiction Memory"},
+    "enterprise_contradiction_memory": {
+      "type": "object",
+      "required": ["contradictions", "contradiction_count", "recurrence_risk"],
+      "properties": {
+        "contradictions": {"type": "array"},
+        "contradiction_count": {"type": "integer"},
+        "memory_collision_count": {"type": "integer"},
+        "recurrence_risk": {"type": "string"}
+      }
+    }
+  }
+}

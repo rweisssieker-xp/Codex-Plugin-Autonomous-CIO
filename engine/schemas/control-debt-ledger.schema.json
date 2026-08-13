@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Control Debt Ledger",
+  "type": "object",
+  "required": ["artifact", "control_debt_ledger", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Control Debt Ledger"},
+    "control_debt_ledger": {
+      "type": "object",
+      "required": ["control_debt_items", "control_debt_count", "burndown_required", "highest_severity"],
+      "properties": {
+        "control_debt_items": {"type": "array"},
+        "control_debt_count": {"type": "integer"},
+        "burndown_required": {"type": "boolean"},
+        "highest_severity": {"type": "string"}
+      }
+    }
+  }
+}
