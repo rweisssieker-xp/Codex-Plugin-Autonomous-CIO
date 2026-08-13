@@ -2,7 +2,7 @@
 
 from .action_drafting import draft_actions
 from .decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
-from .enterprise_operating_intelligence import build_accountability_graph, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
+from .enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
 from .governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
 from .decision_intelligence_engine import (
     analyze_risk_graph,
@@ -74,6 +74,7 @@ __all__ = [
     "build_decision_dna",
     "build_delegation_planner",
     "build_enterprise_decision_ledger",
+    "build_executive_weekly_brief",
     "build_risk_appetite_twin",
     "build_weekly_operating_autopilot",
     "build_decision_packet",

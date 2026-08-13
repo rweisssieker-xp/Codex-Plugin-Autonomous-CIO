@@ -84,6 +84,7 @@ python engine/cli.py vendor-truth-index --input engine/examples/industrial_opera
 python engine/cli.py narrative-integrity --input engine/examples/board_prep.json
 python engine/cli.py simulation-arena --input engine/examples/board_prep.json
 python engine/cli.py weekly-operating-autopilot --db .local-memory/autonomous_cio.db
+python engine/cli.py executive-weekly-brief --db .local-memory/autonomous_cio.db --output-dir .local-export/weekly-brief --format both
 python engine/cli.py strategic-contradictions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
 python engine/cli.py delegation-planner --input engine/examples/board_prep.json
 python engine/cli.py import-context --input engine/examples/sample_import.csv
@@ -164,6 +165,7 @@ The productized local runtime adds 15 concrete operating-system features around 
 - Versioned schemas for memory, policy, evidence quality, decision twin, bundles, drafts, profiles and eval reports.
 - Explicit adaptive learning loop for feedback, outcomes, skill-chain ratings, board-question memory, score calibration, learned patterns, source reputation and recommendation backtests.
 - Adaptive CIO OS USP modules for Decision DNA, Accountability Graph, Friction Score, Collision Detection, Risk Appetite Twin, Board Memory, Shadow Cost of Inaction, Decision Ledger, Control Traceability, Vendor Truth, Narrative Integrity, Simulation Arena, Weekly Autopilot, Strategic Contradictions and Delegation Planning.
+- Executive Weekly Brief export that turns the weekly autopilot into local Markdown and HTML files.
 
 ## Adaptive CIO Learning Loop
 

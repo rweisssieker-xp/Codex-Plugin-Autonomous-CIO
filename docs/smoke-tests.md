@@ -110,6 +110,7 @@ python engine/cli.py vendor-truth-index --input engine/examples/industrial_opera
 python engine/cli.py narrative-integrity --input engine/examples/board_prep.json
 python engine/cli.py simulation-arena --input engine/examples/board_prep.json
 python engine/cli.py weekly-operating-autopilot --db .local-memory/autonomous_cio.db
+python engine/cli.py executive-weekly-brief --db .local-memory/autonomous_cio.db --output-dir .local-export/weekly-brief --format both
 python engine/cli.py strategic-contradictions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
 python engine/cli.py delegation-planner --input engine/examples/board_prep.json
 python engine/cli.py import-context --input engine/examples/sample_import.csv
@@ -166,6 +167,7 @@ Expected:
 - local web app responds at `http://127.0.0.1:8765` when started
 - adaptive learning commands record explicit local feedback and outcomes, produce calibration and backtest hints, and state that no external model is trained
 - all 15 adaptive CIO OS USP modules return valid JSON, preserve guardrails and stay decision-support only
+- executive-weekly-brief writes non-empty Markdown and HTML files when an output directory is provided
 - import context converts CSV, JSON, TXT or Markdown into input context
 - build-from-file converts local files directly into Executive Decision Packets
 - dashboard-from-file and refresh-dashboard generate Visual Command Center JSON from real engine output

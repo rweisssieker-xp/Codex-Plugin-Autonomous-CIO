@@ -28,7 +28,7 @@
 | Skills | 133 skills in `skills/` |
 | Docs | 31 docs in `docs/` |
 | Templates | 102 templates in `templates/` |
-| Schemas | 139 JSON schemas in `engine/schemas/` |
+| Schemas | 140 JSON schemas in `engine/schemas/` |
 | Engine | Local Python Decision Intelligence Engine |
 | Web app | Local stdlib CIO OS app |
 | Dashboard | Static Visual Command Center |
@@ -142,6 +142,7 @@
 - Narrative Integrity Detector
 - Decision Simulation Arena
 - CIO Weekly Operating Autopilot
+- Executive Weekly Brief
 - Strategic Contradiction Radar
 - Autonomous Delegation Planner
 - Local file and directory ingestion

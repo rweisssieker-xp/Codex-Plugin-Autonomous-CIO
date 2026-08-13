@@ -71,6 +71,9 @@ python engine\cli.py vendor-truth-index --input engine\examples\industrial_opera
 python engine\cli.py narrative-integrity --input engine\examples\board_prep.json | Out-Null
 python engine\cli.py simulation-arena --input engine\examples\board_prep.json | Out-Null
 python engine\cli.py weekly-operating-autopilot --db $dbPath | Out-Null
+$weeklyBriefDir = Join-Path $env:TEMP "acio-weekly-brief-smoke"
+if (Test-Path $weeklyBriefDir) { Remove-Item -LiteralPath $weeklyBriefDir -Recurse -Force }
+python engine\cli.py executive-weekly-brief --db $dbPath --output-dir $weeklyBriefDir --format both | Out-Null
 python engine\cli.py delegation-planner --input engine\examples\board_prep.json | Out-Null
 python engine\cli.py discover-sources --path engine\examples | Out-Null
 python engine\cli.py pull-signals --input engine\examples\topdesk_export.csv | Out-Null
@@ -89,7 +92,7 @@ python engine\cli.py dashboard-from-file --input engine\examples\sample_import.c
 python engine\cli.py ingest-directory --input engine\examples | Out-Null
 python engine\cli.py refresh-dashboard --input engine\examples\board_prep.json --output visual-command-center\demo-data.json | Out-Null
 python engine\cli.py evaluate | Out-Null
-$webPort = 8765
+$webPort = 18765
 $webProc = Start-Process -FilePath "python" -ArgumentList "app\server.py --port $webPort" -WorkingDirectory (Get-Location) -PassThru -WindowStyle Hidden
 try {
   Start-Sleep -Seconds 2
@@ -97,11 +100,14 @@ try {
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/evals" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/decision-dna?db=$dbPath" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/weekly-operating-autopilot?db=$dbPath" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/executive-weekly-brief?db=$dbPath" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/enterprise-ledger?db=$dbPath" -UseBasicParsing | Out-Null
   $webPayload = '{"context":{"decision_request":"Prepare a board decision on ERP go-live","context":["Testing has not started because the environment is late.","Audit evidence for change control is incomplete.","Budget reserve is nearly consumed."]}}'
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/simulation-arena" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/delegation-planner" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/narrative-integrity" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
+  $weeklyExportPayload = @{ db = $dbPath; output_dir = "$weeklyBriefDir-web"; format = "both" } | ConvertTo-Json -Compress
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/export-weekly-brief" -Method Post -Body $weeklyExportPayload -ContentType "application/json" -UseBasicParsing | Out-Null
 } finally {
   if ($webProc -and -not $webProc.HasExited) { Stop-Process -Id $webProc.Id -Force }
 }

@@ -93,7 +93,7 @@ python app/server.py --port 8765
 | `docs/` | Marketplace, architecture, proof, smoke-test and operating-model documentation |
 | `templates/` | 102 reusable executive and governance templates |
 | `engine/` | Local Python Decision Intelligence Engine |
-| `engine/schemas/` | 139 JSON schemas for engine artifacts |
+| `engine/schemas/` | 140 JSON schemas for engine artifacts |
 | `engine/examples/` | Demo inputs for board prep, crisis, AI governance and transformation scenarios |
 | `app/` | Stdlib local CIO OS web app |
 | `visual-command-center/` | Static local dashboard demo |
@@ -265,6 +265,7 @@ Markdown output views:
 148. CIO Weekly Operating Autopilot: generates weekly operating focus from memory, stale assumptions, overdue actions and board risks.
 149. Strategic Contradiction Radar: detects strategy/execution contradictions across roadmap, budget, security, architecture and work.
 150. Autonomous Delegation Planner: drafts owner-specific delegation requests with evidence needs, due dates and escalation paths.
+151. Executive Weekly Brief: exports the Monday CIO operating brief as Markdown and HTML from local decision memory.
 
 ## AI/KI signature mechanism
 
@@ -435,6 +436,7 @@ python engine/cli.py vendor-truth-index --input engine/examples/industrial_opera
 python engine/cli.py narrative-integrity --input engine/examples/board_prep.json
 python engine/cli.py simulation-arena --input engine/examples/board_prep.json
 python engine/cli.py weekly-operating-autopilot --db .local-memory/autonomous_cio.db
+python engine/cli.py executive-weekly-brief --db .local-memory/autonomous_cio.db --output-dir .local-export/weekly-brief --format both
 python engine/cli.py strategic-contradictions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
 python engine/cli.py delegation-planner --input engine/examples/board_prep.json
 python engine/cli.py import-context --input engine/examples/sample_import.csv

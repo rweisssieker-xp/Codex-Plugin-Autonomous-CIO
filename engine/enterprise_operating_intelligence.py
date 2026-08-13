@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 from datetime import date
+from html import escape
 import json
 import sqlite3
 from pathlib import Path
@@ -126,6 +127,51 @@ def build_weekly_operating_autopilot(db_path: str) -> Dict[str, Any]:
     return _result("CIO Weekly Operating Autopilot", {"db_path": db_path, **payload}, [f"Prepared weekly operating autopilot from {len(decisions)} decision(s)."])
 
 
+def build_executive_weekly_brief(db_path: str, output_dir: str | None = None, export_format: str = "markdown") -> Dict[str, Any]:
+    autopilot = build_weekly_operating_autopilot(db_path)
+    data = autopilot["cio_weekly_operating_autopilot"]
+    markdown = _weekly_markdown(data)
+    files: list[str] = []
+    formats = [export_format]
+    if export_format == "both":
+        formats = ["markdown", "html"]
+    target = Path(output_dir) if output_dir else None
+    if target:
+        target.mkdir(parents=True, exist_ok=True)
+        if "markdown" in formats:
+            md_path = target / "executive_weekly_brief.md"
+            md_path.write_text(markdown, encoding="utf-8")
+            files.append(str(md_path))
+        if "html" in formats:
+            html_path = target / "executive_weekly_brief.html"
+            html_path.write_text(_weekly_html(markdown), encoding="utf-8")
+            files.append(str(html_path))
+    content = _weekly_html(markdown) if export_format == "html" else markdown
+    payload = {
+        "db_path": db_path,
+        "format": export_format,
+        "content": content,
+        "files": files,
+        "top_decision_count": len(data.get("top_decisions", [])),
+        "overdue_action_count": len(data.get("overdue_actions", [])),
+        "stale_assumption_count": len(data.get("stale_assumptions", [])),
+        "board_risk_count": len(data.get("board_risks", [])),
+        "vendor_pressure_count": len(data.get("vendor_pressure", [])),
+        "evidence_gap_count": len(data.get("evidence_gaps", [])),
+    }
+    return {
+        "artifact": "Executive Weekly Brief",
+        "executive_weekly_brief": payload,
+        "facts": autopilot["facts"],
+        "assumptions": autopilot["assumptions"],
+        "hypotheses": autopilot["hypotheses"],
+        "missing_evidence": autopilot["missing_evidence"],
+        "confidence": autopilot["confidence"],
+        "recommended_action": {"recommendation": "Use this brief as the Monday CIO operating start point.", "owner": "CIO office", "timebox": "Weekly"},
+        "guardrails": GUARDRAILS,
+    }
+
+
 @contextmanager
 def _connect(db_path: str):
     conn = sqlite3.connect(Path(db_path))
@@ -164,6 +210,84 @@ def _hits(text: str, words: list[str]) -> int:
 
 def _score(value: int) -> int:
     return max(0, min(100, int(value)))
+
+
+def _weekly_markdown(data: Mapping[str, Any]) -> str:
+    lines = [
+        "# Executive Weekly Brief",
+        "",
+        f"Generated: {date.today().isoformat()}",
+        "",
+        "## Monday CIO Focus",
+        f"- Top decisions: {len(data.get('top_decisions', []))}",
+        f"- Overdue actions: {len(data.get('overdue_actions', []))}",
+        f"- Stale assumptions: {len(data.get('stale_assumptions', []))}",
+        f"- Board risks: {len(data.get('board_risks', []))}",
+        f"- Vendor pressure: {len(data.get('vendor_pressure', []))}",
+        f"- Evidence gaps: {len(data.get('evidence_gaps', []))}",
+        "",
+        "## Top Decisions",
+    ]
+    lines.extend(_bullets(data.get("top_decisions", []), "decision"))
+    lines.extend(["", "## Overdue Actions"])
+    lines.extend(_bullets(data.get("overdue_actions", []), "action"))
+    lines.extend(["", "## Stale Assumptions"])
+    lines.extend(_bullets(data.get("stale_assumptions", []), "assumption"))
+    lines.extend(["", "## Board Risks"])
+    lines.extend(_bullets(data.get("board_risks", []), "business_impact"))
+    lines.extend(["", "## Vendor Pressure"])
+    lines.extend(_bullets(data.get("vendor_pressure", []), "business_impact"))
+    lines.extend(["", "## Evidence Gaps"])
+    lines.extend(_bullets(data.get("evidence_gaps", []), "claim"))
+    lines.extend(
+        [
+            "",
+            "## Next 24h",
+            "- Close the highest-risk evidence gap.",
+            "- Confirm owners for overdue actions.",
+            "- Prepare board-risk wording with visible uncertainty.",
+            "",
+            "## Next 7d",
+            "- Resolve stale assumptions or mark them as accepted risk.",
+            "- Challenge vendor-dependent milestones with evidence.",
+            "- Update the local memory with outcomes and feedback.",
+            "",
+            "## Next 30d",
+            "- Backtest recommendations against outcomes.",
+            "- Refresh Decision DNA and Risk Appetite Twin.",
+            "- Retire recurring decision debt from the ledger.",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def _bullets(items: list[Mapping[str, Any]], field: str) -> list[str]:
+    if not items:
+        return ["- None recorded in local memory."]
+    lines = []
+    for item in items[:8]:
+        value = str(item.get(field) or item.get("decision") or item.get("action") or item.get("claim") or item)
+        owner = item.get("owner") or item.get("source_ref") or item.get("created_on") or ""
+        suffix = f" ({owner})" if owner else ""
+        lines.append(f"- {value}{suffix}")
+    return lines
+
+
+def _weekly_html(markdown: str) -> str:
+    html_lines = []
+    for line in markdown.splitlines():
+        if line.startswith("# "):
+            html_lines.append(f"<h1>{escape(line[2:])}</h1>")
+        elif line.startswith("## "):
+            html_lines.append(f"<h2>{escape(line[3:])}</h2>")
+        elif line.startswith("- "):
+            html_lines.append(f"<li>{escape(line[2:])}</li>")
+        elif not line:
+            html_lines.append("")
+        else:
+            html_lines.append(f"<p>{escape(line)}</p>")
+    body = "\n".join(html_lines)
+    return f"<!doctype html><html><head><meta charset=\"utf-8\"><title>Executive Weekly Brief</title><style>body{{font-family:Arial,sans-serif;margin:32px;line-height:1.45;color:#172026}}h1,h2{{color:#0f766e}}li{{margin:4px 0}}</style></head><body>{body}</body></html>"
 
 
 def _with_packet(artifact: str, payload: Dict[str, Any], packet: Mapping[str, Any], recommendation: str) -> Dict[str, Any]:

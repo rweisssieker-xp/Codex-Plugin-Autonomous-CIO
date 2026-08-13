@@ -49,6 +49,8 @@
       <button onclick="get('/api/learning')">Learning Digest</button>
       <button onclick="get('/api/decision-dna')">Decision DNA</button>
       <button onclick="get('/api/weekly-operating-autopilot')">Weekly Autopilot</button>
+      <button onclick="get('/api/executive-weekly-brief')">Weekly Brief</button>
+      <button onclick="exportWeeklyBrief()">Export Weekly Brief</button>
       <button onclick="get('/api/enterprise-ledger')">Decision Ledger</button>
       <button onclick="postContext('/api/simulation-arena')">Simulation Arena</button>
       <button onclick="postContext('/api/delegation-planner')">Delegation Planner</button>
@@ -80,6 +82,11 @@
     async function recordOutcome() {
       const payload = { outcome: { packet_id: 'web-demo', decision: parsedContext().decision_request || 'Local decision', actual_outcome: 'Outcome review pending; replace with real post-decision result.', score_accuracy: 70, realized_risks: [], value_result: 'Pending validation.' }, db: '.local-memory/autonomous_cio.db' };
       const res = await fetch('/api/record-outcome', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      document.getElementById('out').textContent = JSON.stringify(await res.json(), null, 2);
+    }
+    async function exportWeeklyBrief() {
+      const payload = { db: '.local-memory/autonomous_cio.db', output_dir: document.getElementById('outputDir').value + '-weekly', format: 'both' };
+      const res = await fetch('/api/export-weekly-brief', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       document.getElementById('out').textContent = JSON.stringify(await res.json(), null, 2);
     }
     async function get(path) {

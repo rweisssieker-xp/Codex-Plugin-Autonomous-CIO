@@ -52,7 +52,7 @@ from decision_intelligence_engine import (  # noqa: E402
 from action_drafting import draft_actions  # noqa: E402
 from decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin  # noqa: E402
 from decision_twin import run_decision_twin  # noqa: E402
-from enterprise_operating_intelligence import build_accountability_graph, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction  # noqa: E402
+from enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction  # noqa: E402
 from eval_runner import run_evals  # noqa: E402
 from evidence_quality import score_evidence_quality  # noqa: E402
 from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision  # noqa: E402
@@ -753,6 +753,16 @@ class DecisionIntelligenceEngineTests(unittest.TestCase):
             weekly = build_weekly_operating_autopilot(str(db))
             self.assertTrue(weekly["cio_weekly_operating_autopilot"]["top_decisions"])
             self.assert_invariants(weekly)
+
+            brief_dir = Path(tmp) / "weekly"
+            brief = build_executive_weekly_brief(str(db), str(brief_dir), "both")
+            self.assertEqual(brief["artifact"], "Executive Weekly Brief")
+            self.assertIn("# Executive Weekly Brief", brief["executive_weekly_brief"]["content"])
+            self.assertEqual(len(brief["executive_weekly_brief"]["files"]), 2)
+            for file_name in brief["executive_weekly_brief"]["files"]:
+                self.assertTrue(Path(file_name).exists())
+                self.assertGreater(Path(file_name).stat().st_size, 100)
+            self.assert_invariants(brief)
 
             ledger = build_enterprise_decision_ledger(str(db))
             self.assertTrue(ledger["enterprise_decision_ledger"]["decisions"])

@@ -12,7 +12,7 @@ try:
     from action_drafting import draft_actions
     from decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
     from decision_twin import run_decision_twin
-    from enterprise_operating_intelligence import build_accountability_graph, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
+    from enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
     from eval_runner import eval_report, run_evals
     from evidence_quality import score_evidence_quality
     from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
@@ -26,7 +26,7 @@ except ImportError:  # pragma: no cover - package execution path
     from .action_drafting import draft_actions
     from .decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
     from .decision_twin import run_decision_twin
-    from .enterprise_operating_intelligence import build_accountability_graph, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
+    from .enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
     from .eval_runner import eval_report, run_evals
     from .evidence_quality import score_evidence_quality
     from .governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
@@ -295,6 +295,11 @@ def main(argv: list[str] | None = None) -> int:
         cmd = sub.add_parser(name)
         cmd.add_argument("--db", required=True, help="Path to local SQLite memory DB")
 
+    weekly_brief = sub.add_parser("executive-weekly-brief")
+    weekly_brief.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+    weekly_brief.add_argument("--output-dir", default=None, help="Optional output directory for Markdown/HTML files")
+    weekly_brief.add_argument("--format", default="markdown", choices=["markdown", "html", "both"], help="Brief output format")
+
     for name in ("accountability-graph", "friction-score", "decision-collisions", "strategic-contradictions", "control-decision-trace", "vendor-truth-index"):
         cmd = sub.add_parser(name)
         cmd.add_argument("--input", required=True, help="Path to input JSON context")
@@ -344,6 +349,7 @@ def main(argv: list[str] | None = None) -> int:
             "board-memory",
             "enterprise-decision-ledger",
             "weekly-operating-autopilot",
+            "executive-weekly-brief",
         }
         input_context = None if args.command in no_input_commands else _read_json(args.input) if args.command not in file_commands else None
         if args.command == "build-decision-packet":
@@ -530,6 +536,8 @@ def main(argv: list[str] | None = None) -> int:
             result = run_decision_simulation_arena(input_context)
         elif args.command == "weekly-operating-autopilot":
             result = build_weekly_operating_autopilot(args.db)
+        elif args.command == "executive-weekly-brief":
+            result = build_executive_weekly_brief(args.db, args.output_dir, args.format)
         elif args.command == "delegation-planner":
             result = build_delegation_planner(input_context)
         else:

@@ -44,7 +44,7 @@ The engine provides:
 - action draft payloads without external execution
 - 50-case local eval benchmark suite
 - explicit adaptive learning loop for feedback, outcomes, score calibration, source reputation, board-question memory and recommendation backtests
-- 15 Adaptive CIO OS USP modules for decision behavior, operating intelligence and governed execution intelligence
+- 15 Adaptive CIO OS USP modules plus Executive Weekly Brief export for decision behavior, operating intelligence and governed execution intelligence
 
 ## Signature USP Groups
 
@@ -123,7 +123,7 @@ python -m unittest engine.tests.test_engine
 | Skills | 133 |
 | Docs | 31 |
 | Templates | 102 |
-| Engine schemas | 139 |
+| Engine schemas | 140 |
 | Runtime | Local Python engine |
 | Local app | Stdlib web app under `app/` |
 | Dashboard | Static Visual Command Center |

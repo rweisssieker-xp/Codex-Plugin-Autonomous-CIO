@@ -21,7 +21,7 @@ from source_connectors import ingest_source_bundle  # noqa: E402
 from office_export import build_board_pack  # noqa: E402
 from eval_runner import run_evals  # noqa: E402
 from decision_behavior import build_decision_dna  # noqa: E402
-from enterprise_operating_intelligence import build_weekly_operating_autopilot  # noqa: E402
+from enterprise_operating_intelligence import build_executive_weekly_brief, build_weekly_operating_autopilot  # noqa: E402
 from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena  # noqa: E402
 from learning_loop import learning_digest, record_feedback, record_outcome  # noqa: E402
 
@@ -55,6 +55,12 @@ class Handler(SimpleHTTPRequestHandler):
             qs = parse_qs(parsed.query)
             db = qs.get("db", [str(ROOT / ".local-memory" / "autonomous_cio.db")])[0]
             self._json(build_weekly_operating_autopilot(db))
+            return
+        if parsed.path == "/api/executive-weekly-brief":
+            qs = parse_qs(parsed.query)
+            db = qs.get("db", [str(ROOT / ".local-memory" / "autonomous_cio.db")])[0]
+            fmt = qs.get("format", ["markdown"])[0]
+            self._json(build_executive_weekly_brief(db, None, fmt))
             return
         if parsed.path == "/api/enterprise-ledger":
             qs = parse_qs(parsed.query)
@@ -98,6 +104,10 @@ class Handler(SimpleHTTPRequestHandler):
                 self._json(build_delegation_planner(payload.get("context", payload)))
             elif self.path == "/api/narrative-integrity":
                 self._json(detect_narrative_integrity(payload.get("context", payload)))
+            elif self.path == "/api/export-weekly-brief":
+                db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio.db"))
+                output_dir = payload.get("output_dir", str(ROOT / ".local-export" / "weekly-brief"))
+                self._json(build_executive_weekly_brief(db, output_dir, payload.get("format", "both")))
             else:
                 self.send_error(404, "unknown API endpoint")
         except Exception as exc:

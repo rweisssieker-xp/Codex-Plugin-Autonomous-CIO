@@ -141,6 +141,7 @@ The output can be generated in three practical views:
 - Narrative Integrity Detector
 - Decision Simulation Arena
 - CIO Weekly Operating Autopilot
+- Executive Weekly Brief
 - Strategic Contradiction Radar
 - Autonomous Delegation Planner
 - Connector Profile Catalog
@@ -159,7 +160,7 @@ The output can be generated in three practical views:
 - 133 connector-neutral Codex skills
 - 31 documentation files
 - 102 reusable templates
-- 139 JSON schemas
+- 140 JSON schemas
 - Local Python engine with CLI smoke tests
 - Local stdlib web app for ingestion, packet building, memory browsing, policy checks, exports and eval reports
 - Static Visual Command Center demo
