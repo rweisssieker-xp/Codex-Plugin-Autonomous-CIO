@@ -12,9 +12,11 @@ from typing import Any, Dict, Mapping
 
 try:
     from decision_intelligence_engine import build_decision_packet
+    from decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
     from memory_store import init_memory_db, memory_aging
 except ImportError:
     from .decision_intelligence_engine import build_decision_packet
+    from .decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
     from .memory_store import init_memory_db, memory_aging
 
 
@@ -130,7 +132,13 @@ def build_weekly_operating_autopilot(db_path: str) -> Dict[str, Any]:
 def build_executive_weekly_brief(db_path: str, output_dir: str | None = None, export_format: str = "markdown") -> Dict[str, Any]:
     autopilot = build_weekly_operating_autopilot(db_path)
     data = autopilot["cio_weekly_operating_autopilot"]
-    markdown = _weekly_markdown(data)
+    behavior = {
+        "decision_dna": build_decision_dna(db_path).get("decision_dna", {}),
+        "risk_appetite": build_risk_appetite_twin(db_path).get("cio_risk_appetite_twin", {}),
+        "board_memory": build_board_memory(db_path).get("board_memory", {}),
+    }
+    quality = _brief_quality(data, behavior)
+    markdown = _weekly_markdown(data, behavior, quality)
     files: list[str] = []
     formats = [export_format]
     if export_format == "both":
@@ -158,6 +166,10 @@ def build_executive_weekly_brief(db_path: str, output_dir: str | None = None, ex
         "board_risk_count": len(data.get("board_risks", [])),
         "vendor_pressure_count": len(data.get("vendor_pressure", [])),
         "evidence_gap_count": len(data.get("evidence_gaps", [])),
+        "brief_quality": quality,
+        "decision_dna": behavior["decision_dna"],
+        "risk_appetite": behavior["risk_appetite"],
+        "board_memory": behavior["board_memory"],
     }
     return {
         "artifact": "Executive Weekly Brief",
@@ -212,11 +224,20 @@ def _score(value: int) -> int:
     return max(0, min(100, int(value)))
 
 
-def _weekly_markdown(data: Mapping[str, Any]) -> str:
+def _weekly_markdown(data: Mapping[str, Any], behavior: Mapping[str, Any], quality: Mapping[str, Any]) -> str:
+    decision_dna = behavior.get("decision_dna", {})
+    risk_appetite = behavior.get("risk_appetite", {})
+    board_memory = behavior.get("board_memory", {})
     lines = [
         "# Executive Weekly Brief",
         "",
         f"Generated: {date.today().isoformat()}",
+        "",
+        "## Executive Snapshot",
+        f"- Brief quality score: {quality.get('score')} ({quality.get('posture')})",
+        f"- Decision DNA: {decision_dna.get('dominant_pattern', 'insufficient_history')}",
+        f"- Risk appetite: {risk_appetite.get('profile', 'insufficient_history')}",
+        f"- Board memory questions: {board_memory.get('question_count', 0)}",
         "",
         "## Monday CIO Focus",
         f"- Top decisions: {len(data.get('top_decisions', []))}",
@@ -242,10 +263,10 @@ def _weekly_markdown(data: Mapping[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Next 24h",
-            "- Close the highest-risk evidence gap.",
-            "- Confirm owners for overdue actions.",
-            "- Prepare board-risk wording with visible uncertainty.",
+        "## Next 24h",
+        "- Close the highest-risk evidence gap.",
+        "- Confirm owners for overdue actions.",
+        "- Prepare board-risk wording with visible uncertainty.",
             "",
             "## Next 7d",
             "- Resolve stale assumptions or mark them as accepted risk.",
@@ -259,6 +280,18 @@ def _weekly_markdown(data: Mapping[str, Any]) -> str:
         ]
     )
     return "\n".join(lines)
+
+
+def _brief_quality(data: Mapping[str, Any], behavior: Mapping[str, Any]) -> Dict[str, Any]:
+    factors = {
+        "decision_coverage": min(100, len(data.get("top_decisions", [])) * 20),
+        "risk_visibility": min(100, len(data.get("board_risks", [])) * 20 + len(data.get("vendor_pressure", [])) * 10),
+        "evidence_visibility": min(100, len(data.get("evidence_gaps", [])) * 20),
+        "memory_freshness": max(0, 100 - len(data.get("stale_assumptions", [])) * 15 - len(data.get("overdue_actions", [])) * 12),
+        "board_context": min(100, int(behavior.get("board_memory", {}).get("question_count", 0)) * 20),
+    }
+    score = round(sum(factors.values()) / len(factors))
+    return {"score": score, "posture": "Board-ready" if score >= 75 else "Usable with gaps" if score >= 45 else "Needs memory", "factors": factors}
 
 
 def _bullets(items: list[Mapping[str, Any]], field: str) -> list[str]:

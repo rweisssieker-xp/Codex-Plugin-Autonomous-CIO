@@ -24,6 +24,7 @@ from decision_behavior import build_decision_dna  # noqa: E402
 from enterprise_operating_intelligence import build_executive_weekly_brief, build_weekly_operating_autopilot  # noqa: E402
 from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena  # noqa: E402
 from learning_loop import learning_digest, record_feedback, record_outcome  # noqa: E402
+from learning_loop import board_question_memory, record_skill_chain_feedback  # noqa: E402
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -92,6 +93,16 @@ class Handler(SimpleHTTPRequestHandler):
                 db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio.db"))
                 init_memory_db(db)
                 self._json(save_review_to_db(payload.get("context", payload), db))
+            elif self.path == "/api/seed-demo-memory":
+                db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio_demo.db"))
+                init_memory_db(db)
+                for name in ("industrial_operating_review.json", "board_prep.json", "ai_governance.json", "transformation_value.json"):
+                    save_review_to_db(_load_example(name), db)
+                record_feedback(_load_example("learning_feedback.json"), db)
+                record_outcome(_load_example("learning_outcome.json"), db)
+                record_skill_chain_feedback(_load_example("skill_chain_feedback.json"), db)
+                board_question_memory(_load_example("board_questions.json"), db)
+                self._json({"artifact": "Demo Memory Seeded", "db_path": db, "reviews_seeded": 4, "facts": ["Seeded local demo memory."], "assumptions": [], "hypotheses": ["Demo data is synthetic and local."], "missing_evidence": [], "confidence": "High", "recommended_action": {"recommendation": "Generate the Executive Weekly Brief from the seeded demo memory.", "owner": "CIO office", "timebox": "Now"}, "guardrails": ["Uses local demo data only.", "Does not claim live system access.", "Does not execute external actions."]})
             elif self.path == "/api/record-feedback":
                 db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio.db"))
                 self._json(record_feedback(payload.get("feedback", payload), db))
@@ -137,6 +148,10 @@ def main() -> int:
     print(f"Serving The Autonomous CIO at http://127.0.0.1:{args.port}")
     server.serve_forever()
     return 0
+
+
+def _load_example(name):
+    return json.loads((ENGINE / "examples" / name).read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

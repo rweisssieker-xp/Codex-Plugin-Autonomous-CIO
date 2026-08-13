@@ -279,7 +279,7 @@ Support wants to summarize customer tickets with an LLM using historical inciden
 
 ### Expected Proof Points
 
-- AI/KI mechanism identifies value hypothesis, data risk, ownership gap and missing baseline.
+- AI mechanism identifies value hypothesis, data risk, ownership gap and missing baseline.
 - Governance-gap prediction identifies approval and evidence gaps.
 - Recommended action is approval with conditions or deferral until controls and owner sign-off exist.
 - Missing evidence includes data classification, retention policy, evaluation plan and productivity baseline.

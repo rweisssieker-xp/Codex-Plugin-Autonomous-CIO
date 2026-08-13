@@ -45,6 +45,7 @@ The engine provides:
 - 50-case local eval benchmark suite
 - explicit adaptive learning loop for feedback, outcomes, score calibration, source reputation, board-question memory and recommendation backtests
 - 15 Adaptive CIO OS USP modules plus Executive Weekly Brief export for decision behavior, operating intelligence and governed execution intelligence
+- guided US-English local demo flow with seeded memory and readable weekly brief rendering
 
 ## Signature USP Groups
 

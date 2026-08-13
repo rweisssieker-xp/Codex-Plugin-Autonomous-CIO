@@ -42,6 +42,7 @@ python engine\cli.py draft-actions --input engine\examples\board_prep.json --typ
 $dbPath = Join-Path $env:TEMP "acio-memory-smoke.db"
 if (Test-Path $dbPath) { Remove-Item -LiteralPath $dbPath -Force }
 python engine\cli.py init-memory-db --db $dbPath | Out-Null
+python scripts\seed-demo-memory.py --db $dbPath | Out-Null
 python engine\cli.py migrate-memory-json --memory engine\examples\memory.json --db $dbPath | Out-Null
 python engine\cli.py save-review --input engine\examples\board_prep.json --db $dbPath | Out-Null
 python engine\cli.py query-memory --db $dbPath --query ERP | Out-Null
@@ -98,6 +99,8 @@ try {
   Start-Sleep -Seconds 2
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/evals" -UseBasicParsing | Out-Null
+  $seedPayload = @{ db = $dbPath } | ConvertTo-Json -Compress
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/seed-demo-memory" -Method Post -Body $seedPayload -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/decision-dna?db=$dbPath" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/weekly-operating-autopilot?db=$dbPath" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/executive-weekly-brief?db=$dbPath" -UseBasicParsing | Out-Null

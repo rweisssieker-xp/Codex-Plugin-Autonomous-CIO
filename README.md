@@ -84,6 +84,13 @@ Start the local CIO OS web app:
 python app/server.py --port 8765
 ```
 
+Seed a high-signal demo memory and export the Monday CIO brief:
+
+```text
+python scripts/seed-demo-memory.py --db .local-memory/autonomous_cio_demo.db
+python engine/cli.py executive-weekly-brief --db .local-memory/autonomous_cio_demo.db --output-dir .local-export/weekly-brief --format both
+```
+
 ## Repository Contents
 
 | Path | Purpose |
@@ -266,8 +273,9 @@ Markdown output views:
 149. Strategic Contradiction Radar: detects strategy/execution contradictions across roadmap, budget, security, architecture and work.
 150. Autonomous Delegation Planner: drafts owner-specific delegation requests with evidence needs, due dates and escalation paths.
 151. Executive Weekly Brief: exports the Monday CIO operating brief as Markdown and HTML from local decision memory.
+152. Guided Demo Flow: seeds demo memory, builds packets, saves memory, records outcomes, generates the weekly brief and exports proof artifacts from one local UI.
 
-## AI/KI signature mechanism
+## AI Signature Mechanism
 
 The signature mechanism is the Decision Intelligence Loop:
 
@@ -284,7 +292,7 @@ Signals -> Truth -> Risk Chain -> Options -> Actions -> Memory
 
 The signature output is the Executive Decision Packet, supported by the dedicated `executive-decision-packet` skill. The flagship operating workflow is the Autonomous CIO Operating Review, supported by `autonomous-cio-operating-review`, which adds enterprise status, attention budget, action ledger, autonomy gate, memory update, CIO replacement surface, CIO work autonomy map, board objections, decision debt ledger, truth gaps, shadow agenda, risk forecast, decision SLA, vendor exit simulation, regulatory shock readiness, cyber business impact, talent criticality, capital allocation, post-decision learning, CIO OS maturity, stakeholder alignment, exception waiver drafting, policy-as-code readiness, benefits realization, operating rhythm autopilot, escalation drafts, executive decision backlog, enterprise control tower, carve-out readiness, data trust, architecture runway, executive narrative, due-diligence questions, resilience continuity, customer trust, AI portfolio governance, cost of delay, executive commitments, decision rights, OKR strategy fit, risk acceptance docket, service health, knowledge continuity, dependency breakpoints, transformation kill criteria, vendor negotiation brief, compliance evidence pack, board decision simulation, operating risk heatmap, roadmap reprioritization, audit finding prediction, platform rationalization, data sovereignty, operating-model debt, strategic option portfolio, decision war room, evidence chain of custody, decision rollback planner, autonomy risk budget, approval boundary mapping, evidence expiry monitoring, residual risk contracting, autonomy stress testing, decision consequence ledger, enterprise friction mapping, strategic optionality, control debt burndown, executive dissent synthesis, decision backtesting, governance drift detection, budget shock absorption, vendor leverage indexing, executive narrative diffing and human-control contract.
 
-Visible AI/KI mechanisms include evidence classification, weak signal ranking, contradiction detection, risk propagation, decision debt mining, board pressure simulation, value leakage detection, memory comparison, autonomy readiness scoring and visual decision intelligence.
+Visible AI mechanisms include evidence classification, weak signal ranking, contradiction detection, risk propagation, decision debt mining, board pressure simulation, value leakage detection, memory comparison, autonomy readiness scoring and visual decision intelligence.
 
 ## Disruptive use cases
 
@@ -453,6 +461,8 @@ Open `visual-command-center/index.html` for a local dashboard with JSON upload, 
 Start `python app/server.py --port 8765` for the local CIO OS web app at `http://127.0.0.1:8765`. It exposes local-only endpoints for source-bundle ingestion, decision packets, memory browsing, policy evaluation, governance readiness, board-pack export and eval reports. It uses no framework, no network dependency and no external execution.
 
 The adaptive learning loop is explicit and local: feedback, outcomes, board questions and skill-chain ratings are written only to the provided SQLite DB. The engine does not train a model or update external state; it produces calibration hints, learned patterns, source reputation, recommendation backtests, Decision DNA, Risk Appetite Twin, Board Memory and weekly CIO operating snapshots for the next review.
+
+For a complete product demo, start the local web app, click `Seed Demo Memory`, then `Weekly Brief`. The app renders the Executive Weekly Brief as a readable executive artifact and can export Markdown and HTML proof files.
 
 The engine also includes connector-ready signal contracts for Teams, Slack, Outlook Email, Gmail/Google Workspace, Outlook Calendar, SharePoint, Google Drive, Confluence, Jira, Azure DevOps, GitHub, ServiceNow, TOPdesk, CMDB/assets, cloud cost, security findings, observability, ERP/SAP and finance CSV sources. Version 0.1 has real local file and directory ingestion plus profile-specific export adapters for local CSV/JSON/TXT/Markdown files, but no authenticated live SaaS connectors.
 

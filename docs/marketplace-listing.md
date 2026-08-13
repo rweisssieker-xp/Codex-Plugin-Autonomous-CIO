@@ -142,6 +142,7 @@ The output can be generated in three practical views:
 - Decision Simulation Arena
 - CIO Weekly Operating Autopilot
 - Executive Weekly Brief
+- Guided Demo Flow
 - Strategic Contradiction Radar
 - Autonomous Delegation Planner
 - Connector Profile Catalog
@@ -163,6 +164,7 @@ The output can be generated in three practical views:
 - 140 JSON schemas
 - Local Python engine with CLI smoke tests
 - Local stdlib web app for ingestion, packet building, memory browsing, policy checks, exports and eval reports
+- Seeded demo memory and guided weekly-brief flow for proof-first review
 - Static Visual Command Center demo
 - Demo proof pack for board prep, crisis command, AI governance and transformation value leakage
 - Local `.docx` and `.pptx` export package generation

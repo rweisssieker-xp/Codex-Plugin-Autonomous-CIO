@@ -68,6 +68,7 @@ python engine/cli.py inspect-memory --memory engine/examples/memory.json
 python engine/cli.py export-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/industrial-review
 python engine/cli.py export-office-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/office-review
 python engine/cli.py init-memory-db --db .local-memory/autonomous_cio.db
+python scripts/seed-demo-memory.py --db .local-memory/autonomous_cio_demo.db
 python engine/cli.py migrate-memory-json --memory engine/examples/memory.json --db .local-memory/autonomous_cio.db
 python engine/cli.py save-review --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
 python engine/cli.py query-memory --db .local-memory/autonomous_cio.db --query ERP
@@ -168,6 +169,7 @@ Expected:
 - adaptive learning commands record explicit local feedback and outcomes, produce calibration and backtest hints, and state that no external model is trained
 - all 15 adaptive CIO OS USP modules return valid JSON, preserve guardrails and stay decision-support only
 - executive-weekly-brief writes non-empty Markdown and HTML files when an output directory is provided
+- seed-demo-memory creates a populated local demo DB for the guided web flow
 - import context converts CSV, JSON, TXT or Markdown into input context
 - build-from-file converts local files directly into Executive Decision Packets
 - dashboard-from-file and refresh-dashboard generate Visual Command Center JSON from real engine output

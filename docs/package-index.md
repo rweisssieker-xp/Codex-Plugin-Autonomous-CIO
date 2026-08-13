@@ -143,6 +143,7 @@
 - Decision Simulation Arena
 - CIO Weekly Operating Autopilot
 - Executive Weekly Brief
+- Guided Demo Flow
 - Strategic Contradiction Radar
 - Autonomous Delegation Planner
 - Local file and directory ingestion

@@ -6,19 +6,35 @@
   <title>The Autonomous CIO Local App</title>
   <style>
     body { margin: 0; font-family: Arial, sans-serif; background: #f6f7f9; color: #172026; }
-    header { padding: 16px 20px; background: #fff; border-bottom: 1px solid #d8dee4; }
-    main { display: grid; grid-template-columns: 320px 1fr; gap: 16px; padding: 16px; }
+    header { padding: 14px 20px; background: #fff; border-bottom: 1px solid #d8dee4; }
+    h1 { margin: 0 0 4px; font-size: 24px; }
+    main { display: grid; grid-template-columns: 340px 1fr; gap: 16px; padding: 16px; }
     section { background: #fff; border: 1px solid #d8dee4; border-radius: 8px; padding: 12px; }
+    h2 { font-size: 16px; margin: 0 0 10px; }
     textarea, input, select { width: 100%; box-sizing: border-box; margin: 6px 0 10px; padding: 8px; border: 1px solid #cfd6dd; border-radius: 6px; }
     button { margin: 4px 4px 4px 0; padding: 8px 10px; border: 1px solid #0f766e; background: #0f766e; color: #fff; border-radius: 6px; cursor: pointer; }
+    button.secondary { background: #fff; color: #0f766e; }
     pre { white-space: pre-wrap; overflow: auto; max-height: 70vh; background: #111827; color: #e5e7eb; padding: 12px; border-radius: 8px; }
     .muted { color: #5b6570; font-size: 13px; }
+    .steps { display: grid; grid-template-columns: repeat(5, minmax(120px, 1fr)); gap: 8px; margin-top: 10px; }
+    .step { border: 1px solid #d8dee4; border-radius: 8px; padding: 8px; background: #f9fafb; font-size: 12px; }
+    .brief { background: #fff; border: 1px solid #d8dee4; border-radius: 8px; padding: 16px; max-height: 74vh; overflow: auto; line-height: 1.45; }
+    .brief h1 { font-size: 24px; color: #0f766e; }
+    .brief h2 { font-size: 18px; color: #0f766e; border-top: 1px solid #e5e7eb; padding-top: 12px; }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
   <header>
     <h1>The Autonomous CIO</h1>
-    <div class="muted">Local CIO Operating System: build packets, inspect memory, run policy checks, export packs and record explicit learning feedback.</div>
+    <div class="muted">AI-native executive decision operating system: decision packets, memory, learning, simulation, board readiness, and weekly CIO briefs.</div>
+    <div class="steps">
+      <div class="step">1. Seed demo memory</div>
+      <div class="step">2. Build decision packet</div>
+      <div class="step">3. Save memory</div>
+      <div class="step">4. Generate weekly brief</div>
+      <div class="step">5. Export Markdown/HTML</div>
+    </div>
   </header>
   <main>
     <section>
@@ -36,29 +52,33 @@
       <input id="bundle" value="engine/examples">
       <label>Output directory</label>
       <input id="outputDir" value=".local-export/web-board-pack">
+      <label>Memory DB</label>
+      <input id="dbPath" value=".local-memory/autonomous_cio_demo.db">
       <label>Policy</label>
       <select id="policy"><option>security</option><option>audit</option><option>ai-governance</option><option>change-control</option><option>privacy</option><option>vendor-risk</option></select>
+      <button onclick="seedDemo()">Seed Demo Memory</button>
       <button onclick="postContext('/api/decision-packet')">Decision Packet</button>
       <button onclick="postContext('/api/dashboard')">Dashboard Data</button>
       <button onclick="postContext('/api/policy', {policy: policy.value})">Policy</button>
       <button onclick="postContext('/api/board-pack', {output_dir: outputDir.value, format: 'both'})">Export Board Pack</button>
       <button onclick="postBundle()">Ingest Bundle</button>
-      <button onclick="postContext('/api/save-review', {db: '.local-memory/autonomous_cio.db'})">Save Review</button>
+      <button onclick="postContext('/api/save-review', {db: dbPath.value})">Save Review</button>
       <button onclick="recordFeedback()">Record Feedback</button>
       <button onclick="recordOutcome()">Record Outcome</button>
-      <button onclick="get('/api/learning')">Learning Digest</button>
-      <button onclick="get('/api/decision-dna')">Decision DNA</button>
-      <button onclick="get('/api/weekly-operating-autopilot')">Weekly Autopilot</button>
-      <button onclick="get('/api/executive-weekly-brief')">Weekly Brief</button>
+      <button onclick="get('/api/learning?db=' + encodeURIComponent(dbPath.value))">Learning Digest</button>
+      <button onclick="get('/api/decision-dna?db=' + encodeURIComponent(dbPath.value))">Decision DNA</button>
+      <button onclick="get('/api/weekly-operating-autopilot?db=' + encodeURIComponent(dbPath.value))">Weekly Autopilot</button>
+      <button onclick="weeklyBrief()">Weekly Brief</button>
       <button onclick="exportWeeklyBrief()">Export Weekly Brief</button>
-      <button onclick="get('/api/enterprise-ledger')">Decision Ledger</button>
+      <button onclick="get('/api/enterprise-ledger?db=' + encodeURIComponent(dbPath.value))">Decision Ledger</button>
       <button onclick="postContext('/api/simulation-arena')">Simulation Arena</button>
       <button onclick="postContext('/api/delegation-planner')">Delegation Planner</button>
       <button onclick="postContext('/api/narrative-integrity')">Narrative Integrity</button>
-      <button onclick="get('/api/evals')">Run Evals</button>
+      <button class="secondary" onclick="get('/api/evals')">Run Evals</button>
     </section>
     <section>
       <h2>Output</h2>
+      <div id="brief" class="brief hidden"></div>
       <pre id="out">Ready.</pre>
     </section>
   </main>
@@ -67,31 +87,62 @@
     async function postContext(path, extra) {
       const payload = Object.assign({ context: parsedContext() }, extra || {});
       const res = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-      document.getElementById('out').textContent = JSON.stringify(await res.json(), null, 2);
+      show(await res.json());
     }
     async function postBundle() {
       const payload = { input: document.getElementById('bundle').value };
       const res = await fetch('/api/ingest', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-      document.getElementById('out').textContent = JSON.stringify(await res.json(), null, 2);
+      show(await res.json());
     }
     async function recordFeedback() {
-      const payload = { feedback: { packet_id: 'web-demo', decision: parsedContext().decision_request || 'Local decision', rating: 5, accepted: true, notes: 'Recorded from local web app.' }, db: '.local-memory/autonomous_cio.db' };
+      const payload = { feedback: { packet_id: 'web-demo', decision: parsedContext().decision_request || 'Local decision', rating: 5, accepted: true, notes: 'Recorded from local web app.' }, db: dbPath.value };
       const res = await fetch('/api/record-feedback', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-      document.getElementById('out').textContent = JSON.stringify(await res.json(), null, 2);
+      show(await res.json());
     }
     async function recordOutcome() {
-      const payload = { outcome: { packet_id: 'web-demo', decision: parsedContext().decision_request || 'Local decision', actual_outcome: 'Outcome review pending; replace with real post-decision result.', score_accuracy: 70, realized_risks: [], value_result: 'Pending validation.' }, db: '.local-memory/autonomous_cio.db' };
+      const payload = { outcome: { packet_id: 'web-demo', decision: parsedContext().decision_request || 'Local decision', actual_outcome: 'Outcome review pending; replace with real post-decision result.', score_accuracy: 70, realized_risks: [], value_result: 'Pending validation.' }, db: dbPath.value };
       const res = await fetch('/api/record-outcome', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-      document.getElementById('out').textContent = JSON.stringify(await res.json(), null, 2);
+      show(await res.json());
+    }
+    async function seedDemo() {
+      const res = await fetch('/api/seed-demo-memory', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ db: dbPath.value }) });
+      show(await res.json());
+    }
+    async function weeklyBrief() {
+      const res = await fetch('/api/executive-weekly-brief?db=' + encodeURIComponent(dbPath.value));
+      show(await res.json());
     }
     async function exportWeeklyBrief() {
-      const payload = { db: '.local-memory/autonomous_cio.db', output_dir: document.getElementById('outputDir').value + '-weekly', format: 'both' };
+      const payload = { db: dbPath.value, output_dir: document.getElementById('outputDir').value + '-weekly', format: 'both' };
       const res = await fetch('/api/export-weekly-brief', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-      document.getElementById('out').textContent = JSON.stringify(await res.json(), null, 2);
+      show(await res.json());
     }
     async function get(path) {
       const res = await fetch(path);
-      document.getElementById('out').textContent = JSON.stringify(await res.json(), null, 2);
+      show(await res.json());
+    }
+    function show(data) {
+      const brief = document.getElementById('brief');
+      const out = document.getElementById('out');
+      if (data.artifact === 'Executive Weekly Brief') {
+        brief.classList.remove('hidden');
+        out.classList.add('hidden');
+        brief.innerHTML = renderMarkdown(data.executive_weekly_brief.content);
+      } else {
+        brief.classList.add('hidden');
+        out.classList.remove('hidden');
+        out.textContent = JSON.stringify(data, null, 2);
+      }
+    }
+    function renderMarkdown(markdown) {
+      return markdown.split('\n').map(line => {
+        const text = line.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+        if (text.startsWith('# ')) return '<h1>' + text.slice(2) + '</h1>';
+        if (text.startsWith('## ')) return '<h2>' + text.slice(3) + '</h2>';
+        if (text.startsWith('- ')) return '<li>' + text.slice(2) + '</li>';
+        if (!text) return '';
+        return '<p>' + text + '</p>';
+      }).join('');
     }
   </script>
 </body>

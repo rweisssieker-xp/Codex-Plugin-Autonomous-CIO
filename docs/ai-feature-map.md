@@ -1,8 +1,8 @@
 # AI Feature Map
 
-This map groups The Autonomous CIO's AI/KI features into reusable executive capabilities.
+This map groups The Autonomous CIO's AI features into reusable executive capabilities.
 
-## Signature AI/KI Mechanisms
+## Signature AI Mechanisms
 
 - CIO autopilot review: combines decision packet, risk chain, evidence graph, action ledger, memory update and operating rhythm.
 - Evidence classification: separates facts, inferences, assumptions, hypotheses, narratives and missing evidence.
@@ -42,7 +42,7 @@ The loop is the visible product mechanism behind `executive-decision-packet`. It
 
 ## Executive Decision Assurance
 
-The local engine command `python engine/cli.py assurance --input engine/examples/board_prep.json` proves 15 advanced AI/KI capabilities in one reviewable output:
+The local engine command `python engine/cli.py assurance --input engine/examples/board_prep.json` proves 15 advanced AI capabilities in one reviewable output:
 
 - Codex host LLM extraction layer with heuristic fallback for standalone engine runs.
 - Entity resolution across ERP, vendors, IAM, audit, cloud and other enterprise signals.

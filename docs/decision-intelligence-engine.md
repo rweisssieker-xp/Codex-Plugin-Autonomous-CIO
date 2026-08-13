@@ -42,6 +42,7 @@ python engine/cli.py inspect-memory --memory engine/examples/memory.json
 python engine/cli.py export-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/industrial-review
 python engine/cli.py export-office-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/office-review
 python engine/cli.py init-memory-db --db .local-memory/autonomous_cio.db
+python scripts/seed-demo-memory.py --db .local-memory/autonomous_cio_demo.db
 python engine/cli.py migrate-memory-json --memory engine/examples/memory.json --db .local-memory/autonomous_cio.db
 python engine/cli.py save-review --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
 python engine/cli.py query-memory --db .local-memory/autonomous_cio.db --query ERP
@@ -166,6 +167,7 @@ The productized local runtime adds 15 concrete operating-system features around 
 - Explicit adaptive learning loop for feedback, outcomes, skill-chain ratings, board-question memory, score calibration, learned patterns, source reputation and recommendation backtests.
 - Adaptive CIO OS USP modules for Decision DNA, Accountability Graph, Friction Score, Collision Detection, Risk Appetite Twin, Board Memory, Shadow Cost of Inaction, Decision Ledger, Control Traceability, Vendor Truth, Narrative Integrity, Simulation Arena, Weekly Autopilot, Strategic Contradictions and Delegation Planning.
 - Executive Weekly Brief export that turns the weekly autopilot into local Markdown and HTML files.
+- Guided local demo flow that seeds realistic demo memory and renders the weekly brief in the local web app.
 
 ## Adaptive CIO Learning Loop
 
