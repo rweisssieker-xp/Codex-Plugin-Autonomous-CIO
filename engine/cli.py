@@ -9,6 +9,35 @@ from pathlib import Path
 from typing import Any, Dict
 
 try:
+    from action_drafting import draft_actions
+    from decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
+    from decision_twin import run_decision_twin
+    from enterprise_operating_intelligence import build_accountability_graph, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
+    from eval_runner import eval_report, run_evals
+    from evidence_quality import score_evidence_quality
+    from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
+    from learning_loop import board_question_memory, calibrate_scores, learn_patterns, learning_digest, recommendation_backtest, record_feedback, record_outcome, record_skill_chain_feedback, source_reputation
+    from memory_store import init_memory_db, memory_aging, migrate_memory_json, query_memory_db, save_review_to_db, sla_digest, sla_monitor
+    from office_export import build_board_pack
+    from policy_engine import approval_gates, evaluate_policy, governance_readiness
+    from source_connectors import discover_sources, ingest_source_bundle, pull_signals
+    from user_profile import apply_profile, init_profile
+except ImportError:  # pragma: no cover - package execution path
+    from .action_drafting import draft_actions
+    from .decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
+    from .decision_twin import run_decision_twin
+    from .enterprise_operating_intelligence import build_accountability_graph, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
+    from .eval_runner import eval_report, run_evals
+    from .evidence_quality import score_evidence_quality
+    from .governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
+    from .learning_loop import board_question_memory, calibrate_scores, learn_patterns, learning_digest, recommendation_backtest, record_feedback, record_outcome, record_skill_chain_feedback, source_reputation
+    from .memory_store import init_memory_db, memory_aging, migrate_memory_json, query_memory_db, save_review_to_db, sla_digest, sla_monitor
+    from .office_export import build_board_pack
+    from .policy_engine import approval_gates, evaluate_policy, governance_readiness
+    from .source_connectors import discover_sources, ingest_source_bundle, pull_signals
+    from .user_profile import apply_profile, init_profile
+
+try:
     from decision_intelligence_engine import (
         analyze_risk_graph,
         action_governance,
@@ -179,6 +208,102 @@ def main(argv: list[str] | None = None) -> int:
     inspect_memory = sub.add_parser("inspect-memory")
     inspect_memory.add_argument("--memory", required=True, help="Path to local memory store JSON")
 
+    init_db = sub.add_parser("init-memory-db")
+    init_db.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+
+    migrate_db = sub.add_parser("migrate-memory-json")
+    migrate_db.add_argument("--memory", required=True, help="Path to existing memory JSON")
+    migrate_db.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+
+    save_review = sub.add_parser("save-review")
+    save_review.add_argument("--input", required=True, help="Path to input JSON context")
+    save_review.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+
+    query_memory = sub.add_parser("query-memory")
+    query_memory.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+    query_memory.add_argument("--query", default="", help="Search term")
+    query_memory.add_argument("--limit", type=int, default=20, help="Maximum rows per memory table")
+
+    for name in ("memory-aging", "sla-monitor", "sla-digest"):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+
+    discover = sub.add_parser("discover-sources")
+    discover.add_argument("--path", default="engine/examples", help="Local directory to inspect")
+
+    pull = sub.add_parser("pull-signals")
+    pull.add_argument("--input", required=True, help="Path to local export file")
+    pull.add_argument("--profile", default="auto", help="Connector profile name or auto")
+
+    bundle = sub.add_parser("ingest-source-bundle")
+    bundle.add_argument("--input", required=True, help="Path to local source bundle directory")
+    bundle.add_argument("--db", default=None, help="Optional SQLite memory DB")
+    bundle.add_argument("--profile", default="auto", help="Connector profile name or auto")
+
+    ingest_bundle = sub.add_parser("ingest-bundle")
+    ingest_bundle.add_argument("--input", required=True, help="Path to local source bundle directory")
+    ingest_bundle.add_argument("--db", default=None, help="Optional SQLite memory DB")
+    ingest_bundle.add_argument("--profile", default="auto", help="Connector profile name or auto")
+
+    twin = sub.add_parser("decision-twin")
+    twin.add_argument("--input", required=True, help="Path to input JSON context")
+    twin.add_argument("--scenario", required=True, choices=["approve", "defer", "stop", "re-scope", "fund", "rollback"], help="Scenario to simulate")
+
+    score_evidence = sub.add_parser("score-evidence")
+    score_evidence.add_argument("--input", required=True, help="Path to input JSON context")
+
+    policy = sub.add_parser("evaluate-policy")
+    policy.add_argument("--input", required=True, help="Path to input JSON context")
+    policy.add_argument("--policy", default="security", choices=["security", "audit", "ai-governance", "change-control", "privacy", "vendor-risk"], help="Policy library")
+
+    for name in ("approval-gates", "governance-readiness"):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--input", required=True, help="Path to input JSON context")
+
+    drafts = sub.add_parser("draft-actions")
+    drafts.add_argument("--input", required=True, help="Path to input JSON context")
+    drafts.add_argument("--type", default="email", choices=["email", "teams", "topdesk", "github", "board-pack"], help="Draft payload type")
+
+    board_pack = sub.add_parser("build-board-pack")
+    board_pack.add_argument("--input", required=True, help="Path to input JSON context")
+    board_pack.add_argument("--output-dir", required=True, help="Output directory")
+    board_pack.add_argument("--format", default="both", choices=["docx", "pptx", "office", "markdown", "json", "both"], help="Export format")
+
+    run_evals_cmd = sub.add_parser("run-evals")
+    run_evals_cmd.add_argument("--eval-dir", default="engine/evals", help="Directory with eval JSON files")
+
+    eval_report_cmd = sub.add_parser("eval-report")
+    eval_report_cmd.add_argument("--eval-dir", default="engine/evals", help="Directory with eval JSON files")
+
+    profile_init = sub.add_parser("init-profile")
+    profile_init.add_argument("--profile", required=True, help="Path to local profile JSON")
+
+    profile_apply = sub.add_parser("apply-profile")
+    profile_apply.add_argument("--input", required=True, help="Path to input JSON context")
+    profile_apply.add_argument("--profile", required=True, help="Path to local profile JSON")
+
+    for name in ("record-feedback", "record-outcome", "skill-chain-feedback", "board-question-memory"):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--input", required=True, help="Path to learning input JSON")
+        cmd.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+
+    for name in ("calibrate-scores", "learn-patterns", "source-reputation", "recommendation-backtest", "learning-digest"):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+
+    for name in ("decision-dna", "risk-appetite-twin", "board-memory", "enterprise-decision-ledger", "weekly-operating-autopilot"):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+
+    for name in ("accountability-graph", "friction-score", "decision-collisions", "strategic-contradictions", "control-decision-trace", "vendor-truth-index"):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--input", required=True, help="Path to input JSON context")
+        cmd.add_argument("--db", default=None, help="Optional local SQLite memory DB")
+
+    for name in ("shadow-cost-inaction", "narrative-integrity", "simulation-arena", "delegation-planner"):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--input", required=True, help="Path to input JSON context")
+
     args = parser.parse_args(argv)
 
     try:
@@ -192,7 +317,34 @@ def main(argv: list[str] | None = None) -> int:
             "detect-connector-profile",
             "adapt-connector-export",
         }
-        no_input_commands = {"evaluate", "connector-profiles", "inspect-memory"}
+        no_input_commands = {
+            "evaluate",
+            "connector-profiles",
+            "inspect-memory",
+            "init-memory-db",
+            "migrate-memory-json",
+            "query-memory",
+            "memory-aging",
+            "sla-monitor",
+            "sla-digest",
+            "discover-sources",
+            "pull-signals",
+            "ingest-source-bundle",
+            "ingest-bundle",
+            "run-evals",
+            "eval-report",
+            "init-profile",
+            "calibrate-scores",
+            "learn-patterns",
+            "source-reputation",
+            "recommendation-backtest",
+            "learning-digest",
+            "decision-dna",
+            "risk-appetite-twin",
+            "board-memory",
+            "enterprise-decision-ledger",
+            "weekly-operating-autopilot",
+        }
         input_context = None if args.command in no_input_commands else _read_json(args.input) if args.command not in file_commands else None
         if args.command == "build-decision-packet":
             result = build_decision_packet(input_context)
@@ -290,6 +442,96 @@ def main(argv: list[str] | None = None) -> int:
             result = compare_with_memory(input_context, _read_json(args.memory))
         elif args.command == "inspect-memory":
             result = inspect_memory_store(args.memory)
+        elif args.command == "init-memory-db":
+            result = init_memory_db(args.db)
+        elif args.command == "migrate-memory-json":
+            result = migrate_memory_json(args.memory, args.db)
+        elif args.command == "save-review":
+            result = save_review_to_db(input_context, args.db)
+        elif args.command == "query-memory":
+            result = query_memory_db(args.db, args.query, args.limit)
+        elif args.command == "memory-aging":
+            result = memory_aging(args.db)
+        elif args.command == "sla-monitor":
+            result = sla_monitor(args.db)
+        elif args.command == "sla-digest":
+            result = sla_digest(args.db)
+        elif args.command == "discover-sources":
+            result = discover_sources(args.path)
+        elif args.command == "pull-signals":
+            result = pull_signals(args.input, args.profile)
+        elif args.command in {"ingest-source-bundle", "ingest-bundle"}:
+            result = ingest_source_bundle(args.input, args.db, args.profile)
+        elif args.command == "decision-twin":
+            result = run_decision_twin(input_context, args.scenario)
+        elif args.command == "score-evidence":
+            result = score_evidence_quality(input_context)
+        elif args.command == "evaluate-policy":
+            result = evaluate_policy(input_context, args.policy)
+        elif args.command == "approval-gates":
+            result = approval_gates(input_context)
+        elif args.command == "governance-readiness":
+            result = governance_readiness(input_context)
+        elif args.command == "draft-actions":
+            result = draft_actions(input_context, args.type)
+        elif args.command == "build-board-pack":
+            result = build_board_pack(input_context, args.output_dir, args.format)
+        elif args.command == "run-evals":
+            result = run_evals(args.eval_dir)
+        elif args.command == "eval-report":
+            result = eval_report(args.eval_dir)
+        elif args.command == "init-profile":
+            result = init_profile(args.profile)
+        elif args.command == "apply-profile":
+            result = apply_profile(input_context, args.profile)
+        elif args.command == "record-feedback":
+            result = record_feedback(input_context, args.db)
+        elif args.command == "record-outcome":
+            result = record_outcome(input_context, args.db)
+        elif args.command == "skill-chain-feedback":
+            result = record_skill_chain_feedback(input_context, args.db)
+        elif args.command == "board-question-memory":
+            result = board_question_memory(input_context, args.db)
+        elif args.command == "calibrate-scores":
+            result = calibrate_scores(args.db)
+        elif args.command == "learn-patterns":
+            result = learn_patterns(args.db)
+        elif args.command == "source-reputation":
+            result = source_reputation(args.db)
+        elif args.command == "recommendation-backtest":
+            result = recommendation_backtest(args.db)
+        elif args.command == "learning-digest":
+            result = learning_digest(args.db)
+        elif args.command == "decision-dna":
+            result = build_decision_dna(args.db)
+        elif args.command == "risk-appetite-twin":
+            result = build_risk_appetite_twin(args.db)
+        elif args.command == "board-memory":
+            result = build_board_memory(args.db)
+        elif args.command == "accountability-graph":
+            result = build_accountability_graph(input_context, args.db)
+        elif args.command == "friction-score":
+            result = score_organizational_friction(input_context, args.db)
+        elif args.command == "decision-collisions":
+            result = detect_decision_collisions(input_context, args.db)
+        elif args.command == "strategic-contradictions":
+            result = detect_strategic_contradictions(input_context, args.db)
+        elif args.command == "shadow-cost-inaction":
+            result = shadow_cost_of_inaction(input_context)
+        elif args.command == "enterprise-decision-ledger":
+            result = build_enterprise_decision_ledger(args.db)
+        elif args.command == "control-decision-trace":
+            result = trace_control_to_decision(input_context, args.db)
+        elif args.command == "vendor-truth-index":
+            result = score_vendor_truth(input_context, args.db)
+        elif args.command == "narrative-integrity":
+            result = detect_narrative_integrity(input_context)
+        elif args.command == "simulation-arena":
+            result = run_decision_simulation_arena(input_context)
+        elif args.command == "weekly-operating-autopilot":
+            result = build_weekly_operating_autopilot(args.db)
+        elif args.command == "delegation-planner":
+            result = build_delegation_planner(input_context)
         else:
             parser.error(f"unknown command: {args.command}")
             return 2

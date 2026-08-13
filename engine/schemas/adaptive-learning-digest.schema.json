@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Adaptive CIO Learning Digest",
+  "type": "object",
+  "required": ["artifact", "adaptive_cio_learning_digest", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Adaptive CIO Learning Digest"},
+    "adaptive_cio_learning_digest": {
+      "type": "object",
+      "properties": {
+        "score_calibration": {"type": "object"},
+        "patterns": {"type": "array"},
+        "source_reputation": {"type": "array"},
+        "recommendation_backtest": {"type": "object"}
+      }
+    },
+    "guardrails": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Vendor Truth Index","type":"object","required":["artifact","vendor_truth_index","guardrails"],"properties":{"artifact":{"const":"Vendor Truth Index"},"vendor_truth_index":{"type":"object"},"guardrails":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

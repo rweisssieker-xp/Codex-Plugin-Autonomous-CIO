@@ -1,8 +1,8 @@
 # Decision Intelligence Engine
 
-The Decision Intelligence Engine is a local Python runtime for The Autonomous CIO. It turns provided JSON, CSV, Markdown and text context into reproducible Executive Decision Packets, scorecards, evidence graphs, risk-chain maps, memory comparisons and Visual Command Center data.
+The Decision Intelligence Engine is a local Python runtime for The Autonomous CIO. It turns provided JSON, CSV, Markdown and text context into reproducible Executive Decision Packets, scorecards, evidence graphs, risk-chain maps, SQLite memory entries, policy evaluations, action drafts, eval reports and command-center data.
 
-Version 0.1 remains connector-neutral. In plugin usage, Codex itself is the LLM layer for semantic extraction and reasoning. The local Python engine does not call external services on its own, does not persist memory automatically and does not execute actions.
+Version 0.1 remains connector-neutral. In plugin usage, Codex itself is the LLM layer for semantic extraction and reasoning. The local Python engine does not call external services on its own, persists memory only when an explicit local DB path is provided and does not execute actions.
 
 ## Local Interfaces
 
@@ -41,6 +41,51 @@ python engine/cli.py propose-memory-updates --input engine/examples/industrial_o
 python engine/cli.py inspect-memory --memory engine/examples/memory.json
 python engine/cli.py export-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/industrial-review
 python engine/cli.py export-office-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/office-review
+python engine/cli.py init-memory-db --db .local-memory/autonomous_cio.db
+python engine/cli.py migrate-memory-json --memory engine/examples/memory.json --db .local-memory/autonomous_cio.db
+python engine/cli.py save-review --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py query-memory --db .local-memory/autonomous_cio.db --query ERP
+python engine/cli.py memory-aging --db .local-memory/autonomous_cio.db
+python engine/cli.py sla-monitor --db .local-memory/autonomous_cio.db
+python engine/cli.py sla-digest --db .local-memory/autonomous_cio.db
+python engine/cli.py discover-sources --path engine/examples
+python engine/cli.py pull-signals --input engine/examples/topdesk_export.csv
+python engine/cli.py ingest-bundle --input engine/examples --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-twin --input engine/examples/industrial_operating_review.json --scenario defer
+python engine/cli.py score-evidence --input engine/examples/industrial_operating_review.json
+python engine/cli.py evaluate-policy --input engine/examples/ai_governance.json --policy ai-governance
+python engine/cli.py approval-gates --input engine/examples/industrial_operating_review.json
+python engine/cli.py governance-readiness --input engine/examples/industrial_operating_review.json
+python engine/cli.py draft-actions --input engine/examples/board_prep.json --type email
+python engine/cli.py build-board-pack --input engine/examples/board_prep.json --output-dir .local-export/board-pack --format both
+python engine/cli.py run-evals --eval-dir engine/evals
+python engine/cli.py eval-report --eval-dir engine/evals
+python engine/cli.py init-profile --profile .local-memory/company-profile.json
+python engine/cli.py apply-profile --input engine/examples/board_prep.json --profile .local-memory/company-profile.json
+python engine/cli.py record-feedback --input engine/examples/learning_feedback.json --db .local-memory/autonomous_cio.db
+python engine/cli.py record-outcome --input engine/examples/learning_outcome.json --db .local-memory/autonomous_cio.db
+python engine/cli.py skill-chain-feedback --input engine/examples/skill_chain_feedback.json --db .local-memory/autonomous_cio.db
+python engine/cli.py board-question-memory --input engine/examples/board_questions.json --db .local-memory/autonomous_cio.db
+python engine/cli.py calibrate-scores --db .local-memory/autonomous_cio.db
+python engine/cli.py learn-patterns --db .local-memory/autonomous_cio.db
+python engine/cli.py source-reputation --db .local-memory/autonomous_cio.db
+python engine/cli.py recommendation-backtest --db .local-memory/autonomous_cio.db
+python engine/cli.py learning-digest --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-dna --db .local-memory/autonomous_cio.db
+python engine/cli.py accountability-graph --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py friction-score --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-collisions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py risk-appetite-twin --db .local-memory/autonomous_cio.db
+python engine/cli.py board-memory --db .local-memory/autonomous_cio.db
+python engine/cli.py shadow-cost-inaction --input engine/examples/board_prep.json
+python engine/cli.py enterprise-decision-ledger --db .local-memory/autonomous_cio.db
+python engine/cli.py control-decision-trace --input engine/examples/ai_governance.json --db .local-memory/autonomous_cio.db
+python engine/cli.py vendor-truth-index --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py narrative-integrity --input engine/examples/board_prep.json
+python engine/cli.py simulation-arena --input engine/examples/board_prep.json
+python engine/cli.py weekly-operating-autopilot --db .local-memory/autonomous_cio.db
+python engine/cli.py strategic-contradictions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py delegation-planner --input engine/examples/board_prep.json
 python engine/cli.py import-context --input engine/examples/sample_import.csv
 python engine/cli.py build-from-file --input engine/examples/sample_import.csv
 python engine/cli.py dashboard-from-file --input engine/examples/sample_import.csv
@@ -48,6 +93,7 @@ python engine/cli.py ingest-directory --input engine/examples
 python engine/cli.py refresh-dashboard --input engine/examples/board_prep.json --output visual-command-center/demo-data.json
 python engine/cli.py save-memory --input engine/examples/board_prep.json --memory .local-memory/demo-memory.json
 python engine/cli.py evaluate
+python app/server.py --port 8765
 ```
 
 ## Optional MCP Adapter
@@ -96,6 +142,38 @@ Planned tool names:
 - `evaluate_golden_examples`
 
 ## Scorecard
+
+## Productized CIO OS Runtime
+
+The productized local runtime adds 15 concrete operating-system features around the original packet builder:
+
+- `SignalSource`-style local source discovery, pull and bundle ingestion for export-first connector data.
+- SQLite Executive Memory with explicit DB initialization, migration, review save, query, aging and SLA monitor commands.
+- Stdlib local web app under `app/server.py` for upload-style workflows, packet building, policy checks, memory browsing, exports and evals.
+- Policy-as-code checks for security, audit, AI governance, change control, privacy and vendor risk.
+- Approval gates for accountable owner, approver, contributor, informed and human-only boundaries.
+- Action drafting for email, Teams, TOPdesk, GitHub and board-pack tasks without sending or creating external work.
+- 50-case eval suite under `engine/evals/`.
+- User/company profile layer for risk tolerance, board style, standard systems, roles, KPIs and language.
+- Interactive Decision Twin for approve, defer, stop, re-scope, fund and rollback scenarios.
+- Evidence Quality Engine with source weight, freshness, directness, conflict and completeness scoring.
+- Board Pack Builder for local Markdown/JSON plus Office-compatible `.docx` and `.pptx` artifacts.
+- Decision SLA Monitor over local memory.
+- Multi-input ingestion preserving source provenance.
+- Local source discovery for JSON, CSV, TXT and Markdown files.
+- Versioned schemas for memory, policy, evidence quality, decision twin, bundles, drafts, profiles and eval reports.
+- Explicit adaptive learning loop for feedback, outcomes, skill-chain ratings, board-question memory, score calibration, learned patterns, source reputation and recommendation backtests.
+- Adaptive CIO OS USP modules for Decision DNA, Accountability Graph, Friction Score, Collision Detection, Risk Appetite Twin, Board Memory, Shadow Cost of Inaction, Decision Ledger, Control Traceability, Vendor Truth, Narrative Integrity, Simulation Arena, Weekly Autopilot, Strategic Contradictions and Delegation Planning.
+
+## Adaptive CIO Learning Loop
+
+The learning loop is local memory, not model training:
+
+```text
+Decision Packet -> Human Feedback -> Outcome Review -> Calibration -> Learned Patterns -> Better next Packet
+```
+
+Commands such as `record-feedback`, `record-outcome`, `skill-chain-feedback` and `board-question-memory` write explicit local records. Commands such as `calibrate-scores`, `learn-patterns`, `source-reputation`, `recommendation-backtest` and `learning-digest` read those records and produce decision-support hints for future reviews. No external model, connector or SaaS system is updated.
 
 ## Autopilot Review Views
 

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Board Memory","type":"object","required":["artifact","board_memory","guardrails"],"properties":{"artifact":{"const":"Board Memory"},"board_memory":{"type":"object"},"guardrails":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

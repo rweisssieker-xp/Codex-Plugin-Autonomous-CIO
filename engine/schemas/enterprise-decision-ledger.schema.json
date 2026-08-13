@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Enterprise Decision Ledger","type":"object","required":["artifact","enterprise_decision_ledger","guardrails"],"properties":{"artifact":{"const":"Enterprise Decision Ledger"},"enterprise_decision_ledger":{"type":"object"},"guardrails":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

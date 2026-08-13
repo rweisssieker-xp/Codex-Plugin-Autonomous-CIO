@@ -18,6 +18,7 @@
 | `autonomous-cio-operating-review` | Full governed CIO Autopilot Review |
 | `executive-decision-packet` | Board, crisis, AI approval, transformation and portfolio decisions |
 | `engine/cli.py autopilot-review` | Reproducible local CIO Autopilot Review outputs |
+| `app/server.py` | Local stdlib CIO OS web app |
 | `visual-command-center/index.html` | Static local dashboard demo |
 
 ## Package Contents
@@ -26,9 +27,10 @@
 |---|---|
 | Skills | 133 skills in `skills/` |
 | Docs | 31 docs in `docs/` |
-| Templates | 101 templates in `templates/` |
-| Schemas | 112 JSON schemas in `engine/schemas/` |
+| Templates | 102 templates in `templates/` |
+| Schemas | 139 JSON schemas in `engine/schemas/` |
 | Engine | Local Python Decision Intelligence Engine |
+| Web app | Local stdlib CIO OS app |
 | Dashboard | Static Visual Command Center |
 | Examples | Board prep, crisis, AI governance, transformation, industrial and connector-export examples |
 | Runtime dependencies | Stdlib-only `requirements.txt` |
@@ -114,6 +116,34 @@
 - Explicit Memory Store Inspection
 - Decision Export Package
 - Office Export Package
+- SQLite Executive Memory
+- Policy Engine and Approval Gates
+- Evidence Quality Engine
+- Interactive Decision Twin
+- Decision SLA Monitor
+- Eval Benchmark Suite
+- Local CIO OS Web App
+- User/Company Profile Layer
+- Action Drafting Layer
+- Adaptive CIO Learning Loop
+- Recommendation Backtest
+- Score Calibration Memory
+- Source Reputation Memory
+- Board Question Memory
+- Decision DNA
+- Executive Accountability Graph
+- Organizational Friction Score
+- Decision Collision Detector
+- CIO Risk Appetite Twin
+- Shadow Cost of Inaction
+- Enterprise Decision Ledger
+- Control-to-Decision Traceability
+- Vendor Truth Index
+- Narrative Integrity Detector
+- Decision Simulation Arena
+- CIO Weekly Operating Autopilot
+- Strategic Contradiction Radar
+- Autonomous Delegation Planner
 - Local file and directory ingestion
 - Optional Teams, Slack, Outlook Email, Gmail/Google Workspace and Calendar adapter profiles
 - Optional Jira, Azure DevOps, ServiceNow, CMDB, cloud cost, security, observability, ERP/SAP, Confluence and Google Drive adapter profiles
@@ -130,7 +160,7 @@
 
 - No authenticated live connector access in version 0.1.
 - No production MCP server in version 0.1; an optional MCP-compatible adapter is included for local development.
-- No hosted app UI in version 0.1; the Visual Command Center is a static local dashboard.
-- No external-service action execution.
-- No automatic persistent memory; memory writes require explicit local paths.
+- No hosted app UI in version 0.1; the app is local-only and served from `127.0.0.1`.
+- No external-service action execution; action commands produce drafts only.
+- No automatic persistent memory; SQLite memory writes require explicit local DB paths.
 - Works only on user-provided context and local files.

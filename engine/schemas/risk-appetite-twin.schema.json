@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"CIO Risk Appetite Twin","type":"object","required":["artifact","cio_risk_appetite_twin","guardrails"],"properties":{"artifact":{"const":"CIO Risk Appetite Twin"},"cio_risk_appetite_twin":{"type":"object"},"guardrails":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

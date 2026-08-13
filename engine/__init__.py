@@ -1,5 +1,9 @@
 """Local Decision Intelligence Engine for The Autonomous CIO."""
 
+from .action_drafting import draft_actions
+from .decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
+from .enterprise_operating_intelligence import build_accountability_graph, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
+from .governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
 from .decision_intelligence_engine import (
     analyze_risk_graph,
     action_governance,
@@ -41,8 +45,37 @@ from .decision_intelligence_engine import (
     scan_privacy,
     simulate_scenarios,
 )
+from .decision_twin import run_decision_twin
+from .eval_runner import eval_report, run_evals
+from .evidence_quality import score_evidence_quality
+from .learning_loop import (
+    board_question_memory,
+    calibrate_scores,
+    learn_patterns,
+    learning_digest,
+    recommendation_backtest,
+    record_feedback,
+    record_outcome,
+    record_skill_chain_feedback,
+    source_reputation,
+)
+from .memory_store import init_memory_db, memory_aging, migrate_memory_json, query_memory_db, save_review_to_db, sla_digest, sla_monitor
+from .office_export import build_board_pack
+from .policy_engine import approval_gates, evaluate_policy, governance_readiness
+from .source_connectors import discover_sources, ingest_source_bundle, pull_signals
+from .user_profile import apply_profile, init_profile
 
 __all__ = [
+    "approval_gates",
+    "apply_profile",
+    "build_board_pack",
+    "build_accountability_graph",
+    "build_board_memory",
+    "build_decision_dna",
+    "build_delegation_planner",
+    "build_enterprise_decision_ledger",
+    "build_risk_appetite_twin",
+    "build_weekly_operating_autopilot",
     "build_decision_packet",
     "build_autopilot_review",
     "build_autopilot_review_from_file",
@@ -82,4 +115,39 @@ __all__ = [
     "save_packet_to_memory",
     "scan_privacy",
     "simulate_scenarios",
+    "discover_sources",
+    "draft_actions",
+    "evaluate_policy",
+    "detect_decision_collisions",
+    "detect_narrative_integrity",
+    "detect_strategic_contradictions",
+    "eval_report",
+    "governance_readiness",
+    "ingest_source_bundle",
+    "init_memory_db",
+    "init_profile",
+    "board_question_memory",
+    "calibrate_scores",
+    "learn_patterns",
+    "learning_digest",
+    "memory_aging",
+    "migrate_memory_json",
+    "pull_signals",
+    "query_memory_db",
+    "recommendation_backtest",
+    "record_feedback",
+    "record_outcome",
+    "record_skill_chain_feedback",
+    "run_decision_twin",
+    "run_decision_simulation_arena",
+    "run_evals",
+    "save_review_to_db",
+    "score_evidence_quality",
+    "score_organizational_friction",
+    "score_vendor_truth",
+    "shadow_cost_of_inaction",
+    "source_reputation",
+    "sla_digest",
+    "sla_monitor",
+    "trace_control_to_decision",
 ]

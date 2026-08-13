@@ -1,6 +1,6 @@
 # Governance and Safety
 
-The Autonomous CIO is designed for executive reasoning and action preparation. Version 0.1 does not connect to enterprise systems, does not persist memory automatically and does not execute external actions.
+The Autonomous CIO is designed for executive reasoning and action preparation. Version 0.1 does not connect to enterprise systems by itself, persists memory only when an explicit local SQLite DB path is provided and does not execute external actions.
 
 ## Non-Negotiables
 
@@ -32,6 +32,7 @@ Allowed in v0.1:
 - draft stakeholder messages
 - draft decision logs
 - draft risk/action registers
+- explicit local SQLite memory writes to user-provided DB paths
 
 Not allowed in v0.1:
 
@@ -40,7 +41,7 @@ Not allowed in v0.1:
 - approving changes
 - changing system configuration
 - updating enterprise records
-- claiming persistent memory
+- automatic persistence without an explicit local DB path
 
 ## Executive Risk Language
 

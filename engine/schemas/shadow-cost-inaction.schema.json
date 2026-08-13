@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Shadow Cost of Inaction","type":"object","required":["artifact","shadow_cost_of_inaction","guardrails"],"properties":{"artifact":{"const":"Shadow Cost of Inaction"},"shadow_cost_of_inaction":{"type":"object"},"guardrails":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

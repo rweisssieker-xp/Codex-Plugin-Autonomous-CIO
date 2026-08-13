@@ -13,19 +13,24 @@ This roadmap evolves The Autonomous CIO from a connector-neutral skill-first MVP
 
 ## Phase 2: Executive Decision Memory
 
-- Add a local executive memory model for entities, relationships, decisions, assumptions, risks, actions and commitments.
+- Add a local SQLite executive memory model for entities, relationships, decisions, assumptions, evidence, risks, actions, reviews, source references and audit events.
+- Add explicit learning records for feedback, outcomes, skill-chain ratings, board questions, score calibration, source reputation and recommendation backtests.
+- Add Decision DNA, Risk Appetite Twin and Board Memory as behavior intelligence over explicit local memory.
 - Start from concrete local templates: decision memory, assumption register, evidence graph, risk chain map and action ledger.
 - Make decision debt, recurring unresolved questions and stale assumptions reusable across reviews.
 - Add truth-layer and confidence heatmap files so future outputs can reference evidence strength rather than starting from scratch.
-- Document import/export conventions for user-provided context without claiming automatic persistence.
-- Customer value: leadership gets continuity across meetings, board cycles and transformation reviews.
+- Document import/export conventions for user-provided context without claiming automatic persistence; writes require an explicit local DB path.
+- Customer value: leadership gets continuity across meetings, board cycles and transformation reviews, while the system learns from what actually happened.
 
-## Phase 3: MCP Intelligence Tools
+## Phase 3: Intelligence Tools and Runtime
 
 - Add local Python engine tools for CIO Autopilot Review, Evidence Graph, Risk Chain Map, Decision Score and Memory Comparison.
-- Provide CLI commands and an optional MCP adapter for `build_autopilot_review`, `build_decision_packet`, `score_decision_readiness`, `map_risk_chain`, `extract_evidence_graph` and `compare_with_memory`.
+- Provide CLI commands and an optional MCP adapter for decision packets, scoring, evidence quality, risk chains, policy evaluation, decision twin, action drafting, source ingestion, memory query and board-pack export.
+- Add adaptive learning commands for feedback capture, outcome review, learned pattern extraction and recommendation backtesting.
+- Add operating intelligence commands for accountability graphs, friction scoring, decision collisions, strategic contradictions and weekly CIO autopilot.
+- Add governed execution intelligence commands for decision ledgers, control traceability, vendor truth, narrative integrity, simulation arena and delegation planning.
 - Support reproducible analysis over provided JSON context and demo examples.
-- Keep external actions read-only and draft-only until explicit action governance exists.
+- Keep external actions draft-only; action commands produce JSON/Markdown-style payloads and never execute external work.
 - Customer value: fragmented inputs become traceable decision packets with visible evidence, dependencies and score explanations.
 
 ## Phase 4: Signal Source Connector Profiles
@@ -36,17 +41,19 @@ This roadmap evolves The Autonomous CIO from a connector-neutral skill-first MVP
 - Add TOPdesk-first signal profiles for incidents, changes, assets and knowledge.
 - Add engineering delivery signal profiles for GitHub and Azure DevOps.
 - Treat connectors as governed signal sources, not uncontrolled automation channels.
+- Add local source discovery, pull-signals and source-bundle ingestion while preserving per-file provenance.
 - Customer value: enterprise systems feed the Decision Intelligence Loop while preserving approval gates and evidence boundaries.
 
 ## Phase 5: Visual Command Center
 
 - Add static visual views for command-center status, confidence heatmaps, decision debt, risk chains, portfolios, scenarios and board readiness.
+- Add a local stdlib web app for upload-style ingestion, packet building, policy checks, memory browsing, exports and eval access.
 - Support export-ready executive reports, board-pack outlines and presentation-ready decision views.
 - Customer value: leaders can scan where evidence is weak, which decisions are blocked and which risks cascade.
 
 ## Phase 6: Autonomous Operating Layer
 
 - Prepare governed workflow initiation with explicit approval gates and L0-L4 autonomy policy.
-- Support draft tasks, escalations, approval requests, notifications and decision logs before any external execution.
+- Support draft email, Teams, TOPdesk, GitHub and board-pack actions before any external execution.
 - Maintain audit trails for recommendations, evidence, approvals and action drafts.
 - Customer value: the plugin moves from decision support to controlled operating rhythm without bypassing human accountability.

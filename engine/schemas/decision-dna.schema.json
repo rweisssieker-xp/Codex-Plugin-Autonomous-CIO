@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Decision DNA","type":"object","required":["artifact","decision_dna","guardrails"],"properties":{"artifact":{"const":"Decision DNA"},"decision_dna":{"type":"object"},"guardrails":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

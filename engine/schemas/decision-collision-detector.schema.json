@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Decision Collision Detector","type":"object","required":["artifact","decision_collision_detector","guardrails"],"properties":{"artifact":{"const":"Decision Collision Detector"},"decision_collision_detector":{"type":"object"},"guardrails":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

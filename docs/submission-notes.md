@@ -36,6 +36,15 @@ The engine provides:
 - optional CIO system adapter profiles for Jira, Azure DevOps, ServiceNow, CMDB, cloud cost, security, observability, ERP/SAP, Confluence and Google Drive exports
 - export package generation
 - Office-compatible `.docx` / `.pptx` generation
+- SQLite Executive Memory with explicit local DB paths
+- local stdlib web app for ingestion, packet building, policy checks, memory browsing, exports and evals
+- policy-as-code evaluation and approval gates
+- evidence quality scoring
+- interactive decision-twin scenario deltas
+- action draft payloads without external execution
+- 50-case local eval benchmark suite
+- explicit adaptive learning loop for feedback, outcomes, score calibration, source reputation, board-question memory and recommendation backtests
+- 15 Adaptive CIO OS USP modules for decision behavior, operating intelligence and governed execution intelligence
 
 ## Signature USP Groups
 
@@ -93,7 +102,7 @@ The engine provides:
 
 ## Data Handling
 
-Version 0.1 does not connect to external enterprise systems. It works only with context explicitly provided by the user in Codex or with local files selected by the user. It does not persist memory automatically and does not execute external workflows.
+Version 0.1 does not connect to external enterprise systems by itself. It works only with context explicitly provided by the user in Codex or with local files selected by the user. It persists memory only when an explicit local SQLite DB path is provided and does not execute external workflows.
 
 ## Safety Position
 
@@ -113,8 +122,9 @@ python -m unittest engine.tests.test_engine
 |---|---|
 | Skills | 133 |
 | Docs | 31 |
-| Templates | 101 |
-| Engine schemas | 112 |
+| Templates | 102 |
+| Engine schemas | 139 |
 | Runtime | Local Python engine |
+| Local app | Stdlib web app under `app/` |
 | Dashboard | Static Visual Command Center |
 | Marketplace | Local marketplace-backed installation |

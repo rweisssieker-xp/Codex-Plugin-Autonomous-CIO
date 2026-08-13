@@ -119,6 +119,30 @@ The output can be generated in three practical views:
 
 - Local Python Decision Intelligence Engine
 - Skill Orchestration Runtime
+- Local CIO OS Web App
+- SQLite Executive Memory
+- Policy Engine and Approval Gates
+- Evidence Quality Engine
+- Interactive Decision Twin
+- Eval Benchmark Suite
+- Adaptive CIO Learning Loop
+- Recommendation Backtest
+- Source Reputation Memory
+- Board Question Memory
+- Decision DNA
+- Executive Accountability Graph
+- Organizational Friction Score
+- Decision Collision Detector
+- CIO Risk Appetite Twin
+- Shadow Cost of Inaction
+- Enterprise Decision Ledger
+- Control-to-Decision Traceability
+- Vendor Truth Index
+- Narrative Integrity Detector
+- Decision Simulation Arena
+- CIO Weekly Operating Autopilot
+- Strategic Contradiction Radar
+- Autonomous Delegation Planner
 - Connector Profile Catalog
 - Connector Export Adapter
 - Connector Profile Detection
@@ -134,9 +158,10 @@ The output can be generated in three practical views:
 
 - 133 connector-neutral Codex skills
 - 31 documentation files
-- 101 reusable templates
-- 112 JSON schemas
+- 102 reusable templates
+- 139 JSON schemas
 - Local Python engine with CLI smoke tests
+- Local stdlib web app for ingestion, packet building, memory browsing, policy checks, exports and eval reports
 - Static Visual Command Center demo
 - Demo proof pack for board prep, crisis command, AI governance and transformation value leakage
 - Local `.docx` and `.pptx` export package generation
@@ -146,7 +171,7 @@ The output can be generated in three practical views:
 ## Boundaries and Safety
 
 - No authenticated live system access in version 0.1.
-- No automatic persistence.
+- No automatic persistence; SQLite memory writes require explicit local DB paths.
 - No external action execution.
 - Local file and directory ingestion use only user-provided content.
 - Live Teams, Slack or mail access requires separately enabled connectors and explicit user authorization.

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Narrative Integrity Detector","type":"object","required":["artifact","narrative_integrity_detector","guardrails"],"properties":{"artifact":{"const":"Narrative Integrity Detector"},"narrative_integrity_detector":{"type":"object"},"guardrails":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

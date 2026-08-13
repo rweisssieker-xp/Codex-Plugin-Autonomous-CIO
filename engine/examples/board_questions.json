@@ -1,0 +1,21 @@
+{
+  "source_ref": "demo-board-001",
+  "topic": "ERP go-live readiness",
+  "questions": [
+    {
+      "persona": "CFO",
+      "question": "What is the financial exposure of deferring versus approving with conditions?",
+      "pressure_level": "High"
+    },
+    {
+      "persona": "Audit",
+      "question": "Which control evidence is missing, and who signs off before go-live?",
+      "pressure_level": "High"
+    },
+    {
+      "persona": "CISO",
+      "question": "What privileged-access risk remains open at the decision point?",
+      "pressure_level": "Medium"
+    }
+  ]
+}

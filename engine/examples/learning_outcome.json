@@ -1,0 +1,13 @@
+{
+  "packet_id": "demo-board-001",
+  "decision": "Defer ERP go-live until test readiness and control evidence are confirmed.",
+  "actual_outcome": "Deferral avoided a failed dress rehearsal. Test environment was delivered after nine days, and audit evidence still needed remediation.",
+  "score_accuracy": 82,
+  "realized_risks": [
+    "Testing delay",
+    "Audit evidence gap",
+    "Architecture capacity constraint"
+  ],
+  "value_result": "Delay cost was lower than expected outage and rework exposure.",
+  "reviewed_on": "2026-06-17"
+}

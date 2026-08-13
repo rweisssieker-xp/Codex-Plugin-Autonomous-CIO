@@ -1,0 +1,13 @@
+{
+  "packet_id": "demo-board-001",
+  "decision": "Defer ERP go-live until test readiness and control evidence are confirmed.",
+  "rating": 5,
+  "accepted": true,
+  "notes": "Recommendation matched CIO and audit expectations. Board wanted clearer cost-of-delay wording.",
+  "skill_chain": [
+    "autonomous-cio-orchestrator",
+    "executive-truth-layer",
+    "risk-chain-intelligence",
+    "executive-decision-packet"
+  ]
+}

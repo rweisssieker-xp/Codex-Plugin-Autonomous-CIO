@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Decision Simulation Arena","type":"object","required":["artifact","decision_simulation_arena","guardrails"],"properties":{"artifact":{"const":"Decision Simulation Arena"},"decision_simulation_arena":{"type":"object"},"guardrails":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

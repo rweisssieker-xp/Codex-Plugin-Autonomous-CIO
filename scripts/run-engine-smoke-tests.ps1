@@ -33,11 +33,78 @@ python engine\cli.py export-package --input engine\examples\industrial_operating
 $officeDir = Join-Path $env:TEMP "acio-office-export-smoke"
 if (Test-Path $officeDir) { Remove-Item -LiteralPath $officeDir -Recurse -Force }
 python engine\cli.py export-office-package --input engine\examples\industrial_operating_review.json --output-dir $officeDir | Out-Null
+python engine\cli.py decision-twin --input engine\examples\industrial_operating_review.json --scenario defer | Out-Null
+python engine\cli.py score-evidence --input engine\examples\industrial_operating_review.json | Out-Null
+python engine\cli.py evaluate-policy --input engine\examples\ai_governance.json --policy ai-governance | Out-Null
+python engine\cli.py approval-gates --input engine\examples\industrial_operating_review.json | Out-Null
+python engine\cli.py governance-readiness --input engine\examples\industrial_operating_review.json | Out-Null
+python engine\cli.py draft-actions --input engine\examples\board_prep.json --type email | Out-Null
+$dbPath = Join-Path $env:TEMP "acio-memory-smoke.db"
+if (Test-Path $dbPath) { Remove-Item -LiteralPath $dbPath -Force }
+python engine\cli.py init-memory-db --db $dbPath | Out-Null
+python engine\cli.py migrate-memory-json --memory engine\examples\memory.json --db $dbPath | Out-Null
+python engine\cli.py save-review --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py query-memory --db $dbPath --query ERP | Out-Null
+python engine\cli.py memory-aging --db $dbPath | Out-Null
+python engine\cli.py sla-monitor --db $dbPath | Out-Null
+python engine\cli.py sla-digest --db $dbPath | Out-Null
+python engine\cli.py record-feedback --input engine\examples\learning_feedback.json --db $dbPath | Out-Null
+python engine\cli.py record-outcome --input engine\examples\learning_outcome.json --db $dbPath | Out-Null
+python engine\cli.py skill-chain-feedback --input engine\examples\skill_chain_feedback.json --db $dbPath | Out-Null
+python engine\cli.py board-question-memory --input engine\examples\board_questions.json --db $dbPath | Out-Null
+python engine\cli.py calibrate-scores --db $dbPath | Out-Null
+python engine\cli.py learn-patterns --db $dbPath | Out-Null
+python engine\cli.py source-reputation --db $dbPath | Out-Null
+python engine\cli.py recommendation-backtest --db $dbPath | Out-Null
+python engine\cli.py learning-digest --db $dbPath | Out-Null
+python engine\cli.py decision-dna --db $dbPath | Out-Null
+python engine\cli.py risk-appetite-twin --db $dbPath | Out-Null
+python engine\cli.py board-memory --db $dbPath | Out-Null
+python engine\cli.py accountability-graph --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py friction-score --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py decision-collisions --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py strategic-contradictions --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py shadow-cost-inaction --input engine\examples\board_prep.json | Out-Null
+python engine\cli.py enterprise-decision-ledger --db $dbPath | Out-Null
+python engine\cli.py control-decision-trace --input engine\examples\ai_governance.json --db $dbPath | Out-Null
+python engine\cli.py vendor-truth-index --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py narrative-integrity --input engine\examples\board_prep.json | Out-Null
+python engine\cli.py simulation-arena --input engine\examples\board_prep.json | Out-Null
+python engine\cli.py weekly-operating-autopilot --db $dbPath | Out-Null
+python engine\cli.py delegation-planner --input engine\examples\board_prep.json | Out-Null
+python engine\cli.py discover-sources --path engine\examples | Out-Null
+python engine\cli.py pull-signals --input engine\examples\topdesk_export.csv | Out-Null
+python engine\cli.py ingest-bundle --input engine\examples --db $dbPath | Out-Null
+$profilePath = Join-Path $env:TEMP "acio-profile-smoke.json"
+if (Test-Path $profilePath) { Remove-Item -LiteralPath $profilePath -Force }
+python engine\cli.py init-profile --profile $profilePath | Out-Null
+python engine\cli.py apply-profile --input engine\examples\board_prep.json --profile $profilePath | Out-Null
+$boardPackDir = Join-Path $env:TEMP "acio-board-pack-smoke"
+if (Test-Path $boardPackDir) { Remove-Item -LiteralPath $boardPackDir -Recurse -Force }
+python engine\cli.py build-board-pack --input engine\examples\board_prep.json --output-dir $boardPackDir --format both | Out-Null
+python engine\cli.py run-evals --eval-dir engine\evals | Out-Null
+python engine\cli.py eval-report --eval-dir engine\evals | Out-Null
 python engine\cli.py build-from-file --input engine\examples\sample_import.csv | Out-Null
 python engine\cli.py dashboard-from-file --input engine\examples\sample_import.csv | Out-Null
 python engine\cli.py ingest-directory --input engine\examples | Out-Null
 python engine\cli.py refresh-dashboard --input engine\examples\board_prep.json --output visual-command-center\demo-data.json | Out-Null
 python engine\cli.py evaluate | Out-Null
+$webPort = 8765
+$webProc = Start-Process -FilePath "python" -ArgumentList "app\server.py --port $webPort" -WorkingDirectory (Get-Location) -PassThru -WindowStyle Hidden
+try {
+  Start-Sleep -Seconds 2
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/evals" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/decision-dna?db=$dbPath" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/weekly-operating-autopilot?db=$dbPath" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/enterprise-ledger?db=$dbPath" -UseBasicParsing | Out-Null
+  $webPayload = '{"context":{"decision_request":"Prepare a board decision on ERP go-live","context":["Testing has not started because the environment is late.","Audit evidence for change control is incomplete.","Budget reserve is nearly consumed."]}}'
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/simulation-arena" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/delegation-planner" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/narrative-integrity" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
+} finally {
+  if ($webProc -and -not $webProc.HasExited) { Stop-Process -Id $webProc.Id -Force }
+}
 python -m unittest discover engine/tests
 python -m unittest discover skills/user-context/tests
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py "C:\tmp\Codex Plugin Autonomous CIO"

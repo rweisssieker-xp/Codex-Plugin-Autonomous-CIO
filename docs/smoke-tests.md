@@ -67,6 +67,51 @@ python engine/cli.py propose-memory-updates --input engine/examples/industrial_o
 python engine/cli.py inspect-memory --memory engine/examples/memory.json
 python engine/cli.py export-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/industrial-review
 python engine/cli.py export-office-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/office-review
+python engine/cli.py init-memory-db --db .local-memory/autonomous_cio.db
+python engine/cli.py migrate-memory-json --memory engine/examples/memory.json --db .local-memory/autonomous_cio.db
+python engine/cli.py save-review --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py query-memory --db .local-memory/autonomous_cio.db --query ERP
+python engine/cli.py memory-aging --db .local-memory/autonomous_cio.db
+python engine/cli.py sla-monitor --db .local-memory/autonomous_cio.db
+python engine/cli.py sla-digest --db .local-memory/autonomous_cio.db
+python engine/cli.py discover-sources --path engine/examples
+python engine/cli.py pull-signals --input engine/examples/topdesk_export.csv
+python engine/cli.py ingest-bundle --input engine/examples --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-twin --input engine/examples/industrial_operating_review.json --scenario defer
+python engine/cli.py score-evidence --input engine/examples/industrial_operating_review.json
+python engine/cli.py evaluate-policy --input engine/examples/ai_governance.json --policy ai-governance
+python engine/cli.py approval-gates --input engine/examples/industrial_operating_review.json
+python engine/cli.py governance-readiness --input engine/examples/industrial_operating_review.json
+python engine/cli.py draft-actions --input engine/examples/board_prep.json --type email
+python engine/cli.py build-board-pack --input engine/examples/board_prep.json --output-dir .local-export/board-pack --format both
+python engine/cli.py run-evals --eval-dir engine/evals
+python engine/cli.py eval-report --eval-dir engine/evals
+python engine/cli.py init-profile --profile .local-memory/company-profile.json
+python engine/cli.py apply-profile --input engine/examples/board_prep.json --profile .local-memory/company-profile.json
+python engine/cli.py record-feedback --input engine/examples/learning_feedback.json --db .local-memory/autonomous_cio.db
+python engine/cli.py record-outcome --input engine/examples/learning_outcome.json --db .local-memory/autonomous_cio.db
+python engine/cli.py skill-chain-feedback --input engine/examples/skill_chain_feedback.json --db .local-memory/autonomous_cio.db
+python engine/cli.py board-question-memory --input engine/examples/board_questions.json --db .local-memory/autonomous_cio.db
+python engine/cli.py calibrate-scores --db .local-memory/autonomous_cio.db
+python engine/cli.py learn-patterns --db .local-memory/autonomous_cio.db
+python engine/cli.py source-reputation --db .local-memory/autonomous_cio.db
+python engine/cli.py recommendation-backtest --db .local-memory/autonomous_cio.db
+python engine/cli.py learning-digest --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-dna --db .local-memory/autonomous_cio.db
+python engine/cli.py accountability-graph --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py friction-score --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-collisions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py risk-appetite-twin --db .local-memory/autonomous_cio.db
+python engine/cli.py board-memory --db .local-memory/autonomous_cio.db
+python engine/cli.py shadow-cost-inaction --input engine/examples/board_prep.json
+python engine/cli.py enterprise-decision-ledger --db .local-memory/autonomous_cio.db
+python engine/cli.py control-decision-trace --input engine/examples/ai_governance.json --db .local-memory/autonomous_cio.db
+python engine/cli.py vendor-truth-index --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py narrative-integrity --input engine/examples/board_prep.json
+python engine/cli.py simulation-arena --input engine/examples/board_prep.json
+python engine/cli.py weekly-operating-autopilot --db .local-memory/autonomous_cio.db
+python engine/cli.py strategic-contradictions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py delegation-planner --input engine/examples/board_prep.json
 python engine/cli.py import-context --input engine/examples/sample_import.csv
 python engine/cli.py build-from-file --input engine/examples/sample_import.csv
 python engine/cli.py dashboard-from-file --input engine/examples/sample_import.csv
@@ -74,6 +119,7 @@ python engine/cli.py ingest-directory --input engine/examples
 python engine/cli.py refresh-dashboard --input engine/examples/board_prep.json --output visual-command-center/demo-data.json
 python engine/cli.py evaluate
 python -m unittest discover engine/tests
+python app/server.py --port 8765
 ```
 
 Expected:
@@ -109,6 +155,17 @@ Expected:
 - inspect-memory returns local store counts, stale assumptions and open actions
 - export-package writes board, audit, steering, action-ledger and decision-log artifacts to the requested local directory
 - export-office-package writes local `.docx` and `.pptx` artifacts to the requested local directory
+- SQLite memory commands initialize, migrate, save, query, age and monitor only the explicitly requested local DB path
+- source discovery, pull-signals and ingest-bundle preserve local source provenance and avoid live-access claims
+- decision-twin returns score deltas, risk-chain deltas, missing-evidence changes and reversibility
+- score-evidence returns evidence quality, freshness, source weight and conflict scores
+- policy, approval-gates and governance-readiness return decision-support gates without final legal, security or regulatory determinations
+- draft-actions returns draft payloads with `executed: false`
+- build-board-pack writes requested local artifacts only under the requested output directory
+- eval runner reports 50 local cases and no guardrail failures
+- local web app responds at `http://127.0.0.1:8765` when started
+- adaptive learning commands record explicit local feedback and outcomes, produce calibration and backtest hints, and state that no external model is trained
+- all 15 adaptive CIO OS USP modules return valid JSON, preserve guardrails and stay decision-support only
 - import context converts CSV, JSON, TXT or Markdown into input context
 - build-from-file converts local files directly into Executive Decision Packets
 - dashboard-from-file and refresh-dashboard generate Visual Command Center JSON from real engine output

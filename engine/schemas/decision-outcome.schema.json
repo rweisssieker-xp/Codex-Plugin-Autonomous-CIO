@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decision Outcome",
+  "type": "object",
+  "required": ["packet_id", "decision", "actual_outcome", "score_accuracy"],
+  "properties": {
+    "packet_id": {"type": "string"},
+    "decision": {"type": "string"},
+    "actual_outcome": {"type": "string"},
+    "score_accuracy": {"type": "integer", "minimum": 0, "maximum": 100},
+    "realized_risks": {"type": "array", "items": {"type": "string"}},
+    "value_result": {"type": "string"},
+    "reviewed_on": {"type": "string"}
+  },
+  "additionalProperties": true
+}

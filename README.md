@@ -78,6 +78,12 @@ Open the static local dashboard:
 visual-command-center/index.html
 ```
 
+Start the local CIO OS web app:
+
+```text
+python app/server.py --port 8765
+```
+
 ## Repository Contents
 
 | Path | Purpose |
@@ -85,10 +91,11 @@ visual-command-center/index.html
 | `.codex-plugin/plugin.json` | Codex plugin manifest |
 | `skills/` | 133 connector-neutral Codex skills |
 | `docs/` | Marketplace, architecture, proof, smoke-test and operating-model documentation |
-| `templates/` | 101 reusable executive and governance templates |
+| `templates/` | 102 reusable executive and governance templates |
 | `engine/` | Local Python Decision Intelligence Engine |
-| `engine/schemas/` | 112 JSON schemas for engine artifacts |
+| `engine/schemas/` | 139 JSON schemas for engine artifacts |
 | `engine/examples/` | Demo inputs for board prep, crisis, AI governance and transformation scenarios |
+| `app/` | Stdlib local CIO OS web app |
 | `visual-command-center/` | Static local dashboard demo |
 | `scripts/` | Smoke-test helpers |
 
@@ -224,6 +231,40 @@ Markdown output views:
 114. Security Risk Adapter: converts Defender, Sentinel, Splunk, Qualys or security exports into business risk and control debt.
 115. Enterprise Systems Adapter: converts ERP, SAP, CMDB and asset exports into process, dependency and modernization signals.
 116. Knowledge Document Adapter: converts Confluence, Google Drive, SharePoint and document exports into evidence and memory signals.
+117. Live Connector Layer Contract: standardizes export-first and optional authorized connector sources behind one SignalSource model.
+118. SQLite Executive Memory: stores local decisions, assumptions, evidence, risk chains, actions, reviews and audit events in an explicit local DB.
+119. Local CIO OS Web App: provides browser-based ingestion, packet building, policy checks, memory browsing, exports and eval access.
+120. Governance Policy Engine: evaluates security, audit, AI governance, change-control, privacy and vendor-risk readiness.
+121. Action Drafting Layer: drafts Outlook, Teams, TOPdesk, GitHub and board-pack payloads without sending or creating anything externally.
+122. Eval Benchmark Suite: runs local regression cases for request type, score ranges, evidence separation and guardrails.
+123. Industry Profile Layer: supports local risk tolerance, board style, systems, roles, KPIs and language preferences.
+124. Interactive Decision Twin: simulates approve, defer, stop, re-scope, fund and rollback scenarios with score and risk deltas.
+125. Evidence Quality Engine: scores evidence by source type, freshness, directness, completeness and conflicts.
+126. Board Pack Export Builder: creates local board, audit, steering, docx and pptx artifacts from one context.
+127. Decision SLA Monitor: detects overdue decisions, stale assumptions, stale evidence and aging draft actions from SQLite memory.
+128. Multi-Input Bundle Ingestion: converts local folders of notes, exports, CSVs and JSON into one provenance-preserving source bundle.
+129. User/Company Profile Layer: applies local non-secret preferences for risk, board style, systems, roles and output language.
+130. Policy Approval Gates: maps accountable owner, approver, contributor, informed and human-only gates before execution.
+131. Local Source Discovery: inventories local JSON, CSV, TXT and Markdown sources for safe ingestion.
+132. Adaptive CIO Learning Loop: records explicit feedback, outcomes, board questions and skill-chain ratings in local memory.
+133. Recommendation Backtest: compares recommendations against later outcomes and feedback.
+134. Score Calibration Memory: derives local score-adjustment hints from outcome accuracy and accepted feedback.
+135. Source Reputation Memory: scores local evidence sources by signal count and contradiction pressure.
+136. Board Question Memory: stores real steering and board questions for sharper future pressure simulation.
+137. Decision DNA: classifies local decision behavior such as slow, optimistic, risk-averse, vendor-dependent, evidence-driven and board-reactive.
+138. Executive Accountability Graph: maps accountable owner, approver, contributor and informed relationships from context and memory.
+139. Organizational Friction Score: scores friction from evidence gaps, owner gaps, budget pressure, vendor dependency and decision latency.
+140. Decision Collision Detector: detects contradictory goals, decisions and constraints across context and local memory.
+141. CIO Risk Appetite Twin: derives a local risk appetite profile from accepted feedback, decisions and outcomes.
+142. Shadow Cost of Inaction: makes the cost of not deciding visible across audit, security, delivery, finance and customer domains.
+143. Enterprise Decision Ledger: builds a chronological, audit-friendly ledger from decisions, assumptions, evidence, reviews and outcomes.
+144. Control-to-Decision Traceability: links decisions to security, audit, AI governance, privacy and change-control evidence.
+145. Vendor Truth Index: scores vendor signal quality against delays, milestones, weak evidence and dependency pressure.
+146. Narrative Integrity Detector: detects positive executive narratives that conflict with facts, budget, testing or evidence gaps.
+147. Decision Simulation Arena: compares approve, defer, re-scope, stop, fund and rollback scenarios side by side.
+148. CIO Weekly Operating Autopilot: generates weekly operating focus from memory, stale assumptions, overdue actions and board risks.
+149. Strategic Contradiction Radar: detects strategy/execution contradictions across roadmap, budget, security, architecture and work.
+150. Autonomous Delegation Planner: drafts owner-specific delegation requests with evidence needs, due dates and escalation paths.
 
 ## AI/KI signature mechanism
 
@@ -258,7 +299,7 @@ Visible AI/KI mechanisms include evidence classification, weak signal ranking, c
 
 - No authenticated live data connectors in version 0.1; connector profiles and local file/directory ingestion are included.
 - No production MCP server in version 0.1; only an optional local MCP-compatible adapter for the Decision Intelligence Engine.
-- No hosted web app in version 0.1; the Visual Command Center is a static local dashboard.
+- No hosted web app in version 0.1; the local web app is stdlib-only and runs on `127.0.0.1`.
 - Skills must clearly separate evidence, assumptions, hypotheses and missing data.
 - External actions are prepared as drafts only and are not executed automatically.
 
@@ -321,7 +362,7 @@ Most skills produce:
 
 ## Local Decision Intelligence Engine
 
-The package includes a local Python runtime in `engine/` for reproducible demo and smoke-test outputs. In Codex plugin usage, the Codex host LLM performs semantic extraction and executive reasoning; the local engine turns that structured context into deterministic scores, graphs, packets, memory updates, dashboard data and export packages. It can build Executive Decision Packets, score decision readiness, map risk chains, extract evidence graphs, compare provided context with local memory examples, inspect local memory stores, orchestrate skill chains, define connector profiles, ingest local files/directories and regenerate Visual Command Center data.
+The package includes a local Python runtime in `engine/` for reproducible demo and smoke-test outputs. In Codex plugin usage, the Codex host LLM performs semantic extraction and executive reasoning; the local engine turns that structured context into deterministic scores, graphs, packets, memory updates, dashboard data and export packages. It can build Executive Decision Packets, score decision readiness, map risk chains, extract evidence graphs, compare provided context with local memory examples, inspect local memory stores, orchestrate skill chains, define connector profiles, ingest local files/directories, run policy checks, simulate decision-twin scenarios, draft actions, write local SQLite memory, build board packs and regenerate Visual Command Center data.
 
 ```text
 python engine/cli.py build-decision-packet --input engine/examples/board_prep.json
@@ -359,6 +400,43 @@ python engine/cli.py propose-memory-updates --input engine/examples/industrial_o
 python engine/cli.py inspect-memory --memory engine/examples/memory.json
 python engine/cli.py export-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/industrial-review
 python engine/cli.py export-office-package --input engine/examples/industrial_operating_review.json --output-dir .local-export/office-review
+python engine/cli.py init-memory-db --db .local-memory/autonomous_cio.db
+python engine/cli.py ingest-bundle --input engine/examples --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-twin --input engine/examples/industrial_operating_review.json --scenario defer
+python engine/cli.py score-evidence --input engine/examples/industrial_operating_review.json
+python engine/cli.py evaluate-policy --input engine/examples/ai_governance.json --policy ai-governance
+python engine/cli.py approval-gates --input engine/examples/industrial_operating_review.json
+python engine/cli.py governance-readiness --input engine/examples/industrial_operating_review.json
+python engine/cli.py draft-actions --input engine/examples/board_prep.json --type email
+python engine/cli.py build-board-pack --input engine/examples/board_prep.json --output-dir .local-export/board-pack --format both
+python engine/cli.py sla-monitor --db .local-memory/autonomous_cio.db
+python engine/cli.py run-evals --eval-dir engine/evals
+python engine/cli.py init-profile --profile .local-memory/company-profile.json
+python engine/cli.py apply-profile --input engine/examples/board_prep.json --profile .local-memory/company-profile.json
+python engine/cli.py record-feedback --input engine/examples/learning_feedback.json --db .local-memory/autonomous_cio.db
+python engine/cli.py record-outcome --input engine/examples/learning_outcome.json --db .local-memory/autonomous_cio.db
+python engine/cli.py skill-chain-feedback --input engine/examples/skill_chain_feedback.json --db .local-memory/autonomous_cio.db
+python engine/cli.py board-question-memory --input engine/examples/board_questions.json --db .local-memory/autonomous_cio.db
+python engine/cli.py calibrate-scores --db .local-memory/autonomous_cio.db
+python engine/cli.py learn-patterns --db .local-memory/autonomous_cio.db
+python engine/cli.py source-reputation --db .local-memory/autonomous_cio.db
+python engine/cli.py recommendation-backtest --db .local-memory/autonomous_cio.db
+python engine/cli.py learning-digest --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-dna --db .local-memory/autonomous_cio.db
+python engine/cli.py accountability-graph --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py friction-score --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-collisions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py risk-appetite-twin --db .local-memory/autonomous_cio.db
+python engine/cli.py board-memory --db .local-memory/autonomous_cio.db
+python engine/cli.py shadow-cost-inaction --input engine/examples/board_prep.json
+python engine/cli.py enterprise-decision-ledger --db .local-memory/autonomous_cio.db
+python engine/cli.py control-decision-trace --input engine/examples/ai_governance.json --db .local-memory/autonomous_cio.db
+python engine/cli.py vendor-truth-index --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py narrative-integrity --input engine/examples/board_prep.json
+python engine/cli.py simulation-arena --input engine/examples/board_prep.json
+python engine/cli.py weekly-operating-autopilot --db .local-memory/autonomous_cio.db
+python engine/cli.py strategic-contradictions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py delegation-planner --input engine/examples/board_prep.json
 python engine/cli.py import-context --input engine/examples/sample_import.csv
 python engine/cli.py build-from-file --input engine/examples/sample_import.csv
 python engine/cli.py dashboard-from-file --input engine/examples/sample_import.csv
@@ -369,6 +447,10 @@ python engine/cli.py evaluate
 ```
 
 Open `visual-command-center/index.html` for a local dashboard with JSON upload, JSON export, decision scores, evidence heatmap, risk chain, decision debt, board pressure, operating rhythm, benchmark, trend delta, quality grade, value-at-risk, board coverage, anti-patterns, attention budget, decision packet preview, memory update proposal, connector profile view and export readiness.
+
+Start `python app/server.py --port 8765` for the local CIO OS web app at `http://127.0.0.1:8765`. It exposes local-only endpoints for source-bundle ingestion, decision packets, memory browsing, policy evaluation, governance readiness, board-pack export and eval reports. It uses no framework, no network dependency and no external execution.
+
+The adaptive learning loop is explicit and local: feedback, outcomes, board questions and skill-chain ratings are written only to the provided SQLite DB. The engine does not train a model or update external state; it produces calibration hints, learned patterns, source reputation, recommendation backtests, Decision DNA, Risk Appetite Twin, Board Memory and weekly CIO operating snapshots for the next review.
 
 The engine also includes connector-ready signal contracts for Teams, Slack, Outlook Email, Gmail/Google Workspace, Outlook Calendar, SharePoint, Google Drive, Confluence, Jira, Azure DevOps, GitHub, ServiceNow, TOPdesk, CMDB/assets, cloud cost, security findings, observability, ERP/SAP and finance CSV sources. Version 0.1 has real local file and directory ingestion plus profile-specific export adapters for local CSV/JSON/TXT/Markdown files, but no authenticated live SaaS connectors.
 
@@ -398,4 +480,4 @@ The expanded skill set adds an enterprise nervous system around the Decision Int
 
 ## Roadmap
 
-Phase 2 adds an enterprise memory schema. Phase 3 adds MCP tools for search, graph mapping, scoring and briefing assembly. Phase 4 adds connector profiles. Phase 5 adds a visual command center. Phase 6 adds governed autonomous operating workflows.
+Phase 2 now includes explicit SQLite Executive Memory and adaptive learning records. Phase 3 includes local intelligence tools, scoring, policy checks, decision-twin simulation, evals and score calibration. Phase 4 has export-first connector profiles and source-bundle ingestion. Phase 5 includes static and local-web command-center surfaces. Phase 6 adds governed draft workflows, approval gates, recommendation backtests and audit-friendly local memory.

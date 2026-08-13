@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learning Feedback",
+  "type": "object",
+  "required": ["packet_id", "decision", "rating", "accepted"],
+  "properties": {
+    "packet_id": {"type": "string"},
+    "decision": {"type": "string"},
+    "rating": {"type": "integer", "minimum": 1, "maximum": 5},
+    "accepted": {"type": "boolean"},
+    "notes": {"type": "string"},
+    "skill_chain": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

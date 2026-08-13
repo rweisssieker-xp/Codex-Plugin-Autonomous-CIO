@@ -49,6 +49,19 @@ from decision_intelligence_engine import (  # noqa: E402
     scan_privacy,
     simulate_scenarios,
 )
+from action_drafting import draft_actions  # noqa: E402
+from decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin  # noqa: E402
+from decision_twin import run_decision_twin  # noqa: E402
+from enterprise_operating_intelligence import build_accountability_graph, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction  # noqa: E402
+from eval_runner import run_evals  # noqa: E402
+from evidence_quality import score_evidence_quality  # noqa: E402
+from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision  # noqa: E402
+from learning_loop import board_question_memory, calibrate_scores, learn_patterns, learning_digest, recommendation_backtest, record_feedback, record_outcome, record_skill_chain_feedback, source_reputation  # noqa: E402
+from memory_store import init_memory_db, memory_aging, query_memory_db, save_review_to_db, sla_monitor  # noqa: E402
+from office_export import build_board_pack  # noqa: E402
+from policy_engine import approval_gates, evaluate_policy, governance_readiness  # noqa: E402
+from source_connectors import discover_sources, ingest_source_bundle  # noqa: E402
+from user_profile import apply_profile, init_profile  # noqa: E402
 
 
 EXAMPLES = [
@@ -582,6 +595,194 @@ class DecisionIntelligenceEngineTests(unittest.TestCase):
         proc = subprocess.run(command, capture_output=True, text=True, check=True)
         data = json.loads(proc.stdout)
         self.assertEqual(data["artifact"], "Executive Decision Packet")
+
+    def test_productized_cio_os_runtime(self):
+        context = self.load_example("industrial_operating_review.json")
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            db = tmp_path / "memory.db"
+            init_out = init_memory_db(str(db))
+            self.assertTrue(db.exists())
+            self.assert_invariants(init_out)
+
+            saved = save_review_to_db(context, str(db))
+            self.assertIn("review_id", saved["review_saved_to_sqlite_memory"])
+            self.assert_invariants(saved)
+
+            feedback = record_feedback(self.load_example("learning_feedback.json"), str(db))
+            self.assertEqual(feedback["decision_feedback_recorded"]["rating"], 5)
+            self.assert_invariants(feedback)
+
+            outcome = record_outcome(self.load_example("learning_outcome.json"), str(db))
+            self.assertEqual(outcome["decision_outcome_recorded"]["score_accuracy"], 82)
+            self.assert_invariants(outcome)
+
+            chain_feedback = record_skill_chain_feedback(self.load_example("skill_chain_feedback.json"), str(db))
+            self.assertEqual(chain_feedback["skill_chain_feedback_recorded"]["rating"], 5)
+            self.assert_invariants(chain_feedback)
+
+            questions = board_question_memory(self.load_example("board_questions.json"), str(db))
+            self.assertEqual(questions["board_question_memory"]["stored_count"], 3)
+            self.assert_invariants(questions)
+
+            query = query_memory_db(str(db), "")
+            self.assertTrue(query["sqlite_memory_query"]["results"]["decisions"])
+            self.assert_invariants(query)
+
+            aging = memory_aging(str(db))
+            self.assertIn("overdue_actions", aging["memory_aging_review"])
+            self.assert_invariants(aging)
+
+            sla = sla_monitor(str(db))
+            self.assertIn("breach_risk", sla["decision_sla_monitor"])
+            self.assert_invariants(sla)
+
+            calibration = calibrate_scores(str(db))
+            self.assertIn("adjustments", calibration["score_calibration"])
+            self.assert_invariants(calibration)
+
+            patterns = learn_patterns(str(db))
+            self.assertIn("patterns", patterns["learned_pattern_library"])
+            self.assert_invariants(patterns)
+
+            reputation = source_reputation(str(db))
+            self.assertTrue(reputation["source_reputation"]["sources"])
+            self.assert_invariants(reputation)
+
+            backtest = recommendation_backtest(str(db))
+            self.assertEqual(backtest["recommendation_backtest"]["outcome_count"], 1)
+            self.assert_invariants(backtest)
+
+            digest = learning_digest(str(db))
+            self.assertIn("score_calibration", digest["adaptive_cio_learning_digest"])
+            self.assert_invariants(digest)
+
+            profile = tmp_path / "profile.json"
+            init_profile_out = init_profile(str(profile))
+            self.assertTrue(profile.exists())
+            self.assert_invariants(init_profile_out)
+            applied = apply_profile(context, str(profile))
+            self.assertIn("user_company_profile", applied["user_company_profile_applied"]["input_context"])
+            self.assert_invariants(applied)
+
+            board_dir = tmp_path / "board"
+            board_pack = build_board_pack(context, str(board_dir), "both")
+            self.assertGreaterEqual(len(board_pack["files"]), 2)
+            self.assert_invariants(board_pack)
+
+        policy = evaluate_policy(context, "audit")
+        self.assertIn("readiness", policy["policy_evaluation"])
+        self.assert_invariants(policy)
+
+        gates = approval_gates(context)
+        self.assertTrue(gates["approval_gates"]["gates"])
+        self.assert_invariants(gates)
+
+        governance = governance_readiness(context)
+        self.assertIn("score", governance["governance_readiness"])
+        self.assert_invariants(governance)
+
+        twin = run_decision_twin(context, "defer")
+        self.assertIn("score_deltas", twin)
+        self.assert_invariants(twin)
+
+        evidence = score_evidence_quality(context)
+        self.assertIn("average_score", evidence["evidence_quality"])
+        self.assert_invariants(evidence)
+
+        drafts = draft_actions(context, "email")
+        self.assertTrue(drafts["drafts"])
+        self.assertFalse(drafts["drafts"][0]["executed"])
+        self.assert_invariants(drafts)
+
+        discovery = discover_sources(str(ENGINE / "examples"))
+        self.assertTrue(discovery["source_discovery"]["sources"])
+        self.assert_invariants(discovery)
+
+        bundle = ingest_source_bundle(str(ENGINE / "examples"))
+        self.assertGreater(bundle["source_bundle"]["signals_created"], 0)
+        self.assert_invariants(bundle)
+
+        evals = run_evals(str(ENGINE / "evals"))
+        self.assertEqual(evals["eval_report"]["case_count"], 50)
+        self.assertEqual(evals["eval_report"]["failed_count"], 0)
+        self.assert_invariants(evals)
+
+    def test_adaptive_cio_os_usp_modules(self):
+        context = self.load_example("industrial_operating_review.json")
+        board = self.load_example("board_prep.json")
+        ai = self.load_example("ai_governance.json")
+        with tempfile.TemporaryDirectory() as tmp:
+            db = Path(tmp) / "memory.db"
+            init_memory_db(str(db))
+            save_review_to_db(context, str(db))
+            record_feedback(self.load_example("learning_feedback.json"), str(db))
+            record_outcome(self.load_example("learning_outcome.json"), str(db))
+            board_question_memory(self.load_example("board_questions.json"), str(db))
+
+            dna = build_decision_dna(str(db))
+            self.assertIn("traits", dna["decision_dna"])
+            self.assert_invariants(dna)
+
+            appetite = build_risk_appetite_twin(str(db))
+            self.assertGreaterEqual(appetite["cio_risk_appetite_twin"]["risk_appetite_score"], 0)
+            self.assertLessEqual(appetite["cio_risk_appetite_twin"]["risk_appetite_score"], 100)
+            self.assert_invariants(appetite)
+
+            board_memory = build_board_memory(str(db))
+            self.assertGreaterEqual(board_memory["board_memory"]["question_count"], 3)
+            self.assert_invariants(board_memory)
+
+            graph = build_accountability_graph(board, str(db))
+            self.assertGreater(graph["executive_accountability_graph"]["edge_count"], 0)
+            self.assert_invariants(graph)
+
+            friction = score_organizational_friction(board, str(db))
+            self.assertGreaterEqual(friction["organizational_friction_score"]["score"], 0)
+            self.assertLessEqual(friction["organizational_friction_score"]["score"], 100)
+            self.assert_invariants(friction)
+
+            collisions = detect_decision_collisions(context, str(db))
+            self.assertGreaterEqual(collisions["decision_collision_detector"]["collision_count"], 1)
+            self.assert_invariants(collisions)
+
+            strategic = detect_strategic_contradictions(context, str(db))
+            self.assertIn("contradiction_count", strategic["strategic_contradiction_radar"])
+            self.assert_invariants(strategic)
+
+            weekly = build_weekly_operating_autopilot(str(db))
+            self.assertTrue(weekly["cio_weekly_operating_autopilot"]["top_decisions"])
+            self.assert_invariants(weekly)
+
+            ledger = build_enterprise_decision_ledger(str(db))
+            self.assertTrue(ledger["enterprise_decision_ledger"]["decisions"])
+            self.assert_invariants(ledger)
+
+            control = trace_control_to_decision(ai, str(db))
+            self.assertGreaterEqual(control["control_to_decision_traceability"]["link_count"], 1)
+            self.assert_invariants(control)
+
+            vendor = score_vendor_truth(context, str(db))
+            self.assertGreaterEqual(vendor["vendor_truth_index"]["truth_score"], 0)
+            self.assertLessEqual(vendor["vendor_truth_index"]["truth_score"], 100)
+            self.assert_invariants(vendor)
+
+        narrative = detect_narrative_integrity(board)
+        self.assertTrue(narrative["narrative_integrity_detector"]["contradictions"])
+        self.assert_invariants(narrative)
+
+        arena = run_decision_simulation_arena(board)
+        self.assertEqual(len(arena["decision_simulation_arena"]["scenarios"]), 6)
+        self.assert_invariants(arena)
+
+        delegation = build_delegation_planner(board)
+        self.assertTrue(delegation["autonomous_delegation_planner"]["delegations"])
+        self.assertFalse(delegation["autonomous_delegation_planner"]["delegations"][0]["executed"])
+        self.assert_invariants(delegation)
+
+        shadow = shadow_cost_of_inaction(board)
+        self.assertGreaterEqual(shadow["shadow_cost_of_inaction"]["cost_count"], 1)
+        self.assert_invariants(shadow)
 
     def test_cli_autopilot_review_outputs_json_and_markdown(self):
         json_command = [
