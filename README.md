@@ -100,7 +100,7 @@ python engine/cli.py executive-weekly-brief --db .local-memory/autonomous_cio_de
 | `docs/` | Marketplace, architecture, proof, smoke-test and operating-model documentation |
 | `templates/` | 102 reusable executive and governance templates |
 | `engine/` | Local Python Decision Intelligence Engine |
-| `engine/schemas/` | 155 JSON schemas for engine artifacts |
+| `engine/schemas/` | 162 JSON schemas for engine artifacts |
 | `engine/examples/` | Demo inputs for board prep, crisis, AI governance and transformation scenarios |
 | `app/` | Stdlib local CIO OS web app |
 | `visual-command-center/` | Static local dashboard demo |
@@ -289,6 +289,12 @@ Markdown output views:
 165. Operating Rhythm Autopilot: turns local memory into weekly, monthly, quarterly and annual CIO operating cadences.
 166. Enterprise Contradiction Memory: exposes recurring contradictions such as on-track narratives against testing, budget or control gaps.
 167. CIO Replacement Surface Map: separates CIO work the plugin can prepare from approval-gated and human-only accountability.
+168. LLM Extraction Pipeline: accepts host-LLM structured extraction or local fallback, validates the extraction and builds a schema-checked packet.
+169. Runtime Schema Validation: validates local JSON outputs against engine schemas before release or review.
+170. Memory Approval Queue: stages proposed memory updates for explicit approve/reject review before persistence.
+171. Skill Suite Map: groups the skill catalog into product-frontdoor suites for board, crisis, AI governance, transformation, vendor and autonomy workflows.
+172. Hardening Eval Report: adds release-blocking checks over local eval coverage, high-risk cases and guardrail regressions.
+173. Local Release Package Builder: creates local release notes, manifest and zip package without external publication.
 
 ## AI Signature Mechanism
 

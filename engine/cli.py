@@ -21,6 +21,7 @@ try:
     from memory_store import init_memory_db, memory_aging, migrate_memory_json, query_memory_db, save_review_to_db, sla_digest, sla_monitor
     from office_export import build_board_pack
     from policy_engine import approval_gates, evaluate_policy, governance_readiness
+    from product_hardening import build_llm_extraction_pipeline, build_release_package, list_memory_update_queue, queue_memory_updates, review_memory_update, run_hardening_evals, skill_suite_map, validate_schema_file
     from source_connectors import discover_sources, ingest_source_bundle, pull_signals
     from user_profile import apply_profile, init_profile
 except ImportError:  # pragma: no cover - package execution path
@@ -36,6 +37,7 @@ except ImportError:  # pragma: no cover - package execution path
     from .memory_store import init_memory_db, memory_aging, migrate_memory_json, query_memory_db, save_review_to_db, sla_digest, sla_monitor
     from .office_export import build_board_pack
     from .policy_engine import approval_gates, evaluate_policy, governance_readiness
+    from .product_hardening import build_llm_extraction_pipeline, build_release_package, list_memory_update_queue, queue_memory_updates, review_memory_update, run_hardening_evals, skill_suite_map, validate_schema_file
     from .source_connectors import discover_sources, ingest_source_bundle, pull_signals
     from .user_profile import apply_profile, init_profile
 
@@ -146,13 +148,23 @@ def main(argv: list[str] | None = None) -> int:
         "assurance",
         "decision-defense",
         "llm-extraction-contract",
+        "llm-extraction-pipeline",
         "orchestrate",
         "propose-memory-updates",
+        "queue-memory-updates",
     ):
         cmd = sub.add_parser(name)
         cmd.add_argument("--input", required=True, help="Path to input JSON context")
+        if name == "queue-memory-updates":
+            cmd.add_argument("--db", required=True, help="Path to local SQLite memory DB")
 
     sub.add_parser("connector-profiles")
+
+    sub.add_parser("skill-suites")
+
+    schema_validate = sub.add_parser("validate-schema")
+    schema_validate.add_argument("--input", required=True, help="Path to output JSON")
+    schema_validate.add_argument("--schema", required=True, help="Schema file name under engine/schemas")
 
     export = sub.add_parser("export-review")
     export.add_argument("--input", required=True, help="Path to input JSON context")
@@ -277,6 +289,12 @@ def main(argv: list[str] | None = None) -> int:
     eval_report_cmd = sub.add_parser("eval-report")
     eval_report_cmd.add_argument("--eval-dir", default="engine/evals", help="Directory with eval JSON files")
 
+    hardening_evals = sub.add_parser("hardening-evals")
+    hardening_evals.add_argument("--eval-dir", default="engine/evals", help="Directory with eval JSON files")
+
+    release_package = sub.add_parser("build-release-package")
+    release_package.add_argument("--output-dir", required=True, help="Output directory for local release package")
+
     profile_init = sub.add_parser("init-profile")
     profile_init.add_argument("--profile", required=True, help="Path to local profile JSON")
 
@@ -334,6 +352,16 @@ def main(argv: list[str] | None = None) -> int:
         cmd = sub.add_parser(name)
         cmd.add_argument("--db", required=True, help="Path to local SQLite memory DB")
 
+    queue_list = sub.add_parser("list-memory-update-queue")
+    queue_list.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+    queue_list.add_argument("--status", default="Pending", help="Queue status or empty string for all")
+
+    queue_review = sub.add_parser("review-memory-update")
+    queue_review.add_argument("--db", required=True, help="Path to local SQLite memory DB")
+    queue_review.add_argument("--id", type=int, required=True, help="Pending update id")
+    queue_review.add_argument("--decision", required=True, choices=["Approved", "Rejected"], help="Review decision")
+    queue_review.add_argument("--reviewer", default="CIO office", help="Reviewer name")
+
     args = parser.parse_args(argv)
 
     try:
@@ -350,6 +378,8 @@ def main(argv: list[str] | None = None) -> int:
         no_input_commands = {
             "evaluate",
             "connector-profiles",
+            "skill-suites",
+            "validate-schema",
             "inspect-memory",
             "init-memory-db",
             "migrate-memory-json",
@@ -363,6 +393,8 @@ def main(argv: list[str] | None = None) -> int:
             "ingest-bundle",
             "run-evals",
             "eval-report",
+            "hardening-evals",
+            "build-release-package",
             "init-profile",
             "calibrate-scores",
             "learn-patterns",
@@ -377,6 +409,8 @@ def main(argv: list[str] | None = None) -> int:
             "executive-weekly-brief",
             "benefit-realization-memory",
             "operating-rhythm-autopilot-v2",
+            "list-memory-update-queue",
+            "review-memory-update",
         }
         input_context = None if args.command in no_input_commands else _read_json(args.input) if args.command not in file_commands else None
         if args.command == "build-decision-packet":
@@ -417,12 +451,20 @@ def main(argv: list[str] | None = None) -> int:
             result = build_executive_decision_defense(input_context)
         elif args.command == "llm-extraction-contract":
             result = build_llm_extraction_contract(input_context)
+        elif args.command == "llm-extraction-pipeline":
+            result = build_llm_extraction_pipeline(input_context)
         elif args.command == "orchestrate":
             result = run_skill_orchestrator(input_context)
         elif args.command == "propose-memory-updates":
             result = propose_memory_updates(input_context)
+        elif args.command == "queue-memory-updates":
+            result = queue_memory_updates(input_context, args.db)
         elif args.command == "connector-profiles":
             result = connector_profile_catalog()
+        elif args.command == "skill-suites":
+            result = skill_suite_map()
+        elif args.command == "validate-schema":
+            result = validate_schema_file(args.input, args.schema)
         elif args.command == "export-package":
             result = export_decision_package(input_context, args.output_dir)
         elif args.command == "export-office-package":
@@ -513,6 +555,10 @@ def main(argv: list[str] | None = None) -> int:
             result = run_evals(args.eval_dir)
         elif args.command == "eval-report":
             result = eval_report(args.eval_dir)
+        elif args.command == "hardening-evals":
+            result = run_hardening_evals(args.eval_dir)
+        elif args.command == "build-release-package":
+            result = build_release_package(args.output_dir)
         elif args.command == "init-profile":
             result = init_profile(args.profile)
         elif args.command == "apply-profile":
@@ -593,6 +639,10 @@ def main(argv: list[str] | None = None) -> int:
             result = build_control_debt_ledger(input_context, args.db)
         elif args.command == "operating-rhythm-autopilot-v2":
             result = build_operating_rhythm_autopilot_v2(args.db)
+        elif args.command == "list-memory-update-queue":
+            result = list_memory_update_queue(args.db, args.status)
+        elif args.command == "review-memory-update":
+            result = review_memory_update(args.db, args.id, args.decision, args.reviewer)
         elif args.command == "enterprise-contradiction-memory":
             result = build_enterprise_contradiction_memory(input_context, args.db)
         elif args.command == "cio-replacement-surface-map":

@@ -28,7 +28,7 @@
 | Skills | 133 skills in `skills/` |
 | Docs | 31 docs in `docs/` |
 | Templates | 102 templates in `templates/` |
-| Schemas | 155 JSON schemas in `engine/schemas/` |
+| Schemas | 162 JSON schemas in `engine/schemas/` |
 | Engine | Local Python Decision Intelligence Engine |
 | Web app | Local stdlib CIO OS app |
 | Dashboard | Static Visual Command Center |
@@ -159,6 +159,12 @@
 - Operating Rhythm Autopilot
 - Enterprise Contradiction Memory
 - CIO Replacement Surface Map
+- LLM Extraction Pipeline
+- Runtime Schema Validation
+- Memory Approval Queue
+- Skill Suite Map
+- Hardening Eval Report
+- Local Release Package Builder
 - Strategic Contradiction Radar
 - Autonomous Delegation Planner
 - Local file and directory ingestion

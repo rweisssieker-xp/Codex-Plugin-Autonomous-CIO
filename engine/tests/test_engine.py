@@ -61,6 +61,7 @@ from learning_loop import board_question_memory, calibrate_scores, learn_pattern
 from memory_store import init_memory_db, memory_aging, query_memory_db, save_review_to_db, sla_monitor  # noqa: E402
 from office_export import build_board_pack  # noqa: E402
 from policy_engine import approval_gates, evaluate_policy, governance_readiness  # noqa: E402
+from product_hardening import build_llm_extraction_pipeline, build_release_package, list_memory_update_queue, queue_memory_updates, review_memory_update, run_hardening_evals, skill_suite_map, validate_output_schema  # noqa: E402
 from source_connectors import discover_sources, ingest_source_bundle  # noqa: E402
 from user_profile import apply_profile, init_profile  # noqa: E402
 
@@ -867,6 +868,46 @@ class DecisionIntelligenceEngineTests(unittest.TestCase):
             self.assertGreaterEqual(replacement["cio_replacement_surface_map"]["estimated_cio_work_prepared_percent"], 0)
             self.assertFalse(any(item.get("automation_level") == "external_execution_allowed" for item in replacement["cio_replacement_surface_map"]["surfaces"]))
             self.assert_invariants(replacement)
+
+    def test_product_hardening_runtime(self):
+        context = self.load_example("board_prep.json")
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            db = tmp_path / "memory.db"
+            init_memory_db(str(db))
+
+            pipeline = build_llm_extraction_pipeline(context)
+            self.assertIn(pipeline["llm_extraction_pipeline"]["mode"], {"heuristic_fallback", "host_llm_structured_input"})
+            self.assertTrue(pipeline["llm_extraction_pipeline"]["extraction_check"]["valid"])
+            self.assert_invariants(pipeline)
+
+            validation = validate_output_schema(pipeline, "llm-extraction-pipeline.schema.json")
+            self.assertTrue(validation["schema_validation"]["valid"])
+            self.assert_invariants(validation)
+
+            queued = queue_memory_updates(context, str(db))
+            self.assertGreaterEqual(queued["memory_update_queue"]["queued_count"], 1)
+            self.assert_invariants(queued)
+
+            queue = list_memory_update_queue(str(db))
+            self.assertTrue(queue["memory_update_queue_review"]["updates"])
+            first_id = queue["memory_update_queue_review"]["updates"][0]["id"]
+            reviewed = review_memory_update(str(db), first_id, "Approved", "Unit test")
+            self.assertEqual(reviewed["memory_update_reviewed"]["decision"], "Approved")
+            self.assert_invariants(reviewed)
+
+            suites = skill_suite_map()
+            self.assertGreaterEqual(suites["skill_suite_map"]["suite_count"], 6)
+            self.assert_invariants(suites)
+
+            hardening = run_hardening_evals(str(ENGINE / "evals"))
+            self.assertTrue(hardening["hardening_eval_report"]["hardening_checks"]["minimum_case_count"])
+            self.assert_invariants(hardening)
+
+            release = build_release_package(str(tmp_path / "release"))
+            self.assertTrue(Path(release["release_package"]["zip"]).exists())
+            self.assertGreater(release["release_package"]["zip_size_bytes"], 1000)
+            self.assert_invariants(release)
 
     def test_cli_autopilot_review_outputs_json_and_markdown(self):
         json_command = [

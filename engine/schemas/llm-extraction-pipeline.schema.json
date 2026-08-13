@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LLM Extraction Pipeline",
+  "type": "object",
+  "required": ["artifact", "llm_extraction_pipeline", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "LLM Extraction Pipeline"},
+    "llm_extraction_pipeline": {
+      "type": "object",
+      "required": ["mode", "contract", "extraction", "extraction_check", "packet_schema_check", "decision_packet"],
+      "properties": {
+        "mode": {"type": "string"},
+        "contract": {"type": "object"},
+        "extraction": {"type": "object"},
+        "extraction_check": {"type": "object"},
+        "packet_schema_check": {"type": "object"},
+        "decision_packet": {"type": "object"}
+      }
+    }
+  }
+}

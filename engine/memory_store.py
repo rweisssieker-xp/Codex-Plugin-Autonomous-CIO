@@ -18,7 +18,7 @@ GUARDRAILS = [
     "High-risk domain outputs are decision support, not final specialist determinations.",
 ]
 
-SCHEMA_VERSION = "1.2"
+SCHEMA_VERSION = "1.3"
 
 
 def init_memory_db(db_path: str) -> Dict[str, Any]:
@@ -205,6 +205,7 @@ def _create_schema(conn: sqlite3.Connection) -> None:
     conn.execute("create table if not exists control_decision_links(id integer primary key, decision_ref text, control_domain text, evidence_gap text, payload text, created_on text)")
     conn.execute("create table if not exists delegation_drafts(id integer primary key, owner text, task text, evidence_needed text, due_on text, payload text, created_on text)")
     conn.execute("create table if not exists weekly_operating_snapshots(id integer primary key, title text, payload text, created_on text)")
+    conn.execute("create table if not exists pending_memory_updates(id integer primary key, area text, payload text, status text, reviewer text default '', created_on text, reviewed_on text)")
 
 
 def _future_days(days: int) -> str:

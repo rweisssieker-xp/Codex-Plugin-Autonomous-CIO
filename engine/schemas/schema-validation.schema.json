@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Schema Validation",
+  "type": "object",
+  "required": ["artifact", "schema_validation", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Schema Validation"},
+    "schema_validation": {
+      "type": "object",
+      "required": ["schema", "valid", "errors"],
+      "properties": {
+        "schema": {"type": "string"},
+        "valid": {"type": "boolean"},
+        "errors": {"type": "array"}
+      }
+    }
+  }
+}

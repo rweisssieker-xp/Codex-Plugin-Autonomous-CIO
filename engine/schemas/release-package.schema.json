@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Release Package",
+  "type": "object",
+  "required": ["artifact", "release_package", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Release Package"},
+    "release_package": {
+      "type": "object",
+      "required": ["output_dir", "notes", "manifest", "zip", "zip_size_bytes"],
+      "properties": {
+        "output_dir": {"type": "string"},
+        "notes": {"type": "string"},
+        "manifest": {"type": "string"},
+        "zip": {"type": "string"},
+        "zip_size_bytes": {"type": "integer"}
+      }
+    }
+  }
+}

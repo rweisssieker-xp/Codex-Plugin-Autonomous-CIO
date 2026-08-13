@@ -158,6 +158,12 @@ The output can be generated in three practical views:
 - Operating Rhythm Autopilot
 - Enterprise Contradiction Memory
 - CIO Replacement Surface Map
+- LLM Extraction Pipeline
+- Runtime Schema Validation
+- Memory Approval Queue
+- Skill Suite Map
+- Hardening Eval Report
+- Local Release Package Builder
 - Strategic Contradiction Radar
 - Autonomous Delegation Planner
 - Connector Profile Catalog
@@ -176,7 +182,7 @@ The output can be generated in three practical views:
 - 133 connector-neutral Codex skills
 - 31 documentation files
 - 102 reusable templates
-- 155 JSON schemas
+- 162 JSON schemas
 - Local Python engine with CLI smoke tests
 - Local stdlib web app for ingestion, packet building, memory browsing, policy checks, exports and eval reports
 - Seeded demo memory and guided weekly-brief flow for proof-first review

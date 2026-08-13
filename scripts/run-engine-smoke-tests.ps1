@@ -24,6 +24,7 @@ python engine\cli.py connector-profiles | Out-Null
 python engine\cli.py detect-connector-profile --input engine\examples\industrial_file_drop.csv | Out-Null
 python engine\cli.py adapt-connector-export --input engine\examples\topdesk_export.csv | Out-Null
 python engine\cli.py llm-extraction-contract --input engine\examples\industrial_operating_review.json | Out-Null
+python engine\cli.py llm-extraction-pipeline --input engine\examples\industrial_operating_review.json | Out-Null
 python engine\cli.py orchestrate --input engine\examples\industrial_operating_review.json | Out-Null
 python engine\cli.py propose-memory-updates --input engine\examples\industrial_operating_review.json | Out-Null
 python engine\cli.py inspect-memory --memory engine\examples\memory.json | Out-Null
@@ -43,6 +44,9 @@ $dbPath = Join-Path $env:TEMP "acio-memory-smoke.db"
 if (Test-Path $dbPath) { Remove-Item -LiteralPath $dbPath -Force }
 python engine\cli.py init-memory-db --db $dbPath | Out-Null
 python scripts\seed-demo-memory.py --db $dbPath | Out-Null
+python engine\cli.py queue-memory-updates --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py list-memory-update-queue --db $dbPath | Out-Null
+python engine\cli.py review-memory-update --db $dbPath --id 1 --decision Approved --reviewer "Smoke test" | Out-Null
 python engine\cli.py migrate-memory-json --memory engine\examples\memory.json --db $dbPath | Out-Null
 python engine\cli.py save-review --input engine\examples\board_prep.json --db $dbPath | Out-Null
 python engine\cli.py query-memory --db $dbPath --query ERP | Out-Null
@@ -103,6 +107,15 @@ if (Test-Path $boardPackDir) { Remove-Item -LiteralPath $boardPackDir -Recurse -
 python engine\cli.py build-board-pack --input engine\examples\board_prep.json --output-dir $boardPackDir --format both | Out-Null
 python engine\cli.py run-evals --eval-dir engine\evals | Out-Null
 python engine\cli.py eval-report --eval-dir engine\evals | Out-Null
+python engine\cli.py hardening-evals --eval-dir engine\evals | Out-Null
+python engine\cli.py skill-suites | Out-Null
+$schemaOutput = Join-Path $env:TEMP "acio-schema-output.json"
+$schemaJson = python engine\cli.py llm-extraction-pipeline --input engine\examples\board_prep.json
+[System.IO.File]::WriteAllText($schemaOutput, ($schemaJson -join [Environment]::NewLine), [System.Text.UTF8Encoding]::new($false))
+python engine\cli.py validate-schema --input $schemaOutput --schema llm-extraction-pipeline.schema.json | Out-Null
+$releaseDir = Join-Path $env:TEMP "acio-release-package-smoke"
+if (Test-Path $releaseDir) { Remove-Item -LiteralPath $releaseDir -Recurse -Force }
+python engine\cli.py build-release-package --output-dir $releaseDir | Out-Null
 python engine\cli.py build-from-file --input engine\examples\sample_import.csv | Out-Null
 python engine\cli.py dashboard-from-file --input engine\examples\sample_import.csv | Out-Null
 python engine\cli.py ingest-directory --input engine\examples | Out-Null
@@ -114,6 +127,8 @@ try {
   Start-Sleep -Seconds 2
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/evals" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/hardening-evals" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/skill-suites" -UseBasicParsing | Out-Null
   $seedPayload = @{ db = $dbPath } | ConvertTo-Json -Compress
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/seed-demo-memory" -Method Post -Body $seedPayload -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/decision-dna?db=$dbPath" -UseBasicParsing | Out-Null
@@ -121,10 +136,13 @@ try {
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/executive-weekly-brief?db=$dbPath" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/enterprise-ledger?db=$dbPath" -UseBasicParsing | Out-Null
   $webPayload = '{"context":{"decision_request":"Prepare a board decision on ERP go-live","context":["Testing has not started because the environment is late.","Audit evidence for change control is incomplete.","Budget reserve is nearly consumed."]}}'
+  $webPayloadWithDb = '{"db":"' + ($dbPath -replace '\\','\\') + '","context":{"decision_request":"Prepare a board decision on ERP go-live","context":["Testing has not started because the environment is late.","Audit evidence for change control is incomplete.","Budget reserve is nearly consumed.","Vendor milestone slipped and recovery evidence is missing."]}}'
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/simulation-arena" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/llm-extraction-pipeline" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/queue-memory-updates" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/memory-update-queue?db=$dbPath" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/delegation-planner" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/narrative-integrity" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
-  $webPayloadWithDb = '{"db":"' + ($dbPath -replace '\\','\\') + '","context":{"decision_request":"Prepare a board decision on ERP go-live","context":["Testing has not started because the environment is late.","Audit evidence for change control is incomplete.","Budget reserve is nearly consumed.","Vendor milestone slipped and recovery evidence is missing."]}}'
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/enterprise-operating-twin" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/autonomy-contract" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/decision-chain-custody" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
@@ -142,6 +160,8 @@ try {
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/cio-replacement-surface-map" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   $weeklyExportPayload = @{ db = $dbPath; output_dir = "$weeklyBriefDir-web"; format = "both" } | ConvertTo-Json -Compress
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/export-weekly-brief" -Method Post -Body $weeklyExportPayload -ContentType "application/json" -UseBasicParsing | Out-Null
+  $releasePayload = @{ output_dir = "$releaseDir-web" } | ConvertTo-Json -Compress
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/build-release-package" -Method Post -Body $releasePayload -ContentType "application/json" -UseBasicParsing | Out-Null
 } finally {
   if ($webProc -and -not $webProc.HasExited) { Stop-Process -Id $webProc.Id -Force }
 }

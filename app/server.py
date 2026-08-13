@@ -17,6 +17,7 @@ sys.path.insert(0, str(ENGINE))
 from decision_intelligence_engine import build_decision_packet, generate_dashboard_data, export_decision_package  # noqa: E402
 from memory_store import init_memory_db, query_memory_db, save_review_to_db  # noqa: E402
 from policy_engine import evaluate_policy, governance_readiness  # noqa: E402
+from product_hardening import build_llm_extraction_pipeline, build_release_package, list_memory_update_queue, queue_memory_updates, review_memory_update, run_hardening_evals, skill_suite_map  # noqa: E402
 from source_connectors import ingest_source_bundle  # noqa: E402
 from office_export import build_board_pack  # noqa: E402
 from eval_runner import run_evals  # noqa: E402
@@ -42,6 +43,12 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if parsed.path == "/api/evals":
             self._json(run_evals(str(ENGINE / "evals")))
+            return
+        if parsed.path == "/api/hardening-evals":
+            self._json(run_hardening_evals(str(ENGINE / "evals")))
+            return
+        if parsed.path == "/api/skill-suites":
+            self._json(skill_suite_map())
             return
         if parsed.path == "/api/learning":
             qs = parse_qs(parsed.query)
@@ -79,6 +86,12 @@ class Handler(SimpleHTTPRequestHandler):
             db = qs.get("db", [str(ROOT / ".local-memory" / "autonomous_cio.db")])[0]
             self._json(build_operating_rhythm_autopilot_v2(db))
             return
+        if parsed.path == "/api/memory-update-queue":
+            qs = parse_qs(parsed.query)
+            db = qs.get("db", [str(ROOT / ".local-memory" / "autonomous_cio.db")])[0]
+            status = qs.get("status", ["Pending"])[0]
+            self._json(list_memory_update_queue(db, status))
+            return
         return super().do_GET()
 
     def do_POST(self):  # noqa: N802
@@ -88,6 +101,8 @@ class Handler(SimpleHTTPRequestHandler):
                 self._json(ingest_source_bundle(payload["input"], payload.get("db"), payload.get("profile", "auto")))
             elif self.path == "/api/decision-packet":
                 self._json(build_decision_packet(payload.get("context", payload)))
+            elif self.path == "/api/llm-extraction-pipeline":
+                self._json(build_llm_extraction_pipeline(payload.get("context", payload)))
             elif self.path == "/api/dashboard":
                 self._json(generate_dashboard_data(payload.get("context", payload)))
             elif self.path == "/api/policy":
@@ -104,6 +119,12 @@ class Handler(SimpleHTTPRequestHandler):
                 db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio.db"))
                 init_memory_db(db)
                 self._json(save_review_to_db(payload.get("context", payload), db))
+            elif self.path == "/api/queue-memory-updates":
+                db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio.db"))
+                self._json(queue_memory_updates(payload.get("context", payload), db))
+            elif self.path == "/api/review-memory-update":
+                db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio.db"))
+                self._json(review_memory_update(db, int(payload["id"]), payload.get("decision", "Approved"), payload.get("reviewer", "CIO office")))
             elif self.path == "/api/seed-demo-memory":
                 db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio_demo.db"))
                 init_memory_db(db)
@@ -156,6 +177,9 @@ class Handler(SimpleHTTPRequestHandler):
                 db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio.db"))
                 output_dir = payload.get("output_dir", str(ROOT / ".local-export" / "weekly-brief"))
                 self._json(build_executive_weekly_brief(db, output_dir, payload.get("format", "both")))
+            elif self.path == "/api/build-release-package":
+                output_dir = payload.get("output_dir", str(ROOT / ".local-export" / "release"))
+                self._json(build_release_package(output_dir))
             else:
                 self.send_error(404, "unknown API endpoint")
         except Exception as exc:

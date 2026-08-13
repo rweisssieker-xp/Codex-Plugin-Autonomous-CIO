@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skill Suite Map",
+  "type": "object",
+  "required": ["artifact", "skill_suite_map", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Skill Suite Map"},
+    "skill_suite_map": {
+      "type": "object",
+      "required": ["suite_count", "suites"],
+      "properties": {
+        "suite_count": {"type": "integer"},
+        "suites": {"type": "array"}
+      }
+    }
+  }
+}

@@ -21,6 +21,9 @@
     .brief { background: #fff; border: 1px solid #d8dee4; border-radius: 8px; padding: 16px; max-height: 74vh; overflow: auto; line-height: 1.45; }
     .brief h1 { font-size: 24px; color: #0f766e; }
     .brief h2 { font-size: 18px; color: #0f766e; border-top: 1px solid #e5e7eb; padding-top: 12px; }
+    .workbench { display: grid; gap: 10px; }
+    .group { border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px; background: #fbfcfd; }
+    .group-title { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #4b5563; margin-bottom: 4px; }
     .hidden { display: none; }
   </style>
 </head>
@@ -56,40 +59,51 @@
       <input id="dbPath" value=".local-memory/autonomous_cio_demo.db">
       <label>Policy</label>
       <select id="policy"><option>security</option><option>audit</option><option>ai-governance</option><option>change-control</option><option>privacy</option><option>vendor-risk</option></select>
-      <button onclick="seedDemo()">Seed Demo Memory</button>
-      <button onclick="postContext('/api/decision-packet')">Decision Packet</button>
-      <button onclick="postContext('/api/dashboard')">Dashboard Data</button>
-      <button onclick="postContext('/api/policy', {policy: policy.value})">Policy</button>
-      <button onclick="postContext('/api/board-pack', {output_dir: outputDir.value, format: 'both'})">Export Board Pack</button>
-      <button onclick="postBundle()">Ingest Bundle</button>
-      <button onclick="postContext('/api/save-review', {db: dbPath.value})">Save Review</button>
-      <button onclick="recordFeedback()">Record Feedback</button>
-      <button onclick="recordOutcome()">Record Outcome</button>
-      <button onclick="get('/api/learning?db=' + encodeURIComponent(dbPath.value))">Learning Digest</button>
-      <button onclick="get('/api/decision-dna?db=' + encodeURIComponent(dbPath.value))">Decision DNA</button>
-      <button onclick="get('/api/weekly-operating-autopilot?db=' + encodeURIComponent(dbPath.value))">Weekly Autopilot</button>
-      <button onclick="weeklyBrief()">Weekly Brief</button>
-      <button onclick="exportWeeklyBrief()">Export Weekly Brief</button>
-      <button onclick="get('/api/enterprise-ledger?db=' + encodeURIComponent(dbPath.value))">Decision Ledger</button>
-      <button onclick="postContext('/api/simulation-arena')">Simulation Arena</button>
-      <button onclick="postContext('/api/delegation-planner')">Delegation Planner</button>
-      <button onclick="postContext('/api/narrative-integrity')">Narrative Integrity</button>
-      <button onclick="postContext('/api/enterprise-operating-twin', {db: dbPath.value})">Operating Twin</button>
-      <button onclick="postContext('/api/autonomy-contract', {db: dbPath.value})">Autonomy Contract</button>
-      <button onclick="postContext('/api/decision-chain-custody', {db: dbPath.value})">Chain of Custody</button>
-      <button onclick="postContext('/api/executive-attention', {db: dbPath.value})">Attention Allocator</button>
-      <button onclick="postContext('/api/kill-criteria-sentinel', {db: dbPath.value})">Kill Criteria</button>
-      <button onclick="get('/api/benefit-realization-memory?db=' + encodeURIComponent(dbPath.value))">Benefit Memory</button>
-      <button onclick="postContext('/api/strategic-drift-warning', {db: dbPath.value})">Strategic Drift</button>
-      <button onclick="postContext('/api/vendor-promise-backtest', {db: dbPath.value})">Vendor Backtest</button>
-      <button onclick="postContext('/api/decision-latency-cost', {db: dbPath.value})">Latency Cost</button>
-      <button onclick="postContext('/api/evidence-decay-forecast', {db: dbPath.value})">Evidence Decay</button>
-      <button onclick="postContext('/api/synthetic-executive-committee', {db: dbPath.value})">Exec Committee</button>
-      <button onclick="postContext('/api/control-debt-ledger', {db: dbPath.value})">Control Debt</button>
-      <button onclick="get('/api/operating-rhythm-autopilot-v2?db=' + encodeURIComponent(dbPath.value))">Rhythm Autopilot</button>
-      <button onclick="postContext('/api/enterprise-contradiction-memory', {db: dbPath.value})">Contradiction Memory</button>
-      <button onclick="postContext('/api/cio-replacement-surface-map', {db: dbPath.value})">Replacement Surface</button>
-      <button class="secondary" onclick="get('/api/evals')">Run Evals</button>
+      <div class="workbench">
+        <div class="group">
+          <div class="group-title">Proof Flow</div>
+          <button onclick="seedDemo()">Seed Demo Memory</button>
+          <button onclick="postBundle()">Ingest Bundle</button>
+          <button onclick="postContext('/api/decision-packet')">Decision Packet</button>
+          <button onclick="postContext('/api/llm-extraction-pipeline')">LLM Pipeline</button>
+          <button onclick="weeklyBrief()">Weekly Brief</button>
+        </div>
+        <div class="group">
+          <div class="group-title">Memory and Governance</div>
+          <button onclick="postContext('/api/save-review', {db: dbPath.value})">Save Review</button>
+          <button onclick="postContext('/api/queue-memory-updates', {db: dbPath.value})">Queue Memory</button>
+          <button onclick="get('/api/memory-update-queue?db=' + encodeURIComponent(dbPath.value))">Review Queue</button>
+          <button onclick="postContext('/api/policy', {policy: policy.value})">Policy</button>
+          <button onclick="postContext('/api/autonomy-contract', {db: dbPath.value})">Autonomy Contract</button>
+          <button onclick="postContext('/api/control-debt-ledger', {db: dbPath.value})">Control Debt</button>
+        </div>
+        <div class="group">
+          <div class="group-title">Executive Intelligence</div>
+          <button onclick="postContext('/api/enterprise-operating-twin', {db: dbPath.value})">Operating Twin</button>
+          <button onclick="postContext('/api/executive-attention', {db: dbPath.value})">Attention Allocator</button>
+          <button onclick="postContext('/api/synthetic-executive-committee', {db: dbPath.value})">Exec Committee</button>
+          <button onclick="postContext('/api/cio-replacement-surface-map', {db: dbPath.value})">Replacement Surface</button>
+          <button onclick="get('/api/skill-suites')">Skill Suites</button>
+        </div>
+        <div class="group">
+          <div class="group-title">Risk, Vendor and Value</div>
+          <button onclick="postContext('/api/simulation-arena')">Simulation Arena</button>
+          <button onclick="postContext('/api/kill-criteria-sentinel', {db: dbPath.value})">Kill Criteria</button>
+          <button onclick="postContext('/api/vendor-promise-backtest', {db: dbPath.value})">Vendor Backtest</button>
+          <button onclick="postContext('/api/strategic-drift-warning', {db: dbPath.value})">Strategic Drift</button>
+          <button onclick="postContext('/api/decision-latency-cost', {db: dbPath.value})">Latency Cost</button>
+          <button onclick="postContext('/api/evidence-decay-forecast', {db: dbPath.value})">Evidence Decay</button>
+          <button onclick="postContext('/api/enterprise-contradiction-memory', {db: dbPath.value})">Contradiction Memory</button>
+        </div>
+        <div class="group">
+          <div class="group-title">Export and Release</div>
+          <button onclick="postContext('/api/board-pack', {output_dir: outputDir.value, format: 'both'})">Export Board Pack</button>
+          <button onclick="exportWeeklyBrief()">Export Weekly Brief</button>
+          <button onclick="postRelease()">Build Release</button>
+          <button class="secondary" onclick="get('/api/evals')">Run Evals</button>
+          <button class="secondary" onclick="get('/api/hardening-evals')">Hardening Evals</button>
+        </div>
+      </div>
     </section>
     <section>
       <h2>Output</h2>
@@ -130,6 +144,11 @@
     async function exportWeeklyBrief() {
       const payload = { db: dbPath.value, output_dir: document.getElementById('outputDir').value + '-weekly', format: 'both' };
       const res = await fetch('/api/export-weekly-brief', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      show(await res.json());
+    }
+    async function postRelease() {
+      const payload = { output_dir: document.getElementById('outputDir').value + '-release' };
+      const res = await fetch('/api/build-release-package', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       show(await res.json());
     }
     async function get(path) {

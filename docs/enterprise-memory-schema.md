@@ -1,5 +1,9 @@
 # Enterprise Memory Schema
 
+Current SQLite memory schema version: `1.3`.
+
+Version `1.3` adds `pending_memory_updates` so proposed memory changes can be queued, reviewed and explicitly approved or rejected before persistence into durable decision memory.
+
 This file documents the intended phase-2 memory model. Version 0.1 does not persist data and does not claim live system access.
 
 ## Entity Types

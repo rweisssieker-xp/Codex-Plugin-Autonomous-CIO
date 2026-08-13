@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Memory Update Queue",
+  "type": "object",
+  "required": ["artifact", "memory_update_queue", "facts", "assumptions", "hypotheses", "missing_evidence", "confidence", "recommended_action", "guardrails"],
+  "properties": {
+    "artifact": {"const": "Memory Update Queue"},
+    "memory_update_queue": {
+      "type": "object",
+      "required": ["db_path", "queued_count", "status", "updates"],
+      "properties": {
+        "db_path": {"type": "string"},
+        "queued_count": {"type": "integer"},
+        "status": {"type": "string"},
+        "updates": {"type": "array"}
+      }
+    }
+  }
+}
