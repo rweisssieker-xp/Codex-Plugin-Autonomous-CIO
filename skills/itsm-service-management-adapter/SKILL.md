@@ -1,6 +1,6 @@
 ---
 name: itsm-service-management-adapter
-description: Convert ServiceNow, TOPdesk and ITSM exports into service health, change risk, incident and operational exposure signals.
+description: Convert ServiceNow, TOPdesk and ITSM exports into service health, change risk, incident and operational exposure signals. Use when the user needs itsm service management adapter for CIO decision support.
 ---
 
 # ITSM Service Management Adapter

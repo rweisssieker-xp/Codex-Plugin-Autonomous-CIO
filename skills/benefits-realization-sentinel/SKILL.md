@@ -1,6 +1,6 @@
 ---
 name: benefits-realization-sentinel
-description: Detect benefit realization risk when spend, delivery activity or transformation effort is not tied to measurable value evidence.
+description: Detect benefit realization risk when spend, delivery activity or transformation effort is not tied to measurable value evidence. Use when the user needs benefits realization sentinel for CIO decision support.
 ---
 
 # Benefits Realization Sentinel

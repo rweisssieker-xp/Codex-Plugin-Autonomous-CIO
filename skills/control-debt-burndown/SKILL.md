@@ -1,6 +1,6 @@
 ---
 name: control-debt-burndown
-description: Turn audit, compliance and control gaps into a prioritized burndown plan.
+description: Turn audit, compliance and control gaps into a prioritized burndown plan. Use when the user needs control debt burndown for CIO decision support.
 ---
 
 # Control Debt Burndown

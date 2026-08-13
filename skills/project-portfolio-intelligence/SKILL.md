@@ -1,6 +1,6 @@
 ---
 name: project-portfolio-intelligence
-description: Assess project and portfolio health, including status, schedule, budget, milestones, resources, dependencies, risk and prioritization. Use for PMO reviews, steering committee preparation and portfolio decisions.
+description: Assess project and portfolio health, including status, schedule, budget, milestones, resources, dependencies, risk and prioritization. Use for PMO reviews, steering committee preparation and portfolio decisions. Use when the user needs project portfolio intelligence for CIO decision support.
 ---
 
 # Project Portfolio Intelligence

@@ -1,6 +1,6 @@
 ---
 name: truth-gap-detector
-description: Detect gaps between status narratives, facts, assumptions, missing evidence, contradictions and management confidence.
+description: Detect gaps between status narratives, facts, assumptions, missing evidence, contradictions and management confidence. Use when the user needs truth gap detector for CIO decision support.
 ---
 
 # Truth Gap Detector

@@ -1,6 +1,6 @@
 ---
 name: decision-backtest-simulator
-description: Backtest a current CIO decision against prior decision memory, assumptions, weak evidence and follow-up quality.
+description: Backtest a current CIO decision against prior decision memory, assumptions, weak evidence and follow-up quality. Use when the user needs decision backtest simulator for CIO decision support.
 ---
 
 # Decision Backtest Simulator

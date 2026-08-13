@@ -1,6 +1,6 @@
 ---
 name: compliance-evidence-pack
-description: Draft a compliance evidence pack structure with control objective, owner, evidence, decision log, residual risk and follow-up.
+description: Draft a compliance evidence pack structure with control objective, owner, evidence, decision log, residual risk and follow-up. Use when the user needs compliance evidence pack for CIO decision support.
 ---
 
 # Compliance Evidence Pack

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Management Attention Optimizer"
+  short_description: "Explicit-only CIO decision support skill: Management Attention Optimizer."
+policy:
+  allow_implicit_invocation: false

@@ -1,6 +1,6 @@
 ---
 name: approval-boundary-mapper
-description: Map which CIO actions can be advised, drafted, prepared for approval or must remain human-only.
+description: Map which CIO actions can be advised, drafted, prepared for approval or must remain human-only. Use when the user needs approval boundary mapper for CIO decision support.
 ---
 
 # Approval Boundary Mapper

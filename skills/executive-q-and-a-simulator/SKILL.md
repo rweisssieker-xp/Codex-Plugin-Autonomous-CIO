@@ -1,6 +1,6 @@
 ---
 name: executive-q-and-a-simulator
-description: Simulate tough questions from Board, CEO, CFO, CISO, Audit, regulator, customer and employee perspectives for proposals, reports and decisions.
+description: Simulate tough questions from Board, CEO, CFO, CISO, Audit, regulator, customer and employee perspectives for proposals, reports and decisions. Use when the user needs executive q and a simulator for CIO decision support.
 ---
 
 # Executive Q&A Simulator

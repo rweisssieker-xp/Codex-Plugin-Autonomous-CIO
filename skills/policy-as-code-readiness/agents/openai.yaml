@@ -1,0 +1,5 @@
+interface:
+  display_name: "Policy As Code Readiness"
+  short_description: "Explicit-only CIO decision support skill: Policy As Code Readiness."
+policy:
+  allow_implicit_invocation: false

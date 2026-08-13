@@ -1,6 +1,6 @@
 ---
 name: enterprise-control-tower
-description: Create a control-tower view of decision readiness, board risk, evidence confidence, truth gaps and decision debt.
+description: Create a control-tower view of decision readiness, board risk, evidence confidence, truth gaps and decision debt. Use when the user needs enterprise control tower for CIO decision support.
 ---
 
 # Enterprise Control Tower

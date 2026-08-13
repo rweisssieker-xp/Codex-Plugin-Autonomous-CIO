@@ -1,6 +1,6 @@
 ---
 name: confidence-heatmap-intelligence
-description: Create an evidence and confidence heatmap for recommendations, risks, decisions and executive claims.
+description: Create an evidence and confidence heatmap for recommendations, risks, decisions and executive claims. Use when the user needs confidence heatmap intelligence for CIO decision support.
 ---
 
 # Confidence Heatmap Intelligence

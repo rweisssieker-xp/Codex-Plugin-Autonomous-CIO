@@ -1,0 +1,5 @@
+interface:
+  display_name: "Risk Chain Forecast"
+  short_description: "Explicit-only CIO decision support skill: Risk Chain Forecast."
+policy:
+  allow_implicit_invocation: false

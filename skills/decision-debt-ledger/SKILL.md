@@ -1,6 +1,6 @@
 ---
 name: decision-debt-ledger
-description: Build a ledger of delayed, implicit, repeated, ownerless or politically avoided executive decisions and convert them into clearance actions.
+description: Build a ledger of delayed, implicit, repeated, ownerless or politically avoided executive decisions and convert them into clearance actions. Use when the user needs decision debt ledger for CIO decision support.
 ---
 
 # Decision Debt Ledger

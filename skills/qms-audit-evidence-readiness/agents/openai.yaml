@@ -1,0 +1,5 @@
+interface:
+  display_name: "QMS Audit Evidence Readiness"
+  short_description: "Explicit-only CIO decision support skill: QMS Audit Evidence Readiness."
+policy:
+  allow_implicit_invocation: false

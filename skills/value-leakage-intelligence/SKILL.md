@@ -1,6 +1,6 @@
 ---
 name: value-leakage-intelligence
-description: Identify where budget, technology, capacity, vendors, projects or processes consume resources without enough measurable enterprise value.
+description: Identify where budget, technology, capacity, vendors, projects or processes consume resources without enough measurable enterprise value. Use when the user needs value leakage intelligence for CIO decision support.
 ---
 
 # Value Leakage Intelligence

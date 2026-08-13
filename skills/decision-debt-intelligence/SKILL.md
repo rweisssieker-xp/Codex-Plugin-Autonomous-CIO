@@ -1,6 +1,6 @@
 ---
 name: decision-debt-intelligence
-description: Find unresolved, delayed, implicit or poorly owned decisions that block execution, create risk or slow the enterprise. Use for steering committees, transformation governance and operating-model reviews.
+description: Find unresolved, delayed, implicit or poorly owned decisions that block execution, create risk or slow the enterprise. Use for steering committees, transformation governance and operating-model reviews. Use when the user needs decision debt intelligence for CIO decision support.
 ---
 
 # Decision Debt Intelligence

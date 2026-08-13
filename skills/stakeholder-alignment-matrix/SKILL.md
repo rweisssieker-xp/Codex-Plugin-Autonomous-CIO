@@ -1,6 +1,6 @@
 ---
 name: stakeholder-alignment-matrix
-description: Build stakeholder-specific alignment risks, messages and evidence needs for CEO, CFO, CISO, Audit, regulator, customer and sponsor perspectives.
+description: Build stakeholder-specific alignment risks, messages and evidence needs for CEO, CFO, CISO, Audit, regulator, customer and sponsor perspectives. Use when the user needs stakeholder alignment matrix for CIO decision support.
 ---
 
 # Stakeholder Alignment Matrix

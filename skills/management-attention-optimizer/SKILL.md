@@ -1,6 +1,6 @@
 ---
 name: management-attention-optimizer
-description: Triage enterprise signals into ignore, monitor, delegate, decide, escalate and act-now categories so executives focus on the highest-value issues.
+description: Triage enterprise signals into ignore, monitor, delegate, decide, escalate and act-now categories so executives focus on the highest-value issues. Use when the user needs management attention optimizer for CIO decision support.
 ---
 
 # Management Attention Optimizer

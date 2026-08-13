@@ -1,6 +1,6 @@
 ---
 name: service-health-sentinel
-description: Detect service health pressure from incident, SLA, outage, ticket, recovery, billing and operations signals.
+description: Detect service health pressure from incident, SLA, outage, ticket, recovery, billing and operations signals. Use when the user needs service health sentinel for CIO decision support.
 ---
 
 # Service Health Sentinel

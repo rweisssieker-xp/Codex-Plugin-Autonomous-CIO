@@ -1,6 +1,6 @@
 ---
 name: index
-description: Use to discover and route The Autonomous CIO workflows. Route broad CIO, CISO, COO, CFO, Board, governance, transformation, crisis, operating review, decision-readiness, risk-chain, AI governance, value leakage, executive memory, and action-drafting requests to the right focused skill.
+description: Use to discover and route The Autonomous CIO workflows. Route broad CIO, CISO, COO, CFO, Board, governance, transformation, crisis, operating review, decision-readiness, risk-chain, AI governance, value leakage, executive memory, and action-drafting requests to the right focused skill. Use when the user needs index for CIO decision support.
 ---
 
 # The Autonomous CIO Index

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Decision Rollback Planner"
+  short_description: "Explicit-only CIO decision support skill: Decision Rollback Planner."
+policy:
+  allow_implicit_invocation: false

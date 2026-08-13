@@ -1,6 +1,6 @@
 ---
 name: capital-allocation-copilot
-description: Convert budget, spend, forecast, reserve and value signals into executive capital allocation options and trade-offs.
+description: Convert budget, spend, forecast, reserve and value signals into executive capital allocation options and trade-offs. Use when the user needs capital allocation copilot for CIO decision support.
 ---
 
 # Capital Allocation Copilot

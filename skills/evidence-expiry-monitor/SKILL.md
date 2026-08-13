@@ -1,6 +1,6 @@
 ---
 name: evidence-expiry-monitor
-description: Identify stale or time-sensitive evidence before board, audit, risk or approval use.
+description: Identify stale or time-sensitive evidence before board, audit, risk or approval use. Use when the user needs evidence expiry monitor for CIO decision support.
 ---
 
 # Evidence Expiry Monitor

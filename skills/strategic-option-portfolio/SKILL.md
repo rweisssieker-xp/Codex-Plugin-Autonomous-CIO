@@ -1,6 +1,6 @@
 ---
 name: strategic-option-portfolio
-description: Convert decision options into a strategic option portfolio with value posture, risk posture and next evidence.
+description: Convert decision options into a strategic option portfolio with value posture, risk posture and next evidence. Use when the user needs strategic option portfolio for CIO decision support.
 ---
 
 # Strategic Option Portfolio

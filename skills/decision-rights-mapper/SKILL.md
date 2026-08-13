@@ -1,6 +1,6 @@
 ---
 name: decision-rights-mapper
-description: Map who has decision rights, approval authority, contributor role and risk ownership for executive technology decisions.
+description: Map who has decision rights, approval authority, contributor role and risk ownership for executive technology decisions. Use when the user needs decision rights mapper for CIO decision support.
 ---
 
 # Decision Rights Mapper

@@ -1,6 +1,6 @@
 ---
 name: board-challenger
-description: Challenge executive proposals with counterarguments, blind spots, risk scenarios, better alternatives and decision safeguards. Use before board, steering or investment decisions.
+description: Challenge executive proposals with counterarguments, blind spots, risk scenarios, better alternatives and decision safeguards. Use before board, steering or investment decisions. Use when the user needs board challenger for CIO decision support.
 ---
 
 # Board Challenger

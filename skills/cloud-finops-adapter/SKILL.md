@@ -1,6 +1,6 @@
 ---
 name: cloud-finops-adapter
-description: Convert Azure, AWS, GCP or cloud cost exports into budget shock, value leakage and accountability signals.
+description: Convert Azure, AWS, GCP or cloud cost exports into budget shock, value leakage and accountability signals. Use when the user needs cloud finops adapter for CIO decision support.
 ---
 
 # Cloud FinOps Adapter

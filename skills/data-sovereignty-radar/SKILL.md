@@ -1,6 +1,6 @@
 ---
 name: data-sovereignty-radar
-description: Detect data sovereignty, privacy, residency, retention and cross-border transfer risks from provided context.
+description: Detect data sovereignty, privacy, residency, retention and cross-border transfer risks from provided context. Use when the user needs data sovereignty radar for CIO decision support.
 ---
 
 # Data Sovereignty Radar

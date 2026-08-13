@@ -1,6 +1,6 @@
 ---
 name: autonomous-action-framework
-description: Prepare action plans, task drafts, escalations, approval requests, notifications, workflow steps and decision logs from The Autonomous CIO findings. Does not execute external actions.
+description: Prepare action plans, task drafts, escalations, approval requests, notifications, workflow steps and decision logs from The Autonomous CIO findings. Does not execute external actions. Use when the user needs autonomous action framework for CIO decision support.
 ---
 
 # Autonomous Action Framework

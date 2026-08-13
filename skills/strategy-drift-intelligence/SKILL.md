@@ -1,6 +1,6 @@
 ---
 name: strategy-drift-intelligence
-description: Detect drift between enterprise strategy, portfolio execution, budgets, architecture decisions, operating metrics and governance behavior. Use for strategy reviews, transformation checks and executive steering.
+description: Detect drift between enterprise strategy, portfolio execution, budgets, architecture decisions, operating metrics and governance behavior. Use for strategy reviews, transformation checks and executive steering. Use when the user needs strategy drift intelligence for CIO decision support.
 ---
 
 # Strategy Drift Intelligence

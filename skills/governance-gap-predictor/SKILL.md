@@ -1,6 +1,6 @@
 ---
 name: governance-gap-predictor
-description: Predict likely future governance, audit, control, ownership and evidence gaps from current plans, projects, AI use cases and operating practices.
+description: Predict likely future governance, audit, control, ownership and evidence gaps from current plans, projects, AI use cases and operating practices. Use when the user needs governance gap predictor for CIO decision support.
 ---
 
 # Governance Gap Predictor

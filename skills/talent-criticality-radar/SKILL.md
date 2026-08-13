@@ -1,6 +1,6 @@
 ---
 name: talent-criticality-radar
-description: Detect key-person, scarce-skill, overloaded-team and owner-capacity risks that can block enterprise decisions or execution.
+description: Detect key-person, scarce-skill, overloaded-team and owner-capacity risks that can block enterprise decisions or execution. Use when the user needs talent criticality radar for CIO decision support.
 ---
 
 # Talent Criticality Radar

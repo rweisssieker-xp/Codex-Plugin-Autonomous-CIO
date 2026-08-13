@@ -1,6 +1,6 @@
 ---
 name: risk-acceptance-docket
-description: Draft a risk acceptance docket with owner, residual risk, expiry, compensating controls and required evidence.
+description: Draft a risk acceptance docket with owner, residual risk, expiry, compensating controls and required evidence. Use when the user needs risk acceptance docket for CIO decision support.
 ---
 
 # Risk Acceptance Docket

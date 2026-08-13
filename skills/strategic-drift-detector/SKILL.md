@@ -1,6 +1,6 @@
 ---
 name: strategic-drift-detector
-description: Detect initiatives that are drifting from strategy, value, architecture, security or operating-model intent and propose stop/change/continue gates.
+description: Detect initiatives that are drifting from strategy, value, architecture, security or operating-model intent and propose stop/change/continue gates. Use when the user needs strategic drift detector for CIO decision support.
 ---
 
 # Strategic Drift Detector

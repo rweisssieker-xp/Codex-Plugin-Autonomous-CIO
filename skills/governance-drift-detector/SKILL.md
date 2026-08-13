@@ -1,6 +1,6 @@
 ---
 name: governance-drift-detector
-description: Detect recurring exceptions, unclear accountability and process bypass signals in CIO decisions.
+description: Detect recurring exceptions, unclear accountability and process bypass signals in CIO decisions. Use when the user needs governance drift detector for CIO decision support.
 ---
 
 # Governance Drift Detector

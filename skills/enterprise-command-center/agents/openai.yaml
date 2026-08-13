@@ -1,0 +1,5 @@
+interface:
+  display_name: "Enterprise Command Center"
+  short_description: "Explicit-only CIO decision support skill: Enterprise Command Center."
+policy:
+  allow_implicit_invocation: false

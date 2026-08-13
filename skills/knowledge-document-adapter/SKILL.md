@@ -1,6 +1,6 @@
 ---
 name: knowledge-document-adapter
-description: Convert Confluence, Google Drive, SharePoint and document exports into evidence, decision memory and knowledge-continuity signals.
+description: Convert Confluence, Google Drive, SharePoint and document exports into evidence, decision memory and knowledge-continuity signals. Use when the user needs knowledge document adapter for CIO decision support.
 ---
 
 # Knowledge Document Adapter

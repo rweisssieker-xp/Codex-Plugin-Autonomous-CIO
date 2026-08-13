@@ -1,6 +1,6 @@
 ---
 name: zero-trust-executive-intelligence
-description: Turn identity, access, asset, network, data and security maturity context into executive Zero Trust decisions and roadmap recommendations.
+description: Turn identity, access, asset, network, data and security maturity context into executive Zero Trust decisions and roadmap recommendations. Use when the user needs zero trust executive intelligence for CIO decision support.
 ---
 
 # Zero Trust Executive Intelligence

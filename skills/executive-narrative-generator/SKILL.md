@@ -1,6 +1,6 @@
 ---
 name: executive-narrative-generator
-description: Generate concise board, CEO, CFO, CISO/Audit and customer narratives from a decision packet or operating review.
+description: Generate concise board, CEO, CFO, CISO/Audit and customer narratives from a decision packet or operating review. Use when the user needs executive narrative generator for CIO decision support.
 ---
 
 # Executive Narrative Generator

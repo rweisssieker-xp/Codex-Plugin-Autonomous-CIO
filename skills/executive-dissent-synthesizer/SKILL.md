@@ -1,6 +1,6 @@
 ---
 name: executive-dissent-synthesizer
-description: Synthesize constructive CFO, CISO, COO, Audit, architecture and customer dissent before decisions are approved.
+description: Synthesize constructive CFO, CISO, COO, Audit, architecture and customer dissent before decisions are approved. Use when the user needs executive dissent synthesizer for CIO decision support.
 ---
 
 # Executive Dissent Synthesizer

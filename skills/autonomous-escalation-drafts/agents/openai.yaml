@@ -1,0 +1,5 @@
+interface:
+  display_name: "Autonomous Escalation Drafts"
+  short_description: "Explicit-only CIO decision support skill: Autonomous Escalation Drafts."
+policy:
+  allow_implicit_invocation: false

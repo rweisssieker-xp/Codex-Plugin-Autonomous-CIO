@@ -1,6 +1,6 @@
 ---
 name: executive-truth-layer
-description: Separate facts, assumptions, hypotheses, political framing, narratives, contradictions and missing evidence in executive material. Use for board packs, status reports and transformation narratives.
+description: Separate facts, assumptions, hypotheses, political framing, narratives, contradictions and missing evidence in executive material. Use for board packs, status reports and transformation narratives. Use when the user needs executive truth layer for CIO decision support.
 ---
 
 # Executive Truth Layer

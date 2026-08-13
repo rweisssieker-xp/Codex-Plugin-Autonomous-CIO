@@ -1,6 +1,6 @@
 ---
 name: vendor-ecosystem-intelligence
-description: Analyze vendor dependencies, lock-in, concentration risk, contract exposure, cost, resilience, exit options and ecosystem health. Use for sourcing, architecture, risk and CIO/CFO reviews.
+description: Analyze vendor dependencies, lock-in, concentration risk, contract exposure, cost, resilience, exit options and ecosystem health. Use for sourcing, architecture, risk and CIO/CFO reviews. Use when the user needs vendor ecosystem intelligence for CIO decision support.
 ---
 
 # Vendor Ecosystem Intelligence

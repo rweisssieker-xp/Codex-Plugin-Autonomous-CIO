@@ -1,6 +1,6 @@
 ---
 name: exception-waiver-factory
-description: Draft governed exception and waiver packets with scope, expiry, residual-risk owner and compensating controls.
+description: Draft governed exception and waiver packets with scope, expiry, residual-risk owner and compensating controls. Use when the user needs exception waiver factory for CIO decision support.
 ---
 
 # Exception Waiver Factory

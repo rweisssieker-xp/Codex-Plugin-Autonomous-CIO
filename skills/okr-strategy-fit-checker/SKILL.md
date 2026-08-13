@@ -1,6 +1,6 @@
 ---
 name: okr-strategy-fit-checker
-description: Check whether projects, decisions, spend or risks align with objectives, key results, value and strategic priorities.
+description: Check whether projects, decisions, spend or risks align with objectives, key results, value and strategic priorities. Use when the user needs okr strategy fit checker for CIO decision support.
 ---
 
 # OKR Strategy Fit Checker

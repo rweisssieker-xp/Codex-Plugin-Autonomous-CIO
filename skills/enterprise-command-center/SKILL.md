@@ -1,6 +1,6 @@
 ---
 name: enterprise-command-center
-description: Build a consolidated enterprise command center situation report across strategy, portfolio, risk, security, compliance, architecture, operations, finance and organization.
+description: Build a consolidated enterprise command center situation report across strategy, portfolio, risk, security, compliance, architecture, operations, finance and organization. Use when the user needs enterprise command center for CIO decision support.
 ---
 
 # Enterprise Command Center

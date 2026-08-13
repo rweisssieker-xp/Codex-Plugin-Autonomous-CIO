@@ -1,6 +1,6 @@
 ---
 name: autonomy-stress-test
-description: Stress-test proposed autonomous CIO preparation against evidence changes, approval gaps and human-control failures.
+description: Stress-test proposed autonomous CIO preparation against evidence changes, approval gaps and human-control failures. Use when the user needs autonomy stress test for CIO decision support.
 ---
 
 # Autonomy Stress Test

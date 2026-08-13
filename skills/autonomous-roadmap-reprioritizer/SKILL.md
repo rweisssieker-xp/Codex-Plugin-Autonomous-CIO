@@ -1,6 +1,6 @@
 ---
 name: autonomous-roadmap-reprioritizer
-description: Reprioritize roadmap items by risk closure, value protection, scarce capacity, evidence and strategy fit.
+description: Reprioritize roadmap items by risk closure, value protection, scarce capacity, evidence and strategy fit. Use when the user needs autonomous roadmap reprioritizer for CIO decision support.
 ---
 
 # Autonomous Roadmap Reprioritizer

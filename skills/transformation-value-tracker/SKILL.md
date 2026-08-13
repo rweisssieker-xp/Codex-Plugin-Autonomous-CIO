@@ -1,6 +1,6 @@
 ---
 name: transformation-value-tracker
-description: Track whether transformation activity is producing measurable value, or whether spend, meetings and projects are creating activity without outcomes.
+description: Track whether transformation activity is producing measurable value, or whether spend, meetings and projects are creating activity without outcomes. Use when the user needs transformation value tracker for CIO decision support.
 ---
 
 # Transformation Value Tracker

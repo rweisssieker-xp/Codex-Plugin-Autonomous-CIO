@@ -1,6 +1,6 @@
 ---
 name: data-product-governance-intelligence
-description: Evaluate data products, ownership, quality, lineage, reusability, controls and governance readiness for enterprise decision-making.
+description: Evaluate data products, ownership, quality, lineage, reusability, controls and governance readiness for enterprise decision-making. Use when the user needs data product governance intelligence for CIO decision support.
 ---
 
 # Data Product Governance Intelligence

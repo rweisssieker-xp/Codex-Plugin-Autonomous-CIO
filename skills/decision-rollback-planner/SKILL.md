@@ -1,6 +1,6 @@
 ---
 name: decision-rollback-planner
-description: Prepare rollback triggers, actions and reversibility notes for decisions approved with uncertainty or conditions.
+description: Prepare rollback triggers, actions and reversibility notes for decisions approved with uncertainty or conditions. Use when the user needs decision rollback planner for CIO decision support.
 ---
 
 # Decision Rollback Planner

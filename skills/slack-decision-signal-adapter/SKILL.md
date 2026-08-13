@@ -1,6 +1,6 @@
 ---
 name: slack-decision-signal-adapter
-description: Convert Slack exports into CIO weak signals, blockers, incidents, owner language and decision fragments.
+description: Convert Slack exports into CIO weak signals, blockers, incidents, owner language and decision fragments. Use when the user needs slack decision signal adapter for CIO decision support.
 ---
 
 # Slack Decision Signal Adapter

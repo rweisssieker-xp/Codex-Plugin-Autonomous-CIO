@@ -1,0 +1,5 @@
+interface:
+  display_name: "CIO Shadow Agenda"
+  short_description: "Explicit-only CIO decision support skill: CIO Shadow Agenda."
+policy:
+  allow_implicit_invocation: false

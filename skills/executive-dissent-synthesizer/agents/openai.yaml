@@ -1,0 +1,5 @@
+interface:
+  display_name: "Executive Dissent Synthesizer"
+  short_description: "Explicit-only CIO decision support skill: Executive Dissent Synthesizer."
+policy:
+  allow_implicit_invocation: false

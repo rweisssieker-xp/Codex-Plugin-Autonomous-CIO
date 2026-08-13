@@ -1,6 +1,6 @@
 ---
 name: assumption-mining-engine
-description: Extract and assess hidden assumptions in strategies, business cases, project plans, architecture roadmaps, AI use cases and investment proposals.
+description: Extract and assess hidden assumptions in strategies, business cases, project plans, architecture roadmaps, AI use cases and investment proposals. Use when the user needs assumption mining engine for CIO decision support.
 ---
 
 # Assumption Mining Engine

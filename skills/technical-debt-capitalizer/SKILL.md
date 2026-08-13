@@ -1,6 +1,6 @@
 ---
 name: technical-debt-capitalizer
-description: Translate technical debt into financial, operational, security, compliance and strategic risk so executives can prioritize remediation.
+description: Translate technical debt into financial, operational, security, compliance and strategic risk so executives can prioritize remediation. Use when the user needs technical debt capitalizer for CIO decision support.
 ---
 
 # Technical Debt Capitalizer

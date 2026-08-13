@@ -1,6 +1,6 @@
 ---
 name: autonomous-executive-memory
-description: Build and maintain a structured executive memory of decisions, assumptions, risks, commitments, actions and unresolved questions from provided context.
+description: Build and maintain a structured executive memory of decisions, assumptions, risks, commitments, actions and unresolved questions from provided context. Use when the user needs autonomous executive memory for CIO decision support.
 ---
 
 # Autonomous Executive Memory

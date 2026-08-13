@@ -1,6 +1,6 @@
 ---
 name: executive-narrative-diff
-description: Compare current executive narrative with prior memory, evidence and contradictions before board or customer communication.
+description: Compare current executive narrative with prior memory, evidence and contradictions before board or customer communication. Use when the user needs executive narrative diff for CIO decision support.
 ---
 
 # Executive Narrative Diff

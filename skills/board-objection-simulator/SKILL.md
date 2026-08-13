@@ -1,6 +1,6 @@
 ---
 name: board-objection-simulator
-description: Simulate hard objections from CEO, CFO, CISO, Audit, regulator, customer and board perspectives, including weak answers and missing evidence.
+description: Simulate hard objections from CEO, CFO, CISO, Audit, regulator, customer and board perspectives, including weak answers and missing evidence. Use when the user needs board objection simulator for CIO decision support.
 ---
 
 # Board Objection Simulator

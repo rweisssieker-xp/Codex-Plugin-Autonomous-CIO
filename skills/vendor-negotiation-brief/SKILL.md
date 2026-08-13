@@ -1,6 +1,6 @@
 ---
 name: vendor-negotiation-brief
-description: Prepare negotiation asks, fallback position and human-review needs from vendor delivery, cost, contract and recovery signals.
+description: Prepare negotiation asks, fallback position and human-review needs from vendor delivery, cost, contract and recovery signals. Use when the user needs vendor negotiation brief for CIO decision support.
 ---
 
 # Vendor Negotiation Brief

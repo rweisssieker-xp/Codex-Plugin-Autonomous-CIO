@@ -1,6 +1,6 @@
 ---
 name: customer-trust-impact-radar
-description: Translate service, billing, outage, communication, privacy or recovery signals into customer trust impact and executive posture.
+description: Translate service, billing, outage, communication, privacy or recovery signals into customer trust impact and executive posture. Use when the user needs customer trust impact radar for CIO decision support.
 ---
 
 # Customer Trust Impact Radar

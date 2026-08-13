@@ -1,6 +1,6 @@
 ---
 name: security-business-translator
-description: Translate security findings, vulnerabilities, identity gaps, incidents and maturity issues into business impact, executive decisions, budget needs and risk trade-offs.
+description: Translate security findings, vulnerabilities, identity gaps, incidents and maturity issues into business impact, executive decisions, budget needs and risk trade-offs. Use when the user needs security business translator for CIO decision support.
 ---
 
 # Security Business Translator

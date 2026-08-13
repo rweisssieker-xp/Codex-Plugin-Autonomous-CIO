@@ -1,0 +1,5 @@
+interface:
+  display_name: "User Context"
+  short_description: "Explicit-only CIO decision support skill: User Context."
+policy:
+  allow_implicit_invocation: false

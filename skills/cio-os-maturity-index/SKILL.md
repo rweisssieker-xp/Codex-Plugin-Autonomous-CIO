@@ -1,6 +1,6 @@
 ---
 name: cio-os-maturity-index
-description: Score how mature the CIO operating system is across decision readiness, evidence confidence, truth gaps, decision debt and action governance.
+description: Score how mature the CIO operating system is across decision readiness, evidence confidence, truth gaps, decision debt and action governance. Use when the user needs cio os maturity index for CIO decision support.
 ---
 
 # CIO OS Maturity Index

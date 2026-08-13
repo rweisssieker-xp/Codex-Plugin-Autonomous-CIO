@@ -1,6 +1,6 @@
 ---
 name: enterprise-signal-ranking
-description: Rank weak and strong enterprise signals by executive relevance, impact, urgency, novelty, dependency reach and uncertainty.
+description: Rank weak and strong enterprise signals by executive relevance, impact, urgency, novelty, dependency reach and uncertainty. Use when the user needs enterprise signal ranking for CIO decision support.
 ---
 
 # Enterprise Signal Ranking

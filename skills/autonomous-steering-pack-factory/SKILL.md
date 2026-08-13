@@ -1,6 +1,6 @@
 ---
 name: autonomous-steering-pack-factory
-description: Create a steering or board pack outline from mixed context with decision requests, risk chain, evidence, objections, safeguards and action ledger.
+description: Create a steering or board pack outline from mixed context with decision requests, risk chain, evidence, objections, safeguards and action ledger. Use when the user needs autonomous steering pack factory for CIO decision support.
 ---
 
 # Autonomous Steering Pack Factory

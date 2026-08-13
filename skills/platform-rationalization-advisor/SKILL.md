@@ -1,6 +1,6 @@
 ---
 name: platform-rationalization-advisor
-description: Recommend platform consolidation, retirement, renegotiation or stabilization based on system, vendor, license, integration and value signals.
+description: Recommend platform consolidation, retirement, renegotiation or stabilization based on system, vendor, license, integration and value signals. Use when the user needs platform rationalization advisor for CIO decision support.
 ---
 
 # Platform Rationalization Advisor

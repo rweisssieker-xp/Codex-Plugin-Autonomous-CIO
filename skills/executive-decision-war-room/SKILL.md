@@ -1,6 +1,6 @@
 ---
 name: executive-decision-war-room
-description: Prepare a decision war-room structure with roles, first 60 minutes, exit criteria and escalation threshold.
+description: Prepare a decision war-room structure with roles, first 60 minutes, exit criteria and escalation threshold. Use when the user needs executive decision war room for CIO decision support.
 ---
 
 # Executive Decision War Room

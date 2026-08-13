@@ -1,6 +1,6 @@
 ---
 name: cio-shadow-agenda
-description: Build the real executive agenda from weak signals, decision debt, truth gaps, value risk and escalation pressure.
+description: Build the real executive agenda from weak signals, decision debt, truth gaps, value risk and escalation pressure. Use when the user needs cio shadow agenda for CIO decision support.
 ---
 
 # CIO Shadow Agenda

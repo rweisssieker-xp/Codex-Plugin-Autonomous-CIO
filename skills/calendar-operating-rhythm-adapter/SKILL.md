@@ -1,6 +1,6 @@
 ---
 name: calendar-operating-rhythm-adapter
-description: Convert calendar exports into decision pressure, operating rhythm, board prep and follow-up signals.
+description: Convert calendar exports into decision pressure, operating rhythm, board prep and follow-up signals. Use when the user needs calendar operating rhythm adapter for CIO decision support.
 ---
 
 # Calendar Operating Rhythm Adapter

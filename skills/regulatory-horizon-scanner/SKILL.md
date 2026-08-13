@@ -1,6 +1,6 @@
 ---
 name: regulatory-horizon-scanner
-description: Assess potential regulatory, compliance, audit and policy changes from user-provided context and prepare readiness actions.
+description: Assess potential regulatory, compliance, audit and policy changes from user-provided context and prepare readiness actions. Use when the user needs regulatory horizon scanner for CIO decision support.
 ---
 
 # Regulatory Horizon Scanner

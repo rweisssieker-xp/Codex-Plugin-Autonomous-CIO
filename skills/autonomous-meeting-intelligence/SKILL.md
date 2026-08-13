@@ -1,6 +1,6 @@
 ---
 name: autonomous-meeting-intelligence
-description: Convert meeting notes into decisions, risks, assumptions, actions, owners, follow-ups, contradictions and executive memory updates.
+description: Convert meeting notes into decisions, risks, assumptions, actions, owners, follow-ups, contradictions and executive memory updates. Use when the user needs autonomous meeting intelligence for CIO decision support.
 ---
 
 # Autonomous Meeting Intelligence

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Security Business Translator"
+  short_description: "Explicit-only CIO decision support skill: Security Business Translator."
+policy:
+  allow_implicit_invocation: false

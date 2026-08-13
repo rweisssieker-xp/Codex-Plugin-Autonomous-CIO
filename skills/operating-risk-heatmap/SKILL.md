@@ -1,6 +1,6 @@
 ---
 name: operating-risk-heatmap
-description: Create a Green/Amber/Red operating risk heatmap across delivery, finance, security/control, customer and capacity domains.
+description: Create a Green/Amber/Red operating risk heatmap across delivery, finance, security/control, customer and capacity domains. Use when the user needs operating risk heatmap for CIO decision support.
 ---
 
 # Operating Risk Heatmap

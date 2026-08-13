@@ -1,6 +1,6 @@
 ---
 name: user-context
-description: Load or manage The Autonomous CIO plugin-scoped user context, saved executive preferences, source-category choices, reusable board/operating-review conventions, output preferences, decision-memory pointers and setup context.
+description: Load or manage The Autonomous CIO plugin-scoped user context, saved executive preferences, source-category choices, reusable board/operating-review conventions, output preferences, decision-memory pointers and setup context. Use when the user needs user context for CIO decision support.
 ---
 
 # User Context

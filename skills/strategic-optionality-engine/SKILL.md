@@ -1,6 +1,6 @@
 ---
 name: strategic-optionality-engine
-description: Evaluate which executive options preserve future choices under uncertainty.
+description: Evaluate which executive options preserve future choices under uncertainty. Use when the user needs strategic optionality engine for CIO decision support.
 ---
 
 # Strategic Optionality Engine

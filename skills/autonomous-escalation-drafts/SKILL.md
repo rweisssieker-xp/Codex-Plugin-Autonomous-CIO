@@ -1,6 +1,6 @@
 ---
 name: autonomous-escalation-drafts
-description: Draft escalation messages, owner requests and decision-readiness prompts without sending or creating external tasks.
+description: Draft escalation messages, owner requests and decision-readiness prompts without sending or creating external tasks. Use when the user needs autonomous escalation drafts for CIO decision support.
 ---
 
 # Autonomous Escalation Drafts

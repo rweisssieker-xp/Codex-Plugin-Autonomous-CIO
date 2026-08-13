@@ -1,6 +1,6 @@
 ---
 name: industrial-cio-operating-system
-description: Run a manufacturing, industrial, medtech or regulated-production CIO operating review across IT, OT, ERP, MES, QMS, PLM, security, production continuity, audit evidence, vendors and digital channels.
+description: Run a manufacturing, industrial, medtech or regulated-production CIO operating review across IT, OT, ERP, MES, QMS, PLM, security, production continuity, audit evidence, vendors and digital channels. Use when the user needs industrial cio operating system for CIO decision support.
 ---
 
 # Industrial CIO Operating System

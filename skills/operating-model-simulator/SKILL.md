@@ -1,6 +1,6 @@
 ---
 name: operating-model-simulator
-description: Simulate effects of new roles, teams, governance forums, decision rights, shared services, platform models or organizational changes.
+description: Simulate effects of new roles, teams, governance forums, decision rights, shared services, platform models or organizational changes. Use when the user needs operating model simulator for CIO decision support.
 ---
 
 # Operating Model Simulator

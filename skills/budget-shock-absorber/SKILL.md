@@ -1,6 +1,6 @@
 ---
 name: budget-shock-absorber
-description: Prepare CIO trade-offs when budget, forecast, reserve or run-rate pressure hits the portfolio.
+description: Prepare CIO trade-offs when budget, forecast, reserve or run-rate pressure hits the portfolio. Use when the user needs budget shock absorber for CIO decision support.
 ---
 
 # Budget Shock Absorber

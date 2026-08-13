@@ -1,6 +1,6 @@
 ---
 name: email-executive-signal-adapter
-description: Convert Outlook or Gmail threads into executive decision, approval, evidence, commitment and escalation signals.
+description: Convert Outlook or Gmail threads into executive decision, approval, evidence, commitment and escalation signals. Use when the user needs email executive signal adapter for CIO decision support.
 ---
 
 # Email Executive Signal Adapter

@@ -1,6 +1,6 @@
 ---
 name: risk-chain-forecast
-description: Forecast the next likely escalation in a risk chain if owners, evidence, controls or decisions remain unresolved.
+description: Forecast the next likely escalation in a risk chain if owners, evidence, controls or decisions remain unresolved. Use when the user needs risk chain forecast for CIO decision support.
 ---
 
 # Risk Chain Forecast

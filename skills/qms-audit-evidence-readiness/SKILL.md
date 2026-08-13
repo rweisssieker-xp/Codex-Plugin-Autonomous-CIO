@@ -1,6 +1,6 @@
 ---
 name: qms-audit-evidence-readiness
-description: Assess whether IT changes, systems, data, access, validation, QMS, audit and change-control evidence are ready for regulated manufacturing or quality-sensitive decisions.
+description: Assess whether IT changes, systems, data, access, validation, QMS, audit and change-control evidence are ready for regulated manufacturing or quality-sensitive decisions. Use when the user needs qms audit evidence readiness for CIO decision support.
 ---
 
 # QMS Audit Evidence Readiness

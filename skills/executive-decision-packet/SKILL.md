@@ -1,6 +1,6 @@
 ---
 name: executive-decision-packet
-description: Convert mixed enterprise context into the signature Executive Decision Packet with decision needed, facts vs assumptions, risk chain, options, board challenge questions, recommendation, missing evidence and draft next steps.
+description: Convert mixed enterprise context into the signature Executive Decision Packet with decision needed, facts vs assumptions, risk chain, options, board challenge questions, recommendation, missing evidence and draft next steps. Use when the user needs executive decision packet for CIO decision support.
 ---
 
 # Executive Decision Packet

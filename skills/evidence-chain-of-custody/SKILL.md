@@ -1,6 +1,6 @@
 ---
 name: evidence-chain-of-custody
-description: Build a chain-of-custody checklist for evidence used in executive, board, audit or risk decisions.
+description: Build a chain-of-custody checklist for evidence used in executive, board, audit or risk decisions. Use when the user needs evidence chain of custody for CIO decision support.
 ---
 
 # Evidence Chain of Custody

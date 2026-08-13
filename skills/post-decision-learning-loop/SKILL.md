@@ -1,6 +1,6 @@
 ---
 name: post-decision-learning-loop
-description: Turn decisions into learning loops by tracking assumptions, outcomes, risks, owner actions and memory updates after approval.
+description: Turn decisions into learning loops by tracking assumptions, outcomes, risks, owner actions and memory updates after approval. Use when the user needs post decision learning loop for CIO decision support.
 ---
 
 # Post Decision Learning Loop

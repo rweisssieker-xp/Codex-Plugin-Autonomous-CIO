@@ -1,6 +1,6 @@
 ---
 name: architecture-runway-guardian
-description: Protect architecture runway by detecting capacity, integration, platform, technical-debt and exception risks before approval.
+description: Protect architecture runway by detecting capacity, integration, platform, technical-debt and exception risks before approval. Use when the user needs architecture runway guardian for CIO decision support.
 ---
 
 # Architecture Runway Guardian

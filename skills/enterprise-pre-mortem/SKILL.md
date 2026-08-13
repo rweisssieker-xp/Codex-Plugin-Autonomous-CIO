@@ -1,6 +1,6 @@
 ---
 name: enterprise-pre-mortem
-description: Simulate why a program, transformation, architecture change, security initiative or operating model could fail in the future. Use for pre-mortems, risk workshops and executive challenge sessions.
+description: Simulate why a program, transformation, architecture change, security initiative or operating model could fail in the future. Use for pre-mortems, risk workshops and executive challenge sessions. Use when the user needs enterprise pre mortem for CIO decision support.
 ---
 
 # Enterprise Pre-Mortem

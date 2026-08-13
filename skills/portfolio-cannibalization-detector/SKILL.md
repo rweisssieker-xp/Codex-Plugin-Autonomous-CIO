@@ -1,6 +1,6 @@
 ---
 name: portfolio-cannibalization-detector
-description: Detect projects that compete for the same resources, budgets, goals, architecture capacity, vendors or target states. Use for portfolio rationalization.
+description: Detect projects that compete for the same resources, budgets, goals, architecture capacity, vendors or target states. Use for portfolio rationalization. Use when the user needs portfolio cannibalization detector for CIO decision support.
 ---
 
 # Portfolio Cannibalization Detector

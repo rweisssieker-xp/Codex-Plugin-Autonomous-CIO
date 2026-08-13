@@ -1,0 +1,5 @@
+interface:
+  display_name: "Vendor Ecosystem Intelligence"
+  short_description: "Explicit-only CIO decision support skill: Vendor Ecosystem Intelligence."
+policy:
+  allow_implicit_invocation: false

@@ -1,6 +1,6 @@
 ---
 name: risk-compliance-intelligence
-description: Identify, categorize and prioritize enterprise risks, compliance gaps, control weaknesses, audit topics, evidence needs and countermeasures. Use for risk reviews, audit preparation and compliance intelligence.
+description: Identify, categorize and prioritize enterprise risks, compliance gaps, control weaknesses, audit topics, evidence needs and countermeasures. Use for risk reviews, audit preparation and compliance intelligence. Use when the user needs risk compliance intelligence for CIO decision support.
 ---
 
 # Risk Compliance Intelligence

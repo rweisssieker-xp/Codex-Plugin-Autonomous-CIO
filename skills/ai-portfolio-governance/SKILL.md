@@ -1,6 +1,6 @@
 ---
 name: ai-portfolio-governance
-description: Govern AI use cases as a portfolio with business owner, data owner, model risk tier, evaluation baseline, human review and rollback path.
+description: Govern AI use cases as a portfolio with business owner, data owner, model risk tier, evaluation baseline, human review and rollback path. Use when the user needs ai portfolio governance for CIO decision support.
 ---
 
 # AI Portfolio Governance

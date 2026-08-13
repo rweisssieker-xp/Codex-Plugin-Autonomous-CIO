@@ -1,6 +1,6 @@
 ---
 name: executive-reporting
-description: Produce board-ready and management-ready reports, portfolio summaries, risk views, audit reports, KPI reports and presentation outlines from enterprise context.
+description: Produce board-ready and management-ready reports, portfolio summaries, risk views, audit reports, KPI reports and presentation outlines from enterprise context. Use when the user needs executive reporting for CIO decision support.
 ---
 
 # Executive Reporting

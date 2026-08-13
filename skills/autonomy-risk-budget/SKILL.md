@@ -1,6 +1,6 @@
 ---
 name: autonomy-risk-budget
-description: Budget how much autonomous preparation is acceptable based on risk level, missing evidence, human-only actions and approval needs.
+description: Budget how much autonomous preparation is acceptable based on risk level, missing evidence, human-only actions and approval needs. Use when the user needs autonomy risk budget for CIO decision support.
 ---
 
 # Autonomy Risk Budget

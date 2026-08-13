@@ -1,6 +1,6 @@
 ---
 name: enterprise-knowledge-intelligence
-description: Analyze enterprise knowledge relationships across people, teams, processes, applications, projects, documents and risks. Use for semantic discovery, dependency mapping, knowledge islands and context synthesis.
+description: Analyze enterprise knowledge relationships across people, teams, processes, applications, projects, documents and risks. Use for semantic discovery, dependency mapping, knowledge islands and context synthesis. Use when the user needs enterprise knowledge intelligence for CIO decision support.
 ---
 
 # Enterprise Knowledge Intelligence

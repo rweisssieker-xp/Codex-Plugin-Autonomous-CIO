@@ -1,6 +1,6 @@
 ---
 name: autonomous-cio-operating-review
-description: Run the flagship governed CIO autopilot workflow. Use for broad CIO reviews, Board in 48h scenarios, "run the CIO", mixed enterprise context, monthly operating reviews, crisis-to-control reviews and executive decision-readiness work.
+description: Run the flagship governed CIO autopilot workflow. Use for broad CIO reviews, Board in 48h scenarios, "run the CIO", mixed enterprise context, monthly operating reviews, crisis-to-control reviews and executive decision-readiness work. Use when the user needs autonomous cio operating review for CIO decision support.
 ---
 
 # Autonomous CIO Operating Review

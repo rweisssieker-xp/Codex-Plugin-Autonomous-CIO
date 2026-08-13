@@ -1,6 +1,6 @@
 ---
 name: human-control-contract
-description: Define which actions AI may observe, advise, draft or prepare for governed execution, and which actions remain human-only.
+description: Define which actions AI may observe, advise, draft or prepare for governed execution, and which actions remain human-only. Use when the user needs human control contract for CIO decision support.
 ---
 
 # Human Control Contract

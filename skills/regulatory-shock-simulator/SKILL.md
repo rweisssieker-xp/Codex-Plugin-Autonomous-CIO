@@ -1,6 +1,6 @@
 ---
 name: regulatory-shock-simulator
-description: Simulate an audit, regulator or customer evidence shock and build the minimum response pack leadership would need.
+description: Simulate an audit, regulator or customer evidence shock and build the minimum response pack leadership would need. Use when the user needs regulatory shock simulator for CIO decision support.
 ---
 
 # Regulatory Shock Simulator

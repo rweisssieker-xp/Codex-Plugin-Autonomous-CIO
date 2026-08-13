@@ -1,6 +1,6 @@
 ---
 name: narrative-consistency-scanner
-description: Compare reports, roadmaps, budgets, status updates and decision logs to find contradictions, drift, inconsistent metrics and narrative mismatch.
+description: Compare reports, roadmaps, budgets, status updates and decision logs to find contradictions, drift, inconsistent metrics and narrative mismatch. Use when the user needs narrative consistency scanner for CIO decision support.
 ---
 
 # Narrative Consistency Scanner

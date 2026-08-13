@@ -1,6 +1,6 @@
 ---
 name: operating-model-debt-ledger
-description: Capture operating-model debt from unclear ownership, overloaded governance, weak handoffs, role gaps and decision bottlenecks.
+description: Capture operating-model debt from unclear ownership, overloaded governance, weak handoffs, role gaps and decision bottlenecks. Use when the user needs operating model debt ledger for CIO decision support.
 ---
 
 # Operating Model Debt Ledger

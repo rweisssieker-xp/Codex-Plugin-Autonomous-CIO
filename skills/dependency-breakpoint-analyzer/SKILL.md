@@ -1,6 +1,6 @@
 ---
 name: dependency-breakpoint-analyzer
-description: Find enterprise dependency breakpoints across owners, systems, integrations, evidence, capacity and controls.
+description: Find enterprise dependency breakpoints across owners, systems, integrations, evidence, capacity and controls. Use when the user needs dependency breakpoint analyzer for CIO decision support.
 ---
 
 # Dependency Breakpoint Analyzer

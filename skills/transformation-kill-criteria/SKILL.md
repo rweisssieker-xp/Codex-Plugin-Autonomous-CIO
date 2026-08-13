@@ -1,6 +1,6 @@
 ---
 name: transformation-kill-criteria
-description: Define stop, change or continue criteria for transformations based on value, evidence, architecture, controls and scarce capacity.
+description: Define stop, change or continue criteria for transformations based on value, evidence, architecture, controls and scarce capacity. Use when the user needs transformation kill criteria for CIO decision support.
 ---
 
 # Transformation Kill Criteria

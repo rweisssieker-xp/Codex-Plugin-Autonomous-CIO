@@ -1,6 +1,6 @@
 ---
 name: decision-consequence-ledger
-description: Map first- and second-order consequences, watch metrics and reversal signals for executive decisions.
+description: Map first- and second-order consequences, watch metrics and reversal signals for executive decisions. Use when the user needs decision consequence ledger for CIO decision support.
 ---
 
 # Decision Consequence Ledger

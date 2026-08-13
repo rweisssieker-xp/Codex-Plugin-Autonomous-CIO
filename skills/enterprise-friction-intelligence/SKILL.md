@@ -1,6 +1,6 @@
 ---
 name: enterprise-friction-intelligence
-description: Detect organizational and operational friction such as slow decisions, handoff delays, duplicated work, tool breaks, rework loops and governance drag.
+description: Detect organizational and operational friction such as slow decisions, handoff delays, duplicated work, tool breaks, rework loops and governance drag. Use when the user needs enterprise friction intelligence for CIO decision support.
 ---
 
 # Enterprise Friction Intelligence

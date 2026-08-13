@@ -1,6 +1,6 @@
 ---
 name: residual-risk-contract
-description: Draft a controlled residual-risk acceptance contract for executive decisions under uncertainty.
+description: Draft a controlled residual-risk acceptance contract for executive decisions under uncertainty. Use when the user needs residual risk contract for CIO decision support.
 ---
 
 # Residual Risk Contract

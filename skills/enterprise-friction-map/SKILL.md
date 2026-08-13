@@ -1,6 +1,6 @@
 ---
 name: enterprise-friction-map
-description: Identify the organizational friction points slowing or distorting CIO decisions.
+description: Identify the organizational friction points slowing or distorting CIO decisions. Use when the user needs enterprise friction map for CIO decision support.
 ---
 
 # Enterprise Friction Map

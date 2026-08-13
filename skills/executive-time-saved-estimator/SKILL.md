@@ -1,6 +1,6 @@
 ---
 name: executive-time-saved-estimator
-description: Estimate which executive preparation work the plugin has already prepared and how many CIO, PMO, risk or board-prep hours it may save.
+description: Estimate which executive preparation work the plugin has already prepared and how many CIO, PMO, risk or board-prep hours it may save. Use when the user needs executive time saved estimator for CIO decision support.
 ---
 
 # Executive Time Saved Estimator

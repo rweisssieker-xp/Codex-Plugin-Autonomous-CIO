@@ -1,6 +1,6 @@
 ---
 name: autonomous-due-diligence-questions
-description: Generate targeted due-diligence questions for board, vendor, crisis, audit, transformation, AI and carve-out reviews.
+description: Generate targeted due-diligence questions for board, vendor, crisis, audit, transformation, AI and carve-out reviews. Use when the user needs autonomous due diligence questions for CIO decision support.
 ---
 
 # Autonomous Due Diligence Questions

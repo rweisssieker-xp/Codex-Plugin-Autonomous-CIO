@@ -1,6 +1,6 @@
 ---
 name: decision-scenario-intelligence
-description: Frame decisions, compare options and run qualitative or semiquantitative what-if scenarios for budgets, resources, organization, process, capacity, risk and technology changes.
+description: Frame decisions, compare options and run qualitative or semiquantitative what-if scenarios for budgets, resources, organization, process, capacity, risk and technology changes. Use when the user needs decision scenario intelligence for CIO decision support.
 ---
 
 # Decision Scenario Intelligence

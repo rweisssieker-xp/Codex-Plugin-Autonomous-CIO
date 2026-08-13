@@ -1,6 +1,6 @@
 ---
 name: security-risk-adapter
-description: Convert Defender, Sentinel, Splunk, Qualys or security finding exports into business risk and control-debt signals.
+description: Convert Defender, Sentinel, Splunk, Qualys or security finding exports into business risk and control-debt signals. Use when the user needs security risk adapter for CIO decision support.
 ---
 
 # Security Risk Adapter

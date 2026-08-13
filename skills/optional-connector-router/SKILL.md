@@ -1,6 +1,6 @@
 ---
 name: optional-connector-router
-description: Route Teams, Slack, email, calendar and document exports into the correct Autonomous CIO connector profile and adapter workflow.
+description: Route Teams, Slack, email, calendar and document exports into the correct Autonomous CIO connector profile and adapter workflow. Use when the user needs optional connector router for CIO decision support.
 ---
 
 # Optional Connector Router

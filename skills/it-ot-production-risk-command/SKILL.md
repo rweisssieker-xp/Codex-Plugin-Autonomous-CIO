@@ -1,6 +1,6 @@
 ---
 name: it-ot-production-risk-command
-description: Map IT/OT, shopfloor, ERP, MES, integration, network, security and production-continuity risks into executive risk chains and action gates.
+description: Map IT/OT, shopfloor, ERP, MES, integration, network, security and production-continuity risks into executive risk chains and action gates. Use when the user needs it ot production risk command for CIO decision support.
 ---
 
 # IT/OT Production Risk Command

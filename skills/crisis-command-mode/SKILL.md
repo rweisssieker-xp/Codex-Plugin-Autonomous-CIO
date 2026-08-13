@@ -1,6 +1,6 @@
 ---
 name: crisis-command-mode
-description: Convert incidents, outages, security events, compliance escalations or executive crises into a command structure, situation report, decisions, communications and action plan.
+description: Convert incidents, outages, security events, compliance escalations or executive crises into a command structure, situation report, decisions, communications and action plan. Use when the user needs crisis command mode for CIO decision support.
 ---
 
 # Crisis Command Mode

@@ -1,6 +1,6 @@
 ---
 name: enterprise-systems-adapter
-description: Convert ERP, SAP, CMDB and asset exports into business process, dependency, ownership and modernization signals.
+description: Convert ERP, SAP, CMDB and asset exports into business process, dependency, ownership and modernization signals. Use when the user needs enterprise systems adapter for CIO decision support.
 ---
 
 # Enterprise Systems Adapter

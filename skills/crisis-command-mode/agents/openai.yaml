@@ -1,0 +1,5 @@
+interface:
+  display_name: "Crisis Command Mode"
+  short_description: "Explicit-only CIO decision support skill: Crisis Command Mode."
+policy:
+  allow_implicit_invocation: false

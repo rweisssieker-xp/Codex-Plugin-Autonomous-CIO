@@ -1,6 +1,6 @@
 ---
 name: cost-of-delay-calculator
-description: Estimate qualitative cost of delay from value-at-risk, board risk, decision debt, audit exposure, customer trust and scarce capacity.
+description: Estimate qualitative cost of delay from value-at-risk, board risk, decision debt, audit exposure, customer trust and scarce capacity. Use when the user needs cost of delay calculator for CIO decision support.
 ---
 
 # Cost of Delay Calculator

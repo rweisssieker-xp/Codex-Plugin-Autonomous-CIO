@@ -1,6 +1,6 @@
 ---
 name: cyber-business-impact-translator
-description: Translate security, IAM, vulnerability, breach and control signals into business impact, executive decisions and risk acceptance choices.
+description: Translate security, IAM, vulnerability, breach and control signals into business impact, executive decisions and risk acceptance choices. Use when the user needs cyber business impact translator for CIO decision support.
 ---
 
 # Cyber Business Impact Translator

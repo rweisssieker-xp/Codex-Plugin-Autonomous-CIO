@@ -1,6 +1,6 @@
 ---
 name: process-operations-intelligence
-description: Analyze business processes, operational KPIs, service quality, bottlenecks, recurring issues, root causes, trends and improvement actions. Use for COO, operations, service management and process optimization work.
+description: Analyze business processes, operational KPIs, service quality, bottlenecks, recurring issues, root causes, trends and improvement actions. Use for COO, operations, service management and process optimization work. Use when the user needs process operations intelligence for CIO decision support.
 ---
 
 # Process Operations Intelligence

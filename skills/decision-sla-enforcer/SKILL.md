@@ -1,6 +1,6 @@
 ---
 name: decision-sla-enforcer
-description: Assign decision deadlines and escalation thresholds based on board risk, missing evidence, decision debt and business impact.
+description: Assign decision deadlines and escalation thresholds based on board risk, missing evidence, decision debt and business impact. Use when the user needs decision sla enforcer for CIO decision support.
 ---
 
 # Decision SLA Enforcer

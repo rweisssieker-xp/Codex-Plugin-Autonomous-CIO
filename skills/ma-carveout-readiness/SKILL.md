@@ -1,6 +1,6 @@
 ---
 name: ma-carveout-readiness
-description: Assess merger, acquisition, divestiture or carve-out readiness across systems, data, vendors, access, finance, customers and controls.
+description: Assess merger, acquisition, divestiture or carve-out readiness across systems, data, vendors, access, finance, customers and controls. Use when the user needs ma carveout readiness for CIO decision support.
 ---
 
 # M&A Carve-out Readiness

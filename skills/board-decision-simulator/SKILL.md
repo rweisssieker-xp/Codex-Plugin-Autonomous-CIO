@@ -1,6 +1,6 @@
 ---
 name: board-decision-simulator
-description: Simulate board reactions to approve, defer, approve with conditions or escalate options.
+description: Simulate board reactions to approve, defer, approve with conditions or escalate options. Use when the user needs board decision simulator for CIO decision support.
 ---
 
 # Board Decision Simulator

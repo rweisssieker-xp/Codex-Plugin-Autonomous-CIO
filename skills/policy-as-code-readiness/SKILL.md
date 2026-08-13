@@ -1,6 +1,6 @@
 ---
 name: policy-as-code-readiness
-description: Assess which governance, approval, evidence and exception controls could become policy-as-code rules later.
+description: Assess which governance, approval, evidence and exception controls could become policy-as-code rules later. Use when the user needs policy as code readiness for CIO decision support.
 ---
 
 # Policy as Code Readiness

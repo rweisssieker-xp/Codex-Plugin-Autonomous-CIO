@@ -1,6 +1,6 @@
 ---
 name: transformation-readiness-intelligence
-description: Assess whether organization, architecture, data, budget, governance, vendors and operations are ready for a transformation. Use before major programs, migrations and operating-model changes.
+description: Assess whether organization, architecture, data, budget, governance, vendors and operations are ready for a transformation. Use before major programs, migrations and operating-model changes. Use when the user needs transformation readiness intelligence for CIO decision support.
 ---
 
 # Transformation Readiness Intelligence

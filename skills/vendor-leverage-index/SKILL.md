@@ -1,6 +1,6 @@
 ---
 name: vendor-leverage-index
-description: Score vendor leverage and draft negotiation moves from dependency, milestone, evidence and fallback signals.
+description: Score vendor leverage and draft negotiation moves from dependency, milestone, evidence and fallback signals. Use when the user needs vendor leverage index for CIO decision support.
 ---
 
 # Vendor Leverage Index

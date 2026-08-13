@@ -1,6 +1,6 @@
 ---
 name: data-trust-radar
-description: Assess whether decisions are based on trustworthy data by checking ownership, metric definition, lineage, freshness and privacy classification.
+description: Assess whether decisions are based on trustworthy data by checking ownership, metric definition, lineage, freshness and privacy classification. Use when the user needs data trust radar for CIO decision support.
 ---
 
 # Data Trust Radar

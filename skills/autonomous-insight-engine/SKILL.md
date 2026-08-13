@@ -1,6 +1,6 @@
 ---
 name: autonomous-insight-engine
-description: Discover hidden patterns, anomalies, trends, weak signals, emerging risks, opportunities and proactive recommendations from enterprise context.
+description: Discover hidden patterns, anomalies, trends, weak signals, emerging risks, opportunities and proactive recommendations from enterprise context. Use when the user needs autonomous insight engine for CIO decision support.
 ---
 
 # Autonomous Insight Engine

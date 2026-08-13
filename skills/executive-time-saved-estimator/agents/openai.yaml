@@ -1,0 +1,5 @@
+interface:
+  display_name: "Executive Time Saved Estimator"
+  short_description: "Explicit-only CIO decision support skill: Executive Time Saved Estimator."
+policy:
+  allow_implicit_invocation: false

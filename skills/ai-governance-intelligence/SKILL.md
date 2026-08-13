@@ -1,6 +1,6 @@
 ---
 name: ai-governance-intelligence
-description: Assess AI initiatives by business value, data risk, privacy, compliance, model behavior, ownership, controls, operating readiness and approval path. Use for AI governance boards and CIO/CISO reviews.
+description: Assess AI initiatives by business value, data risk, privacy, compliance, model behavior, ownership, controls, operating readiness and approval path. Use for AI governance boards and CIO/CISO reviews. Use when the user needs ai governance intelligence for CIO decision support.
 ---
 
 # AI Governance Intelligence

@@ -1,6 +1,6 @@
 ---
 name: resilience-continuity-planner
-description: Draft resilience and continuity plans for outage, incident, service, recovery, billing, integration or customer-impact signals.
+description: Draft resilience and continuity plans for outage, incident, service, recovery, billing, integration or customer-impact signals. Use when the user needs resilience continuity planner for CIO decision support.
 ---
 
 # Resilience Continuity Planner

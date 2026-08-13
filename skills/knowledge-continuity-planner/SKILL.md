@@ -1,6 +1,6 @@
 ---
 name: knowledge-continuity-planner
-description: Plan continuity for critical know-how, scarce experts, owners, architects and operational knowledge.
+description: Plan continuity for critical know-how, scarce experts, owners, architects and operational knowledge. Use when the user needs knowledge continuity planner for CIO decision support.
 ---
 
 # Knowledge Continuity Planner

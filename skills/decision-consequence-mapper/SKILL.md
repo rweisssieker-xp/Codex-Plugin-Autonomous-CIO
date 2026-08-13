@@ -1,6 +1,6 @@
 ---
 name: decision-consequence-mapper
-description: Map first-, second- and third-order consequences of executive decisions across finance, operations, risk, security, compliance, architecture and organization.
+description: Map first-, second- and third-order consequences of executive decisions across finance, operations, risk, security, compliance, architecture and organization. Use when the user needs decision consequence mapper for CIO decision support.
 ---
 
 # Decision Consequence Mapper

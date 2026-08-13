@@ -1,6 +1,6 @@
 ---
 name: organization-workforce-intelligence
-description: Analyze team structures, responsibilities, workload, communication patterns, critical roles, knowledge concentration and organizational risk. Use for org design, operating model and workforce risk questions.
+description: Analyze team structures, responsibilities, workload, communication patterns, critical roles, knowledge concentration and organizational risk. Use for org design, operating model and workforce risk questions. Use when the user needs organization workforce intelligence for CIO decision support.
 ---
 
 # Organization Workforce Intelligence

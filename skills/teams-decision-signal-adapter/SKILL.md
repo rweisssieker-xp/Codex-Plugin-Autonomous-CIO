@@ -1,6 +1,6 @@
 ---
 name: teams-decision-signal-adapter
-description: Convert Microsoft Teams messages or exports into CIO decision, risk, owner and evidence signals.
+description: Convert Microsoft Teams messages or exports into CIO decision, risk, owner and evidence signals. Use when the user needs teams decision signal adapter for CIO decision support.
 ---
 
 # Teams Decision Signal Adapter

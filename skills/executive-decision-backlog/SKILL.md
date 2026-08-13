@@ -1,6 +1,6 @@
 ---
 name: executive-decision-backlog
-description: Build a prioritized backlog of executive decisions with required inputs, routing, priority and clearance rules.
+description: Build a prioritized backlog of executive decisions with required inputs, routing, priority and clearance rules. Use when the user needs executive decision backlog for CIO decision support.
 ---
 
 # Executive Decision Backlog

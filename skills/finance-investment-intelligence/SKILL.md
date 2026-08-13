@@ -1,6 +1,6 @@
 ---
 name: finance-investment-intelligence
-description: Analyze cost trends, budget deviations, cost drivers, investment cases, forecast risk, savings potential and financial impact across enterprise initiatives. Use for CIO/CFO alignment and investment decisions.
+description: Analyze cost trends, budget deviations, cost drivers, investment cases, forecast risk, savings potential and financial impact across enterprise initiatives. Use for CIO/CFO alignment and investment decisions. Use when the user needs finance investment intelligence for CIO decision support.
 ---
 
 # Finance Investment Intelligence

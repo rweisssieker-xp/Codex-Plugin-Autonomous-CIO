@@ -1,6 +1,6 @@
 ---
 name: executive-commitment-tracker
-description: Track draft and prior executive commitments, owners, status and next checks from decision packets and memory context.
+description: Track draft and prior executive commitments, owners, status and next checks from decision packets and memory context. Use when the user needs executive commitment tracker for CIO decision support.
 ---
 
 # Executive Commitment Tracker

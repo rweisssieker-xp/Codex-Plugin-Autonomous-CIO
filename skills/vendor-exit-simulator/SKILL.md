@@ -1,6 +1,6 @@
 ---
 name: vendor-exit-simulator
-description: Simulate vendor exit, renegotiation, fallback and lock-in reduction options from provided vendor, contract, delivery and cost signals.
+description: Simulate vendor exit, renegotiation, fallback and lock-in reduction options from provided vendor, contract, delivery and cost signals. Use when the user needs vendor exit simulator for CIO decision support.
 ---
 
 # Vendor Exit Simulator

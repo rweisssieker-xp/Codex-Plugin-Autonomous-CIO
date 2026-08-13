@@ -1,6 +1,6 @@
 ---
 name: architecture-data-security-intelligence
-description: Analyze enterprise architecture, system landscapes, technical debt, redundancy, data quality, data flows, critical assets and security risks. Use for CIO, CISO and enterprise architecture decisions.
+description: Analyze enterprise architecture, system landscapes, technical debt, redundancy, data quality, data flows, critical assets and security risks. Use for CIO, CISO and enterprise architecture decisions. Use when the user needs architecture data security intelligence for CIO decision support.
 ---
 
 # Architecture Data Security Intelligence

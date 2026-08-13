@@ -1,6 +1,6 @@
 ---
 name: delivery-work-management-adapter
-description: Convert Jira, Azure DevOps and GitHub exports into CIO portfolio, delivery risk, dependency and roadmap signals.
+description: Convert Jira, Azure DevOps and GitHub exports into CIO portfolio, delivery risk, dependency and roadmap signals. Use when the user needs delivery work management adapter for CIO decision support.
 ---
 
 # Delivery Work Management Adapter

@@ -1,6 +1,6 @@
 ---
 name: audit-finding-predictor
-description: Predict likely audit findings from missing evidence, weak controls, unclear ownership, exceptions and compliance signals.
+description: Predict likely audit findings from missing evidence, weak controls, unclear ownership, exceptions and compliance signals. Use when the user needs audit finding predictor for CIO decision support.
 ---
 
 # Audit Finding Predictor

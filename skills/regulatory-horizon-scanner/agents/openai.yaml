@@ -1,0 +1,5 @@
+interface:
+  display_name: "Regulatory Horizon Scanner"
+  short_description: "Explicit-only CIO decision support skill: Regulatory Horizon Scanner."
+policy:
+  allow_implicit_invocation: false

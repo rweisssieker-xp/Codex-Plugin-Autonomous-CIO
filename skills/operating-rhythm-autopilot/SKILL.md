@@ -1,6 +1,6 @@
 ---
 name: operating-rhythm-autopilot
-description: Recommend the next executive operating cadence, rituals and prepared inputs based on status, decision debt and truth gaps.
+description: Recommend the next executive operating cadence, rituals and prepared inputs based on status, decision debt and truth gaps. Use when the user needs operating rhythm autopilot for CIO decision support.
 ---
 
 # Operating Rhythm Autopilot
