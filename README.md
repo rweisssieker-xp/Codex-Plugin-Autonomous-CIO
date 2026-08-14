@@ -11,6 +11,8 @@ It is a skill-first MVP that works with provided context, local files and local 
 3. For local proof, run `python engine/cli.py unfair-advantage-usp-suite --input engine/examples/industrial_operating_review.json`.
 4. For reviewer proof, open `dist/submission/PUBLISHING_HANDOFF.md` after running `python scripts/build-submission-pack.py`.
 
+For neutral launch and promotion copy, use [docs/neutral-promotion-kit.md](docs/neutral-promotion-kit.md).
+
 ## Positioning
 
 **The Autonomous CIO makes enterprise decisions board-ready before leadership enters the room.**

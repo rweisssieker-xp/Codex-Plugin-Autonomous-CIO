@@ -33,6 +33,7 @@ def main() -> None:
     _write_submission_manifest()
     _write_review_notes()
     _write_publishing_handoff()
+    _copy_promotion_kit()
     print(
         json.dumps(
             {
@@ -41,6 +42,7 @@ def main() -> None:
                 "zip_size_bytes": ZIP_PATH.stat().st_size,
                 "review_notes": str(SUBMISSION_DIR / "REVIEW_NOTES.md"),
                 "publishing_handoff": str(SUBMISSION_DIR / "PUBLISHING_HANDOFF.md"),
+                "promotion_kit": str(SUBMISSION_DIR / "NEUTRAL_PROMOTION_KIT.md"),
             },
             indent=2,
         )
@@ -158,6 +160,12 @@ Expected plugin-eval result: 100/100, Grade A, low risk, 0 fail, 0 warn.
 - Decision support only for legal, regulatory, HR, security and financial matters.
 """
     (SUBMISSION_DIR / "PUBLISHING_HANDOFF.md").write_text(handoff, encoding="utf-8")
+
+
+def _copy_promotion_kit() -> None:
+    source = ROOT / "docs" / "neutral-promotion-kit.md"
+    target = SUBMISSION_DIR / "NEUTRAL_PROMOTION_KIT.md"
+    target.write_text(source.read_text(encoding="utf-8"), encoding="utf-8")
 
 
 if __name__ == "__main__":

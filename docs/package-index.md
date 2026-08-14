@@ -29,7 +29,7 @@
 | Area | Count / Contents |
 |---|---|
 | Skills | 133 skills in `skills/` |
-| Docs | 32 docs in `docs/` |
+| Docs | 33 docs in `docs/` |
 | Templates | 102 templates in `templates/` |
 | Schemas | 163 JSON schemas in `engine/schemas/` |
 | Engine | Local Python Decision Intelligence Engine |
@@ -205,3 +205,8 @@
 - No external-service action execution; action commands produce drafts only.
 - No automatic persistent memory; SQLite memory writes require explicit local DB paths.
 - Works only on user-provided context and local files.
+
+## Promotion and Launch
+
+- `docs/neutral-promotion-kit.md` contains review-safe GitHub, LinkedIn, Product Hunt, Show HN, Reddit/community and dev-article copy.
+- The promotion kit keeps claims local-first, connector-neutral and decision-support-only.
