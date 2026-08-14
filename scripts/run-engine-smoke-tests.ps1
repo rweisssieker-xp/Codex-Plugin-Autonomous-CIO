@@ -168,5 +168,7 @@ try {
 python -m unittest discover engine/tests
 python -m unittest discover skills/user-context/tests
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py "C:\tmp\Codex Plugin Autonomous CIO"
+python scripts\build-marketplace-package.py | Out-Null
+python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py "C:\tmp\Codex Plugin Autonomous CIO\dist\the-autonomous-cio"
 
 Write-Output "Engine smoke tests passed."
