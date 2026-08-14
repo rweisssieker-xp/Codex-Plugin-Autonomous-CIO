@@ -108,6 +108,8 @@ python engine\cli.py build-board-pack --input engine\examples\board_prep.json --
 python engine\cli.py run-evals --eval-dir engine\evals | Out-Null
 python engine\cli.py eval-report --eval-dir engine\evals | Out-Null
 python engine\cli.py hardening-evals --eval-dir engine\evals | Out-Null
+python engine\cli.py orchestrator-evals --eval-dir engine\evals | Out-Null
+python engine\cli.py usage-benchmark --eval-dir engine\evals | Out-Null
 python engine\cli.py skill-suites | Out-Null
 $schemaOutput = Join-Path $env:TEMP "acio-schema-output.json"
 $schemaJson = python engine\cli.py llm-extraction-pipeline --input engine\examples\board_prep.json

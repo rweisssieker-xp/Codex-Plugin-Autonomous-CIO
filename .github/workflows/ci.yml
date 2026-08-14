@@ -1,0 +1,49 @@
+name: Autonomous CIO CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run root smoke test
+        run: python -m unittest discover .
+
+      - name: Run engine unit tests
+        run: python -m unittest discover engine/tests
+
+      - name: Run user-context unit tests
+        run: python -m unittest discover skills/user-context/tests
+
+      - name: Run golden evals
+        run: |
+          python engine/cli.py run-evals --eval-dir engine/evals
+          python engine/cli.py orchestrator-evals --eval-dir engine/evals
+          python engine/cli.py usage-benchmark --eval-dir engine/evals
+          python engine/cli.py hardening-evals --eval-dir engine/evals
+
+      - name: Build marketplace package
+        run: python scripts/build-marketplace-package.py
+
+      - name: Build submission pack
+        run: python scripts/build-submission-pack.py
+
+      - name: Validate generated package shape
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "dist/the-autonomous-cio/.codex-plugin/plugin.json")) { throw "missing dist plugin manifest" }
+          if (-not (Test-Path "dist/submission/the-autonomous-cio-marketplace-plugin.zip")) { throw "missing submission zip" }
+          $skillCount = (Get-ChildItem "dist/the-autonomous-cio/skills" -Directory).Count
+          if ($skillCount -ne 133) { throw "expected 133 skills, found $skillCount" }

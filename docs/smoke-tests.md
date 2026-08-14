@@ -86,7 +86,12 @@ python engine/cli.py governance-readiness --input engine/examples/industrial_ope
 python engine/cli.py draft-actions --input engine/examples/board_prep.json --type email
 python engine/cli.py build-board-pack --input engine/examples/board_prep.json --output-dir .local-export/board-pack --format both
 python engine/cli.py run-evals --eval-dir engine/evals
+python engine/cli.py orchestrator-evals --eval-dir engine/evals
+python engine/cli.py usage-benchmark --eval-dir engine/evals
+python engine/cli.py hardening-evals --eval-dir engine/evals
 python engine/cli.py eval-report --eval-dir engine/evals
+python scripts/build-marketplace-package.py
+python scripts/build-submission-pack.py
 python engine/cli.py init-profile --profile .local-memory/company-profile.json
 python engine/cli.py apply-profile --input engine/examples/board_prep.json --profile .local-memory/company-profile.json
 python engine/cli.py record-feedback --input engine/examples/learning_feedback.json --db .local-memory/autonomous_cio.db

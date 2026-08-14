@@ -115,7 +115,11 @@ The plugin is designed for decision support. It separates facts, assumptions, hy
 
 ```text
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py C:\tmp\Codex Plugin Autonomous CIO
+python engine\cli.py run-evals --eval-dir engine\evals
+python engine\cli.py orchestrator-evals --eval-dir engine\evals
+python engine\cli.py usage-benchmark --eval-dir engine\evals
 python scripts\build-marketplace-package.py
+python scripts\build-submission-pack.py
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py C:\tmp\Codex Plugin Autonomous CIO\dist\the-autonomous-cio
 node C:\Users\weiss\.codex\plugins\cache\openai-curated-remote\plugin-eval\0.1.2\scripts\plugin-eval.js analyze C:\tmp\Codex Plugin Autonomous CIO\dist\the-autonomous-cio --format markdown
 python -m unittest engine.tests.test_engine
@@ -127,12 +131,14 @@ The source repository includes runtime code, local app files, examples, schemas,
 
 The generated package keeps all 133 skills and one implicit front door, `autonomous-cio-orchestrator`. All other skills are explicit-only in the package metadata, which preserves the full USP surface without inflating always-loaded context. Runtime, demos and engineering artifacts remain in the repository but are excluded from the marketplace package.
 
+For submission, run `scripts/build-submission-pack.py`. It creates `dist/submission/the-autonomous-cio-marketplace-plugin.zip`, `submission-manifest.json` and `REVIEW_NOTES.md`.
+
 ## Current Package Contents
 
 | Area | Count / Contents |
 |---|---|
 | Skills | 133 |
-| Docs | 31 |
+| Docs | 32 |
 | Templates | 102 |
 | Engine schemas | 162 |
 | Runtime | Local Python engine |

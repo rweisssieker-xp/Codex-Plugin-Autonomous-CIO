@@ -18,6 +18,8 @@
 | `autonomous-cio-operating-review` | Full governed CIO Autopilot Review |
 | `executive-decision-packet` | Board, crisis, AI approval, transformation and portfolio decisions |
 | `engine/cli.py autopilot-review` | Reproducible local CIO Autopilot Review outputs |
+| `engine/cli.py orchestrator-evals` | Request-type and skill-chain regression checks |
+| `engine/cli.py usage-benchmark` | Local usage baseline for golden scenarios |
 | `app/server.py` | Local stdlib CIO OS web app |
 | `visual-command-center/index.html` | Static local dashboard demo |
 
@@ -26,7 +28,7 @@
 | Area | Count / Contents |
 |---|---|
 | Skills | 133 skills in `skills/` |
-| Docs | 31 docs in `docs/` |
+| Docs | 32 docs in `docs/` |
 | Templates | 102 templates in `templates/` |
 | Schemas | 162 JSON schemas in `engine/schemas/` |
 | Engine | Local Python Decision Intelligence Engine |
@@ -122,6 +124,8 @@
 - Interactive Decision Twin
 - Decision SLA Monitor
 - Eval Benchmark Suite
+- Orchestrator Chain Eval Suite
+- Usage Benchmark Baseline
 - Local CIO OS Web App
 - User/Company Profile Layer
 - Action Drafting Layer
@@ -165,6 +169,7 @@
 - Skill Suite Map
 - Hardening Eval Report
 - Local Release Package Builder
+- Marketplace Submission Pack Builder
 - Strategic Contradiction Radar
 - Autonomous Delegation Planner
 - Local file and directory ingestion

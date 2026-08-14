@@ -13,7 +13,7 @@ try:
     from decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
     from decision_twin import run_decision_twin
     from enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
-    from eval_runner import eval_report, run_evals
+    from eval_runner import eval_report, run_evals, run_orchestrator_evals, usage_benchmark
     from evidence_quality import score_evidence_quality
     from executive_autonomy_innovation import allocate_executive_attention, backtest_vendor_promises, build_autonomy_contract_engine, build_benefit_realization_memory, build_control_debt_ledger, build_decision_chain_of_custody, build_enterprise_contradiction_memory, build_enterprise_operating_twin, build_kill_criteria_sentinel, build_operating_rhythm_autopilot_v2, detect_strategic_drift_early_warning, forecast_evidence_decay, map_cio_replacement_surface, measure_decision_latency_cost, simulate_synthetic_executive_committee
     from governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
@@ -29,7 +29,7 @@ except ImportError:  # pragma: no cover - package execution path
     from .decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
     from .decision_twin import run_decision_twin
     from .enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
-    from .eval_runner import eval_report, run_evals
+    from .eval_runner import eval_report, run_evals, run_orchestrator_evals, usage_benchmark
     from .evidence_quality import score_evidence_quality
     from .executive_autonomy_innovation import allocate_executive_attention, backtest_vendor_promises, build_autonomy_contract_engine, build_benefit_realization_memory, build_control_debt_ledger, build_decision_chain_of_custody, build_enterprise_contradiction_memory, build_enterprise_operating_twin, build_kill_criteria_sentinel, build_operating_rhythm_autopilot_v2, detect_strategic_drift_early_warning, forecast_evidence_decay, map_cio_replacement_surface, measure_decision_latency_cost, simulate_synthetic_executive_committee
     from .governed_execution_intelligence import build_delegation_planner, build_enterprise_decision_ledger, detect_narrative_integrity, run_decision_simulation_arena, score_vendor_truth, shadow_cost_of_inaction, trace_control_to_decision
@@ -292,6 +292,12 @@ def main(argv: list[str] | None = None) -> int:
     hardening_evals = sub.add_parser("hardening-evals")
     hardening_evals.add_argument("--eval-dir", default="engine/evals", help="Directory with eval JSON files")
 
+    orchestrator_evals = sub.add_parser("orchestrator-evals")
+    orchestrator_evals.add_argument("--eval-dir", default="engine/evals", help="Directory with eval JSON files")
+
+    usage_benchmark_cmd = sub.add_parser("usage-benchmark")
+    usage_benchmark_cmd.add_argument("--eval-dir", default="engine/evals", help="Directory with eval JSON files")
+
     release_package = sub.add_parser("build-release-package")
     release_package.add_argument("--output-dir", required=True, help="Output directory for local release package")
 
@@ -394,6 +400,8 @@ def main(argv: list[str] | None = None) -> int:
             "run-evals",
             "eval-report",
             "hardening-evals",
+            "orchestrator-evals",
+            "usage-benchmark",
             "build-release-package",
             "init-profile",
             "calibrate-scores",
@@ -557,6 +565,10 @@ def main(argv: list[str] | None = None) -> int:
             result = eval_report(args.eval_dir)
         elif args.command == "hardening-evals":
             result = run_hardening_evals(args.eval_dir)
+        elif args.command == "orchestrator-evals":
+            result = run_orchestrator_evals(args.eval_dir)
+        elif args.command == "usage-benchmark":
+            result = usage_benchmark(args.eval_dir)
         elif args.command == "build-release-package":
             result = build_release_package(args.output_dir)
         elif args.command == "init-profile":
