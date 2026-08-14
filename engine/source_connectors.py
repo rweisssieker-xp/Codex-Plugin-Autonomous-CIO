@@ -71,6 +71,57 @@ def ingest_source_bundle(input_dir: str, db_path: str | None = None, profile: st
     }
 
 
+def connector_readiness_report(path: str = "engine/examples") -> Dict[str, Any]:
+    root = Path(path)
+    local_sources = discover_sources(path)["source_discovery"]["sources"]
+    profiles = sorted({source["profile_hint"] for source in local_sources if source["profile_hint"] != "auto"})
+    live_profiles = [
+        "outlook_email",
+        "outlook_calendar",
+        "teams_messages",
+        "sharepoint_documents",
+        "github_delivery",
+        "jira_delivery",
+        "azure_devops_delivery",
+        "topdesk_service",
+    ]
+    readiness = []
+    for profile in live_profiles:
+        hint = profile.split("_")[0]
+        readiness.append(
+            {
+                "profile": profile,
+                "local_export_adapter_ready": hint in profiles or any(hint in source["path"].lower() for source in local_sources),
+                "live_connector_ready": False,
+                "required_for_live": "Enable the matching Codex/App connector and provide explicit user authorization in the host environment.",
+                "external_execution_allowed": False,
+            }
+        )
+    payload = {
+        "root": str(root),
+        "local_source_count": len(local_sources),
+        "detected_local_profiles": profiles,
+        "connector_readiness": readiness,
+        "live_access_claim": False,
+        "safe_default": "Use local exports and source bundles unless a host connector is explicitly available and authorized.",
+    }
+    return {
+        "artifact": "Connector Readiness Report",
+        "connector_readiness_report": payload,
+        "facts": [f"Inspected {len(local_sources)} local source file(s)."],
+        "assumptions": ["Live connector availability cannot be inferred from local files."],
+        "hypotheses": ["Export-first adapters are sufficient for marketplace review and local pilots."],
+        "missing_evidence": ["Authorized live connector context is not supplied."],
+        "confidence": "High",
+        "recommended_action": {
+            "recommendation": "Pilot live connector profiles only after the matching Codex connector is authorized by the user.",
+            "owner": "CIO office",
+            "timebox": "Before live enterprise rollout",
+        },
+        "guardrails": GUARDRAILS,
+    }
+
+
 def _profile_hint(name: str) -> str:
     low = name.lower()
     for key in ("topdesk", "servicenow", "jira", "azure", "github", "slack", "gmail", "outlook", "sharepoint", "sap", "erp", "cmdb", "security", "cloud", "observability"):

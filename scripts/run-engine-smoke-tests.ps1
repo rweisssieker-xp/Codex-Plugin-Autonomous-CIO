@@ -21,6 +21,7 @@ python engine\cli.py assurance --input engine\examples\board_prep_llm_extracted.
 python engine\cli.py decision-defense --input engine\examples\board_prep.json | Out-Null
 python engine\cli.py autopilot-review --input engine\examples\industrial_operating_review.json | Out-Null
 python engine\cli.py connector-profiles | Out-Null
+python engine\cli.py connector-readiness --path engine\examples | Out-Null
 python engine\cli.py detect-connector-profile --input engine\examples\industrial_file_drop.csv | Out-Null
 python engine\cli.py adapt-connector-export --input engine\examples\topdesk_export.csv | Out-Null
 python engine\cli.py llm-extraction-contract --input engine\examples\industrial_operating_review.json | Out-Null
@@ -193,5 +194,8 @@ python -m unittest discover skills/user-context/tests
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py "C:\tmp\Codex Plugin Autonomous CIO"
 python scripts\build-marketplace-package.py | Out-Null
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py "C:\tmp\Codex Plugin Autonomous CIO\dist\the-autonomous-cio"
+python scripts\run-observed-usage-benchmark.py | Out-Null
+python scripts\run-coverage-artifact.py | Out-Null
+python scripts\build-submission-assets.py | Out-Null
 
 Write-Output "Engine smoke tests passed."

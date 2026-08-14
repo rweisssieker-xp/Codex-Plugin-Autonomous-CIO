@@ -33,6 +33,10 @@ jobs:
           python engine/cli.py orchestrator-evals --eval-dir engine/evals
           python engine/cli.py usage-benchmark --eval-dir engine/evals
           python engine/cli.py hardening-evals --eval-dir engine/evals
+          python engine/cli.py connector-readiness --path engine/examples
+          python scripts/run-observed-usage-benchmark.py
+          python scripts/run-coverage-artifact.py
+          python scripts/build-submission-assets.py
 
       - name: Build marketplace package
         run: python scripts/build-marketplace-package.py

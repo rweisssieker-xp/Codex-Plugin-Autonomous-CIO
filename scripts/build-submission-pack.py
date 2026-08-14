@@ -19,7 +19,12 @@ ZIP_PATH = SUBMISSION_DIR / "the-autonomous-cio-marketplace-plugin.zip"
 
 
 def main() -> None:
-    subprocess.run([sys.executable, str(ROOT / "scripts" / "build-marketplace-package.py")], check=True)
+    subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "build-marketplace-package.py")],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
     if SUBMISSION_DIR.exists():
         shutil.rmtree(SUBMISSION_DIR)
     SUBMISSION_DIR.mkdir(parents=True)
@@ -27,6 +32,7 @@ def main() -> None:
     _zip_plugin()
     _write_submission_manifest()
     _write_review_notes()
+    _write_publishing_handoff()
     print(
         json.dumps(
             {
@@ -34,6 +40,7 @@ def main() -> None:
                 "plugin_zip": str(ZIP_PATH),
                 "zip_size_bytes": ZIP_PATH.stat().st_size,
                 "review_notes": str(SUBMISSION_DIR / "REVIEW_NOTES.md"),
+                "publishing_handoff": str(SUBMISSION_DIR / "PUBLISHING_HANDOFF.md"),
             },
             indent=2,
         )
@@ -61,6 +68,9 @@ def _write_submission_manifest() -> None:
         "validation_commands": [
             "python scripts/build-marketplace-package.py",
             "python scripts/build-submission-pack.py",
+            "python scripts/run-observed-usage-benchmark.py",
+            "python scripts/run-coverage-artifact.py",
+            "python scripts/build-submission-assets.py",
             "python C:\\Users\\weiss\\.codex\\skills\\.system\\plugin-creator\\scripts\\validate_plugin.py dist\\the-autonomous-cio",
             "node C:\\Users\\weiss\\.codex\\plugins\\cache\\openai-curated-remote\\plugin-eval\\0.1.2\\scripts\\plugin-eval.js analyze dist\\the-autonomous-cio --format markdown",
         ],
@@ -98,8 +108,48 @@ The single implicit skill is `autonomous-cio-orchestrator`. It routes broad exec
 Run `python engine/cli.py run-evals --eval-dir engine/evals` for the 50-case golden scenario suite.
 Run `python engine/cli.py orchestrator-evals --eval-dir engine/evals` for request-type and skill-chain checks.
 Run `python engine/cli.py usage-benchmark --eval-dir engine/evals` for deterministic local token estimates.
+Run `python scripts/run-observed-usage-benchmark.py` for observed local CLI runtime records.
+Run `python scripts/run-coverage-artifact.py` for `.local-artifacts/coverage/coverage.xml`.
+Run `python scripts/build-submission-assets.py` for screenshots, proof story, board-pack examples and submission checklist.
 """
     (SUBMISSION_DIR / "REVIEW_NOTES.md").write_text(notes, encoding="utf-8")
+
+
+def _write_publishing_handoff() -> None:
+    handoff = """# Publishing Handoff
+
+## Human Upload Gate
+
+The repository can build, validate and package the marketplace submission locally. Actual marketplace upload still requires a human publisher account and cannot be completed by the local runtime.
+
+## Files to Upload or Attach
+
+- Plugin ZIP: `the-autonomous-cio-marketplace-plugin.zip`
+- Review notes: `REVIEW_NOTES.md`
+- Submission manifest: `submission-manifest.json`
+- Optional assets: run `python scripts/build-submission-assets.py` and attach `.local-artifacts/submission-assets/`
+
+## Evidence to Run Before Upload
+
+```text
+python scripts/run-engine-smoke-tests.ps1
+python scripts/run-observed-usage-benchmark.py
+python scripts/run-coverage-artifact.py
+python scripts/build-submission-assets.py
+node C:\\Users\\weiss\\.codex\\plugins\\cache\\openai-curated-remote\\plugin-eval\\0.1.2\\scripts\\plugin-eval.js analyze dist\\the-autonomous-cio --observed-usage .local-artifacts\\observed-usage\\plugin-eval-observed-usage.jsonl --format markdown
+```
+
+Expected plugin-eval result: 100/100, Grade A, low risk, 0 fail, 0 warn.
+
+## Claim Boundary
+
+- Connector-neutral and local-first.
+- No live system access without separately authorized host connectors.
+- No automatic persistence.
+- No external action execution.
+- Decision support only for legal, regulatory, HR, security and financial matters.
+"""
+    (SUBMISSION_DIR / "PUBLISHING_HANDOFF.md").write_text(handoff, encoding="utf-8")
 
 
 if __name__ == "__main__":

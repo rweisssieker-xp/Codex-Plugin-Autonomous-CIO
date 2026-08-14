@@ -51,6 +51,7 @@ Instead, it includes optional connector profiles and adapter skills that can wor
 
 ```text
 python engine/cli.py connector-profiles
+python engine/cli.py connector-readiness --path engine/examples
 python engine/cli.py detect-connector-profile --input engine/examples/slack_export.csv
 python engine/cli.py adapt-connector-export --input engine/examples/slack_export.csv
 python engine/cli.py detect-connector-profile --input engine/examples/outlook_email_export.csv
@@ -78,6 +79,7 @@ Use:
 - "Includes optional connector profiles and adapters for Teams, Slack, email, calendar, delivery, ITSM, cloud cost, security, ERP/SAP and document exports."
 - "Live access requires separately enabled connectors and explicit user authorization."
 - "Works with user-provided exports when live connectors are not available."
+- "Connector readiness reports distinguish local export adapters from unavailable live connector contexts."
 
 Avoid:
 

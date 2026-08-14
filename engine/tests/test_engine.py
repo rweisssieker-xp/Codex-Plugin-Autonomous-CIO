@@ -63,7 +63,7 @@ from memory_store import init_memory_db, memory_aging, query_memory_db, save_rev
 from office_export import build_board_pack  # noqa: E402
 from policy_engine import approval_gates, evaluate_policy, governance_readiness  # noqa: E402
 from product_hardening import build_llm_extraction_pipeline, build_release_package, list_memory_update_queue, queue_memory_updates, review_memory_update, run_hardening_evals, skill_suite_map, validate_output_schema  # noqa: E402
-from source_connectors import discover_sources, ingest_source_bundle  # noqa: E402
+from source_connectors import connector_readiness_report, discover_sources, ingest_source_bundle  # noqa: E402
 from user_profile import apply_profile, init_profile  # noqa: E402
 
 
@@ -701,6 +701,12 @@ class DecisionIntelligenceEngineTests(unittest.TestCase):
         discovery = discover_sources(str(ENGINE / "examples"))
         self.assertTrue(discovery["source_discovery"]["sources"])
         self.assert_invariants(discovery)
+
+        readiness = connector_readiness_report(str(ENGINE / "examples"))
+        self.assertGreaterEqual(readiness["connector_readiness_report"]["local_source_count"], 1)
+        self.assertFalse(readiness["connector_readiness_report"]["live_access_claim"])
+        self.assertFalse(any(item["external_execution_allowed"] for item in readiness["connector_readiness_report"]["connector_readiness"]))
+        self.assert_invariants(readiness)
 
         bundle = ingest_source_bundle(str(ENGINE / "examples"))
         self.assertGreater(bundle["source_bundle"]["signals_created"], 0)

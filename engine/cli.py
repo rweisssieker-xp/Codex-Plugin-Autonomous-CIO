@@ -23,7 +23,7 @@ try:
     from office_export import build_board_pack
     from policy_engine import approval_gates, evaluate_policy, governance_readiness
     from product_hardening import build_llm_extraction_pipeline, build_release_package, list_memory_update_queue, queue_memory_updates, review_memory_update, run_hardening_evals, skill_suite_map, validate_schema_file
-    from source_connectors import discover_sources, ingest_source_bundle, pull_signals
+    from source_connectors import connector_readiness_report, discover_sources, ingest_source_bundle, pull_signals
     from user_profile import apply_profile, init_profile
 except ImportError:  # pragma: no cover - package execution path
     from .action_drafting import draft_actions
@@ -40,7 +40,7 @@ except ImportError:  # pragma: no cover - package execution path
     from .office_export import build_board_pack
     from .policy_engine import approval_gates, evaluate_policy, governance_readiness
     from .product_hardening import build_llm_extraction_pipeline, build_release_package, list_memory_update_queue, queue_memory_updates, review_memory_update, run_hardening_evals, skill_suite_map, validate_schema_file
-    from .source_connectors import discover_sources, ingest_source_bundle, pull_signals
+    from .source_connectors import connector_readiness_report, discover_sources, ingest_source_bundle, pull_signals
     from .user_profile import apply_profile, init_profile
 
 try:
@@ -247,6 +247,9 @@ def main(argv: list[str] | None = None) -> int:
     discover = sub.add_parser("discover-sources")
     discover.add_argument("--path", default="engine/examples", help="Local directory to inspect")
 
+    connector_readiness = sub.add_parser("connector-readiness")
+    connector_readiness.add_argument("--path", default="engine/examples", help="Local directory to inspect")
+
     pull = sub.add_parser("pull-signals")
     pull.add_argument("--input", required=True, help="Path to local export file")
     pull.add_argument("--profile", default="auto", help="Connector profile name or auto")
@@ -408,6 +411,7 @@ def main(argv: list[str] | None = None) -> int:
         no_input_commands = {
             "evaluate",
             "connector-profiles",
+            "connector-readiness",
             "skill-suites",
             "validate-schema",
             "inspect-memory",
@@ -565,6 +569,8 @@ def main(argv: list[str] | None = None) -> int:
             result = sla_digest(args.db)
         elif args.command == "discover-sources":
             result = discover_sources(args.path)
+        elif args.command == "connector-readiness":
+            result = connector_readiness_report(args.path)
         elif args.command == "pull-signals":
             result = pull_signals(args.input, args.profile)
         elif args.command in {"ingest-source-bundle", "ingest-bundle"}:

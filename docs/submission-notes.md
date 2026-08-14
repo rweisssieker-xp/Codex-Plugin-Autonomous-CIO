@@ -118,8 +118,11 @@ python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plug
 python engine\cli.py run-evals --eval-dir engine\evals
 python engine\cli.py orchestrator-evals --eval-dir engine\evals
 python engine\cli.py usage-benchmark --eval-dir engine\evals
+python scripts\run-observed-usage-benchmark.py
+python scripts\run-coverage-artifact.py
 python scripts\build-marketplace-package.py
 python scripts\build-submission-pack.py
+python scripts\build-submission-assets.py
 python C:\Users\weiss\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py C:\tmp\Codex Plugin Autonomous CIO\dist\the-autonomous-cio
 node C:\Users\weiss\.codex\plugins\cache\openai-curated-remote\plugin-eval\0.1.2\scripts\plugin-eval.js analyze C:\tmp\Codex Plugin Autonomous CIO\dist\the-autonomous-cio --format markdown
 python -m unittest engine.tests.test_engine

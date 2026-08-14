@@ -39,9 +39,30 @@ Run:
 
 ```text
 python engine/cli.py usage-benchmark --eval-dir engine/evals
+python scripts/run-observed-usage-benchmark.py
 ```
 
 This creates deterministic local token estimates for input, output, selected skill count, missing evidence count and board-question count. It is not a substitute for observed Codex usage logs; it is the local baseline to compare real runs against.
+
+`scripts/run-observed-usage-benchmark.py` writes observed local CLI runtime records to `.local-artifacts/observed-usage/`. This closes the local observed-usage gap, but Codex-host token usage still requires exported host usage logs.
+
+To attach the local harness baseline to Plugin Eval, run:
+
+```text
+node C:\Users\weiss\.codex\plugins\cache\openai-curated-remote\plugin-eval\0.1.2\scripts\plugin-eval.js analyze dist\the-autonomous-cio --observed-usage .local-artifacts\observed-usage\plugin-eval-observed-usage.jsonl --format markdown
+```
+
+The generated JSONL is explicitly marked as local harness usage, not Codex-host telemetry.
+
+## Coverage Artifact
+
+Run:
+
+```text
+python scripts/run-coverage-artifact.py
+```
+
+This uses Python stdlib `trace` to run the engine unit tests and writes `.local-artifacts/coverage/coverage.xml` plus a JSON summary. It avoids adding a coverage dependency to the plugin.
 
 ## Marketplace Package
 
@@ -59,9 +80,12 @@ Run:
 
 ```text
 python scripts/build-submission-pack.py
+python scripts/build-submission-assets.py
 ```
 
 This creates `dist/submission/the-autonomous-cio-marketplace-plugin.zip` plus review notes and a submission manifest.
+
+`scripts/build-submission-assets.py` creates `.local-artifacts/submission-assets/` with sample outputs, a before/after proof story, a checklist and local screenshots when Edge or Chrome is available. Actual marketplace upload still requires a human publisher account.
 
 ## Plugin Evaluation
 

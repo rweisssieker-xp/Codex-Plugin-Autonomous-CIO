@@ -9,3 +9,6 @@ build/
 .env
 .env.*
 *.log
+.coverage
+coverage.xml
+.local-artifacts/

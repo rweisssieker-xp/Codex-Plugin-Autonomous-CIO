@@ -33,6 +33,7 @@ python engine/cli.py assurance --input engine/examples/board_prep.json
 python engine/cli.py assurance --input engine/examples/board_prep_llm_extracted.json
 python engine/cli.py decision-defense --input engine/examples/board_prep.json
 python engine/cli.py connector-profiles
+python engine/cli.py connector-readiness --path engine/examples
 python engine/cli.py detect-connector-profile --input engine/examples/industrial_file_drop.csv
 python engine/cli.py adapt-connector-export --input engine/examples/topdesk_export.csv
 python engine/cli.py detect-connector-profile --input engine/examples/slack_export.csv
@@ -92,6 +93,9 @@ python engine/cli.py hardening-evals --eval-dir engine/evals
 python engine/cli.py eval-report --eval-dir engine/evals
 python scripts/build-marketplace-package.py
 python scripts/build-submission-pack.py
+python scripts/run-observed-usage-benchmark.py
+python scripts/run-coverage-artifact.py
+python scripts/build-submission-assets.py
 python engine/cli.py init-profile --profile .local-memory/company-profile.json
 python engine/cli.py apply-profile --input engine/examples/board_prep.json --profile .local-memory/company-profile.json
 python engine/cli.py record-feedback --input engine/examples/learning_feedback.json --db .local-memory/autonomous_cio.db
@@ -168,6 +172,7 @@ Expected:
 - assurance output includes all 15 advanced assurance features
 - decision-defense output includes all 12 defensive executive USP features
 - connector-profiles returns profile contracts without claiming live access
+- connector-readiness separates local export adapter readiness from missing live connector authorization
 - detect-connector-profile identifies likely profile from local export fields and values
 - adapt-connector-export converts local connector exports into normalized signals and a decision packet
 - optional connector exports for Slack, Outlook Email and Gmail/Google Workspace are detected and adapted without live-access claims
