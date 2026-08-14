@@ -1,5 +1,13 @@
 # Submission Notes
 
+## Start Here
+
+1. Plugin entrypoint: `autonomous-cio-orchestrator`.
+2. Primary prompt: `Turn this update into an Executive Decision Packet.`
+3. Local proof command: `python engine/cli.py unfair-advantage-usp-suite --input engine/examples/industrial_operating_review.json`.
+4. Submission pack: `python scripts/build-submission-pack.py`.
+5. Reviewer handoff: `dist/submission/PUBLISHING_HANDOFF.md`.
+
 ## Review Summary
 
 The Autonomous CIO is a skill-first Codex plugin for AI-native executive decision intelligence. It transforms user-provided enterprise context into governed decision support for CIO, CISO, COO, CFO, risk, compliance and enterprise architecture work.

@@ -12,6 +12,13 @@ AI-native CIO operating system for governed executive decision readiness.
 
 The Autonomous CIO makes enterprise decisions board-ready before leadership enters the room.
 
+## Start Here
+
+1. Use `autonomous-cio-orchestrator` for broad CIO, board, risk, vendor, crisis, AI governance or transformation requests.
+2. Ask: `Turn this update into an Executive Decision Packet.`
+3. For local proof, run `python engine/cli.py unfair-advantage-usp-suite --input engine/examples/industrial_operating_review.json`.
+4. For review, use `dist/submission/PUBLISHING_HANDOFF.md`, `REVIEW_NOTES.md` and the generated submission assets.
+
 ## Long Description
 
 The Autonomous CIO is a connector-neutral Codex plugin for executive decision intelligence. It converts user-provided enterprise context such as meeting notes, project lists, risk registers, budget updates, architecture context, security findings, audit notes, process descriptions and local exports into governed CIO decision support.

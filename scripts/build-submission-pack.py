@@ -118,6 +118,14 @@ Run `python scripts/build-submission-assets.py` for screenshots, proof story, bo
 def _write_publishing_handoff() -> None:
     handoff = """# Publishing Handoff
 
+## Start Here
+
+1. Plugin entrypoint: `autonomous-cio-orchestrator`.
+2. Primary prompt: `Turn this update into an Executive Decision Packet.`
+3. Local proof command: `python engine/cli.py unfair-advantage-usp-suite --input engine/examples/industrial_operating_review.json`.
+4. Submission ZIP: `the-autonomous-cio-marketplace-plugin.zip`.
+5. Optional proof assets: `.local-artifacts/submission-assets/`.
+
 ## Human Upload Gate
 
 The repository can build, validate and package the marketplace submission locally. Actual marketplace upload still requires a human publisher account and cannot be completed by the local runtime.
