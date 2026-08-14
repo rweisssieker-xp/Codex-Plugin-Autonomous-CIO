@@ -5,7 +5,7 @@
 - Plugin name is normalized: `the-autonomous-cio`.
 - Display name is human-readable: `The Autonomous CIO`.
 - Description and long description explain the value without claiming live access.
-- `defaultPrompt` has exactly 3 entries and each is below 128 characters.
+- `defaultPrompt` uses exactly 3 outcome-oriented starter prompts and each is below 128 characters.
 - Manifest does not reference missing logo, icon, screenshot, MCP or app files.
 - Manifest validates with the plugin validator.
 

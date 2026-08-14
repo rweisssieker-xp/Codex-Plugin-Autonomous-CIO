@@ -204,8 +204,6 @@ The output can be generated in three practical views:
 
 ## Suggested Starter Prompts
 
-- Run a governed CIO Autopilot Review from this context.
-- Build an Executive Decision Packet for this board update.
-- Score decision readiness and map evidence gaps.
-- Create a compact CIO triage view for the next 24 hours.
-- Prepare a board pack with challenge questions, risks and decision options.
+- Turn these meeting notes and risk updates into an Executive Decision Packet.
+- Challenge this decision like a CEO, CFO, CISO, Audit Chair and Board member.
+- Find decision debt, value leakage and missing evidence in this portfolio update.
