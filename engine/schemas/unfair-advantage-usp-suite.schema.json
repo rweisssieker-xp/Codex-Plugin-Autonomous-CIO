@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Unfair Advantage CIO USP Suite",
+  "type": "object",
+  "required": [
+    "artifact",
+    "facts",
+    "assumptions",
+    "hypotheses",
+    "missing_evidence",
+    "confidence",
+    "recommended_action",
+    "guardrails"
+  ],
+  "properties": {
+    "artifact": {
+      "type": "string"
+    },
+    "unfair_advantage_cio_usp_suite": {
+      "type": "object",
+      "properties": {
+        "module_count": {
+          "type": "integer",
+          "minimum": 15
+        },
+        "modules": {
+          "type": "object"
+        },
+        "top_usps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "type": "string"
+    },
+    "recommended_action": {
+      "type": "object"
+    },
+    "guardrails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

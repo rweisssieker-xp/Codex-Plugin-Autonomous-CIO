@@ -119,6 +119,22 @@ python engine/cli.py weekly-operating-autopilot --db .local-memory/autonomous_ci
 python engine/cli.py executive-weekly-brief --db .local-memory/autonomous_cio.db --output-dir .local-export/weekly-brief --format both
 python engine/cli.py strategic-contradictions --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
 python engine/cli.py delegation-planner --input engine/examples/board_prep.json
+python engine/cli.py executive-blind-spot-radar --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-latency-cost-engine --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py board-trust-score --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py cio-replacement-map --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py executive-narrative-firewall --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py vendor-leverage-intelligence --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py risk-to-cash-translator --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py strategic-drift-early-warning --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py accountability-gap-detector --input engine/examples/board_prep.json --db .local-memory/autonomous_cio.db
+python engine/cli.py evidence-decay-monitor --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py autonomy-boundary-engine --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py executive-attention-allocator --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py portfolio-cannibalization-detector --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py decision-chain-of-custody --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py synthetic-executive-committee-v2 --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
+python engine/cli.py unfair-advantage-usp-suite --input engine/examples/industrial_operating_review.json --db .local-memory/autonomous_cio.db
 python engine/cli.py import-context --input engine/examples/sample_import.csv
 python engine/cli.py build-from-file --input engine/examples/sample_import.csv
 python engine/cli.py dashboard-from-file --input engine/examples/sample_import.csv

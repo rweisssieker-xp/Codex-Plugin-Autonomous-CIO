@@ -50,6 +50,7 @@ from decision_intelligence_engine import (  # noqa: E402
     simulate_scenarios,
 )
 from action_drafting import draft_actions  # noqa: E402
+from cio_unfair_advantage_usps import analyze_vendor_leverage_intelligence, allocate_executive_attention_usp, build_autonomy_boundary_engine, build_decision_chain_of_custody_usp, build_unfair_advantage_usp_suite, calculate_decision_latency_cost_engine, detect_accountability_gaps, detect_executive_blind_spots, detect_portfolio_cannibalization, detect_strategic_drift_early_warning_usp, map_cio_replacement_map, monitor_evidence_decay, run_executive_narrative_firewall, run_synthetic_executive_committee_usp, score_board_trust, translate_risk_to_cash  # noqa: E402
 from decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin  # noqa: E402
 from decision_twin import run_decision_twin  # noqa: E402
 from enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction  # noqa: E402
@@ -868,6 +869,50 @@ class DecisionIntelligenceEngineTests(unittest.TestCase):
             self.assertGreaterEqual(replacement["cio_replacement_surface_map"]["estimated_cio_work_prepared_percent"], 0)
             self.assertFalse(any(item.get("automation_level") == "external_execution_allowed" for item in replacement["cio_replacement_surface_map"]["surfaces"]))
             self.assert_invariants(replacement)
+
+    def test_unfair_advantage_usp_modules(self):
+        context = self.load_example("industrial_operating_review.json")
+        board = self.load_example("board_prep.json")
+        with tempfile.TemporaryDirectory() as tmp:
+            db = Path(tmp) / "memory.db"
+            init_memory_db(str(db))
+            save_review_to_db(context, str(db))
+
+            outputs = [
+                detect_executive_blind_spots(board, str(db)),
+                calculate_decision_latency_cost_engine(context, str(db)),
+                score_board_trust(board, str(db)),
+                map_cio_replacement_map(context, str(db)),
+                run_executive_narrative_firewall(board, str(db)),
+                analyze_vendor_leverage_intelligence(context, str(db)),
+                translate_risk_to_cash(context, str(db)),
+                detect_strategic_drift_early_warning_usp(context, str(db)),
+                detect_accountability_gaps(board, str(db)),
+                monitor_evidence_decay(context, str(db)),
+                build_autonomy_boundary_engine(context, str(db)),
+                allocate_executive_attention_usp(context, str(db)),
+                detect_portfolio_cannibalization(context, str(db)),
+                build_decision_chain_of_custody_usp(context, str(db)),
+                run_synthetic_executive_committee_usp(context, str(db)),
+            ]
+            self.assertEqual(len(outputs), 15)
+            for output in outputs:
+                self.assert_invariants(output)
+
+            blind = outputs[0]["executive_blind_spot_radar"]
+            self.assertIn("blind_spot_count", blind)
+
+            trust = outputs[2]["board_trust_score"]["board_trust_score"]
+            self.assertGreaterEqual(trust, 0)
+            self.assertLessEqual(trust, 100)
+
+            boundary = outputs[10]["autonomy_boundary_engine"]
+            self.assertTrue(boundary["human_control_required"])
+            self.assertFalse(any(item["external_execution_allowed"] for item in boundary["boundaries"]))
+
+            suite = build_unfair_advantage_usp_suite(context, str(db))
+            self.assertEqual(suite["unfair_advantage_cio_usp_suite"]["module_count"], 15)
+            self.assert_invariants(suite)
 
     def test_product_hardening_runtime(self):
         context = self.load_example("board_prep.json")

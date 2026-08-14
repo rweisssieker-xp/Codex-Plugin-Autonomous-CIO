@@ -18,6 +18,7 @@
 | `autonomous-cio-operating-review` | Full governed CIO Autopilot Review |
 | `executive-decision-packet` | Board, crisis, AI approval, transformation and portfolio decisions |
 | `engine/cli.py autopilot-review` | Reproducible local CIO Autopilot Review outputs |
+| `engine/cli.py unfair-advantage-usp-suite` | 15-module CIO unfair-advantage USP suite |
 | `engine/cli.py orchestrator-evals` | Request-type and skill-chain regression checks |
 | `engine/cli.py usage-benchmark` | Local usage baseline for golden scenarios |
 | `app/server.py` | Local stdlib CIO OS web app |
@@ -30,7 +31,7 @@
 | Skills | 133 skills in `skills/` |
 | Docs | 32 docs in `docs/` |
 | Templates | 102 templates in `templates/` |
-| Schemas | 162 JSON schemas in `engine/schemas/` |
+| Schemas | 163 JSON schemas in `engine/schemas/` |
 | Engine | Local Python Decision Intelligence Engine |
 | Web app | Local stdlib CIO OS app |
 | Dashboard | Static Visual Command Center |
@@ -163,6 +164,18 @@
 - Operating Rhythm Autopilot
 - Enterprise Contradiction Memory
 - CIO Replacement Surface Map
+- Unfair Advantage CIO USP Suite
+- Executive Blind Spot Radar
+- Decision Latency Cost Engine
+- Board Trust Score
+- CIO Replacement Map
+- Executive Narrative Firewall
+- Vendor Leverage Intelligence
+- Risk-to-Cash Translator
+- Accountability Gap Detector
+- Evidence Decay Monitor
+- Autonomy Boundary Engine
+- Portfolio Cannibalization Detector
 - LLM Extraction Pipeline
 - Runtime Schema Validation
 - Memory Approval Queue

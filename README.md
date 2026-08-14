@@ -66,6 +66,12 @@ Build an Executive Decision Packet:
 python engine/cli.py build-decision-packet --input engine/examples/board_prep.json
 ```
 
+Run the 15-module unfair-advantage USP suite:
+
+```text
+python engine/cli.py unfair-advantage-usp-suite --input engine/examples/industrial_operating_review.json
+```
+
 Run the test suite:
 
 ```text
@@ -100,7 +106,7 @@ python engine/cli.py executive-weekly-brief --db .local-memory/autonomous_cio_de
 | `docs/` | Marketplace, architecture, proof, smoke-test and operating-model documentation |
 | `templates/` | 102 reusable executive and governance templates |
 | `engine/` | Local Python Decision Intelligence Engine |
-| `engine/schemas/` | 162 JSON schemas for engine artifacts |
+| `engine/schemas/` | 163 JSON schemas for engine artifacts |
 | `engine/examples/` | Demo inputs for board prep, crisis, AI governance and transformation scenarios |
 | `app/` | Stdlib local CIO OS web app |
 | `visual-command-center/` | Static local dashboard demo |
@@ -314,6 +320,26 @@ Signals -> Truth -> Risk Chain -> Options -> Actions -> Memory
 The signature output is the Executive Decision Packet, supported by the dedicated `executive-decision-packet` skill. The flagship operating workflow is the Autonomous CIO Operating Review, supported by `autonomous-cio-operating-review`, which adds enterprise status, attention budget, action ledger, autonomy gate, memory update, CIO replacement surface, CIO work autonomy map, board objections, decision debt ledger, truth gaps, shadow agenda, risk forecast, decision SLA, vendor exit simulation, regulatory shock readiness, cyber business impact, talent criticality, capital allocation, post-decision learning, CIO OS maturity, stakeholder alignment, exception waiver drafting, policy-as-code readiness, benefits realization, operating rhythm autopilot, escalation drafts, executive decision backlog, enterprise control tower, carve-out readiness, data trust, architecture runway, executive narrative, due-diligence questions, resilience continuity, customer trust, AI portfolio governance, cost of delay, executive commitments, decision rights, OKR strategy fit, risk acceptance docket, service health, knowledge continuity, dependency breakpoints, transformation kill criteria, vendor negotiation brief, compliance evidence pack, board decision simulation, operating risk heatmap, roadmap reprioritization, audit finding prediction, platform rationalization, data sovereignty, operating-model debt, strategic option portfolio, decision war room, evidence chain of custody, decision rollback planner, autonomy risk budget, approval boundary mapping, evidence expiry monitoring, residual risk contracting, autonomy stress testing, decision consequence ledger, enterprise friction mapping, strategic optionality, control debt burndown, executive dissent synthesis, decision backtesting, governance drift detection, budget shock absorption, vendor leverage indexing, executive narrative diffing and human-control contract.
 
 Visible AI mechanisms include evidence classification, weak signal ranking, contradiction detection, risk propagation, decision debt mining, board pressure simulation, value leakage detection, memory comparison, autonomy readiness scoring and visual decision intelligence.
+
+## Unfair Advantage USP Suite
+
+The local runtime exposes 15 explicit market-facing CIO OS modules through `python engine/cli.py unfair-advantage-usp-suite --input ...`:
+
+1. Executive Blind Spot Radar: detects leadership gaps that are absent from the update but expected for the decision.
+2. Decision Latency Cost Engine: names the compounding pressure created by non-decisions.
+3. Board Trust Score: scores whether the packet is likely to earn board confidence or challenge.
+4. CIO Replacement Map: separates AI-preparable CIO work from human-only accountability.
+5. Executive Narrative Firewall: blocks optimistic claims that conflict with evidence gaps or negative facts.
+6. Vendor Leverage Intelligence: detects when vendor dependency, weak evidence or owner gaps increase vendor power.
+7. Risk-to-Cash Translator: turns technical, control and delivery risks into directional business exposure.
+8. Strategic Drift Early Warning: finds strategy, budget, architecture and execution drift before more spend is approved.
+9. Accountability Gap Detector: finds decisions, risks and evidence gaps without owner, approver or review date.
+10. Evidence Decay Monitor: flags stale or missing evidence before board, audit or approval use.
+11. Autonomy Boundary Engine: defines what AI may prepare, what needs approval and what remains human-only.
+12. Executive Attention Allocator: turns signals into the CIO weekly attention agenda.
+13. Portfolio Cannibalization Detector: detects initiatives competing for the same budget, capacity or business attention.
+14. Decision Chain of Custody: traces facts, assumptions, missing evidence and recommendations.
+15. Synthetic Executive Committee: pressure-tests decisions through CEO, CFO, CISO, Audit, COO and Board lenses.
 
 ## Disruptive use cases
 

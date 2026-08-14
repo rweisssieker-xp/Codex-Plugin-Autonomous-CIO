@@ -8,6 +8,11 @@ Version 0.1 remains connector-neutral. In plugin usage, Codex itself is the LLM 
 
 ```text
 python engine/cli.py build-decision-packet --input engine/examples/board_prep.json
+python engine/cli.py unfair-advantage-usp-suite --input engine/examples/industrial_operating_review.json
+python engine/cli.py executive-blind-spot-radar --input engine/examples/board_prep.json
+python engine/cli.py board-trust-score --input engine/examples/board_prep.json
+python engine/cli.py executive-narrative-firewall --input engine/examples/board_prep.json
+python engine/cli.py portfolio-cannibalization-detector --input engine/examples/industrial_operating_review.json
 python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json
 python engine/cli.py autopilot-review --input engine/examples --memory engine/examples/memory.json
 python engine/cli.py autopilot-review --input engine/examples/autopilot_review.json --format markdown
@@ -170,6 +175,7 @@ The productized local runtime adds 15 concrete operating-system features around 
 - Guided local demo flow that seeds realistic demo memory and renders the weekly brief in the local web app.
 - Executive autonomy innovation modules for Enterprise Operating Twin, Autonomy Contract, Decision Chain of Custody, Executive Attention Allocation, Kill-Criteria Sentinel, Benefit Realization Memory, Strategic Drift Warning, Vendor Promise Backtest, Decision Latency Cost, Evidence Decay Forecast, Synthetic Executive Committee, Control Debt Ledger, Operating Rhythm Autopilot, Enterprise Contradiction Memory and CIO Replacement Surface Map.
 - Product-hardening commands for host-LLM extraction pipeline, runtime schema validation, explicit memory update queue, skill-suite map, hardening eval report and local release package generation.
+- Unfair-advantage USP suite for Blind Spot Radar, Decision Latency Cost Engine, Board Trust Score, CIO Replacement Map, Executive Narrative Firewall, Vendor Leverage Intelligence, Risk-to-Cash Translator, Strategic Drift Early Warning, Accountability Gap Detector, Evidence Decay Monitor, Autonomy Boundary Engine, Executive Attention Allocator, Portfolio Cannibalization Detector, Decision Chain of Custody and Synthetic Executive Committee.
 
 ## Adaptive CIO Learning Loop
 

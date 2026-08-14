@@ -15,6 +15,7 @@ STATIC = Path(__file__).resolve().parent / "static"
 sys.path.insert(0, str(ENGINE))
 
 from decision_intelligence_engine import build_decision_packet, generate_dashboard_data, export_decision_package  # noqa: E402
+from cio_unfair_advantage_usps import build_unfair_advantage_usp_suite, detect_executive_blind_spots, detect_portfolio_cannibalization, run_executive_narrative_firewall, score_board_trust  # noqa: E402
 from memory_store import init_memory_db, query_memory_db, save_review_to_db  # noqa: E402
 from policy_engine import evaluate_policy, governance_readiness  # noqa: E402
 from product_hardening import build_llm_extraction_pipeline, build_release_package, list_memory_update_queue, queue_memory_updates, review_memory_update, run_hardening_evals, skill_suite_map  # noqa: E402
@@ -173,6 +174,16 @@ class Handler(SimpleHTTPRequestHandler):
                 self._json(build_enterprise_contradiction_memory(payload.get("context", payload), payload.get("db")))
             elif self.path == "/api/cio-replacement-surface-map":
                 self._json(map_cio_replacement_surface(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/unfair-advantage-usp-suite":
+                self._json(build_unfair_advantage_usp_suite(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/executive-blind-spot-radar":
+                self._json(detect_executive_blind_spots(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/board-trust-score":
+                self._json(score_board_trust(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/executive-narrative-firewall":
+                self._json(run_executive_narrative_firewall(payload.get("context", payload), payload.get("db")))
+            elif self.path == "/api/portfolio-cannibalization-detector":
+                self._json(detect_portfolio_cannibalization(payload.get("context", payload), payload.get("db")))
             elif self.path == "/api/export-weekly-brief":
                 db = payload.get("db", str(ROOT / ".local-memory" / "autonomous_cio.db"))
                 output_dir = payload.get("output_dir", str(ROOT / ".local-export" / "weekly-brief"))

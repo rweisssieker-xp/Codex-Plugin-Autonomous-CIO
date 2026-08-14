@@ -10,6 +10,7 @@ from typing import Any, Dict
 
 try:
     from action_drafting import draft_actions
+    from cio_unfair_advantage_usps import analyze_vendor_leverage_intelligence, allocate_executive_attention_usp, build_autonomy_boundary_engine, build_decision_chain_of_custody_usp, build_unfair_advantage_usp_suite, calculate_decision_latency_cost_engine, detect_accountability_gaps, detect_executive_blind_spots, detect_portfolio_cannibalization, detect_strategic_drift_early_warning_usp, map_cio_replacement_map, monitor_evidence_decay, run_executive_narrative_firewall, run_synthetic_executive_committee_usp, score_board_trust, translate_risk_to_cash
     from decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
     from decision_twin import run_decision_twin
     from enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
@@ -26,6 +27,7 @@ try:
     from user_profile import apply_profile, init_profile
 except ImportError:  # pragma: no cover - package execution path
     from .action_drafting import draft_actions
+    from .cio_unfair_advantage_usps import analyze_vendor_leverage_intelligence, allocate_executive_attention_usp, build_autonomy_boundary_engine, build_decision_chain_of_custody_usp, build_unfair_advantage_usp_suite, calculate_decision_latency_cost_engine, detect_accountability_gaps, detect_executive_blind_spots, detect_portfolio_cannibalization, detect_strategic_drift_early_warning_usp, map_cio_replacement_map, monitor_evidence_decay, run_executive_narrative_firewall, run_synthetic_executive_committee_usp, score_board_trust, translate_risk_to_cash
     from .decision_behavior import build_board_memory, build_decision_dna, build_risk_appetite_twin
     from .decision_twin import run_decision_twin
     from .enterprise_operating_intelligence import build_accountability_graph, build_executive_weekly_brief, build_weekly_operating_autopilot, detect_decision_collisions, detect_strategic_contradictions, score_organizational_friction
@@ -354,6 +356,28 @@ def main(argv: list[str] | None = None) -> int:
         cmd.add_argument("--input", required=True, help="Path to input JSON context")
         cmd.add_argument("--db", default=None, help="Optional local SQLite memory DB")
 
+    for name in (
+        "executive-blind-spot-radar",
+        "decision-latency-cost-engine",
+        "board-trust-score",
+        "cio-replacement-map",
+        "executive-narrative-firewall",
+        "vendor-leverage-intelligence",
+        "risk-to-cash-translator",
+        "strategic-drift-early-warning",
+        "accountability-gap-detector",
+        "evidence-decay-monitor",
+        "autonomy-boundary-engine",
+        "executive-attention-allocator",
+        "portfolio-cannibalization-detector",
+        "decision-chain-of-custody",
+        "synthetic-executive-committee-v2",
+        "unfair-advantage-usp-suite",
+    ):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--input", required=True, help="Path to input JSON context")
+        cmd.add_argument("--db", default=None, help="Optional local SQLite memory DB")
+
     for name in ("benefit-realization-memory", "operating-rhythm-autopilot-v2"):
         cmd = sub.add_parser(name)
         cmd.add_argument("--db", required=True, help="Path to local SQLite memory DB")
@@ -659,6 +683,38 @@ def main(argv: list[str] | None = None) -> int:
             result = build_enterprise_contradiction_memory(input_context, args.db)
         elif args.command == "cio-replacement-surface-map":
             result = map_cio_replacement_surface(input_context, args.db)
+        elif args.command == "executive-blind-spot-radar":
+            result = detect_executive_blind_spots(input_context, args.db)
+        elif args.command == "decision-latency-cost-engine":
+            result = calculate_decision_latency_cost_engine(input_context, args.db)
+        elif args.command == "board-trust-score":
+            result = score_board_trust(input_context, args.db)
+        elif args.command == "cio-replacement-map":
+            result = map_cio_replacement_map(input_context, args.db)
+        elif args.command == "executive-narrative-firewall":
+            result = run_executive_narrative_firewall(input_context, args.db)
+        elif args.command == "vendor-leverage-intelligence":
+            result = analyze_vendor_leverage_intelligence(input_context, args.db)
+        elif args.command == "risk-to-cash-translator":
+            result = translate_risk_to_cash(input_context, args.db)
+        elif args.command == "strategic-drift-early-warning":
+            result = detect_strategic_drift_early_warning_usp(input_context, args.db)
+        elif args.command == "accountability-gap-detector":
+            result = detect_accountability_gaps(input_context, args.db)
+        elif args.command == "evidence-decay-monitor":
+            result = monitor_evidence_decay(input_context, args.db)
+        elif args.command == "autonomy-boundary-engine":
+            result = build_autonomy_boundary_engine(input_context, args.db)
+        elif args.command == "executive-attention-allocator":
+            result = allocate_executive_attention_usp(input_context, args.db)
+        elif args.command == "portfolio-cannibalization-detector":
+            result = detect_portfolio_cannibalization(input_context, args.db)
+        elif args.command == "decision-chain-of-custody":
+            result = build_decision_chain_of_custody_usp(input_context, args.db)
+        elif args.command == "synthetic-executive-committee-v2":
+            result = run_synthetic_executive_committee_usp(input_context, args.db)
+        elif args.command == "unfair-advantage-usp-suite":
+            result = build_unfair_advantage_usp_suite(input_context, args.db)
         else:
             parser.error(f"unknown command: {args.command}")
             return 2

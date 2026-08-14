@@ -110,6 +110,22 @@ python engine\cli.py eval-report --eval-dir engine\evals | Out-Null
 python engine\cli.py hardening-evals --eval-dir engine\evals | Out-Null
 python engine\cli.py orchestrator-evals --eval-dir engine\evals | Out-Null
 python engine\cli.py usage-benchmark --eval-dir engine\evals | Out-Null
+python engine\cli.py executive-blind-spot-radar --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py decision-latency-cost-engine --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py board-trust-score --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py cio-replacement-map --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py executive-narrative-firewall --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py vendor-leverage-intelligence --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py risk-to-cash-translator --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py strategic-drift-early-warning --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py accountability-gap-detector --input engine\examples\board_prep.json --db $dbPath | Out-Null
+python engine\cli.py evidence-decay-monitor --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py autonomy-boundary-engine --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py executive-attention-allocator --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py portfolio-cannibalization-detector --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py decision-chain-of-custody --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py synthetic-executive-committee-v2 --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
+python engine\cli.py unfair-advantage-usp-suite --input engine\examples\industrial_operating_review.json --db $dbPath | Out-Null
 python engine\cli.py skill-suites | Out-Null
 $schemaOutput = Join-Path $env:TEMP "acio-schema-output.json"
 $schemaJson = python engine\cli.py llm-extraction-pipeline --input engine\examples\board_prep.json
@@ -146,6 +162,10 @@ try {
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/delegation-planner" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/narrative-integrity" -Method Post -Body $webPayload -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/enterprise-operating-twin" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/unfair-advantage-usp-suite" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/executive-blind-spot-radar" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/board-trust-score" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/executive-narrative-firewall" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/autonomy-contract" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/decision-chain-custody" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/executive-attention" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
@@ -155,6 +175,7 @@ try {
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/vendor-promise-backtest" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/decision-latency-cost" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/evidence-decay-forecast" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
+  Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/portfolio-cannibalization-detector" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/synthetic-executive-committee" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/control-debt-ledger" -Method Post -Body $webPayloadWithDb -ContentType "application/json" -UseBasicParsing | Out-Null
   Invoke-WebRequest -Uri "http://127.0.0.1:$webPort/api/operating-rhythm-autopilot-v2?db=$dbPath" -UseBasicParsing | Out-Null

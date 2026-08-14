@@ -158,6 +158,18 @@ The output can be generated in three practical views:
 - Operating Rhythm Autopilot
 - Enterprise Contradiction Memory
 - CIO Replacement Surface Map
+- Unfair Advantage CIO USP Suite
+- Executive Blind Spot Radar
+- Decision Latency Cost Engine
+- Board Trust Score
+- CIO Replacement Map
+- Executive Narrative Firewall
+- Vendor Leverage Intelligence
+- Risk-to-Cash Translator
+- Accountability Gap Detector
+- Evidence Decay Monitor
+- Autonomy Boundary Engine
+- Portfolio Cannibalization Detector
 - LLM Extraction Pipeline
 - Runtime Schema Validation
 - Memory Approval Queue
@@ -182,7 +194,7 @@ The output can be generated in three practical views:
 - 133 connector-neutral Codex skills
 - 31 documentation files
 - 102 reusable templates
-- 162 JSON schemas
+- 163 JSON schemas
 - Local Python engine with CLI smoke tests
 - Local stdlib web app for ingestion, packet building, memory browsing, policy checks, exports and eval reports
 - Seeded demo memory and guided weekly-brief flow for proof-first review

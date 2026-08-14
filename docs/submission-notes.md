@@ -140,7 +140,7 @@ For submission, run `scripts/build-submission-pack.py`. It creates `dist/submiss
 | Skills | 133 |
 | Docs | 32 |
 | Templates | 102 |
-| Engine schemas | 162 |
+| Engine schemas | 163 |
 | Runtime | Local Python engine |
 | Local app | Stdlib web app under `app/` |
 | Dashboard | Static Visual Command Center |
